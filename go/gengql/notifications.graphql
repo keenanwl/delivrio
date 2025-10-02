@@ -1,0 +1,5 @@
+
+extend type Mutation {
+    createNotification(name: String!, connectionID: ID!, emailTemplateID: ID!): [Notification!]!
+    toggleNotification(notificationID: ID!, checked: Boolean!): Boolean!
+}

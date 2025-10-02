@@ -1,0 +1,100 @@
+h1 {
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+/*.link-active, .link-active:focus {
+	background: #005e95;
+	color: #FFFFFF;
+}*/
+.panel-container {
+	display: flex;
+	.left-panel {
+		min-width: 180px;
+		max-width: 180px;
+		padding-left: 20px;
+	}
+	.right-panel {
+		width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.full-width {
+	width: 100%;
+}
+
+.example-tree-invisible {
+	display: none;
+}
+
+.example-tree {
+	min-width: 200px;
+	background: #e4e4e4;
+}
+
+.example-tree ul,
+.example-tree li {
+	margin-top: 0;
+	margin-bottom: 0;
+	list-style-type: none;
+}
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.example-tree .mat-nested-tree-node div[role=group] {
+	padding-left: 40px;
+}
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.example-tree div[role=group] > .mat-tree-node {
+	padding-left: 40px;
+}
+
+/*
+Style for the settings menu
+Edited by Anders
+*/
+.panel-container .menu-item {
+	height: 30px;
+	border-radius: 0px 100px 100px 0px;
+	border-left-style: solid;
+	border-left-color: #808080;
+}
+.link-active {
+	background: #E00440;
+	border-radius:  0px 100px 100px 0px;
+	border-left-style: solid;
+	border-left-color: #E00440;
+	span {
+		color: #FFFFFF;
+	}
+}
+// Otherwise there is a weird :focus shadow
+.mdc-list-item:focus::before {
+	opacity: 0;
+}
+mat-list-item:hover {
+	span {
+		color: #000000;
+	}
+	border-left-style: solid;
+	border-left-color: #E00440;
+	background: transparent;
+}
+mat-nav-list {
+	padding: 0px;
+}
+.mat-tree-node {
+	min-height: 0px;
+}
+a {
+	text-decoration: none;
+	color: black;
+}

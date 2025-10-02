@@ -1,0 +1,39 @@
+<div class="container" *ngIf="state$|async; let state">
+	<div class="inset-container">
+		<div class="page-header">
+			<h3>A/B (Hypothesis) Tests</h3>
+			<span class="spacer"></span>
+			<button (click)="addNew()" mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add A/B test
+			</button>
+		</div>
+		<div class="loading-bar">
+			<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+		</div>
+		<table mat-table [dataSource]="state.hypothesisTestingList">
+
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="connection">
+				<th mat-header-cell *matHeaderCellDef>Connection</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.connection.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="active">
+				<th mat-header-cell *matHeaderCellDef>Active</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.active}}
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row class="row-container" *matRowDef="let row; columns: displayedColumns;" (click)="edit(row.id)"></tr>
+		</table>
+	</div>
+</div>

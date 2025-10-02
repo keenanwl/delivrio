@@ -1,0 +1,35 @@
+<div class="container" *ngIf="app$|async; let state">
+	<h3>Recent print jobs</h3>
+	<div class="row-container">
+		<div class="msg" *ngIf="state?.selectedWorkstationJobs.length === 0">
+			No recent print jobs
+		</div>
+		<ng-container *ngFor="let job of state?.selectedWorkstationJobs; last as last">
+			<div class="job-row">
+				<mat-chip-listbox>
+					<mat-chip [style.background-color]="job.status | printJobStatusColorPipe" highlighted>
+						{{job.status}}
+					</mat-chip>
+				</mat-chip-listbox>
+				<div class="cancel-messages">
+					<mat-icon *ngIf="job.status === PrintJobStatus.Canceled"
+							  [matTooltip]="job.printerMessages?.join(' ') || 'Unknown reason'">
+						info
+					</mat-icon>
+				</div>
+
+				<span class="spacer workstation-name">{{job.printer.workstation.name}}/{{job.printer.name}}</span>
+				<span [matTooltip]="state.buildInfo.Time | date:'medium'">
+					{{job.createdAt | relativeTime:ticker}}
+				</span>
+			</div>
+			<mat-divider *ngIf="!last"></mat-divider>
+		</ng-container>
+	</div>
+	<div class="action-row">
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

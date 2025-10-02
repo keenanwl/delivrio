@@ -1,0 +1,69 @@
+query FetchShipments(
+	$where: ShipmentWhereInput,
+	$first: Int,
+	$last: Int,
+	$after: Cursor,
+	$before: Cursor,
+) {
+
+	shipments(
+		where: $where
+		first: $first
+		last: $last
+		after: $after
+		before: $before,
+		# Hardcoded until order feature added
+		orderBy: {direction: DESC, field: CREATED_AT}
+	) {
+		edges {
+			node {
+				id
+				shipmentPublicID
+				createdAt
+				status
+				shipmentParcel {
+					id
+					fulfillmentSyncedAt
+					cancelSyncedAt
+				}
+				shipmentPallet {
+					id
+				}
+			}
+			cursor
+		}
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		totalCount
+	}
+	emailTemplates(where: {mergeType: return_colli_label}) {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+query ShipmentsSearchCCLocations($lookup: String) {
+	locations(where: {and: {
+		hasLocationTagsWith: {internalIDEqualFold: "click_and_collect"},
+		nameContainsFold: $lookup
+	}}) {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+query ShipmentSendOverviewEmail($email: String!, $templateID: ID!, $where: ShipmentWhereInput!) {
+	sendOverviewEmail(to: $email, emailTpl: $templateID, where: $where)
+}

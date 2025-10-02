@@ -1,0 +1,32 @@
+<app-dvo-card *ngIf="deliveryOptionsGLSEdit$|async; let cl">
+	<div class="page-header">
+		<h3>Edit GLS Delivery Option</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<form class="section-margin container">
+		<app-dvo-card [background]="'#e4e4e4'">
+			<app-delivery-option-edit-base [availableServices]="cl.carrierServices"
+										   [formValues]="cl.deliveryOptionsGLSEditForm.model"
+										   (formChange)="baseFormChange($event)"
+			/>
+		</app-dvo-card>
+		<div class="section-margin">
+			<app-dvo-card class="section-margin" [background]="'#e4e4e4'">
+				<h3>Add-ons</h3>
+				<div class="column-container">
+				</div>
+			</app-dvo-card>
+		</div>
+	</form>
+
+	<div class="section-margin">
+		<app-delivery-option-edit-rules [deliveryOptionID]="cl.selectedOption">
+		</app-delivery-option-edit-rules>
+	</div>
+</app-dvo-card>
+

@@ -1,0 +1,39 @@
+.container {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	.header {
+		display: flex;
+		margin-bottom: 10px;
+		h4 {
+			margin-right: 5px;
+		}
+	}
+	mat-form-field {
+		width: 400px;
+	}
+	mat-button-toggle-group {
+		display: flex;
+		mat-button-toggle {
+			flex-grow: 1;
+			flex-basis: 0;
+		}
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+	.token-display {
+		width: 500px;
+		border: 1px dashed #757575;
+		padding: 15px;
+		border-radius: 15px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		overflow-wrap: break-word;
+	}
+	.token-img-display {
+		text-align: center;
+	}
+}
+.copy-container {
+	text-align: center;
+}

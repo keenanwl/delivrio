@@ -1,0 +1,102 @@
+<div *ngIf="shipmentView$|async; let shipment" class="container">
+	<div class="top-row">
+		<div class="order-id">
+			<button mat-icon-button class="go-back-button">
+				<mat-icon>chevron_left</mat-icon>
+			</button>
+		</div>
+		<span class="spacer"></span>
+	</div>
+	<div class="shipment-overview">
+		<app-dvo-card *ngIf="!!shipment.shipment?.shipmentUSPS">
+			<h3>USPS shipment info</h3>
+			<p>Postage paid: ${{shipment.shipment?.shipmentUSPS?.postage}}</p>
+			<p>Delivery date: {{shipment.shipment?.shipmentUSPS?.scheduledDeliveryDate | relativeTime:0}}</p>
+			<p>Tracking number: {{shipment.shipment?.shipmentUSPS?.trackingNumber}}</p>
+		</app-dvo-card>
+		<app-dvo-card *ngIf="!!shipment.shipment?.shipmentEasyPost">
+			<div class="page-header">
+				<h3>Shipment</h3>
+				<span class="spacer"></span>
+				<mat-chip-row [style.background-color]="shipment.shipment?.status | shipmentStatusColorPipe" highlighted>
+					{{shipment.shipment?.status}}
+				</mat-chip-row>
+				<button mat-button [matMenuTriggerFor]="menu">
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				<mat-menu #menu="matMenu">
+					<button mat-menu-item (click)="viewOrder(shipment.shipment?.shipmentParcel?.[0].colli.order.id)">
+						<mat-icon>link</mat-icon>
+						View order
+					</button>
+					<mat-divider></mat-divider>
+					<button mat-menu-item (click)="cancel()">
+						<mat-icon>cancel</mat-icon>
+						Cancel shipment
+					</button>
+				</mat-menu>
+			</div>
+			<mat-list>
+				<mat-list-item>
+					<mat-icon matListItemIcon>paid</mat-icon>
+					<div matListItemTitle>Provider</div>
+					<div matListItemLine>EasyPost | USPS</div>
+				</mat-list-item>
+				<mat-list-item>
+					<mat-icon matListItemIcon>paid</mat-icon>
+					<div matListItemTitle>Postage paid</div>
+					<div matListItemLine>${{shipment.shipment?.shipmentEasyPost?.rate}}</div>
+				</mat-list-item>
+				<mat-list-item [matTooltip]="shipment.shipment?.shipmentEasyPost?.estDeliveryDate">
+					<mat-icon matListItemIcon>quick_reorder</mat-icon>
+					<div matListItemTitle>Delivery date</div>
+					<div matListItemLine>{{shipment.shipment?.shipmentEasyPost?.estDeliveryDate | relativeTime:0}}</div>
+				</mat-list-item>
+			</mat-list>
+		</app-dvo-card>
+	</div>
+	<div class="parcel-info">
+		<app-dvo-card class="parcel-card" *ngFor="let p of shipment.shipment?.shipmentParcel; index as index">
+			<div class="page-header">
+				<h3>Parcel #{{index+1}}</h3>
+				<span class="spacer"></span>
+				<mat-chip-row [style.background-color]="p.status | shipmentParcelStatusColorPipe" highlighted>
+					{{p.status}}
+				</mat-chip-row>
+				<button mat-button [matMenuTriggerFor]="menu">
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				<mat-menu #menu="matMenu">
+					<button mat-menu-item [disabled]="!!p.fulfillmentSyncedAt" (click)="cancelFulfillmentSync(p.id)">
+						<mat-icon>cancel</mat-icon>
+						Cancel fulfillment sync
+					</button>
+					<mat-divider></mat-divider>
+					<button mat-menu-item [disabled]="!!p.cancelSyncedAt || shipment?.shipment.status !== ShipmentStatus.Deleted" (click)="cancelCancelSync(p.id)">
+						<mat-icon>cancel</mat-icon>
+						Cancel "cancel" sync
+					</button>
+				</mat-menu>
+			</div>
+			<mat-list>
+				<a [href]="'https://tools.usps.com/go/TrackConfirmAction_input?qtc_tLabels1=' + p.itemID" target="_blank">
+					<mat-list-item>
+						<mat-icon matListItemIcon>link</mat-icon>
+						<div matListItemTitle>Tracking ID</div>
+						<div matListItemLine>{{p.itemID}}</div>
+					</mat-list-item>
+				</a>
+				<mat-list-item [matTooltip]="p.cancelSyncedAt">
+					<mat-icon matListItemIcon>sync</mat-icon>
+					<div matListItemTitle>Cancel synced:</div>
+					<div matListItemLine>{{p.cancelSyncedAt | relativeTime:0}}</div>
+				</mat-list-item>
+				<mat-list-item [matTooltip]="p.fulfillmentSyncedAt">
+					<mat-icon matListItemIcon>sync</mat-icon>
+					<div matListItemTitle>Fulfillment synced:</div>
+					<div matListItemLine>{{p.fulfillmentSyncedAt | relativeTime:0}}</div>
+				</mat-list-item>
+			</mat-list>
+		</app-dvo-card>
+	</div>
+</div>

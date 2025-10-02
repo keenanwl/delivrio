@@ -1,0 +1,42 @@
+<div class="container" *ngIf="order$|async; let order">
+	<div class="header-row">
+		<h3>Add new order line</h3>
+		<span class="spacer"></span>
+		<button mat-stroked-button tabindex="-1" (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+
+	<mat-form-field>
+		<mat-label>Search for products</mat-label>
+		<input matInput
+			   #search
+			   [cdkTrapFocusAutoCapture]="true" [cdkTrapFocus]="true"
+			   [formControl]="searchProductsCtrl">
+		<button mat-icon-button matSuffix (click)="resetSearch()" [disabled]="search.value.length === 0">
+			<mat-icon >close</mat-icon>
+		</button>
+	</mat-form-field>
+	<div class="spinner-container" *ngIf="order.loading">
+		<mat-spinner></mat-spinner>
+	</div>
+	<mat-nav-list>
+		<ng-container *ngFor="let p of order.searchProducts; let last = last">
+			<mat-list-item class="product-row" (click)="addProduct(p)">
+				<img matListItemAvatar [src]="image(p)" />
+				<div matListItemTitle>{{p.product.title}}</div>
+				<div matListItemLine>{{p.description}}</div>
+			</mat-list-item>
+			<mat-divider *ngIf="!last"></mat-divider>
+		</ng-container>
+		<mat-list-item class="product-row"
+						 [routerLink]="productsURL"
+						 (click)="close()"
+						 *ngIf="!order.loading && searchProductsCtrl.getRawValue().length > 0 && order.searchProducts.length === 0">
+			<mat-icon matListItemIcon>link</mat-icon>
+			<div matListItemTitle>No products found...</div>
+			<div matListItemLine>Click to go to "add new products" page</div>
+		</mat-list-item>
+	</mat-nav-list>
+</div>

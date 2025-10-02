@@ -1,0 +1,88 @@
+<div class="container" *ngIf="app$|async; let appState">
+
+	<div class="container" *ngIf="state$|async ; let state">
+		@if (!appState?.buildInfo.LimitedSystem) {
+		<h1>Returns</h1>
+		<div class="tile-container" *ngIf="state?.tiles.length > 0">
+			<div class="tile" *ngFor="let tile of state.tiles">
+				<span class="title">{{tile.title}}</span>
+				<span class="value">{{tile.value}}</span>
+			</div>
+		</div>
+		<p *ngIf="state.tiles.length === 0">
+			Add a <a [href]="paths.SETTINGS_RETURN_PORTALS_LIST">return portal</a> to get started
+		</p>
+		<h1>A/B (Hypothesis) Tests</h1>
+		<p *ngIf="state.hypothesisTests.length === 0">
+			Add a <a [href]="paths.SETTINGS_HYPOTHESIS_TESTING">test</a> to get started
+		</p>
+		<ng-container  *ngFor="let row of state.hypothesisTests">
+			<h3 class="test-header">{{row.Name}}</h3>
+			<div class="tile-container">
+				<div class="tile">
+					<span class="title">Control (success/fail)</span>
+					<span class="value">{{row.ControlSuccess}}/{{row.ControlFailure}}</span>
+				</div>
+				<div class="tile">
+					<span class="title">Test (success/fail)</span>
+					<span class="value">{{row.TestSuccess}}/{{row.TestFailure}}</span>
+				</div>
+				<div class="tile">
+					<span class="title">Control conversion rate</span>
+					<span class="value">{{row.ControlSuccess / (row.ControlSuccess + row.ControlFailure)}}%</span>
+				</div>
+				<div class="tile">
+					<span class="title">Test conversion rate</span>
+					<span class="value">{{row.TestSuccess / (row.TestSuccess + row.TestFailure)}}%</span>
+				</div>
+				<div class="tile">
+					<span class="title">Chi-square (𝛘<sup>2</sup>) significantly different</span>
+					<span class="value">{{row.SignificantlyDifferent ? "Yes" : "No"}}</span>
+				</div>
+				<div class="tile-triple">
+					<div class="title">Bayesian A/B</div>
+					<div class="subtitle">Chance of winning by group</div>
+					<div class="row">
+						<div class="fixed-column align-right">Control:</div>
+						<mat-progress-bar mode="determinate" [value]="row.ControlWin"></mat-progress-bar>
+						<div class="fixed-column align-center">{{row.ControlWin}}%</div>
+					</div>
+					<div class="row">
+						<div class="fixed-column align-right">Test:</div>
+						<mat-progress-bar mode="determinate" [value]="row.TestWin"></mat-progress-bar>
+						<div class="fixed-column align-center">{{row.TestWin}}%</div>
+					</div>
+					<div class="row">
+						{{row.ControlWin < 95 && row.TestWin < 95 ? "No winner yet" : ""}}
+						{{row.ControlWin >= 95 ? "Control group wins @95% confidence" : ""}}
+						{{row.TestWin >= 95 ? "Test group wins @95% confidence" : ""}}
+					</div>
+				</div>
+			</div>
+		</ng-container>
+
+	} @else {
+		<h1>Products last updated</h1>
+			<app-dvo-card>
+				<apx-chart
+					[series]="[{name: 'Updated products', data: state?.productUpdateCounts}]"
+					[chart]="chartOptions.chart"
+					[xaxis]="chartOptions.xaxis"
+					[title]="chartOptions.title"
+				></apx-chart>
+			</app-dvo-card>
+			<h1>Shopify rate requests</h1>
+			<app-dvo-card>
+				<apx-chart
+					[grid]="chartOptionsLookup.grid"
+					[series]="chartOptionsLookup.series"
+					[chart]="chartOptionsLookup.chart"
+					[xaxis]="chartOptionsLookup.xaxis"
+					[yaxis]="chartOptionsLookup.yaxis"
+					[title]="chartOptionsLookup.title"
+					[tooltip]="chartOptionsLookup.tooltip"
+				></apx-chart>
+			</app-dvo-card>
+	}
+	</div>
+</div>

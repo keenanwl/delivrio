@@ -1,0 +1,28 @@
+<div class="container" *ngIf="state$|async; let state">
+	<h3>Add hypothesis test</h3>
+	<p>Hypothesis testing (including A/B) testing is a type of statistical analysis to inform decision makers about the impact of choosing one potential option over another.</p>
+	<p>In a e-commerce and more specificaly, a shipping context, DELIVRIO provides tools to test conversion rates, by tweaking various properties of displayed delivery options.</p>
+	<p>Examples:</p>
+	<p>* Test impact of different delivery option ordering</p>
+	<p>* Test impact of pricing or free shipping</p>
+	<p>* Test impact of delivery window</p>
+	<p>* Before fully dropping a carrier, test the impact of the reduced delivery options</p>
+
+	<mat-form-field>
+		<mat-label>Test name</mat-label>
+		<input #name matInput value="" [placeholder]="'Test name'">
+	</mat-form-field>
+	<mat-form-field class="connections">
+		<mat-label>Connection</mat-label>
+		<mat-select #selectConn [value]="state.connections[0]?.id">
+			<mat-option *ngFor="let c of state.connections" [value]="c.id">
+				{{c.connectionBrand.label}}: {{c.name}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<div class="action-row">
+		<button mat-raised-button color="primary" (click)="create(name.value, selectConn.value)">
+			Next
+		</button>
+	</div>
+</div>

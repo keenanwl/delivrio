@@ -1,0 +1,44 @@
+<div class="page-header">
+	<h3>Edit Bring carrier agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="save()">
+		<mat-icon>checkmark</mat-icon>
+		Save
+	</button>
+</div>
+<app-dvo-card *ngIf="state$|async; let state">
+	<div class="container">
+		<form [formGroup]="form"
+			  ngxsForm="carrierEditBring.form"
+			  ngxsFormErrors="carrierEditBring.form"
+			  class="column-container">
+			<div class="column">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Name</mat-label>
+						<input formControlName="name" matInput/>
+						<mat-error *ngIf="form.controls.name.invalid">
+							{{form.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="column" [formGroup]="form.controls.carrierBring">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Customer Number</mat-label>
+						<input formControlName="customerNumber" matInput/>
+						<mat-error *ngIf="form.controls.carrierBring.controls.customerNumber.invalid">
+							{{form.controls.carrierBring.controls.customerNumber.errors}}
+						</mat-error>
+					</mat-form-field>
+					<mat-slide-toggle formControlName="test"
+									  color="primary">
+						Use "test" API
+					</mat-slide-toggle>
+				</div>
+			</div>
+		</form>
+	</div>
+</app-dvo-card>
+

@@ -1,0 +1,98 @@
+<div *ngIf="productsList$|async; let u" class="container">
+	<div class="page-header">
+		<h3>Products</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="addNewProduct()">
+			<mat-icon>add</mat-icon>
+			Add product
+		</button>
+	</div>
+
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="u.loading" mode="indeterminate"/>
+	</div>
+	<table mat-table [dataSource]="u.list" class="table">
+
+		<ng-container matColumnDef="image">
+			<th mat-header-cell *matHeaderCellDef>Image</th>
+			<td mat-cell *matCellDef="let element">
+				<div class="image-container">
+					<img *ngIf="firstProductImage(element.productVariant[0]).length > 0"
+						 fill="true"
+						 priority="true"
+						 placeholder="data:image/webp;base64,UklGRioFAABXRUJQVlA4IB4FAABQQACdASqQAZABPlEok0YjoyIhI7U4CHAKCWlu/HyZyOtPqv2ZWgp1d6AO0GUrwO4IDw7ZjvmzaKhRDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sHnPmjIi0SwbwylhObuhRaKDu6FkQb9kBeXgE1cY7+zlDgGXgXMKRwGZD5VeCSoGw7H6KnU3AmZ8mHCwUgnQHENBLCqubTtW5cNbybusKwUa+dTRlDnK/1CEQkKWLQDxt7hwqHuBTVT4mip9+slySdkgfEZoDFp8+4oMi88VaHG6bXzuYCrAZYyQxlBUT7OkAV7hAdpqYMnJ3HT5qyZJBZVI9vEOn+lv8HsvDoKfkuV87g4zZAl9ZkBThYKFw+WYc4SFIzzHfGeSsyGRfpQy6UEkGJknhrykmqXVT0saOVTgb/+LGqo1x1UcqoeHaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYOAAP7/ZOAAAAAAAAAaAfvXyd9mH8SxW/eqiFuwVva3J2/XX/xaOSGtVwsDoMZxTWXttUhRxUiApsPy6fyC3WE8Mvcj/dT3Si0HmUXzRv8MAFKhETWTxbl5pkUmcYl5O/Y0QUPa/Wp4Q8RnzVEbkuAr0pbsq1IOaaX0wfIoQabz4A+kpIbWRnrino00kgNBq+PlIt3uOVunvbWOP+Dr4X5wzlRuQC5FTKG/+1aLJCHL8boFz6SYeL44h3cW9L7B2M4Bmevq9Fus0nS/XV8iJ8xE5pbXNKohsf6ei2TMvUxIRmGbHDrlXzOwpEv53JbcZoG/b2tAtO+28g5wzppbh3zlmk1HqmtHfq10Sxcw+76kn1/CE+ne9Y32LUTb9vpQVhjG57kyDFj8QoPp3be1njwM7Sh5UNUmEGqpnMv9KXWuPDJFOYqRuv8NdIBTFAED/b/Av+RucZlukTAbYWajL0ERV57aF+28b8Lw1yy6mWl7qkUZItdtd9E/Wxu+txSbYM+V8Ad+Q356/HChZwnj6aO+mzd/mkYW4OlT8vLBkd4ZtvmfE2w7lSD42kbVN1saB4IKPxRsmLOlLfYHJ2I6+e3sJSlFgS1ecAAGrqOY5QtlL6NMU7Y2FD5TEc3RP+eioTZk6XmnbUv9B1HXnNZBEHOx5YK11b65MVJfBvFBd7FHoKo7Q2zDHd+kOjDp2oMU6reg9EZAElRLseAafU+9aqpeyRjt7soe1Ab2W7jcYNQxr23rQ1skCTJ4XhrDhoMIzc6t6k8lnqSwfXt83hBNelVwOTk1zkp3F6HJ+JSzjda+pm3FMSczvYq0h8Gepw/WxoJe0IkbBRUnaYKNjX1+UW2op8a9XlP1KHxnPyzrs1mMazTG+4Bu/wMc5vvm4CUm0dMPdxAaFKub4qNlYEUEQVwNAz391s6jEbexXtHFheVo3gDQwS5POKGhK9oyN/u9S8yfXPM3XVUr0LF7IxUb2/FmafdfRzchMTBjNyOEPaX3NXlQrRc9Atlq+61K3zgPg/TfZl7z28rmVrXgAAAAAAAAAAAAAA=="
+						 [ngSrc]="firstProductImage(element.productVariant[0])"/>
+				</div>
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>Name</th>
+			<td mat-cell *matCellDef="let element">{{element.title}}</td>
+		</ng-container>
+		<ng-container matColumnDef="tags">
+			<th mat-header-cell *matHeaderCellDef>Tags</th>
+			<td mat-cell *matCellDef="let element">
+				<mat-chip-set>
+					<ng-container *ngFor="let tag of element.productTags">
+						<mat-chip color="primary">{{tag.name}}</mat-chip>
+					</ng-container>
+				</mat-chip-set>
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="createdAt">
+			<th mat-header-cell *matHeaderCellDef>Created</th>
+			<td mat-cell *matCellDef="let element"> {{element.createdAt | date:"mediumDate"}} </td>
+		</ng-container>
+		<ng-container matColumnDef="updatedAt">
+			<th mat-header-cell *matHeaderCellDef>Updated</th>
+			<td mat-cell *matCellDef="let element"> {{element.updatedAt | date:"mediumDate"}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="dimensions">
+			<th mat-header-cell *matHeaderCellDef>Dimensions</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.productVariant[0]?.dimensionHeight}}
+				x
+				{{element.productVariant[0]?.dimensionWidth}}
+				x
+				{{element.productVariant[0]?.dimensionLength}}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="status">
+			<th mat-header-cell *matHeaderCellDef>Status</th>
+			<td mat-cell *matCellDef="let element">
+				<mat-chip-row class="product-status" *ngIf="element.status === 'active'" [style.background-color]="'rgb(79, 195, 117)'" selected>
+					Active
+				</mat-chip-row>
+				<mat-chip-row class="product-status" *ngIf="element.status === 'archived'" [style.background-color]="'#000000'" selected>
+					Archived
+				</mat-chip-row>
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef>Actions</th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-icon-button (click)="editOption(element.id)">
+					<mat-icon>edit</mat-icon>
+				</button>
+				<button mat-icon-button>
+					<mat-icon>delete</mat-icon>
+				</button>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row class="row-container" *matRowDef="let row; columns: displayedColumns;" (click)="edit(row.id)"></tr>
+	</table>
+	<mat-divider></mat-divider>
+	<mat-paginator [pageIndex]="u.pagination.pageIndex"
+				   [hidePageSize]="true"
+				   [pageSize]="15"
+				   [length]="u.pagination.totalResults"
+				   (page)="movePage($event)">
+	</mat-paginator>
+
+</div>

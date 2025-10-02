@@ -1,0 +1,23 @@
+{{/* Tell Intellij/GoLand to enable the autocompletion based on the *gen.Graph type. */}}
+{{/* gotype: entgo.io/ent/entc/gen.Graph */}}
+
+{{ define "matches" }}
+
+{{/* Add the base header for the generated file */}}
+{{ $pkg := base $.Config.Package }}
+{{ template "header" $ }}
+
+{{/* Loop over all nodes and add the Matches method */}}
+{{ range $n := $.Nodes }}
+    {{if $n.Annotations.DelivrioAnnotations.Check}}
+        {{ $receiver := $n.Receiver }}
+
+        func ({{ $receiver }} *{{ $n.Name }}) Matches(compare *{{$n.Name}}) bool {
+            return true {{- range $i, $f := $n.Fields }} {{if not $f.Annotations.DelivrioAnnotations.Skip}} &&
+                {{ $receiver }}.{{pascal $f.Name}} == compare.{{pascal $f.Name}}
+            {{- end }} {{- end }}
+        }
+    {{- end }}
+{{- end }}
+
+{{ end }}

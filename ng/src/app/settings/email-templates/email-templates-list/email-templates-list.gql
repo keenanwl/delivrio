@@ -1,0 +1,16 @@
+query FetchEmailTemapltes {
+	emailTemplates {
+		edges {
+			node {
+				id
+				name
+				subject
+				mergeType
+			}
+		}
+	}
+}
+
+mutation CreateEmailTemplate($name: String!, $merge: EmailTemplateMergeType!) {
+	createEmailTemplates(name: $name, merge: $merge)
+}

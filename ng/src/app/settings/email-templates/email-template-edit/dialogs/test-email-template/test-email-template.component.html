@@ -1,0 +1,19 @@
+<div class="container">
+	<h2>Send test email</h2>
+	<div class="fields">
+		<mat-form-field class="option-name">
+			<mat-label>To email</mat-label>
+			<input #email matInput/>
+		</mat-form-field>
+	</div>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="send(email.value)">
+			<mat-icon>send</mat-icon>
+			Send test email
+		</button>
+		<button mat-raised-button (click)="close()">
+			Cancel
+		</button>
+	</div>
+</div>

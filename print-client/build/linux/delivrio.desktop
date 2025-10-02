@@ -1,0 +1,26 @@
+[Desktop Entry]
+##  The name of the application ##
+Name=DELIVRIO print client
+GenericName=Print client
+
+## A comment which act as a tooltip ##
+Comment=Establish a connection between your computer and the DELIVRIO cloud
+
+## The executable of the application with optional args ##
+## You can state full path too ##
+Exec=env WEBKIT_DISABLE_COMPOSITING_MODE=1 delivrio
+
+## State the name of the icon that will be used to display this entry ##
+Icon=delivrio
+
+## Is it a terminal app? For example htop will be set as Terminal=True ##
+## Then default terminal app will be used to open the 'htop' ##
+Terminal=false
+
+##  The type as listed  ##
+Type=Application
+
+## States the categories in which this entry should be shown menu ##
+Categories=System;Settings
+
+X-Ubuntu-Gettext-Domain=delivrio

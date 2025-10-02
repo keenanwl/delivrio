@@ -1,0 +1,30 @@
+<div class="container">
+	<h3>Add document</h3>
+	<mat-form-field class="option-name">
+		<mat-label>Name</mat-label>
+		<input #name matInput/>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Merge type</mat-label>
+		<mat-select #mergeType [value]="DocumentMergeType.Orders">
+			<ng-container *ngFor="let t of DocumentMergeType | keyvalue:unsortedKVFn">
+				<mat-option [value]="t.key">
+					{{t.key}}
+				</mat-option>
+			</ng-container>
+		</mat-select>
+		<mat-hint>
+			May not be updated after creation.
+		</mat-hint>
+	</mat-form-field>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="create(name.value, mergeType.value)">
+			<mat-icon>done</mat-icon>
+			Next
+		</button>
+		<button mat-raised-button (click)="close()">
+			Cancel
+		</button>
+	</div>
+</div>

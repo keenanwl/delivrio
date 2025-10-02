@@ -1,0 +1,38 @@
+.toolbar {
+  color: white;
+  height: 48px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.container {
+  height: 100%;
+}
+.content {
+  padding: 20px;
+}
+.sidenav {
+  min-width: 400px;
+  padding: 10px;
+}
+.menu-icon {
+  margin-right: 10px;
+}
+.member-since, .greeting {
+  text-align: center;
+}
+.main-container {
+	flex-grow: 1;
+    display: flex;
+    //flex-wrap: wrap;
+    height: 100%;
+    background: #000000;
+}
+.main-container > .content-container {
+  width: 100%;
+}
+.desktop-menu-container {
+  width: 275px;
+  padding: 20px;
+  border-right: 1px solid #CCC;
+  height: 100%;
+}

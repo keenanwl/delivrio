@@ -1,0 +1,46 @@
+<div *ngIf="seatGroupsList$|async; let state" class="container">
+	<div class="page-header">
+		<h3>User groups</h3>
+		<span class="spacer"></span>
+		<a [routerLink]="paths.SETTINGS_USERS_GROUPS_EDIT">
+			<button mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add group
+			</button>
+		</a>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<table mat-table [dataSource]="state.list" class="mat-elevation-z8 table">
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>Name</th>
+			<td mat-cell *matCellDef="let element">{{element.name}}</td>
+		</ng-container>
+		<ng-container matColumnDef="userCount">
+			<th mat-header-cell *matHeaderCellDef> User count </th>
+			<td mat-cell *matCellDef="let element">{{element.user.length}} </td>
+		</ng-container>
+		<ng-container matColumnDef="createdAt">
+			<th mat-header-cell *matHeaderCellDef> Created </th>
+			<td mat-cell *matCellDef="let element">{{element.createdAt | date:"mediumDate"}}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef>Actions</th>
+			<td mat-cell *matCellDef="let element">
+			<a [routerLink]="paths.SETTINGS_USERS_GROUPS_EDIT" [queryParams]="{id: element.id}">
+				<button mat-icon-button>
+					<mat-icon>edit</mat-icon>
+				</button>
+			</a>
+			<button mat-icon-button>
+				<mat-icon>delete</mat-icon>
+			</button>
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+
+</div>

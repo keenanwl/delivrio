@@ -1,0 +1,46 @@
+.container {
+	width: 100%;
+}
+.header {
+	display: flex;
+	//width: 960px;
+}
+.table {
+	width: 100%;
+	box-shadow: none;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.truncate {
+	width: 25px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.mat-mdc-raised-button {
+	border-radius: 50px;
+}
+.mat-mdc-table .mdc-data-table__row {
+	height: 60px;
+}
+.ng-star-inserted {
+	//height: 100px;
+}
+.mdc-evolution-chip, .mdc-evolution-chip__cell, .mdc-evolution-chip__action {
+	height: 30px;
+	align-items: center;
+}
+.image-container {
+	height: 50px;
+	width: 50px;
+	position: relative;
+	img {
+		object-fit: contain;
+	}
+}
+.row-container {
+	cursor: pointer;
+}
+.product-status {
+	--mdc-chip-label-text-color: #FFFFFF;
+}

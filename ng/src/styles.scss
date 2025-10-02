@@ -1,0 +1,111 @@
+@use '@angular/material' as mat;
+@use "app/styles/flex-container";
+@use "app/styles/list-box";
+@use "app/styles/spacer";
+@use "app/styles/loading-bar";
+@use "app/styles/menu";
+@use "app/styles/menu-settings";
+@use "app/styles/page-header";
+@use "app/styles/split-button";
+@use './app/styles/delivrio-theme' as theme;
+
+@use "app/logged-in-wrapper/logged-in-wrapper.theme";
+
+// Can be optimized to NOT load all symbols
+@import "material-symbols/outlined";
+@import '@angular/cdk/overlay-prebuilt.css';
+
+:root {
+	--default-font: 'Inter', serif;
+	--primary-color: #000000;
+	--primary-color-darker: #cb011c;
+	--primary-color-lighter: #e94f79;
+}
+
+$typography: mat.m2-define-typography-config(
+	$font-family: 'Inter',
+);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-theme: mat.m2-define-light-theme((
+	color: (
+		primary: theme.primaryDefault(),
+		accent: theme.accent(),
+		warn: theme.warn(),
+	),
+	typography: $typography,
+	density: 2
+));
+
+@include mat.all-component-themes($my-theme);
+@include mat.ripple();
+
+@include menu.menu($my-theme);
+@include menu-settings.menu-settings($my-theme);
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./assets/font-inter.ttf) format('truetype');
+}
+
+* {
+  font-family: 'Inter', serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+	background-color: #e4e4e4;
+}
+
+body {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.loading-bar {
+	height: 10px;
+	margin-bottom: 0;
+	mat-progress-bar {
+		height: 10px;
+	}
+}
+
+new-delivery-options-constraint-group-dialog {
+	mat-form-field .mat-form-field-infix {
+		min-height: 32px;
+		display: flex !important;
+	}
+}
+
+.mat-drawer-container {
+	position: unset;
+}
+.mat-drawer-content {
+	display: flex !important;
+	overflow: unset !important;
+}
+
+.action-row {
+	padding-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	button {
+		margin-left: 7px;
+	}
+}
+// Hack for mobile viewability
+app-logged-in-wrapper {
+	display: flex;
+}
+mat-drawer-container {
+	flex-grow: 1;
+}
+.cdk-visually-hidden
+{
+	display: none;
+}

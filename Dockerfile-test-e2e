@@ -1,0 +1,30 @@
+# sudo docker build -t delivrio-docker-node-e2e -f Dockerfile-test-e2e .
+FROM debian:stable-20240612-slim
+
+# Install Node.js and npm
+RUN apt update && apt install nodejs npm -y
+# Cypress dependencies
+RUN apt install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
+
+RUN for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do apt-get remove $pkg; done
+
+RUN apt-get install -y ca-certificates curl gnupg && \
+    install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
+    chmod a+r /etc/apt/keyrings/docker.asc && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    apt-get update
+
+RUN apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+RUN npm i -g cypress@13.0.0
+
+# Add a script to wait for Docker to be ready
+COPY ./ng/cypress/wait_for_docker.sh /usr/local/bin/wait-for-docker.sh
+RUN chmod +x /usr/local/bin/wait-for-docker.sh
+
+# Use a custom entrypoint to start Docker and wait for it to be ready
+COPY ./ng/cypress/e2e_entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["sh"]

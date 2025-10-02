@@ -1,0 +1,16 @@
+query FetchCarrierEditDAO($id: ID!) {
+	carrier(id: $id) {
+		id
+		name
+		carrierDAO {
+			id
+			customerID
+			apiKey
+		}
+	}
+}
+mutation UpdateCarrierAgreementDAO($id: ID!, $name: String!, $input: UpdateCarrierDAOInput!) {
+	updateCarrierAgreementDAO(id: $id, name: $name, input: $input) {
+		id
+	}
+}

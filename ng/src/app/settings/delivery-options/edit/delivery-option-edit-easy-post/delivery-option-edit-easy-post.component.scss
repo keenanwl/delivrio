@@ -1,0 +1,82 @@
+h1, h2, h3, h4, .add-button {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.section-margin {
+	margin-top: 15px;
+}
+.container {
+	margin-top: 10px;
+	min-width: 560px;
+	min-height: 400px;
+}
+
+.slide-container {
+	background: #FFFFFF;
+	border-radius: 25px;
+	padding: 15px;
+	display: flex;
+	align-items: center;
+}
+.slider {
+	display: flex;
+	width: 100%;
+}
+.margin-row {
+	display: flex;
+	mat-form-field {
+		flex-grow: 1;
+	}
+}
+.row {
+	display: flex;
+	min-height: 59.5px;
+	align-items: center;
+	> * {
+		flex-grow: 1;
+	}
+}
+.full-width {
+	width: 100%;
+}
+.flex-start {
+	align-items: flex-start;
+}
+.column {
+	flex-grow: 1;
+	padding: 15px;
+}
+.additional-services {
+	flex-wrap: wrap;
+	display: flex;
+}
+.additional-service {
+	flex-grow: 1;
+	max-width: 450px;
+	flex-basis: 0;
+}
+
+.right-margin {
+	margin-right: 20px;
+}
+.extra-pad {
+	padding-bottom: 21.5px;
+}
+.column-container {
+	display: flex;
+}
+
+.additional-margins {
+	display: flex;
+	line-height: 45px;
+}
+.help-tooltip {
+	display: flex;
+	align-items: center;
+	margin-left: 5px;
+}
+.locations-selector {
+	width: 100%;
+	min-height: 100px;
+}

@@ -1,0 +1,61 @@
+<ng-container *ngIf="register$|async; let register">
+  <div *ngIf="register.invalid_message.length > 0">
+	<p>{{register.invalid_message}}</p>
+  </div>
+  <div class="form-container">
+	<app-already-customer-header [progressPercent]="33" [progressStep]="1"></app-already-customer-header>
+	<h2 class="sign-up-text">Sign up</h2>
+	<form [formGroup]="registerForm"
+		  ngxsForm="register.register1EditForm">
+
+
+	  <div class="full-width row">
+		<mat-form-field class="full-width">
+		  <mat-label>Company name</mat-label>
+		  <input placeholder="Company ApS" formControlName="companyName" matInput>
+		</mat-form-field>
+	  </div>
+	  <div class="full-width row">
+		<mat-form-field class="full-width">
+		  <mat-label>Phone number</mat-label>
+		  <input placeholder="+45 1234 5678" formControlName="phoneNumber" matInput>
+		</mat-form-field>
+	  </div>
+	  <div class="full-width row">
+		<mat-form-field class="full-width">
+		  <mat-label>VAT number </mat-label>
+		  <input placeholder="DK12345678" formControlName="vatNumber" matInput>
+		</mat-form-field>
+	  </div>
+	  <div class="full-width">
+		<mat-form-field class="full-width">
+		  <mat-label>Email</mat-label>
+		  <input placeholder="name@company.com" matInput formControlName="email" type="email">
+		</mat-form-field>
+	  </div>
+	  <div class="full-width">
+		<mat-form-field class="full-width">
+		  <mat-label>Password</mat-label>
+		  <input placeholder="Please not Password123#" matInput formControlName="password">
+			<mat-error *ngIf="registerForm.controls.password.invalid">
+				{{registerForm.controls.password.errors![0]}}
+			</mat-error>
+		</mat-form-field>
+	  </div>
+	  <div class="full-width">
+		<mat-form-field class="full-width">
+		  <mat-label>Repeat password</mat-label>
+		  <input placeholder="Please don't repeat Password123#" #repeatPassword matInput formControlName="repeatPassword">
+			<mat-error *ngIf="registerForm.controls.repeatPassword.invalid">
+				{{registerForm.controls.repeatPassword.errors![0]}}
+			</mat-error>
+		</mat-form-field>
+	  </div>
+	</form>
+
+	<div class="action-container">
+	  <button class="button-next" color="primary" (click)="next()" mat-raised-button>Sign up</button>
+	</div>
+  </div>
+</ng-container>
+

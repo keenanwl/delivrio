@@ -1,0 +1,73 @@
+query CompanyInfo($id: ID!) {
+	tenant(id: $id) {
+		name
+		invoiceReference
+		defaultLanguage {
+			id
+			label
+		}
+		adminContact {
+			id
+			name
+			surname
+			phoneNumber
+			email
+		}
+		billingContact {
+			id
+			name
+			surname
+			phoneNumber
+			email
+		}
+		companyAddress {
+			id
+			company
+			addressOne
+			addressTwo
+			city
+			state
+			zip
+			country {
+				id
+				label
+				alpha2
+			}
+		}
+	}
+	languages {
+		edges {
+			node {
+				id
+				label
+			}
+		}
+	}
+	countries {
+		edges {
+			node {
+				id
+				label
+				alpha2
+			}
+		}
+	}
+}
+
+mutation UpdateCompanyInfo($input: UpdateTenantInput!, $defaultLanguage: ID!, $adminContact: CreateContactInput!, $billingContact: CreateContactInput!, $address: CreateAddressInput!) {
+	updateCompanyInfo(input: $input, defaultLanguage: $defaultLanguage, adminContact: $adminContact, billingContact: $billingContact, address: $address) {
+		id
+	}
+}
+
+query CompanyInfoSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+			}
+		}
+	}
+}

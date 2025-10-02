@@ -1,0 +1,62 @@
+<div *ngIf="seatGroup$|async; let cl">
+	<div class="page-header">
+		<h3 *ngIf="!!cl.seatGroupID.length">Edit group</h3>
+		<h3 *ngIf="!cl.seatGroupID.length">Create new group</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<app-dvo-card>
+		<div class="container">
+			<form #form
+				  [formGroup]="editForm"
+				  ngxsForm="seatGroup.seatGroupForm"
+				  class="column-container">
+				<div class="column">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Name</mat-label>
+							<input formControlName="name" matInput/>
+							<mat-error *ngIf="editForm.controls.name.invalid">
+								{{editForm.controls.name.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+				<div class="column">
+					<div class="row right-margin">
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<ng-container *ngIf="accessRights$|async; let allRights">
+			<h3>Group access rights</h3>
+			<div class="container">
+				<form #form
+					  [formGroup]="accessRightEditForm"
+					  class="column-container">
+					<div class="column">
+						<div class="row right-margin"
+							 formArrayName="accessRights"
+							 *ngFor="let ar of accessRightEditForm.get('accessRights')?.controls; index as index">
+							<div class="access-right-container" [formGroupName]="index">
+								<span class="label">{{ar.value.label}}</span>
+								<span class="spacer"></span>
+								<mat-button-toggle-group formControlName="level">
+									<mat-button-toggle value="none">None</mat-button-toggle>
+									<mat-button-toggle value="read">Read</mat-button-toggle>
+									<mat-button-toggle value="write">Write</mat-button-toggle>
+								</mat-button-toggle-group>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</ng-container>
+	</app-dvo-card>
+</div>
+

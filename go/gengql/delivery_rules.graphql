@@ -1,0 +1,130 @@
+
+extend type Query {
+
+    deliveryOptionsFiltered(showArchived: Boolean!): [DeliveryOption!]!
+
+    deliveryOptionBring(id: ID!): DeliveryOptionBring
+    deliveryOptionDAO(id: ID!): DeliveryOptionDAO
+    deliveryOptionDF(id: ID!): DeliveryOptionDF
+    deliveryOptionDSV(id: ID!): DeliveryOptionDSV
+    deliveryOptionEasyPost(id: ID!): DeliveryOptionEasyPost
+    deliveryOptionGLS(id: ID!): DeliveryOptionGLS
+    deliveryOptionPostNord(deliveryOptionID: ID!): DeliveryOptionPostNord
+    deliveryOptionUSPS(deliveryOptionID: ID!): DeliveryOptionUSPS
+    constraintGroup(id: ID!): DeliveryRuleConstraintGroup
+    constraints(groupID: ID!): [DeliveryRuleConstraintWithTags!]
+
+    availableAdditionalServicesPostNord(carrierServiceID: ID!): [String!]!
+    availableAdditionalServicesUSPS(carrierServiceID: ID!): [CarrierAdditionalServiceUSPS!]!
+}
+
+type CreateDeliveryOptionSuccess {
+    id: ID!
+    carrier: CarrierBrandInternalID!
+}
+
+extend type Mutation {
+    createDeliveryOption(name: String!, agreementID: ID!, connectionID: ID!): CreateDeliveryOptionSuccess!
+
+    updateDeliveryOptionBring(
+        id: ID!,
+        input: UpdateDeliveryOptionBringInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+    ): DeliveryOptionBring!
+
+    updateDeliveryOptionDAO(
+        id: ID!,
+        # input: UpdateDeliveryOptionDAOInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+    ): DeliveryOptionDAO!
+
+    updateDeliveryOptionDF(
+        id: ID!,
+        # input: UpdateDeliveryOptionDAOInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+    ): DeliveryOptionDF!
+
+    updateDeliveryOptionDSV(
+        id: ID!,
+        # input: UpdateDeliveryOptionDAOInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+    ): DeliveryOptionDSV!
+
+    updateDeliveryOptionEasyPost(
+        id: ID!,
+        input: UpdateDeliveryOptionEasyPostInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+    ): DeliveryOptionEasyPost!
+
+    updateDeliveryOptionGLS(
+        id: ID!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+    ): DeliveryOptionGLS!
+
+    updateDeliveryOptionPostNord(
+        id: ID!,
+        input: UpdateDeliveryOptionPostNordInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+        inputAdditionalServices: [String!]!
+    ): DeliveryOptionPostNord!
+
+    updateDeliveryOptionUSPS(
+        id: ID!,
+        input: UpdateDeliveryOptionUSPSInput!,
+        inputDeliveryOption: UpdateDeliveryOptionInput!,
+        inputAdditionalServices: [ID!]!
+    ): DeliveryOptionUSPS!
+
+    createDeliveryRule(input: CreateDeliveryRuleInput!): DeliveryRule!
+    updateDeliveryRule(deliveryRuleID: ID!, val: UpdateDeliveryRuleInput!): DeliveryRule!
+
+    createDeliveryRuleConstraintGroup(input: CreateDeliveryRuleConstraintGroupInput!): DeliveryRuleConstraintGroup!
+    createDeliveryRuleConstraintGroupConstraints(
+        deliveryRuleId: ID!,
+        logicType: DeliveryRuleConstraintGroupConstraintLogic!,
+        input: [CreateDeliveryRuleConstraintInput]
+    ): [DeliveryRuleConstraintWithTags!]
+    replaceDeliveryRuleConstraintGroupConstraints(
+        deliveryGroupId: ID!,
+        logicType: DeliveryRuleConstraintGroupConstraintLogic!,
+        input: [CreateDeliveryRuleConstraintInput]
+    ): [DeliveryRuleConstraintWithTags!]
+    deleteDeliveryRule(deliveryRuleID: ID!): [DeliveryRule]!
+    deleteDeliveryRuleConstraintGroupConstraints(deliveryGroupId: ID!): [DeliveryRule]!
+
+    replaceDeliveryRuleCountries(ruleID: ID!, countries: [ID!]!): DeliveryRule!
+
+    updateDeliveryOptionSortOrder(newOrder: [ID!]!): [DeliveryOption!]!
+
+    deliveryOptionArchive(deliveryOptionID: ID!): Boolean!
+}
+
+input DeliveryRuleCountries {
+    ruleID: ID!
+    countries: [ID!]!
+}
+
+type DeliveryRuleConstraintWithTags {
+    constraint: DeliveryRuleConstraint
+    tags: [ProductTag!]
+}
+
+type DeliveryRuleConstraintSelectedValue {
+    numeric: Int
+    numericRange: [Int!]
+    values: [String!]
+    text: String
+    dayOfWeek: [String!]
+    timeOfDay: [String!]
+    ids: [String!]
+}
+
+input DeliveryRuleConstraintSelectedValueInput {
+    numeric: Int
+    numericRange: [Int!]
+    values: [String!]
+    text: String
+    dayOfWeek: [String!]
+    timeOfDay: [String!]
+    ids: [String!]
+}

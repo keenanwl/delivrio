@@ -1,0 +1,318 @@
+<div class="page-container low-density" *ngIf="order$|async; let order">
+	<div class="top-row">
+		<h2 *ngIf="order.colliID.length === 0">New package</h2>
+		<h2 *ngIf="order.colliID.length > 0">Edit package</h2>
+		<div class="spacer"></div>
+		<div class="save-container">
+			<button mat-raised-button color="primary" (click)="save()">
+				<mat-icon>done</mat-icon>
+				Save
+			</button>
+		</div>
+	</div>
+	<form [formGroup]="editForm" ngxsForm="orderEdit.orderForm">
+
+		<div class="row">
+			<app-dvo-card>
+				<div class="address-information">
+					<div class="column">
+						<h3>Recipient</h3>
+						<ng-container formGroupName="recipient">
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>First name</mat-label>
+									<input formControlName="firstName" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.firstName.invalid">
+										{{editForm.controls.recipient.controls.firstName.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Last name</mat-label>
+									<input formControlName="lastName" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.lastName.invalid">
+										{{editForm.controls.recipient.controls.lastName.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>Address 1</mat-label>
+									<input formControlName="addressOne" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.addressOne.invalid">
+										{{editForm.controls.recipient.controls.addressOne.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Address 2</mat-label>
+									<input formControlName="addressTwo" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.addressTwo.invalid">
+										{{editForm.controls.recipient.controls.addressTwo.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>Company</mat-label>
+									<input formControlName="company" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.company.invalid">
+										{{editForm.controls.recipient.controls.company.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Zip</mat-label>
+									<input formControlName="zip" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.zip.invalid">
+										{{editForm.controls.recipient.controls.zip.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>City</mat-label>
+									<input formControlName="city" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.city.invalid">
+										{{editForm.controls.recipient.controls.city.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>State</mat-label>
+									<input formControlName="state" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.state.invalid">
+										{{editForm.controls.recipient.controls.state.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field class="country-field">
+									<mat-label>Country</mat-label>
+									<mat-chip-grid #chipList>
+										<mat-chip-row color="primary">
+											{{editForm.controls.recipient.controls.country.controls.label.value}}
+											({{editForm.controls.recipient.controls.country.controls.alpha2.value}})
+										</mat-chip-row>
+									</mat-chip-grid>
+									<input placeholder="Type to search..."
+										   #countriesInputRecipient
+										   [matAutocomplete]="countriesAutoRecipient"
+										   [matChipInputFor]="chipList"
+										   (keyup)="searchCountries(countriesInputRecipient.value)">
+									<mat-autocomplete #countriesAutoRecipient="matAutocomplete" (optionSelected)="countriesInputRecipient.value = ''; changeCountryRecipient($event.option.value)">
+										<mat-option *ngFor="let country of order.searchCountries" [value]="country">
+											{{country.label}} ({{country.alpha2}})
+										</mat-option>
+									</mat-autocomplete>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>Phone #</mat-label>
+									<input formControlName="phoneNumber" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.phoneNumber.invalid">
+										{{editForm.controls.recipient.controls.phoneNumber.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Email</mat-label>
+									<input formControlName="email" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.email.invalid">
+										{{editForm.controls.recipient.controls.email.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+						</ng-container>
+					</div>
+					<div class="column">
+						<h3>Sender</h3>
+						<ng-container formGroupName="sender">
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>First name</mat-label>
+									<input formControlName="firstName" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.firstName.invalid">
+										{{editForm.controls.recipient.controls.firstName.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Last name</mat-label>
+									<input formControlName="lastName" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.lastName.invalid">
+										{{editForm.controls.recipient.controls.lastName.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>Address 1</mat-label>
+									<input formControlName="addressOne" matInput/>
+									<mat-error *ngIf="editForm.controls.sender.controls.addressOne.invalid">
+										{{editForm.controls.sender.controls.addressOne.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Address 2</mat-label>
+									<input formControlName="addressTwo" matInput/>
+									<mat-error *ngIf="editForm.controls.sender.controls.addressTwo.invalid">
+										{{editForm.controls.sender.controls.addressTwo.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>Company</mat-label>
+									<input formControlName="company" matInput/>
+									<mat-error *ngIf="editForm.controls.sender.controls.company.invalid">
+										{{editForm.controls.sender.controls.company.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Zip</mat-label>
+									<input formControlName="zip" matInput/>
+									<mat-error *ngIf="editForm.controls.sender.controls.zip.invalid">
+										{{editForm.controls.sender.controls.zip.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>City</mat-label>
+									<input formControlName="city" matInput/>
+									<mat-error *ngIf="editForm.controls.sender.controls.city.invalid">
+										{{editForm.controls.sender.controls.city.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>State</mat-label>
+									<input formControlName="state" matInput/>
+									<mat-error *ngIf="editForm.controls.sender.controls.state.invalid">
+										{{editForm.controls.sender.controls.state.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field class="country-field">
+									<mat-label>Country</mat-label>
+									<mat-chip-grid #chipListSender>
+										<mat-chip-row color="primary">
+											{{editForm.controls.sender.controls.country.controls.label.value}}
+											({{editForm.controls.sender.controls.country.controls.alpha2.value}})
+										</mat-chip-row>
+									</mat-chip-grid>
+									<input placeholder="Type to search..."
+										   #countriesInputSender
+										   [matAutocomplete]="countriesAutoSender"
+										   [matChipInputFor]="chipListSender"
+										   (keyup)="searchCountries(countriesInputSender.value)">
+									<mat-autocomplete #countriesAutoSender="matAutocomplete" (optionSelected)="countriesInputSender.value = ''; changeCountrySender($event.option.value)">
+										<mat-option *ngFor="let country of order.searchCountries" [value]="country">
+											{{country.label}} ({{country.alpha2}})
+										</mat-option>
+									</mat-autocomplete>
+								</mat-form-field>
+							</div>
+							<div class="row right-margin">
+								<mat-form-field>
+									<mat-label>Phone #</mat-label>
+									<input formControlName="phoneNumber" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.phoneNumber.invalid">
+										{{editForm.controls.recipient.controls.phoneNumber.errors}}
+									</mat-error>
+								</mat-form-field>
+								<mat-form-field>
+									<mat-label>Email</mat-label>
+									<input formControlName="email" matInput/>
+									<mat-error *ngIf="editForm.controls.recipient.controls.email.invalid">
+										{{editForm.controls.recipient.controls.email.errors}}
+									</mat-error>
+								</mat-form-field>
+							</div>
+						</ng-container>
+					</div>
+				</div>
+			</app-dvo-card>
+			<div class="delivery-options">
+				<app-dvo-card class="delivery-service">
+					<h3>Delivery options</h3>
+					<mat-selection-list multiple="false" #deliveryList>
+						<mat-list-option *ngFor="let opt of order.deliveryOptions"
+										 [togglePosition]="'before'"
+										 [disabled]="isDeliveryOptionDisabled(opt.status)"
+										 [selected]="order.orderForm.model?.deliveryOption?.id === opt.deliveryOptionID"
+										 (click)="selectDeliveryOption(opt.deliveryOptionID, opt.clickAndCollect)">
+							<div class="delivery-list-item" [matTooltip]="opt.warning">
+								<span class="option-name">{{opt.name}}</span>
+								<span class="spacer"></span>
+								<span class="price">{{opt?.price}} {{opt.currency?.display}}</span>
+								<mat-icon class="warning-icon" *ngIf="!!opt.warning">
+									warning
+								</mat-icon>
+							</div>
+						</mat-list-option>
+					</mat-selection-list>
+				</app-dvo-card>
+				<app-dvo-card class="delivery-point">
+					<div class="header">
+						<h3>Delivery point</h3>
+						<span class="spacer"></span>
+						<button mat-icon-button
+								[disabled]="!(order.orderForm.model?.deliveryOption?.id | deliveryPointRequired:order.deliveryOptions)"
+								(click)="editDeliveryPoint()">
+							<mat-icon>edit</mat-icon>
+						</button>
+						<button mat-icon-button>
+							<mat-icon>clear</mat-icon>
+						</button>
+					</div>
+
+					<p *ngIf="order.orderForm.model?.deliveryOption?.id | deliveryPointRequired:order.deliveryOptions">
+						Delivery point is required.
+						<mat-divider></mat-divider>
+					</p>
+					<p *ngIf="!(order.orderForm.model?.deliveryOption?.id | deliveryPointRequired:order.deliveryOptions) && (order.orderForm.model?.deliveryOption?.id | deliveryPointOptional:order.deliveryOptions)">
+						Delivery point is optional.
+						<mat-divider></mat-divider>
+					</p>
+					<p *ngIf="!(order.orderForm.model?.deliveryOption?.id | deliveryPointRequired:order.deliveryOptions) && !(order.orderForm.model?.deliveryOption?.id | deliveryPointOptional:order.deliveryOptions)">
+						Delivery point not available for this service.
+					</p>
+					<div class="delivery-point-address" *ngIf="(order.orderForm.model?.deliveryOption?.id | deliveryPointOptional:order.deliveryOptions) || (order.orderForm.model?.deliveryOption?.id | deliveryPointRequired:order.deliveryOptions)">
+						<span>{{order?.deliveryPoint?.name}}</span>
+						<span>{{order?.deliveryPoint?.address.addressOne}}</span>
+						<span>{{order?.deliveryPoint?.address.addressTwo}}</span>
+						<span>{{order?.deliveryPoint?.address.country.alpha2}} {{order?.deliveryPoint?.address.zip}} {{order?.deliveryPoint?.address.city}}</span>
+					</div>
+				</app-dvo-card>
+				<app-dvo-card class="packaging-selector">
+					<div class="header">
+						<h3>Packaging</h3>
+						<span class="spacer"></span>
+						<button mat-icon-button
+								(click)="editPackaging()">
+							<mat-icon>edit</mat-icon>
+						</button>
+						<button mat-icon-button (click)="clearPackaging()">
+							<mat-icon>clear</mat-icon>
+						</button>
+					</div>
+					<div class="packaging-row" *ngIf="!!order?.orderForm.model?.packaging?.id">
+						<span>{{order?.orderForm.model?.packaging?.name}}</span>
+						<span class="spacer"></span>
+						<span>{{order?.orderForm.model?.packaging?.lengthCm}}x{{order?.orderForm.model?.packaging?.widthCm}}x{{order?.orderForm.model?.packaging?.heightCm}}</span>
+					</div>
+				</app-dvo-card>
+			</div>
+		</div>
+		<div class="action-row">
+			<span class="spacer"></span>
+			<button mat-raised-button (click)="addOrderLine()" color="primary">
+				<mat-icon>add</mat-icon>
+				Add order line
+			</button>
+		</div>
+
+		<app-order-lines [orderLines]="order.orderForm.model?.orderLines"
+						 (priceEdited)="priceEdited($event)"
+						 (unitsEdited)="unitsEdited($event)"
+						 (lineDeleted)="lineDeleted($event)"
+						 [editable]="true"></app-order-lines>
+	</form>
+</div>

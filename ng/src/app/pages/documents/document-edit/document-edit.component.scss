@@ -1,0 +1,75 @@
+.container {
+	padding: 20px;
+}
+mat-form-field {
+	width: 100%;
+}
+.template-value {
+	min-height: 600px;
+}
+.footer-header-template {
+	min-height: 200px;
+}
+.row {
+	display: flex;
+	.merge-variables, .editor-fields {
+		margin-right: 10px;
+	}
+	.merge-variables {
+		width: 400px;
+	}
+	p {
+		margin: 5px;
+	}
+}
+.merge-variable-list, .merge-variable-order-line {
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	.list-item {
+		padding-bottom: 5px;
+	}
+	.used {
+		font-weight: bold;
+	}
+}
+mat-divider {
+	padding: 5px;
+}
+.indent {
+	padding-left: 20px;
+}
+.indent-2x {
+	padding-left: 40px;
+}
+.editor-fields {
+	width: 100%;
+}
+.time-editor {
+	display: flex;
+	max-width: 320px;
+	margin-bottom: 30px;
+}
+.time-container {
+	display: flex;
+	flex-direction: column;
+}
+.time-row {
+	display: flex;
+}
+.bold {
+	font-weight: bold;
+}
+.loop-error {
+	color: red;
+}
+.top-container {
+	display: flex;
+	align-items: flex-start;
+}
+.left-container {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	margin-right: 20px;
+}

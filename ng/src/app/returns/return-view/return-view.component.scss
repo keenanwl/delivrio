@@ -1,0 +1,31 @@
+.container {
+	padding: 20px;
+}
+.colli-view {
+	display: flex;
+	margin-top: 10px;
+}
+.left-column {
+	width: 100%;
+	min-width: 600px;
+	margin-right: 10px;
+}
+.right-column {
+	max-width: 400px;
+}
+.third-column {
+	width: 400px;
+	margin-left: 15px;
+}
+.package-more-menu {
+	background: #FFFFFF;
+	border: 1px solid #000000;
+}
+.header {
+	display: flex;
+	justify-content: center;
+}
+.label-button-container {
+	width: 48px;
+	height: 48px;
+}

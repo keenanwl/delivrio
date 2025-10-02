@@ -1,0 +1,19 @@
+query FetchDocuments {
+	documents {
+		edges {
+			node {
+				id
+				name
+				carrierBrand {
+					label
+				}
+				mergeType
+				createdAt
+			}
+		}
+	}
+}
+
+mutation CreateDocument($name: String!, $mergeType: DocumentMergeType!) {
+	createDocument(name: $name, mergeType: $mergeType)
+}

@@ -1,0 +1,51 @@
+<div class="page-header">
+	<h3>Edit Bring carrier agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="save()">
+		<mat-icon>checkmark</mat-icon>
+		Save
+	</button>
+</div>
+<app-dvo-card *ngIf="state$|async; let state">
+	<div class="container">
+		<form [formGroup]="form"
+			  ngxsForm="carrierEditDAO.form"
+			  ngxsFormErrors="carrierEditDAO.form"
+			  class="column-container">
+			<div class="column">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Name</mat-label>
+						<input formControlName="name" matInput/>
+						<mat-error *ngIf="form.controls.name.invalid">
+							{{form.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="column" [formGroup]="form.controls.carrierDAO">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>API Key</mat-label>
+						<input formControlName="apiKey" matInput/>
+						<mat-error *ngIf="form.controls.carrierDAO.controls.apiKey.invalid">
+							{{form.controls.carrierDAO.controls.apiKey.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="column" [formGroup]="form.controls.carrierDAO">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Customer ID</mat-label>
+						<input formControlName="customerID" matInput/>
+						<mat-error *ngIf="form.controls.carrierDAO.controls.customerID.invalid">
+							{{form.controls.carrierDAO.controls.customerID.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+		</form>
+	</div>
+</app-dvo-card>
+

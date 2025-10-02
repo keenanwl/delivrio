@@ -1,0 +1,155 @@
+@use '@angular/material' as mat;
+@use '../../../../app/styles/delivrio-theme' as theme;
+
+$typography: mat.m2-define-typography-config(
+	$font-family: var(--default-font),
+);
+
+$my-theme: mat.m2-define-light-theme((
+	color: (
+		primary: theme.primaryPalette(#000000),
+		accent: theme.accent(),
+		warn: theme.warn(),
+	),
+	typography: $typography,
+	density: 0
+));
+
+// Because of Shadow DOM
+@include mat.ripple();
+//@include mat.progress-bar-theme($my-theme);
+
+
+// Material prefixes these styles with
+// HTML, which will then break when ShadowDOM enabled
+// Since they are at the Shadow root scope within the HTML tag
+.mat-mdc-fab.mat-primary,
+.mat-mdc-mini-fab.mat-primary {
+	--mdc-fab-container-color: var(--primary-color);
+	--mat-fab-foreground-color: #fff;
+	--mat-fab-state-layer-color: #fff;
+	--mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+
+*:not(.mat-icon) {
+	margin: 0;
+	font-family: var(--default-font);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	.portal {
+		h1 {
+			margin-bottom: 10px;
+		}
+		min-width: 320px;
+		max-width: 1024px;
+		padding: 20px;
+		.form {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		mat-form-field {
+			width: 100%;
+			max-width: 425px;
+		}
+		.next-button {
+			min-width: 200px;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row-reverse;
+		}
+		.header-wrapper {
+			max-width: 1024px;
+			text-align: center;
+		}
+
+		.selected-line {
+			font-size: 22px;
+			margin-bottom: 15px;
+		}
+		.bold {
+			font-weight: bold;
+		}
+		.comment-container {
+			padding-top: 20px;
+			min-width: 320px;
+			display: flex;
+			justify-content: center;
+		}
+		.next-container {
+			padding-left: 20px;
+			padding-right: 20px;
+			margin-top: 20px;
+			justify-content: center;
+			display: flex;
+		}
+		.quantity {
+			font-size: 16px;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			button {
+				margin: 5px;
+			}
+		}
+	}
+
+}
+.change-store {
+	text-decoration: underline;
+}
+.delivery-option-container {
+	display: flex;
+	justify-content: center;
+	.delivery-option {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		h3, p {
+			margin-bottom: 30px;
+		}
+		p {
+			flex-grow: 1;
+		}
+		background: #f1f1f1;
+		width: 250px;
+		min-height: 400px;
+		padding: 14px;
+		box-sizing: border-box;
+		border: 2px solid #D1D6E6;
+		text-align: center;
+		margin: 14px;
+		.price {
+			font-weight: bold;
+		}
+	}
+	.selected {
+		border: 2px solid #000000;
+	}
+}
+
+.success-page {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	mat-icon {
+		margin-top: 45px;
+		width: 96px;
+		height: 96px;
+		font-size: 96px;
+	}
+}
+
+.loading-bar {
+	height: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}

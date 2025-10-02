@@ -1,0 +1,30 @@
+.rounded-box {
+	flex-grow: 1;
+	border: 1px solid rgb(204, 204, 204);
+	max-width: 450px;
+	min-width: 300px;
+	min-height: 300px;
+	border-radius: 3px;
+	margin: 10px;
+	padding: 20px;
+
+	.caption-text {
+		display: flex;
+		padding: 5px;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 36px;
+		color: #000000;
+	}
+
+	.empty-list {
+		height: 100%;
+		text-align: center;
+		span {
+			line-height: 20;
+		}
+		.icon-container {
+			font-size: 50px;
+		}
+	}
+}

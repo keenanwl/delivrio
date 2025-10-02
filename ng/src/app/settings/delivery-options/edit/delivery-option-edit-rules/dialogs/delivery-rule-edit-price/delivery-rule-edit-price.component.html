@@ -1,0 +1,27 @@
+<div class="container" *ngIf="deliveryOptionEditRules$|async; let state">
+	<h3>Edit price for {{name}}</h3>
+	<mat-form-field appearance="outline">
+		<mat-label>New price</mat-label>
+		<input [value]="price" #p matInput/>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Currency</mat-label>
+		<!-- must be disabled to allow for sorting ASC on the lookup side and only display the cheapest option -->
+		<mat-select #c [value]="currencyID" disabled="true">
+			<mat-option [value]="opt.id" *ngFor="let opt of state.currencies">
+				{{opt.display}}
+			</mat-option>
+		</mat-select>
+		<mat-hint>Update the <a [href]="Paths.SETTINGS_CONNECTIONS">connection</a> currency to change the currency here</mat-hint>
+	</mat-form-field>
+	<div class="action-row">
+		<button mat-stroked-button color="primary" (click)="save(p.value, c.value, state.currencies)">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>cancel</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

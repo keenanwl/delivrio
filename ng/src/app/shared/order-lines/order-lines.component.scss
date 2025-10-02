@@ -1,0 +1,49 @@
+$gray: #9b9b9b;
+table {
+	table-layout: fixed;
+}
+.package-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border: 2px solid white;
+	.table-title {
+		flex-grow: 1;
+		background: white;
+		color: black;
+		width: calc(100% - 20px);
+		padding: 10px;
+	}
+	table {
+		width: 100%;
+		flex-grow: 1;
+		.field-input {
+			width: 60px;
+			margin-left: 2px;
+			margin-right: 2px;
+			border: 0;
+			border-bottom: 2px solid $gray;
+			outline: 0;
+			padding: 7px 0;
+			background: transparent;
+			transition: border-color 0.2s;
+		}
+	}
+}
+.is-dragging {
+	border: 2px dashed #000000;
+}
+
+.drag-handle-icon {
+	cursor: grab;
+}
+
+a {
+	color: black;
+}
+.mat-column-description {
+	flex: 0 0 50%;
+}
+.total {
+	font-weight: bold;
+}

@@ -1,0 +1,31 @@
+query FetchDashboardTiles {
+	dashboardTiles {
+		title
+		value
+	}
+	hypothesisTestResultsDashboard {
+		id
+		Name
+		ControlSuccess
+		ControlFailure
+		TestSuccess
+		TestFailure
+		SignificantlyDifferent
+		ControlWin
+		TestWin
+	}
+	trailingProductUpdates
+	rateRequests {
+		requests {
+			date
+			optionCount
+			req
+		}
+		requestsError {
+			date
+			optionCount
+			req
+			error
+		}
+	}
+}

@@ -1,0 +1,60 @@
+<div class="container" *ngIf="app$|async; let state">
+	<h3>Select workstation to use:</h3>
+	<p>Print jobs will be sent to this workstation</p>
+	<div class="select-container">
+		<mat-form-field>
+			<mat-label>Workstation</mat-label>
+			<mat-select #select [value]="state?.selectedWorkstation?.id">
+				<ng-container *ngFor="let ws of state.selectableWorkstations">
+					<ng-container *ngIf="ws.id === state?.selectedWorkstation?.id || ws.status !== WorkstationStatus.Disabled">
+						<mat-option  [value]="ws.id">
+							{{ws.name}} [{{ws.status}}]
+						</mat-option>
+					</ng-container>
+				</ng-container>
+			</mat-select>
+		</mat-form-field>
+		<button mat-icon-button (click)="select.value = ''">
+			<mat-icon>delete</mat-icon>
+		</button>
+	</div>
+	<h3>Select pickup date:</h3>
+	<p>This lets the carrier know when to expect your packages and will be included in label requests</p>
+	<div class="select-container">
+		<mat-form-field>
+			<mat-label>Pickup day</mat-label>
+			<mat-select #selectPickup [value]="state?.selectedPickupDay">
+				<mat-option [value]="today">
+					Today
+				</mat-option>
+				<mat-option [value]="tomorrow">
+					Tomorrow
+				</mat-option>
+				<mat-option [value]="in2Days">
+					In 2 days
+				</mat-option>
+				<mat-option [value]="in3Days">
+					In 3 days
+				</mat-option>
+				<mat-option [value]="in4Days">
+					In 4 days
+				</mat-option>
+				<mat-option [value]="in5Days">
+					In 5 days
+				</mat-option>
+			</mat-select>
+			<mat-hint>Ex: labels printed now with pickup tomorrow, choose "Tomorrow"</mat-hint>
+		</mat-form-field>
+	</div>
+	<div class="action-row">
+		<button mat-stroked-button (click)="save(select.value, selectPickup.value)" color="primary">
+			<mat-icon>check</mat-icon>
+			Save
+		</button>
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>
+

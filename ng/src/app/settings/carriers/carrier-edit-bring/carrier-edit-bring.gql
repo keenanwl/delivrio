@@ -1,0 +1,17 @@
+query FetchCarrierEditBring($id: ID!) {
+	carrier(id: $id) {
+		id
+		name
+		carrierBring {
+			id
+			apiKey # Not in use
+			customerNumber
+			test
+		}
+	}
+}
+mutation UpdateCarrierAgreementBring($id: ID!, $name: String!, $input: UpdateCarrierBringInput!) {
+	updateCarrierAgreementBring(id: $id, name: $name, input: $input) {
+		id
+	}
+}

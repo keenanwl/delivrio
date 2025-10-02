@@ -1,0 +1,77 @@
+
+query FetchShipment($id: ID!) {
+	shipment(id: $id) {
+		id
+		shipmentPublicID
+		createdAt
+		shipmentUSPS {
+			postage
+			scheduledDeliveryDate
+			trackingNumber
+		}
+		shipmentEasyPost {
+			rate
+			estDeliveryDate
+			trackingNumber
+		}
+		shipmentParcel {
+			id
+			cancelSyncedAt
+			fulfillmentSyncedAt
+			status
+			colli {
+				deliveryOption {
+					carrier {
+						carrierBrand {
+							label
+						}
+					}
+				}
+				order {
+					id
+					orderPublicID
+				}
+			}
+			itemID
+		}
+		shipmentPallet {
+			id
+			status
+			barcode
+			labelPdf
+			pallet {
+				consolidation {
+					deliveryOption {
+						carrier {
+							carrierBrand {
+								label
+							}
+						}
+					}
+				}
+			}
+		}
+		shipmentPostNord {
+			bookingID
+			shipmentReferenceNo
+		}
+		status
+	}
+}
+
+mutation ShipmentViewCancelShipment($shipmentID: ID!) {
+	cancelShipment(shipmentID: $shipmentID) {
+		id
+	}
+}
+
+mutation DebugUpdateLabelIDs($parcelID: ID!, $itemID: String!) {
+	debugUpdateLabelIDs(parcelID: $parcelID, itemID: $itemID)
+}
+
+mutation cancelFulfillmentSync($shipmentParcelID: ID!) {
+	cancelFulfillmentSync(shipmentParcelID: $shipmentParcelID)
+}
+mutation cancelCancelSync($shipmentParcelID: ID!) {
+	cancelCancelSync(shipmentParcelID: $shipmentParcelID)
+}

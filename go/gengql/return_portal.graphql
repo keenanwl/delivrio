@@ -1,0 +1,49 @@
+type ReturnColliEdit {
+    collis: [ReturnColliTimeline!]!
+    order: Order!
+}
+
+type ReturnColliTimeline {
+    colli: ReturnColli!
+    timeline:  [ChangeHistory!]!
+}
+
+input MutateReturnDeliveryOption {
+    deliveryOptionID: ID!
+    returnColliID: ID!
+}
+
+extend type Query {
+    returnPortal(id: ID!): ReturnPortal!
+    #returnOrder(id: ID!): ReturnOrder!
+    # Redunant ID avoids package shadowing
+    returnClaimsByOrder(orderID: ID!): [ReturnPortalClaim!]!
+    returnColli(orderID: ID!): ReturnColliEdit!
+    returnDeliveryOptions(returnColliIDs: [ID!]!): [[DeliveryOptionBrandName]]!
+
+    # Mutates, but we want individual TX
+    addReturnDeliveryOption(deliveryOptions: [MutateReturnDeliveryOption!]!): ID!
+}
+
+# We need to track the ID since it gets
+# attached to returns
+input MutateReturnPortalClaim {
+    id: ID!
+    input: CreateReturnPortalClaimInput!
+}
+
+input MutateReturnItems {
+    units: Int!
+    claimID: ID!
+    orderLineID: ID!
+}
+
+extend type Mutation {
+    createReturnPortal(name: String!, connection: ID!): ID!
+    updateReturnPortal(id: ID!, input: UpdateReturnPortalInput!, inputClaims: [MutateReturnPortalClaim!]!): ReturnPortal!
+
+    createReturnOrder(orderID: ID!, portalID: ID!, orderLines: [MutateReturnItems!]!): [ID!]!
+
+    updateReturnColliStatus(returnColliID: ID!, status: ReturnColliStatus!): ReturnColliEdit!
+    markColliDeleted(returnColliID: ID!): Boolean!
+}

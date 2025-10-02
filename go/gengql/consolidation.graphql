@@ -1,0 +1,36 @@
+type CreateShipmentConsolidationResponse {
+    shipment: Shipment!
+    labelsPDF: [String!]!
+    allLabels: String!
+}
+
+type ConsolidationShipmentStatus {
+    mayPrebook: Boolean!
+    mayBook: Boolean!
+    shipment: Shipment
+}
+
+extend type Query {
+    consolidation(id: ID!): Consolidation!
+    consolidationShipments(consolidationID: ID!): ConsolidationShipmentStatus!
+
+    # Avoid auto-tx since we are calling external service
+    createConsolidationShipment(consolidationID: ID!, prebook: Boolean!): CreateShipmentConsolidationResponse!
+}
+
+# Include ID to update an existing pallet
+input CreateOrUpdatePallet {
+    id: ID!
+    create: CreatePalletInput!
+}
+
+extend type Mutation {
+    createConsolidation(publicID: String!, description: String!): Consolidation!
+    updateConsolidation(
+        id: ID!,
+        input: UpdateConsolidationInput!,
+        sender: CreateAddressInput,
+        recipient: CreateAddressInput,
+        inputPallets: [CreateOrUpdatePallet!]!
+    ): Consolidation!
+}

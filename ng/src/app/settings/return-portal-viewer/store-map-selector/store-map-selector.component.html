@@ -1,0 +1,10 @@
+<div *ngIf="apiLoaded">
+	<google-map [options]="options">
+		<map-marker
+			(mapClick)="markerClicked(marker)"
+			*ngFor="let marker of markers"
+			[position]="marker.position"
+			[label]="marker.label"
+		></map-marker>
+	</google-map>
+</div>

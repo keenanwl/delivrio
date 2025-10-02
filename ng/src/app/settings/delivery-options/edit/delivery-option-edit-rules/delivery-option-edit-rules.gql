@@ -1,0 +1,159 @@
+query DeliveryOptionsSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+				region
+			}
+		}
+	}
+}
+
+query FetchDeliveryOptionRules($id: ID!) {
+	deliveryRules(where: {hasDeliveryOptionWith: {id: $id}}) {
+		edges {
+			node {
+				... DeliveryOptionRuleFrag
+			}
+		}
+	}
+	currencies {
+		edges {
+			node {
+				id
+				display
+			}
+		}
+	}
+}
+
+fragment DeliveryOptionRuleFrag on DeliveryRule {
+	id
+	name
+	price
+	currency {
+		id
+		display
+	}
+	country {
+		id
+		label
+		alpha2
+		region
+	}
+	deliveryRuleConstraintGroup {
+		id
+		deliveryRuleConstraints {
+			selectedValue {
+				dayOfWeek
+				text
+				numeric
+				numericRange
+				timeOfDay
+				ids
+				values
+			}
+			comparison
+		}
+	}
+}
+
+query FetchRuleConstraints($id: ID!) {
+	constraintGroup(id: $id) {
+		id
+		constraintLogic
+	}
+	constraints(groupID: $id) {
+		constraint {
+			comparison
+			propertyType
+			selectedValue {
+				numeric
+				numericRange
+				text
+				timeOfDay
+				dayOfWeek
+				ids
+				values
+			}
+		}
+		tags {
+			id
+			name
+		}
+	}
+}
+
+mutation ReplaceRuleCountries($ruleID: ID!, $countries: [ID!]!) {
+	replaceDeliveryRuleCountries(ruleID: $ruleID, countries: $countries) {
+		country {
+			id
+			label
+			alpha2
+			region
+		}
+	}
+}
+
+query SearchProductTags($term: String) {
+	productTags(where: {nameContainsFold: $term}) {
+		edges {
+			node {
+				id
+				name
+				createdAt
+			}
+		}
+	}
+}
+
+mutation CreateConstraintGroup($input: CreateDeliveryRuleConstraintGroupInput!) {
+	createDeliveryRuleConstraintGroup(input: $input) {
+		id
+	}
+}
+
+mutation CreateConstraintGroupConstraints(
+	$ruleID: ID!, $logicType: DeliveryRuleConstraintGroupConstraintLogic!, $input: [CreateDeliveryRuleConstraintInput]!) {
+	createDeliveryRuleConstraintGroupConstraints(deliveryRuleId: $ruleID, logicType: $logicType, input: $input) {
+		constraint {
+			id
+		}
+	}
+}
+
+mutation ReplaceConstraintGroupConstraints(
+	$deliveryGroupId: ID!, $logicType: DeliveryRuleConstraintGroupConstraintLogic!, $input: [CreateDeliveryRuleConstraintInput]!) {
+	replaceDeliveryRuleConstraintGroupConstraints(
+		deliveryGroupId: $deliveryGroupId, logicType: $logicType, input: $input) {
+		constraint {
+			id
+		}
+	}
+}
+
+mutation DeleteRule($ruleID: ID!) {
+	deleteDeliveryRule(deliveryRuleID: $ruleID) {
+		... DeliveryOptionRuleFrag
+	}
+}
+
+mutation DeleteConstraintGroupConstraints($groupID: ID!) {
+	deleteDeliveryRuleConstraintGroupConstraints(deliveryGroupId: $groupID) {
+		... DeliveryOptionRuleFrag
+	}
+}
+
+mutation createDeliveryRule($input: CreateDeliveryRuleInput!) {
+	createDeliveryRule(input: $input) {
+		id
+	}
+}
+
+mutation UpdateDeliveryRulePrice($deliveryRuleID: ID!, $val: UpdateDeliveryRuleInput!) {
+	updateDeliveryRule(deliveryRuleID: $deliveryRuleID, val: $val) {
+		... DeliveryOptionRuleFrag
+	}
+}

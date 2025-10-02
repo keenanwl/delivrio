@@ -1,0 +1,74 @@
+<mat-drawer-container class="container" *ngIf="app$|async; let app">
+	<mat-drawer #drawer class="sidenav" mode="over">
+		<app-menu-items [tenantName]="app.my_info.tenant.name">
+		</app-menu-items>
+	</mat-drawer>
+	<div role="main" class="main-container content">
+		<div class="desktop-menu-container" *ngIf="app.breakpoint !== 'mobile'">
+		  <app-menu-items [tenantName]="app.my_info.tenant.name">
+		  </app-menu-items>
+		</div>
+		<div class="right-panel">
+			<mat-toolbar class="toolbar" role="banner">
+				<mat-icon class="menu-icon" (click)="drawer.toggle()" *ngIf="app.my_ids.my_pulid.length > 0 && app.breakpoint === 'mobile'">
+					menu
+				</mat-icon>
+				<div class="search-form">
+					<button class="search-icon" matSuffix mat-icon-button aria-label="Search" >
+						<mat-icon>search</mat-icon>
+					</button>
+					<input class="field"
+						   type="text"
+						   placeholder="Search"
+						   [formControl]="searchControl"
+						   [matAutocomplete]="auto">
+					<button matSuffix mat-icon-button aria-label="Clear" (click)="resetSearch()">
+						<mat-icon>close</mat-icon>
+					</button>
+					<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectSearchResult($event.option.value)">
+						<mat-option *ngFor="let result of app.searchResults"
+									(click)="selectSearchResult(result)"
+									[value]="result">
+							<img *ngIf="!!result.imagePath"
+								 class="image-search-result"
+								 [src]="result.imagePath"
+								 height="25">
+							<span>{{result.title}}</span>
+						</mat-option>
+					</mat-autocomplete>
+				</div>
+				<span class="spacer"></span>
+				<div class="header-actions grey-fabs">
+					<button mat-mini-fab
+							[matMenuTriggerFor]="printerMenu"
+							[class.active-selected-printer]="isPrinterActive(app.selectedWorkstation?.lastPing)"
+							[matBadge]="isPrinterActive(app.selectedWorkstation?.lastPing) ? (app?.selectedWorkstationJobs | filterStatus).length : 'X'"
+							matBadgeColor="primary"
+							color="primary">
+						<mat-icon>print</mat-icon>
+					</button>
+					<mat-menu #printerMenu="matMenu">
+						<button mat-menu-item (click)="showPrinterDialog()">
+							<mat-icon>edit</mat-icon>
+							Pickup day & Workstation
+						</button>
+						<mat-divider></mat-divider>
+						<button mat-menu-item (click)="showPrintJobsDialog()">
+							<mat-icon>print_connect</mat-icon>
+							View recent print jobs
+						</button>
+					</mat-menu>
+					<!--<button color="primary" mat-mini-fab matBadge="0" matBadgePosition="after" matBadgeColor="primary">
+						<mat-icon>notifications</mat-icon>
+					</button>-->
+					<button color="primary" mat-mini-fab routerLink="account">
+						{{app.my_info.email.slice(0, 2).toUpperCase()}}
+					</button>
+				</div>
+			</mat-toolbar>
+			<div class="content-container">
+			  <router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</mat-drawer-container>

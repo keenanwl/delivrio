@@ -1,0 +1,126 @@
+query FetchConnection($id: ID!) {
+	connection(id: $id) {
+		name
+		convertCurrency
+		autoPrintParcelSlip
+		currency {
+			id
+			display
+		}
+		dispatchAutomatically
+		syncOrders
+		syncProducts
+		fulfillAutomatically
+		packingSlipTemplate {
+			id
+		}
+		sellerLocation {
+			id
+		}
+		senderLocation {
+			id
+		}
+		returnLocation {
+			id
+		}
+		pickupLocation {
+			id
+		}
+		connectionShopify {
+			storeURL
+			apiKey
+			rateIntegration
+			syncFrom
+			filterTags
+		}
+		defaultDeliveryOption {
+			...ConnectionDeliveryOption
+		}
+	}
+	locations {
+		edges {
+			node {
+				...Location
+			}
+		}
+	}
+	deliveryOptions(where: {hasConnectionWith: {id: $id}}) {
+		edges {
+			node {
+				...ConnectionDeliveryOption
+			}
+		}
+	}
+	documents(where: {mergeType: PackingSlip}) {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	currencies {
+		edges {
+			node {
+				id
+				display
+			}
+		}
+	}
+}
+
+fragment ConnectionDeliveryOption on DeliveryOption {
+	id
+	name
+	description
+}
+
+fragment Location on Location {
+	id
+	name
+	address {
+		email
+		firstName
+		lastName
+		phoneNumber
+		vatNumber
+		addressOne
+		addressTwo
+		zip
+		city
+		country {
+			id
+			label
+			alpha2
+		}
+		company
+	}
+	locationTags {
+		id
+		internalID
+	}
+}
+
+query ConnectionBrands {
+	connectionBrands {
+		edges {
+			node {
+				id
+				label
+				logoURL
+			}
+		}
+	}
+}
+
+mutation CreateConnectionShopify($input: CreateConnectionShopifyInput!, $inputConnection: CreateConnectionInput!) {
+	createShopifyConnection(input: $input, inputConnection: $inputConnection) {
+		id
+	}
+}
+
+mutation UpdateConnectionShopify($id: ID!, $input: UpdateConnectionShopifyInput!, $inputConnection: UpdateConnectionInput!) {
+	updateShopifyConnection(id: $id, input: $input, inputConnection: $inputConnection) {
+		id
+	}
+}

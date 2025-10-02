@@ -1,0 +1,40 @@
+query ListCarriers {
+  carriers {
+	  edges {
+		  node {
+			  id
+			  name
+			  carrierBrand {
+				  id
+				  internalID
+				  label
+				  logoURL
+				  backgroundColor
+				  textColor
+			  }
+		  }
+	  }
+  }
+}
+
+query CarrierBrands {
+	carrierBrands {
+		edges {
+			node {
+				id
+				label
+				internalID
+				logoURL
+			}
+		}
+	}
+}
+
+mutation CreateCarrierAgreement($name: String!, $carrierBrand: ID!) {
+	createCarrierAgreement(name: $name, carrierBrand: $carrierBrand) {
+		id
+		carrier
+	}
+}
+
+scalar ID

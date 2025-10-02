@@ -1,0 +1,49 @@
+@use '@angular/material' as mat;
+@use './app/styles/delivrio-theme' as theme;
+@include mat.core();
+
+:root {
+	--default-font: 'Inter', serif;
+	--primary-color: #065bb1;
+	--primary-color-darker: #075cb3;
+	--primary-color-lighter: #cee6ff;
+	--secondary-color: #ff6917;
+	--secondary-color-darker: #e65f15;
+	--secondary-color-lighter: #ff965d;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url(./assets/font-inter.ttf) format('truetype');
+}
+
+$typography: mat.m2-define-typography-config(
+	$font-family: var(--default-font),
+);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-theme: mat.m2-define-light-theme((
+	color: (
+		primary: theme.primaryPalette(#000000),
+		accent: theme.accent(),
+		warn: theme.warn(),
+	),
+	typography: $typography,
+	density: 0
+));
+
+//@include mat.all-component-themes($my-theme);
+@include mat.fab-theme($my-theme);
+@include mat.checkbox-theme($my-theme);
+@include mat.dialog-theme($my-theme);
+@include mat.dialog-theme($my-theme);
+@include mat.input-theme($my-theme);
+@include mat.progress-bar-theme($my-theme);
+@include mat.button-theme($my-theme);
+@include mat.icon-button-theme($my-theme);
+@include mat.ripple-theme($my-theme);
+@include mat.tooltip-theme($my-theme);
+@include mat.select-theme($my-theme);
+@include mat.ripple();
+// Undocumented?
+@include mat.form-field-theme($my-theme);

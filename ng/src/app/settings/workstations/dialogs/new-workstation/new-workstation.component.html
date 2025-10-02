@@ -1,0 +1,51 @@
+<ng-container *ngIf="workstations$|async; let cl">
+	<div class="container">
+		<div class="header">
+			<h4>Add workstation</h4>
+			<mat-icon matTooltip="A workstation is a collection of 1 or more printers connected to a single computer">
+				help_outline
+			</mat-icon>
+		</div>
+
+		<ng-container *ngIf="!showToken">
+			<mat-form-field class="workstation-name">
+				<mat-label>Workstation name</mat-label>
+				<input #name matInput/>
+			</mat-form-field>
+			<!-- <h4>Device type</h4>
+			 We don't need to differentiate; app not active
+			<mat-button-toggle-group #deviceType="matButtonToggleGroup" [value]="'label_station'">
+				<mat-button-toggle value="label_station">Label workstation</mat-button-toggle>
+				<mat-button-toggle value="app">Phone app</mat-button-toggle>
+			</mat-button-toggle-group>-->
+			<button class="button-create" mat-raised-button color="primary" (click)="next(name.value)">
+				<mat-icon>done</mat-icon>
+				Create
+			</button>
+		</ng-container>
+
+		<ng-container *ngIf="showToken">
+			<p>Copy & paste this token into the field in your print client.</p>
+			<p>Or scan the QR code with the DELIVRIO mobile app.</p>
+			<p>This token is only visible once.</p>
+			<div class="token-display">
+				{{cl.registrationToken}}
+			</div>
+			<!-- Extra div to prevent flex expansion -->
+			<div class="copy-container">
+				<button mat-stroked-button [cdkCopyToClipboard]="cl.registrationToken">
+					<mat-icon>copy_all</mat-icon>
+					Copy to clipboard
+				</button>
+			</div>
+			<div class="token-img-display">
+				<img [src]="'data:image/png;base64,' + cl.registrationTokenImg" />
+			</div>
+			<button class="button-close" mat-raised-button color="primary" (click)="close()">
+				<mat-icon>close</mat-icon>
+				Close
+			</button>
+		</ng-container>
+
+	</div>
+</ng-container>

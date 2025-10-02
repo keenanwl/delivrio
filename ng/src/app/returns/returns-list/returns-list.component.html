@@ -1,0 +1,60 @@
+<div *ngIf="returnsList$|async; let state" class="container">
+	<div class="page-header">
+		<h3>Returns</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="addNewReturn()">
+			<mat-icon>add</mat-icon>
+			Create return
+		</button>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<table mat-table [dataSource]="state.list" class="table">
+		<ng-container matColumnDef="orderPublicID">
+			<th mat-header-cell *matHeaderCellDef>Order no.</th>
+			<td mat-cell *matCellDef="let element">
+				<div class="truncate">{{element.order.orderPublicID}}</div>
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>Name</th>
+			<td mat-cell *matCellDef="let element">{{element.recipient.firstName}} {{element.recipient.lastName}}</td>
+		</ng-container>
+		<ng-container matColumnDef="createdAt">
+			<th mat-header-cell *matHeaderCellDef>Created</th>
+			<td mat-cell *matCellDef="let element"> {{element.createdAt | date:"mediumDate"}} </td>
+		</ng-container>
+		<ng-container matColumnDef="returnColliStatus">
+			<th mat-header-cell *matHeaderCellDef>Status</th>
+			<td mat-cell *matCellDef="let element">
+				<mat-chip-row [style.background-color]="'#000000'" highlighted>
+					{{element.status}}
+				</mat-chip-row>
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="countries">
+			<th mat-header-cell *matHeaderCellDef>Countries</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.recipient.country.alpha2}}
+				->
+				{{element.sender.country.alpha2}}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef>Actions</th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-icon-button (click)="confirmDelete($event, element.id)">
+					<mat-icon>delete</mat-icon>
+				</button>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+		<tr mat-row class="row-container" *matRowDef="let row; columns: displayedColumns;" (click)="editReturn(row.order.id)"></tr>
+	</table>
+
+</div>

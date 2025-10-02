@@ -1,0 +1,76 @@
+<div class="page-header">
+	<h3>Edit USPS carrier agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="save()">
+		<mat-icon>done</mat-icon>
+		Save
+	</button>
+</div>
+
+<app-dvo-card *ngIf="carrierEditUSPS$|async; let state">
+	<form #form
+		  [formGroup]="editForm"
+		  ngxsForm="carrierEditUSPS.carrierEditUSPSForm"
+		  ngxsFormErrors="carrierEditUSPS.carrierEditUSPSForm"
+		  class="column-container">
+		<div class="row right-margin">
+			<ng-container  formGroupName="carrier">
+				<mat-form-field>
+					<mat-label>Name</mat-label>
+					<input formControlName="name" matInput/>
+					<mat-error *ngIf="editForm.controls.carrier.controls.name.invalid">
+						{{editForm.controls.carrier.controls.name.errors}}
+					</mat-error>
+				</mat-form-field>
+			</ng-container>
+			<mat-slide-toggle color="primary" formControlName="isTestAPI">Use test API (api-cat.usps.com)</mat-slide-toggle>
+		</div>
+		<div class="row right-margin">
+			<mat-form-field>
+				<mat-label>EPS account number</mat-label>
+				<input formControlName="epsAccountNumber" matInput/>
+				<mat-error *ngIf="editForm.controls.epsAccountNumber.invalid">
+					{{editForm.controls.epsAccountNumber.errors}}
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field>
+				<mat-label>Customer Registration Identifier (CRID)</mat-label>
+				<input formControlName="crid" matInput/>
+				<mat-error *ngIf="editForm.controls.crid.invalid">
+					{{editForm.controls.crid.errors}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Mailer Identifier (MID)</mat-label>
+				<input formControlName="mid" matInput/>
+				<mat-error *ngIf="editForm.controls.mid.invalid">
+					{{editForm.controls.mid.errors}}
+				</mat-error>
+			</mat-form-field>
+		</div>
+		<div class="row right-margin">
+			<mat-form-field>
+				<mat-label>App consumer key</mat-label>
+				<input formControlName="consumerKey" matInput/>
+				<mat-error *ngIf="editForm.controls.consumerKey.invalid">
+					{{editForm.controls.consumerKey.errors}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>App consumer secret</mat-label>
+				<input formControlName="consumerSecret" matInput/>
+				<mat-error *ngIf="editForm.controls.consumerSecret.invalid">
+					{{editForm.controls.consumerSecret.errors}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Manifest Mailer Identifier (ManifestMID)</mat-label>
+				<input formControlName="manifestMid" matInput/>
+				<mat-error *ngIf="editForm.controls.mid.invalid">
+					{{editForm.controls.mid.errors}}
+				</mat-error>
+			</mat-form-field>
+		</div>
+	</form>
+</app-dvo-card>

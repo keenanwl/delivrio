@@ -1,0 +1,87 @@
+query FetchReturnsList {
+	returnCollis(where: {not: {status: Deleted}}) {
+		edges {
+			node {
+				id
+				order {
+					id
+					orderPublicID
+				}
+				status
+				createdAt
+				recipient {
+					firstName
+					lastName
+					country {
+						alpha2
+					}
+				}
+				sender {
+					country {
+						alpha2
+					}
+				}
+			}
+		}
+	}
+}
+
+query FetchReturnDeliveryOptions($returnColliIDs: [ID!]!) {
+	returnDeliveryOptions(returnColliIDs: $returnColliIDs) {
+		deliveryOptionID
+		name
+		description
+		warning
+	}
+}
+
+mutation CreateReturnOrder($orderID: ID!, $orderLines: [MutateReturnItems!]!, $portalID: ID!) {
+	createReturnOrder(orderID: $orderID, orderLines: $orderLines, portalID: $portalID)
+}
+
+mutation MarkReturnDeleted($returnColliID: ID!) {
+	markColliDeleted(returnColliID: $returnColliID)
+}
+
+query ReturnAddDeliveryOption($deliveryOptions: [MutateReturnDeliveryOption!]!) {
+	addReturnDeliveryOption(deliveryOptions: $deliveryOptions)
+}
+
+query SearchOrders($term: String!) {
+	search(term: $term, filter: [ORDER]) {
+		id
+		entity
+		title
+		imagePath
+	}
+}
+
+query SearchOrderLines($order: ID!) {
+	order(id: $order) {
+		colli {
+			id
+			orderLines {
+				id
+				units
+				unitPrice
+				currency {
+					display
+				}
+				productVariant {
+					description
+					productImage {
+						url
+					}
+					product {
+						title
+					}
+				}
+			}
+		}
+	}
+	returnClaimsByOrder(orderID: $order) {
+		id
+		name
+		description
+	}
+}

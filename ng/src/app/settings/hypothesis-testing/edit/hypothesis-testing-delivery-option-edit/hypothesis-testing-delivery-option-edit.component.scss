@@ -1,0 +1,31 @@
+.header-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+mat-form-field {
+	min-width: 450px;
+}
+.row {
+	display: flex;
+	.column {
+		padding-right: 20px;
+		flex-basis: 0;
+		margin: 10px;
+	}
+	mat-slide-toggle {
+		margin-top: 13px;
+	}
+}
+.all-delivery-options, .control-group, .test-group, .drop-zone {
+	min-width: 350px;
+}
+.drop-zone {
+	min-height: 450px;
+	border: 1px solid #cccccc;
+	margin-top: 10px;
+}
+.get-started {
+	padding-top: 15px;
+	text-align: center;
+}

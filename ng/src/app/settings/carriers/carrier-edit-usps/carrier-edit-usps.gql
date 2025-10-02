@@ -1,0 +1,20 @@
+query FetchCarrierUSPS($carrierID: ID!) {
+	carrierUSPS(id: $carrierID) {
+		carrier {
+			name
+		}
+		isTestAPI
+		epsAccountNumber
+		mid
+		manifestMid
+		consumerKey
+		consumerSecret
+		crid
+	}
+}
+
+mutation UpdateCarrierUSPS($id: ID!, $name: String!, $input: UpdateCarrierUSPSInput!) {
+	updateCarrierAgreementUSPS(id: $id, name: $name, input: $input) {
+		id
+	}
+}

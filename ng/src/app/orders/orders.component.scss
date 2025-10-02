@@ -1,0 +1,64 @@
+.container {
+	background: #e4e4e4;
+	height: 100%;
+	.row-container {
+		cursor: pointer;
+	}
+
+	.inset-container {
+		padding: 20px;
+		.header-row {
+			display: flex;
+			align-items: center;
+			button {
+				margin-left: 10px;
+				border-radius: 20px;
+			}
+			.filter-form {
+				display: flex;
+				align-items: center;
+				margin-left: 5px;
+				padding-left: 0;
+				padding-right: 5px;
+				background: #FFFFFF;
+				border: 1px solid #FFFFFF;
+				border-radius: 50px;
+				height: 35px;
+				.filter-icon {
+					color: #808080;
+				}
+				.field, .field:focus {
+					background: #FFFFFF;
+					height: 30px;
+					width: 250px;
+					border: 0;
+					outline: none;
+				}
+			}
+		}
+		.progress-bar {
+			margin-top: 10px;
+			height: 5px;
+		}
+		table {
+			width: 100%;
+			box-shadow: none;
+			border-radius: 10px 10px 0 0;
+			overflow: hidden;
+		}
+		mat-paginator {
+			width: 100%;
+			box-shadow: none;
+			border-radius: 0 0 10px 10px;
+			overflow: hidden;
+		}
+	}
+}
+
+.header-more-menu {
+	background: white;
+	border: 1px solid #CCC;
+}
+.total {
+	text-align: right;
+}

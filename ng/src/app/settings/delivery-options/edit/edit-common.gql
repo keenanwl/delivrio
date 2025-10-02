@@ -1,0 +1,34 @@
+# Shared GQL
+# Make this a part of the parent query, then pass the result to child component
+
+fragment CarrierServiceItem on CarrierService {
+	id
+	label
+	return
+}
+
+fragment BaseDeliveryOption on DeliveryOption {
+	carrierService {
+		id
+	}
+	defaultPackaging {
+		id
+		name
+	}
+	name
+	description
+	clickCollect
+	overrideReturnAddress
+	overrideSenderAddress
+	hideDeliveryOption
+	clickOptionDisplayCount
+	deliveryEstimateFrom
+	deliveryEstimateTo
+	webshipperIntegration
+	webshipperID
+	shipmondoIntegration
+	shipmondoDeliveryOption
+	customsEnabled
+	customsSigner
+	hideIfCompanyEmpty
+}

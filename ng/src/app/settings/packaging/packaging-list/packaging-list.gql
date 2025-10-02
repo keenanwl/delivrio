@@ -1,0 +1,60 @@
+
+query FetchPackagingList {
+	packagingFiltered(showArchived: false) {
+		...PackagingListItem
+	}
+	carrierBrands {
+		edges {
+			node {
+				id
+				internalID
+				label
+			}
+		}
+	}
+	packagingUSPSRateIndicators {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	packagingUSPSProcessingCategories {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+fragment PackagingListItem on Packaging {
+	id
+	name
+	lengthCm
+	heightCm
+	widthCm
+	carrierBrand {
+		id
+		internalID
+		label
+	}
+}
+
+mutation CreatePackaging($input: CreatePackagingInput!, $inputPackagingUSPS: CreatePackagingUSPSInput, $inputPackagingDF: CreatePackagingDFInput) {
+	createPackaging(input: $input, inputPackagingUSPS: $inputPackagingUSPS, inputPackagingDF: $inputPackagingDF) {
+		...PackagingListItem
+	}
+}
+
+mutation UpdatePackaging($input: UpdatePackagingInput!) {
+	updatePackaging(input: $input) {
+		...PackagingListItem
+	}
+}
+
+mutation ArchivePackaging($id: ID!) {
+	archivePackaging(id: $id)
+}

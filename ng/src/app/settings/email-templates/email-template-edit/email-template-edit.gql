@@ -1,0 +1,18 @@
+query FetchEmailTemplate($id: ID!) {
+	emailTemplate(id: $id) {
+		name
+		subject
+		htmlTemplate
+		mergeType
+	}
+}
+
+mutation UpdateEmailTemplate($id: ID!, $input: UpdateEmailTemplateInput!) {
+	updateEmailTemplate(id: $id, input: $input) {
+		id
+	}
+}
+
+query FireTestEmail($id: ID!, $toEmail: String!) {
+	sendTestEmail(id: $id, toEmail: $toEmail)
+}

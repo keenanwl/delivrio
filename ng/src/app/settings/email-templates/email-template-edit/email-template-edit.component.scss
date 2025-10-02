@@ -1,0 +1,38 @@
+mat-form-field {
+	width: 100%;
+}
+.template-value {
+	min-height: 600px;
+}
+.row {
+	display: flex;
+	.merge-variables, .editor-fields {
+		margin-right: 10px;
+	}
+	.merge-variables {
+		width: 400px;
+	}
+	p {
+		margin: 5px;
+	}
+}
+.merge-variable-list, .merge-variable-order-line {
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	.list-item {
+		padding-bottom: 5px;
+	}
+	.used {
+		font-weight: bold;
+	}
+}
+mat-divider {
+	padding: 5px;
+}
+.indent {
+	padding-left: 20px;
+}
+.editor-fields {
+	width: 100%;
+}

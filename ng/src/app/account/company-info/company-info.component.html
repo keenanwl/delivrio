@@ -1,0 +1,184 @@
+<div *ngIf="companyInfo$|async; let companyInfo">
+	<div class="page-header">
+		<h3>Company info</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="onSubmit()">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<form [formGroup]="companyInfoForm" ngxsForm="companyInfo.companyInfoForm">
+		<app-dvo-card>
+			<div class="column-container">
+				<div class="column">
+					<mat-form-field class="row">
+						<mat-label>Name</mat-label>
+						<input formControlName="name" matInput />
+						<mat-error *ngIf="companyInfoForm.controls.name.invalid">
+							{{companyInfoForm.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+					<mat-form-field class="row">
+						<mat-label>Invoice reference</mat-label>
+						<input formControlName="invoiceReference" matInput />
+						<mat-error *ngIf="companyInfoForm.controls.invoiceReference.invalid">
+							{{companyInfoForm.controls.invoiceReference.errors}}
+						</mat-error>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Default user language</mat-label>
+						<mat-select formControlName="defaultLanguage"
+									[compareWith]="languageComparisonFunction"
+									[value]="companyInfo.languages[0]">
+							<mat-option *ngFor="let lang of companyInfo.languages" [value]="lang">
+								{{lang.label}}
+							</mat-option>
+						</mat-select>
+						<mat-error *ngIf="companyInfoForm.controls.defaultLanguage.invalid">
+							{{companyInfoForm.controls.defaultLanguage.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<div class="column">
+					<div formGroupName="companyAddress" class="column">
+						<mat-form-field class="row">
+							<mat-label>Address 1</mat-label>
+							<input formControlName="addressOne" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.companyAddress.controls.addressOne.invalid">
+								{{companyInfoForm.controls.companyAddress.controls.addressOne.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>Address 2</mat-label>
+							<input formControlName="addressTwo" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.companyAddress.controls.addressTwo.invalid">
+								{{companyInfoForm.controls.companyAddress.controls.addressTwo.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>City</mat-label>
+							<input formControlName="city" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.companyAddress.controls.city.invalid">
+								{{companyInfoForm.controls.companyAddress.controls.city.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>State</mat-label>
+							<input formControlName="state" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.companyAddress.controls.state.invalid">
+								{{companyInfoForm.controls.companyAddress.controls.state.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>Zip code</mat-label>
+							<input formControlName="zip" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.companyAddress.controls.zip.invalid">
+								{{companyInfoForm.controls.companyAddress.controls.zip.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="country-field row">
+							<mat-label>Country</mat-label>
+							<mat-chip-grid #chipList>
+								<mat-chip-row color="primary">
+									{{companyInfoForm.controls.companyAddress.controls.country.controls.label.value}}
+									({{companyInfoForm.controls.companyAddress.controls.country.controls.alpha2.value}})
+								</mat-chip-row>
+							</mat-chip-grid>
+							<input placeholder="Type to search..."
+								   #countriesInput
+								   [matAutocomplete]="countriesAuto"
+								   [matChipInputFor]="chipList"
+								   (keyup)="searchCountries(countriesInput.value)">
+							<mat-autocomplete #countriesAuto="matAutocomplete"
+											  (optionSelected)="countriesInput.value = ''; changeCountry($event.option.value)">
+								<mat-option *ngFor="let country of companyInfo.searchCountries" [value]="country">
+									{{ country.label }} ({{ country.alpha2 }})
+								</mat-option>
+							</mat-autocomplete>
+
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</app-dvo-card>
+		<h3>Billing contact</h3>
+		<app-dvo-card>
+			<div formGroupName="billingContact">
+				<div class="column-container">
+					<div class="column">
+						<mat-form-field class="row">
+							<mat-label>Name</mat-label>
+							<input formControlName="name" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.billingContact.controls.name.invalid">
+								{{companyInfoForm.controls.billingContact.controls.name.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>Phone number</mat-label>
+							<input formControlName="phoneNumber" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.billingContact.controls.phoneNumber.invalid">
+								{{companyInfoForm.controls.billingContact.controls.phoneNumber.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="column">
+						<mat-form-field class="row">
+							<mat-label>Surname</mat-label>
+							<input formControlName="surname" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.billingContact.controls.surname.invalid">
+								{{companyInfoForm.controls.billingContact.controls.surname.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>Email</mat-label>
+							<input formControlName="email" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.billingContact.controls.email.invalid">
+								{{companyInfoForm.controls.billingContact.controls.email.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</app-dvo-card>
+		<h3>Administrative contact</h3>
+		<app-dvo-card>
+			<div formGroupName="adminContact">
+				<div class="column-container">
+					<div class="column">
+						<mat-form-field class="row">
+							<mat-label>Name</mat-label>
+							<input formControlName="name" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.adminContact.controls.name.invalid">
+								{{companyInfoForm.controls.adminContact.controls.name.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>Phone number</mat-label>
+							<input formControlName="phoneNumber" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.adminContact.controls.phoneNumber.invalid">
+								{{companyInfoForm.controls.adminContact.controls.phoneNumber.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="column">
+						<mat-form-field class="row">
+							<mat-label>Surname</mat-label>
+							<input formControlName="surname" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.adminContact.controls.surname.invalid">
+								{{companyInfoForm.controls.adminContact.controls.surname.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field class="row">
+							<mat-label>Email</mat-label>
+							<input formControlName="email" matInput />
+							<mat-error *ngIf="companyInfoForm.controls.adminContact.controls.email.invalid">
+								{{companyInfoForm.controls.adminContact.controls.email.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</app-dvo-card>
+	</form>
+</div>

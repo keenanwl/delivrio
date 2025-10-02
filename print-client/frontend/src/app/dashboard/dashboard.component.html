@@ -1,0 +1,86 @@
+<div class="container" *ngIf="dashboard$|async; let dash">
+	<span class="spacer"></span>
+	<div class="form-container">
+		<div class="header">
+			<h3>Dashboard</h3>
+			<span class="spacer"></span>
+			<a routerLink="/settings">
+				<button mat-icon-button>
+					<mat-icon>settings</mat-icon>
+				</button>
+			</a>
+		</div>
+		<h3>Pending print jobs ({{dash.jobs.length}})</h3>
+		<mat-list>
+			<mat-divider></mat-divider>
+			<ng-container *ngFor="let job of dash.jobs; index as index">
+				<mat-list-item>
+					<div class="job-row">
+						({{index+1}}) {{job.printer_name}} {{job.file_extension}} {{job.created | relativeTime:ticker}}
+						<span class="spacer"></span>
+						<button mat-icon-button
+								(click)="cancelJob(job.id)"
+								matTooltip="Cancel print job"
+								matTooltipPosition="below">
+							<mat-icon>cancel_outline</mat-icon>
+						</button>
+					</div>
+				</mat-list-item>
+				<mat-divider></mat-divider>
+			</ng-container>
+			<mat-list-item *ngIf="dash.jobs.length === 0">
+				No pending print jobs
+			</mat-list-item>
+		</mat-list>
+		<h3>Recent print jobs ({{dash.recentJobs.length}})</h3>
+		<mat-list>
+			<mat-divider></mat-divider>
+			<ng-container *ngFor="let job of dash.recentJobs; index as index">
+				<mat-list-item>
+					<div class="job-row">
+						<div class="row-column-one">
+							<mat-chip-listbox>
+								<mat-chip [style.background-color]="job.status | printJobStatusColorPipe" highlighted>
+									{{job.status}}
+								</mat-chip>
+							</mat-chip-listbox>
+							<div class="cancel-messages">
+								<mat-icon *ngIf="job.status === PrintJobStatus.Canceled"
+										  [matTooltip]="job.messages.join(' ') || 'Unknown reason'">
+									info
+								</mat-icon>
+							</div>
+						</div>
+						<span class="spacer">{{job.printer_name}} {{job.file_extension}}</span>
+						<span [matTooltip]="(job.created | date:'medium') || ''">{{job.created | relativeTime:ticker}}</span>
+					</div>
+				</mat-list-item>
+				<mat-divider></mat-divider>
+			</ng-container>
+			<mat-list-item *ngIf="dash.recentJobs.length === 0">
+				No recent print jobs
+			</mat-list-item>
+		</mat-list>
+		<h3>Recent scans</h3>
+		<mat-list>
+			<mat-divider></mat-divider>
+			<ng-container *ngFor="let scan of dash.recentScans; index as index">
+				<mat-list-item>
+					<div class="job-row">
+						({{index+1}}) {{scan.code}} {{scan.result}}
+						<span class="spacer"></span>
+						{{scan.created | relativeTime:ticker}}
+					</div>
+				</mat-list-item>
+				<mat-divider></mat-divider>
+			</ng-container>
+			<mat-list-item *ngIf="dash.recentScans.length === 0">
+				No recent scans
+			</mat-list-item>
+		</mat-list>
+		<button mat-icon-button (click)="refresh()">
+			<mat-icon>refresh</mat-icon>
+		</button>
+	</div>
+	<span class="spacer"></span>
+</div>

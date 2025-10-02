@@ -1,0 +1,38 @@
+.container {
+	width: 350px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	p {
+		padding-top: 10px;
+	}
+	.token-name {
+		font-weight: bold;
+	}
+	.token-overview {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		.row {
+			padding-bottom: 10px;
+			display: flex;
+			.value {
+				width: 200px;
+				text-align: left;
+				font-weight: bold;
+			}
+			.name {
+				text-align: right;
+				width: 100px;
+			}
+		}
+	}
+}
+.action-row {
+	padding-top: 10px;
+	display: flex;
+	justify-content: center;
+	button {
+		margin-left: 7px;
+	}
+}

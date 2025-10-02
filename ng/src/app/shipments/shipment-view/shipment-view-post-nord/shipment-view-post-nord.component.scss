@@ -1,0 +1,18 @@
+.column {
+	margin: 20px;
+	max-width: 550px;
+	display: flex;
+	flex-direction: column;
+	.row {
+		display: flex;
+		margin: 7px;
+		.title {
+			width: 150px;
+			text-align: right;
+			font-weight: 600;
+		}
+		.value {
+			margin-left: 7px;
+		}
+	}
+}

@@ -1,0 +1,136 @@
+<div class="container" *ngIf="state$|async; let state">
+	<div class="portal" *ngIf="state.step === 0">
+		<h1>{{page1Title}}</h1>
+		<p>{{page1Help}}</p>
+		<div class="form">
+			<div class="loading-bar">
+				<mat-progress-bar color="primary" mode="indeterminate"
+								  *ngIf="state.loading" />
+			</div>
+			<mat-form-field>
+				<mat-label>Order ID</mat-label>
+				<input required [disabled]="state.loading" #orderID matInput value="#1035" />
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Email</mat-label>
+				<input required [disabled]="state.loading" #email matInput value="k.linsly@gmail.com"/>
+			</mat-form-field>
+			<button class="next-button mdc-theme--primary"
+					color="primary"
+					[disabled]="state.loading"
+					mat-fab
+					extended
+					(click)="fetchView(email.value, orderID.value)">
+				Next
+				<mat-icon svgIcon="chevron_right"></mat-icon>
+			</button>
+		</div>
+	</div>
+	<div class="portal" *ngIf="state.step === 1">
+		<div class="header-wrapper">
+			<h1>{{page2Title}}</h1>
+			<div class="loading-bar">
+				<mat-progress-bar color="primary" mode="indeterminate"
+								  *ngIf="state.loading" />
+			</div>
+			<p class="selected-line">
+				<span class="bold">{{page2HelpSelected}}:</span>
+				{{totalCount(state.selectedItems)}} {{totalCount(state.selectedItems) === 1 ? page2HelpSelectedItem : page2HelpSelectedItems}}
+			</p>
+		</div>
+		<p class="order-detail-line">
+			<span class="bold">Order date:</span>
+			{{state.itemsView.order_date | date:"mediumDate"}}
+		</p>
+		<p class="order-detail-line">
+			<span class="bold">Order ID:</span>
+			{{state.itemsView.order_id}}
+		</p>
+		<div class="package-container">
+			<app-return-portal-select-items
+				(toggleEvt)="toggle($event)"
+				(incrementEvt)="increment($event)"
+				(decrementEvt)="decrement($event)"
+				(reasonChangedEvt)="reasonChanged($event)"
+				[returnOrder]="state.itemsView"
+				[selectedItems]="state.selectedItems"></app-return-portal-select-items>
+		</div>
+		<div class="comment-container">
+			<mat-form-field>
+				<mat-label>Comment</mat-label>
+				<textarea [formControl]="cmtFrmCtrl" matInput></textarea>
+			</mat-form-field>
+		</div>
+		<div class="next-container" [matTooltip]="'Please select at least one item to return before continuing'"
+			 [matTooltipDisabled]="mayContinue(state.selectedItems)">
+			<button class="next-button"
+					color="primary"
+					(click)="createOrder()"
+					[disabled]="state.loading || !mayContinue(state.selectedItems)"
+					mat-fab
+					extended>
+				Next
+				<mat-icon svgIcon="chevron_right"></mat-icon>
+			</button>
+		</div>
+	</div>
+	<div class="portal" *ngIf="state.step === 2">
+		<div class="header-wrapper">
+			<h1>{{page3Title}}</h1>
+			<div class="loading-bar">
+				<mat-progress-bar color="primary" mode="indeterminate"
+								  *ngIf="state.loading" />
+			</div>
+			<div class="colli-container" *ngFor="let colli of state.returnCollis; let packageIndex = index; trackBy: trackByIndex">
+				<h2 *ngIf="state.returnCollis.length > 1">
+					Package {{packageIndex + 1}}
+				</h2>
+				<div class="delivery-option-container" >
+					<div class="delivery-option"
+						 matRipple
+						 (click)="selectDeliveryOption(colli.return_colli_id, opt.delivery_option_id)"
+						 [class.selected]="opt.delivery_option_id === colli.selected_delivery_option_id"
+						 *ngFor="let opt of colli.available_delivery_options; trackBy: trackByIndex">
+						<img [ngSrc]="opt.logo_url" height="200" width="200"/>
+						<h3>{{opt.name}}</h3>
+						<p>{{opt.description}}</p>
+						<span class="price">
+							{{opt.formatted_price}}
+						</span>
+					</div>
+					<!--<div class="delivery-option"
+						 matRipple>
+						<img ngSrc="/static/images/tote.png" width="200" height="200"/>
+						<h3>Return in-store</h3>
+						<p>Samsøe Samsøe<br />{{address}}</p>
+						<p (click)="showMaps()" class="change-store">Change</p>
+						<span class="price">
+							FREE + Get a free tote
+						</span>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		<div class="next-container"
+			 [matTooltipDisabled]="!state.loading && mayContinueDeliveryOptions(state.returnCollis)"
+			 [matTooltip]="'Please select a delivery option to continue'">
+			<button class="next-button"
+					color="primary"
+					(click)="submitDeliveryOptions()"
+					[disabled]="state.loading || !mayContinueDeliveryOptions(state.returnCollis)"
+					mat-fab
+					extended>
+				Next
+				<mat-icon svgIcon="chevron_right"></mat-icon>
+			</button>
+		</div>
+	</div>
+	<div class="portal" *ngIf="state.step === 3">
+		<div class="success-page">
+			<h1>{{page4Title}}</h1>
+			<p>{{page4Help}}</p>
+			<mat-icon svgIcon="done"></mat-icon>
+		</div>
+
+	</div>
+</div>

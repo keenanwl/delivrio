@@ -1,0 +1,22 @@
+.time-selector {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: center;
+	.column {
+		display: flex;
+		flex-direction: column;
+	}
+}
+.action-buttons {
+	margin-top: 15px;
+	button {
+		margin-right: 7px;
+	}
+}
+.container {
+	width: 400px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}

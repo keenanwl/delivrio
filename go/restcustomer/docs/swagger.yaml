@@ -1,0 +1,816 @@
+components:
+  schemas:
+    restcustomer.Address:
+      description: SenderAddress is the address of the sender. If omitted, the connection's
+        "sender" address will be used.
+      properties:
+        city:
+          type: string
+        company:
+          type: string
+        country:
+          description: |-
+            Alpha2
+            example: "DK" | "DE" | "FR"
+          type: string
+        email:
+          description: Some carriers require depending on service.
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone_number:
+          description: |-
+            Include country code.
+            Some carriers require depending on service.
+          type: string
+        postal_code:
+          type: string
+        state:
+          type: string
+        street_one:
+          type: string
+        street_two:
+          type: string
+        vat_number:
+          type: string
+      required:
+      - city
+      - country
+      - email
+      - first_name
+      - last_name
+      - phone_number
+      - postal_code
+      - street_one
+      - street_two
+      type: object
+    restcustomer.Colli:
+      properties:
+        delivery_address:
+          $ref: '#/components/schemas/restcustomer.Address'
+        order_lines:
+          description: May contain duplicate product variants at different prices/currencies
+          items:
+            $ref: '#/components/schemas/restcustomer.OrderLine'
+          type: array
+          uniqueItems: false
+        sender_address:
+          $ref: '#/components/schemas/restcustomer.Address'
+        status:
+          type: string
+      type: object
+    restcustomer.ColliRequest:
+      properties:
+        order_line_external_ids:
+          description: |-
+            List of external order lines IDs to be included in this parcel.
+            For instance, allows Shopify order line IDs lookup.
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.ErrorOrderLines:
+      properties:
+        message:
+          type: string
+        order_line_external_id:
+          type: string
+      type: object
+    restcustomer.GeneralError:
+      properties:
+        message:
+          description: Error description
+          type: string
+        status:
+          description: HTTP Status of the error
+          type: integer
+      type: object
+    restcustomer.ImageCreate:
+      properties:
+        external_id:
+          description: |-
+            ID from system external to DELIVRIO
+            example: 99999911111888888222222
+          type: string
+        url:
+          description: |-
+            The full URL to the image hosted on an external system
+            example: https://cdn.example.com/a/image/path/12345.jpg
+          type: string
+        variant_indexes:
+          description: |-
+            The array indexes of the variants this image should be associated with.
+            example: [1, 5, 9]
+          items:
+            type: integer
+          type: array
+          uniqueItems: false
+      required:
+      - external_id
+      - url
+      type: object
+    restcustomer.Order:
+      properties:
+        colli:
+          description: An order may contain >= 1 colli
+          items:
+            $ref: '#/components/schemas/restcustomer.Colli'
+          type: array
+          uniqueItems: false
+        comment_external:
+          description: Comment may be included in packaging or messing to end-customer
+          type: string
+        comment_internal:
+          description: Comment only visible within DELIVRIO
+          type: string
+        connection_name:
+          description: The name of the connection. Will fail if connection name duplicated
+            in DELIVRIO.
+          type: string
+        external_id:
+          description: |-
+            ID from system external to DELIVRIO
+            example: 99999911111888888222222
+          type: string
+        id:
+          description: Internal DELIVRIO ID
+          type: string
+        public_id:
+          description: |-
+            Visible to end-customer. Must be unique.
+            example: SH123456789
+          type: string
+      type: object
+    restcustomer.OrderCreate:
+      properties:
+        comment_external:
+          description: |-
+            CommentExternal is a comment that may be included in packaging or messaging to the end-customer.
+            Example: Thank you for your order!
+          type: string
+        comment_internal:
+          description: |-
+            CommentInternal is a comment visible only within DELIVRIO.
+            Example: Internal note about the order.
+          type: string
+        connection_name:
+          description: |-
+            ConnectionName is the name of the connection.
+            Example: MainWarehouseConnection
+            Note: This will fail if the connection name is duplicated in DELIVRIO.
+          type: string
+        delivery_address:
+          $ref: '#/components/schemas/restcustomer.Address'
+        delivery_option_id:
+          description: |-
+            DeliveryOptionID is the ID of the delivery option.
+            Example: DEL12345
+            Note: Defaults to the optional connection default if not provided.
+          type: string
+        external_id:
+          description: |-
+            ExternalID is the ID from a system external to DELIVRIO.
+            Example: 99999911111888888222222
+          type: string
+        order_lines:
+          description: OrderLines contains the items in the order. It may contain
+            duplicate product variants at different prices or in different currencies.
+          items:
+            $ref: '#/components/schemas/restcustomer.OrderLine'
+          type: array
+          uniqueItems: false
+        public_id:
+          description: |-
+            PublicID is visible to the end-customer and must be unique.
+            Example: SH123456789
+          type: string
+        sender_address:
+          $ref: '#/components/schemas/restcustomer.Address'
+      required:
+      - connection_name
+      - delivery_address
+      - delivery_option_id
+      - order_lines
+      - public_id
+      - sender_address
+      type: object
+    restcustomer.OrderLine:
+      properties:
+        currency:
+          enum:
+          - DKK
+          - EUR
+          - USD
+          type: string
+        external_product_id:
+          description: Mutually exclusive with product_variant_id
+          type: string
+        price:
+          type: number
+        product_variant_id:
+          description: Mutually exclusive with external_product_id
+          type: string
+        total_discount:
+          type: number
+        units:
+          type: integer
+      type: object
+    restcustomer.OrderResponse:
+      properties:
+        order:
+          $ref: '#/components/schemas/restcustomer.Order'
+        shipments:
+          description: |-
+            Existing shipments. A single order may be split into multiple shipments
+            so the same orderID may be found multiple times in the array
+          items:
+            $ref: '#/components/schemas/restcustomer.ShipmentResponse'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.OrdersCreateRequest:
+      properties:
+        orders:
+          items:
+            $ref: '#/components/schemas/restcustomer.OrderCreate'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.OrdersCreateResponse:
+      properties:
+        orders:
+          description: 1:1 output corresponding to posted Orders
+          items:
+            $ref: '#/components/schemas/restcustomer.OrdersSaved'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.OrdersSaved:
+      properties:
+        error:
+          description: Save error. Present when Success is false.
+          type: string
+        order_id:
+          description: Internal DELIVRIO ID. Present when save is successful.
+          type: string
+        success:
+          description: Whether the order was saved.
+          type: boolean
+      type: object
+    restcustomer.ParcelLabel:
+      properties:
+        error_order_lines:
+          description: Error order lines may occur if the given order line is already
+            part of a dispatched shipment
+          items:
+            $ref: '#/components/schemas/restcustomer.ErrorOrderLines'
+          type: array
+          uniqueItems: false
+        label_pdf:
+          description: Base64 encoded PDF label.
+          type: string
+        link:
+          description: |-
+            URL to request PDF label for this parcel
+            Can the link be authenticated?
+          type: string
+      type: object
+    restcustomer.ProductCreate:
+      properties:
+        body_html:
+          description: A description of the product which may include HTML
+          type: string
+        external_id:
+          description: |-
+            ID from system external to DELIVRIO
+            example: 99999911111888888222222
+          type: string
+        images:
+          description: Images of all product variants
+          items:
+            $ref: '#/components/schemas/restcustomer.ImageCreate'
+          type: array
+          uniqueItems: false
+        product_variants:
+          description: ProductVariants of all product variants
+          items:
+            $ref: '#/components/schemas/restcustomer.ProductVariantCreate'
+          type: array
+          uniqueItems: false
+        status:
+          description: |-
+            Visibility status of the product.
+            example: active
+          enum:
+          - active
+          - draft
+          - archived
+          type: string
+        tags:
+          description: |-
+            Product tags. Existing tags will have this product added.
+            Case-insensitive
+            example: ["T-shirts", "Branded", "normal-delivery"]
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+        title:
+          description: The title of the product variant group
+          type: string
+      required:
+      - product_variants
+      - status
+      - title
+      type: object
+    restcustomer.ProductVariantCreate:
+      properties:
+        description:
+          description: |-
+            Description of the specific variant
+            example: A green t-shirt
+          type: string
+        ean:
+          description: |-
+            EAN Number for the variant
+            example: 1234567891234
+          type: string
+        external_id:
+          description: |-
+            ID from system external to DELIVRIO
+            example: 99999911111888888222222
+          type: string
+        height:
+          description: |-
+            Height cm
+            example: 10
+          type: integer
+        length:
+          description: |-
+            Length cm
+            example: 10
+          type: integer
+        width:
+          description: |-
+            Width cm
+            example: 10
+          type: integer
+      type: object
+    restcustomer.ProductsCreateRequest:
+      properties:
+        products:
+          items:
+            $ref: '#/components/schemas/restcustomer.ProductCreate'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.ProductsCreateResponse:
+      properties:
+        products:
+          description: 1:1 output corresponding to posted Orders
+          items:
+            $ref: '#/components/schemas/restcustomer.ProductsSaved'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.ProductsSaved:
+      properties:
+        error:
+          description: Save error. Present when Success is false.
+          type: string
+        product_id:
+          description: Internal DELIVRIO ID. Present when save is successful.
+          type: string
+        success:
+          description: Whether the order was saved.
+          type: boolean
+      type: object
+    restcustomer.ReturnColli:
+      properties:
+        carrier_label_id:
+          type: string
+        order_lines:
+          items:
+            $ref: '#/components/schemas/restcustomer.ReturnOrderLine'
+          type: array
+          uniqueItems: false
+        status:
+          enum:
+          - Opened
+          - Pending
+          - Inbound
+          - Received
+          - Accepted
+          - Declined
+          - Deleted
+          type: string
+      type: object
+    restcustomer.ReturnOrderLine:
+      properties:
+        order_line_external_id:
+          type: string
+        return_reason_id:
+          type: string
+        return_reason_name:
+          type: string
+      type: object
+    restcustomer.ReturnReason:
+      properties:
+        description:
+          type: string
+        id:
+          description: Internal DELIVRIO ID
+          type: string
+        name:
+          type: string
+        restockable:
+          type: boolean
+        return_portal_id:
+          description: Refundable       bool   `json:"refundable"`
+          type: string
+        return_portal_name:
+          type: string
+      type: object
+    restcustomer.ReturnReasonsResponse:
+      properties:
+        reasons:
+          items:
+            $ref: '#/components/schemas/restcustomer.ReturnReason'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.ReturnResponse:
+      properties:
+        return_collis:
+          items:
+            $ref: '#/components/schemas/restcustomer.ReturnColli'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.ShipmentCreate:
+      properties:
+        collis:
+          description: |-
+            A list of individual parcels for which a label needs to be generated.
+            The labels are grouped when the carrier supports this feature.
+          items:
+            $ref: '#/components/schemas/restcustomer.ColliRequest'
+          type: array
+          uniqueItems: false
+        order_status:
+          description: |-
+            Order status
+            Settings order_status to Dispatched will split any remaining order lines into their own parcel, and then cancel that parcel.
+          enum:
+          - Pending
+          - Partially_dispatched
+          - Dispatched
+          type: string
+      type: object
+    restcustomer.ShipmentError:
+      properties:
+        message:
+          type: string
+        status:
+          description: HTTP Status of the error
+          type: integer
+        type:
+          $ref: '#/components/schemas/restcustomer.ShipmentErrorType'
+      type: object
+    restcustomer.ShipmentErrorType:
+      type: string
+      x-enum-varnames:
+      - NotFound
+      - CarrierValidation
+    restcustomer.ShipmentResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/restcustomer.ShipmentError'
+        order_id:
+          type: string
+        order_status:
+          type: string
+        parcels:
+          items:
+            $ref: '#/components/schemas/restcustomer.ParcelLabel'
+          type: array
+          uniqueItems: false
+      type: object
+    restcustomer.ShipmentsRequest:
+      properties:
+        shipment_requests:
+          items:
+            $ref: '#/components/schemas/restcustomer.ShipmentCreate'
+          type: array
+          uniqueItems: false
+      type: object
+  securitySchemes:
+    "":
+      in: header
+      name: X-DELIVRIO-key
+      type: apiKey
+externalDocs:
+  description: ""
+  url: ""
+info:
+  contact:
+    email: kwl@delivrio.com
+    name: Keenan Linsly
+    url: http://delivrio.com/support
+  description: An API for managing DELIVRIO entities.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://delivrio.com/terms/
+  title: DELIVRIO API
+  version: 1.0.0
+openapi: 3.1.0
+paths:
+  /order:
+    get:
+      description: Fetches order details by ID or external ID
+      operationId: get-order
+      parameters:
+      - description: Order ID
+        in: query
+        name: id
+        schema:
+          type: string
+      - description: External ID
+        in: query
+        name: external-id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.OrderResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Returns the order information
+      tags:
+      - orders
+  /orders:
+    post:
+      description: 'Responds with the save info for each POSTed order. Be aware partial
+        success will return status 207. Max orders per request: 5'
+      operationId: create-orders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restcustomer.OrdersCreateRequest'
+        description: Order creation request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.OrdersCreateResponse'
+          description: OK
+        "207":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.OrdersCreateResponse'
+          description: Multi-Status
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Create orders
+      tags:
+      - orders
+  /products:
+    post:
+      description: Responds with the save info for each POSTed product. Be aware partial
+        success will return status 207.
+      operationId: create-products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restcustomer.ProductsCreateRequest'
+        description: Product creation request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.ProductsCreateResponse'
+          description: OK
+        "207":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.ProductsCreateResponse'
+          description: Multi-Status
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Internal Server Error
+      security:
+      - api_key: []
+      summary: Create products
+      tags:
+      - products
+  /return:
+    get:
+      description: Responds with the return information for the OrderID provided.
+      operationId: get-return
+      parameters:
+      - description: Order ID
+        in: query
+        name: id
+        schema:
+          type: string
+      - description: External ID
+        in: query
+        name: external-id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.ReturnResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get return information
+      tags:
+      - returns
+  /return/reasons:
+    get:
+      description: Responds with the return information for the OrderID provided.
+      operationId: get-return-reasons
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.ReturnReasonsResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get return reasons
+      tags:
+      - returns
+  /shipments:
+    post:
+      description: Returns the shipment information based on the provided request.
+        Be aware partial success may return status 207.
+      operationId: post-shipments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restcustomer.ShipmentsRequest'
+        description: Shipments request body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.OrderResponse'
+          description: OK
+        "207":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.OrderResponse'
+          description: Multi-Status
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restcustomer.GeneralError'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Create or update shipments
+      tags:
+      - shipments
+servers:
+- url: api.delivrio.com/rest/v1

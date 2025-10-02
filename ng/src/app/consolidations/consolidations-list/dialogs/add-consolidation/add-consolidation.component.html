@@ -1,0 +1,23 @@
+<div class="container">
+	<h2>Add consolidation</h2>
+	<div class="fields">
+		<mat-form-field class="option-name">
+			<mat-label>Public ID</mat-label>
+			<input #name matInput/>
+		</mat-form-field>
+		<mat-form-field class="option-name">
+			<mat-label>Description</mat-label>
+			<input #description matInput/>
+		</mat-form-field>
+	</div>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="create(name.value, description.value)">
+			<mat-icon>done</mat-icon>
+			Next
+		</button>
+		<button mat-raised-button (click)="close()">
+			Cancel
+		</button>
+	</div>
+</div>

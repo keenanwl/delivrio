@@ -1,0 +1,38 @@
+<app-dvo-card *ngIf="deliveryOptionsEasyPostEdit$|async; let state">
+	<div class="page-header">
+		<h3>Edit EasyPost Delivery Option</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<form [formGroup]="editForm"
+		  class="section-margin container"
+		  ngxsForm="deliveryOptionEditEasyPost.form"
+		  ngxsFormErrors="deliveryOptionEditEasyPost.form">
+		<app-delivery-option-edit-base [availableServices]="state.carrierServices"
+									   [formValues]="state.form.model"
+									   (formChange)="baseFormChange($event)"
+		/>
+		<div class="section-margin">
+			<h3>Add-ons</h3>
+			<div class="additional-services">
+				<ng-container *ngFor="let add of state.additionalServices">
+					<app-toggle-container class="additional-service" [name]="add.label">
+						<mat-slide-toggle #addService [checked]="additionalServiceSelected(state.selectedAdditionalServices, add.id)"
+										  (change)="additionalServiceToggled(add.id, addService.checked)" color="primary">
+						</mat-slide-toggle>
+					</app-toggle-container>
+				</ng-container>
+			</div>
+		</div>
+	</form>
+
+	<div class="section-margin">
+		<app-delivery-option-edit-rules [deliveryOptionID]="state.selectedID">
+		</app-delivery-option-edit-rules>
+	</div>
+</app-dvo-card>
+

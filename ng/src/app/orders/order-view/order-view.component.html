@@ -1,0 +1,161 @@
+<ng-container *ngIf="app$|async; let app">
+<div *ngIf="orderView$|async; let orderView" class="container">
+	<div class="top-row">
+		<button mat-icon-button (click)="goBack()" class="go-back-button">
+			<mat-icon>chevron_left</mat-icon>
+		</button>
+		<h1>
+			{{orderView.order?.orderPublicID}}
+		</h1>
+		<mat-chip-row class="order-status" [style.background-color]="orderView.order?.status | orderStatusColorPipe" highlighted>
+			{{orderView.order?.status}}
+		</mat-chip-row>
+		<span class="spacer"></span>
+		<ng-container *ngIf="app?.breakpoint !== 'desktop'">
+			<button mat-icon-button [matMenuTriggerFor]="menu">
+				<mat-icon>
+					more_vert
+				</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button	mat-menu-item
+						color="primary"
+						(click)="addPackage()">
+					<mat-icon>add</mat-icon>
+					Add package
+				</button>
+				<button mat-menu-item
+						color="primary"
+						(click)="packingSlips()"
+						[disabled]="!orderView.shipmentStatuses.mayShipRemaining">
+					<mat-icon>warehouse</mat-icon>
+					Packing slips
+				</button>
+				<button mat-menu-item
+						color="primary"
+						[disabled]="!orderView.shipmentStatuses.mayShipRemaining">
+					<mat-icon>local_shipping</mat-icon>
+					Ship all packages
+				</button>
+			</mat-menu>
+		</ng-container>
+		<ng-container *ngIf="app?.breakpoint === 'desktop'">
+			<button mat-stroked-button color="primary" (click)="addPackage()">
+				<mat-icon>add</mat-icon>
+				Add package
+			</button>
+			<button mat-raised-button
+					color="primary"
+					(click)="packingSlips()"
+					class="split-button-left"
+					[disabled]="!orderView.shipmentStatuses.mayShipRemaining">
+				<mat-icon>warehouse</mat-icon>
+				Packing slips
+			</button>
+			<button mat-raised-button
+					[matMenuTriggerFor]="packingSlipMenu"
+					color="primary"
+					class="split-button-right">
+				<mat-icon>keyboard_arrow_down</mat-icon>
+			</button>
+			<mat-menu #packingSlipMenu="matMenu">
+				<button	mat-menu-item
+						   (click)="packingSlipsClearCache()">
+					<mat-icon>cached</mat-icon>
+					Clear cache
+				</button>
+			</mat-menu>
+			<button mat-raised-button color="primary" [disabled]="!orderView.shipmentStatuses.mayShipRemaining">
+				<mat-icon>local_shipping</mat-icon>
+				Ship all packages
+			</button>
+		</ng-container>
+	</div>
+	<div class="package-timeline">
+		<div class="all-packages" cdkDropListGroup>
+			<div *ngFor="let colli of orderView.order?.colli; let index = index">
+				<div class="order-info">
+					<app-order-lines cdkDropList [orderLines]="colli?.orderLines"
+									 [showDragBoundary]="orderView.isDragging"
+									 [dragable]="true"
+									 (isDragging)="isDragging($event)"
+									 (cdkDropListDropped)="moveOrderLine(colli.id, $event.item.data)"
+									 [editable]="false">
+						<div class="flex-row">
+							<h3>Package {{(index + 1)}}</h3>
+							<span class="spacer"></span>
+							<button class="signature-button" *ngIf="!!colli.deliveryOption?.clickCollect" (click)="viewSignatures(colli.id)" mat-stroked-button color="primary">
+								<mat-icon>receipt_long</mat-icon>
+								C&C receipt
+							</button>
+							<ng-container *ngIf="(colli.id | mayCreateShipment:orderView.shipmentStatuses.shipmentStatuses).length === 0">
+								<button mat-stroked-button color="primary" (click)="createShipment(colli.id)">
+									Ship
+								</button>
+							</ng-container>
+							<ng-container *ngIf="(colli.id | mayCreateShipment:orderView.shipmentStatuses.shipmentStatuses).length > 0">
+								<button (click)="viewShipment(colli.id)" mat-stroked-button color="primary">
+									<mat-icon>link</mat-icon>
+									View shipment
+								</button>
+							</ng-container>
+						</div>
+					</app-order-lines>
+
+					<div class="right-column">
+						<app-colli-view [colli]="colli">
+							<button mat-icon-button [cdkMenuTriggerFor]="packageEditMenu">
+								<mat-icon>more_vert</mat-icon>
+							</button>
+							<ng-template #packageEditMenu>
+								<mat-nav-list cdkMenu class="package-more-menu">
+									<mat-list-item [routerLink]="editPath" [queryParams]="{colliID: colli.id, orderID: orderView.orderID}" cdkMenuItem>
+										<mat-icon matListItemIcon>edit</mat-icon>
+										Edit
+									</mat-list-item>
+									<mat-divider></mat-divider>
+									<mat-list-item cdkMenuItem (click)="deletePackage(colli.id)">
+										<mat-icon matListItemIcon>delete</mat-icon>
+										Delete
+									</mat-list-item>
+								</mat-nav-list>
+							</ng-template>
+						</app-colli-view>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="third-column">
+		<app-dvo-card class="timeline">
+			<div class="timeline-container">
+				<h3>Timeline</h3>
+				<app-timeline-viewer [timelineData]="orderView.timeline" [showOnlyOrdersFromID]="orderView.orderID">
+				</app-timeline-viewer>
+			</div>
+		</app-dvo-card>
+		<app-dvo-card class="comment-container">
+			<div class="header-edit">
+				<h4>Connection</h4>
+				<span class="spacer"></span>
+				<ng-container *ngIf="app?.breakpoint === 'desktop'">
+					<button mat-raised-button color="primary" (click)="editOrder()">
+						<mat-icon>edit</mat-icon>
+						Edit order
+					</button>
+				</ng-container>
+				<ng-container *ngIf="app?.breakpoint !== 'desktop'">
+					<button mat-icon-button color="primary" (click)="editOrder()">
+						<mat-icon>edit</mat-icon>
+					</button>
+				</ng-container>
+			</div>
+			<p class="truncate">{{orderView.order?.connection.name}}</p>
+			<h4>Internal comment</h4>
+			<p>{{orderView.order?.commentInternal}}</p>
+			<h4>External comment</h4>
+			<p>{{orderView.order?.commentExternal}}</p>
+		</app-dvo-card>
+	</div>
+</div>
+</ng-container>

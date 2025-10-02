@@ -1,0 +1,22 @@
+<div class="container">
+	<h2>Click & collect signatures</h2>
+	<div *ngIf="getImageURLs(colliID).length === 0">
+		<p>No signatures found</p>
+	</div>
+	<ng-container *ngFor="let img of getImageURLs(colliID); index as index; last as last">
+		<div class="signature-wrapper">
+			<img [style.transform]="'rotate(' + rotateDeg + 'deg)'" [src]="img" />
+		</div>
+		<mat-divider></mat-divider>
+	</ng-container>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button (click)="rotate()">
+			<mat-icon>screen_rotation_alt</mat-icon>
+			Rotate
+		</button>
+		<button mat-raised-button color="primary" (click)="close()">
+			Close
+		</button>
+	</div>
+</div>

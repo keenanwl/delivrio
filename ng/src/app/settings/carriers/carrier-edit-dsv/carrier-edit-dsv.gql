@@ -1,0 +1,14 @@
+query FetchCarrierEditDSV($id: ID!) {
+	carrier(id: $id) {
+		id
+		name
+		carrierDSV {
+			id
+		}
+	}
+}
+mutation UpdateCarrierAgreementDSV($id: ID!, $name: String!, $input: UpdateCarrierDSVInput!) {
+	updateCarrierAgreementDSV(id: $id, name: $name, input: $input) {
+		id
+	}
+}

@@ -1,0 +1,25 @@
+<div class="container">
+	<ng-content></ng-content>
+	<h2>Date range selector</h2>
+	<mat-calendar [selected]="dateRange"
+				  [startAt]="start"
+				  (selectedChange)="changed($event)"
+				  #calendar></mat-calendar>
+	<app-time-range-selector [hourFrom]="startTime?.hour"
+							 [hourTo]="endTime?.hour"
+							 [minutesFrom]="startTime?.minute"
+							 [minutesTo]="endTime?.minute"
+							 [hideDialog]="true"
+							 (selectedRangeRaw)="timeChanged($event)"
+	></app-time-range-selector>
+	<div class="action-row">
+		<button mat-raised-button color="primary" (click)="publish()">
+			<mat-icon>done</mat-icon>
+			OK
+		</button>
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>cancel</mat-icon>
+			cancel
+		</button>
+	</div>
+</div>

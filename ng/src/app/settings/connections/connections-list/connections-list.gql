@@ -1,0 +1,19 @@
+query ListConnections {
+	connections {
+		edges {
+			node {
+				id
+				name
+				syncOrders
+				syncProducts
+				connectionBrand {
+					id
+					label
+					logoURL
+				}
+			}
+		}
+	}
+}
+
+scalar ID

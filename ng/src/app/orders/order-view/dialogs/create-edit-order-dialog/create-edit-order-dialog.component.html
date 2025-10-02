@@ -1,0 +1,43 @@
+<div class="container">
+	<h3 *ngIf="!isEdit">Create order</h3>
+	<h3 *ngIf="isEdit">Edit order</h3>
+	<form class="form">
+		<mat-form-field>
+			<mat-label>Reference ID</mat-label>
+			<input #publicID [value]="orderPublicID" matInput/>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Connection</mat-label>
+			<mat-select #connID [value]="connectionID" [disabled]="isEdit">
+				<mat-option *ngFor="let connection of connections" [value]="connection.id">
+					{{connection.name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Internal comment</mat-label>
+			<textarea #internal [value]="commentInternal" matInput></textarea>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>External comment</mat-label>
+			<textarea #external [value]="commentExternal" matInput></textarea>
+			<mat-hint>Appears on label as "comment" if supported by carrier</mat-hint>
+		</mat-form-field>
+	</form>
+	<span class="spacer"></span>
+	<p *ngIf="isEdit">Package information may be edited via the menu connected to each package</p>
+	<div class="action-row">
+		<button *ngIf="!isEdit" mat-raised-button color="primary" (click)="save(publicID.value, connID.value, internal.value, external.value)">
+			Next
+			<mat-icon>navigate_next</mat-icon>
+		</button>
+		<button *ngIf="isEdit" mat-raised-button color="primary" (click)="save(publicID.value, connID.value, internal.value, external.value)">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+		<button mat-raised-button (click)="close()">
+			close
+		</button>
+	</div>
+</div>
+

@@ -1,0 +1,80 @@
+<ng-container *ngIf="register2$|async; let register2">
+	<div class="form-container">
+		<app-already-customer-header [progressPercent]="66" [progressStep]="2" />
+		<h3 class="sign-up-text">What are you looking for?</h3>
+		<form [formGroup]="register2Form"
+			ngxsForm="register2.register2EditForm">
+			<mat-list>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Better delivery options in your ecommerce store</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.betterDeliveryOptions" color="primary" />
+					</div>
+				</mat-list-item>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Improve pick and pack in your warehouse</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.improvePickPack" color="primary" />
+					</div>
+				</mat-list-item>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Automated shipping and label creation</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.shippingLabel" color="primary" />
+					</div>
+				</mat-list-item>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Automated creation of custom documents</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.customDocs" color="primary" />
+					</div>
+				</mat-list-item>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Reduced shipping costs</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.reducedCosts" color="primary" />
+					</div>
+				</mat-list-item>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Handle returns with ease</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.easyReturns" color="primary" />
+					</div>
+				</mat-list-item>
+				<mat-list-item>
+					<div class="item-container">
+						<span>Click & Collect</span>
+						<span class="spacer"></span>
+						<mat-slide-toggle [formControl]="register2Form.controls.clickCollect" color="primary" />
+					</div>
+				</mat-list-item>
+			</mat-list>
+
+			<h3>Your monthly shipments?</h3>
+			<div class="shipment-number-container">
+				<span>1</span>
+				<mat-slider [displayWith]="formatShipmentCount" discrete
+					min="1" max="50000" aria-label="your monthly shipments" color="primary" >
+					<input matSliderThumb [formControl]="register2Form.controls.numShipments">
+				</mat-slider>
+				<span>50,000+</span>
+			</div>
+		</form>
+		<div class="action-container">
+			<button class="button-back" color="secondary" mat-raised-button>
+				Back
+			</button>
+			<button class="button-next"
+				(click)="next()"
+				color="primary" mat-raised-button>
+				Next
+			</button>
+		</div>
+	</div>
+</ng-container>

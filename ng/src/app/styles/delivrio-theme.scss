@@ -1,0 +1,150 @@
+@use '@angular/material' as mat;
+@use 'sass:math';
+@use 'sass:map';
+
+$delivrioThemeVariables: (
+	50: #fbe1e8,
+	100: #f6b4c6,
+	200: #f082a0,
+	300: var(--primary-color-lighter),
+	400: #e52a5d,
+	500: var(--primary-color),
+	600: #dc033a,
+	700: #d80332,
+	800: #d3022a,
+	900: var(--primary-color-darker),
+	A100: #fff3f4,
+	A200: #ffc0c5,
+	A400: #ff8d96,
+	A700: #ff747f,
+	contrast: (
+		50 : #000000,
+		100 : #000000,
+		200 : #000000,
+		300 : #000000,
+		400 : #ffffff,
+		500 : #ffffff,
+		600 : #ffffff,
+		700 : #ffffff,
+		800 : #ffffff,
+		900 : #ffffff,
+		A100 : #000000,
+		A200 : #000000,
+		A400 : #000000,
+		A700 : #000000,
+	)
+);
+
+$delivrioTheme: (
+	50 : #fbe1e8,
+	100 : #f6b4c6,
+	200 : #f082a0,
+	300 : #e94f79,
+	400 : #e52a5d,
+	500 : #e00440,
+	600 : #dc033a,
+	700 : #d80332,
+	800 : #d3022a,
+	900 : #cb011c,
+	A100 : #fff3f4,
+	A200 : #ffc0c5,
+	A400 : #ff8d96,
+	A700 : #ff747f,
+	contrast: (
+		50 : #000000,
+		100 : #000000,
+		200 : #000000,
+		300 : #000000,
+		400 : #ffffff,
+		500 : #ffffff,
+		600 : #ffffff,
+		700 : #ffffff,
+		800 : #ffffff,
+		900 : #ffffff,
+		A100 : #000000,
+		A200 : #000000,
+		A400 : #000000,
+		A700 : #000000,
+	)
+);
+
+@function multiply($rgb1, $rgb2) {
+	$r: math.floor(red($rgb1) * red($rgb2) / 255);
+	$g: math.floor(green($rgb1) * green($rgb2) / 255);
+	$b: math.floor(blue($rgb1) * blue($rgb2) / 255);
+	@return rgb($r, $g, $b);
+}
+
+@function getBrightness($color) {
+	@return (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
+}
+
+@function isLight($color) {
+	@return getBrightness($color) >= 128;
+}
+
+@function getContrast($color) {
+	@if isLight($color) {
+		@return #000;
+	} @else {
+		@return #fff;
+	}
+}
+
+$values: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700);
+
+@function createPalette($color) {
+	$white: #fff;
+	$black: #000;
+	$baseDark: multiply($color, $color);
+
+	$palette: (
+		50 : mix($color, $white, 12%),
+		100 : mix($color, $white, 30%),
+		200 : mix($color, $white, 50%),
+		300 : mix($color, $white, 70%),
+		400 : mix($color, $white, 85%),
+		500 : mix($color, $white, 100%),
+		600 : mix($color, $baseDark, 87%),
+		700 : mix($color, $baseDark, 70%),
+		800 : mix($color, $baseDark, 54%),
+		900 : mix($color, $baseDark, 25%),
+		A100 : lighten(saturate(mix($black, $baseDark, 15%), 80%), 65%),
+		A200 : lighten(saturate(mix($black, $baseDark, 15%), 80%), 55%),
+		A400 : lighten(saturate(mix($black, $baseDark, 15%), 100%), 45%),
+		A700 : lighten(saturate(mix($black, $baseDark, 15%), 100%), 40%)
+	);
+
+	$contrast: ();
+	@each $v in $values {
+		$contrast: map.merge($contrast, ($v: getContrast(map_get($palette, $v))))
+	}
+
+	$palette: map.merge($palette, (contrast: $contrast));
+
+	@return $palette;
+}
+
+@function primary($baseColor) {
+	@return mat.m2-define-palette(createPalette($baseColor));
+}
+
+@function primaryVariable() {
+	@return mat.m2-define-palette($delivrioThemeVariables);
+}
+
+@function primaryPalette($initialColor) {
+	@return mat.m2-define-palette(createPalette($initialColor));
+}
+
+@function primaryDefault() {
+	@return mat.m2-define-palette($delivrioTheme);
+}
+
+@function accent() {
+	@return mat.m2-define-palette(mat.$m2-grey-palette);
+}
+
+@function warn() {
+	@return mat.m2-define-palette(mat.$m2-red-palette);
+}

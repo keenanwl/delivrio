@@ -1,0 +1,19 @@
+h2 {
+	margin-bottom: 20px;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: stretch;
+	> * {
+		min-width: 350px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+.action-row {
+	display: flex;
+	flex-direction: row-reverse;
+	margin: 20px 5px 5px 5px;
+}

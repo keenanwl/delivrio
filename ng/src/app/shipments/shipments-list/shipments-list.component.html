@@ -1,0 +1,103 @@
+<div class="container" *ngIf="shipments$|async; let state">
+	<div class="inset-container">
+		<div class="page-header">
+			<h3>Shipments</h3>
+			<span class="spacer"></span>
+			<!-- needs checking -->
+			<!--<button mat-mini-fab color="primary" (click)="showEmailDialog()">
+				<mat-icon>email</mat-icon>
+			</button>-->
+			<app-filter-bar [filterCategories]="state.filterCategories"
+							[searchOptions]="state.searchListOptions"
+							(selectedFilters)="selectedOptionsChanged($event)"
+							(activeFilter)="searchFilter($event)"/>
+		</div>
+		<div class="loading-bar">
+			<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+		</div>
+		<table mat-table [dataSource]="state.shipments">
+
+			<ng-container matColumnDef="createdAt">
+				<th mat-header-cell *matHeaderCellDef>
+					Created
+				</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.createdAt | date:"mediumDate"}} {{element.createdAt | date:'shortTime'}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="status">
+				<th mat-header-cell *matHeaderCellDef>Status</th>
+				<td mat-cell *matCellDef="let element">
+					<mat-chip-row [style.background-color]="element.status | shipmentStatusColorPipe" highlighted>
+						{{element.status}}
+					</mat-chip-row>
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="fulfillmentSync">
+				<th mat-header-cell *matHeaderCellDef>Fulfillment Sync</th>
+				<td mat-cell *matCellDef="let element">
+					<ng-container *ngFor="let p of element.shipmentParcel">
+						<mat-chip-row [highlighted]="!!p.fulfillmentSyncedAt">
+							{{p.fulfillmentSyncedAt | relativeTime:0}}
+						</mat-chip-row>
+					</ng-container>
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="cancelSync">
+				<th mat-header-cell *matHeaderCellDef>Cancel Sync</th>
+				<td mat-cell *matCellDef="let element">
+					<ng-container *ngFor="let p of element.shipmentParcel">
+						<mat-chip-row [highlighted]="p.cancelSyncedAt">
+							{{p.cancelSyncedAt | relativeTime:0}}
+						</mat-chip-row>
+					</ng-container>
+				</td>
+			</ng-container>
+
+
+			<ng-container matColumnDef="collis">
+				<th mat-header-cell *matHeaderCellDef>Colli count</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.shipmentParcel?.length || 0}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="pallets">
+				<th mat-header-cell *matHeaderCellDef>Pallet count</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.shipmentPallet?.length || 0}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="select">
+				<th mat-header-cell *matHeaderCellDef>
+					<mat-checkbox (change)="$event ? masterToggle() : null"
+								  [checked]="state.shipmentRowsSelected.size > 0 && isAllSelected(state.shipmentRowsSelected, state.shipments)"
+								  [indeterminate]="state.shipmentRowsSelected.size > 0 && !isAllSelected(state.shipmentRowsSelected, state.shipments)">
+					</mat-checkbox>
+				</th>
+				<td mat-cell *matCellDef="let row">
+					<mat-checkbox (click)="$event.stopPropagation()"
+								  (change)="$event ? toggleRow(row) : null"
+								  [checked]="state.shipmentRowsSelected.has(row.id)">
+					</mat-checkbox>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row
+				class="row-container"
+				*matRowDef="let row; columns: displayedColumns;"
+				[routerLink]="paths.SHIPMENT_VIEW"
+				[queryParams]="{id: row.id}"></tr>
+		</table>
+		<mat-divider></mat-divider>
+		<mat-paginator [pageIndex]="state.pagination.pageIndex"
+					   [hidePageSize]="true"
+					   [pageSize]="2"
+					   [length]="state.pagination.totalPages"
+					   (page)="movePage($event)">
+		</mat-paginator>
+	</div>
+</div>

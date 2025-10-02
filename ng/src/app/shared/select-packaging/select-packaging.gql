@@ -1,0 +1,13 @@
+query FetchPackaging {
+	packagings {
+		edges {
+			node {
+				id
+				name
+				lengthCm
+				heightCm
+				widthCm
+			}
+		}
+	}
+}

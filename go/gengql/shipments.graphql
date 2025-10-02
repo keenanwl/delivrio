@@ -1,0 +1,47 @@
+type ShipmentListItem {
+    id: ID!
+    orderIDDisplay: [String!]!
+    shipment: Shipment!
+    recipient: Address!
+    sender: Address!
+    deliveryOption: DeliveryOption!
+}
+
+extend type Query {
+    shipmentsList(
+        after: Cursor,
+        first: Int,
+        before: Cursor,
+        last: Int,
+        where: ShipmentWhereInput
+    ): [ShipmentListItem!]
+    shipment(id: ID!): Shipment!
+    shipmentLabels(colliIDs: [ID!]!): ShipmentLabelsResponse!
+
+    sendOverviewEmail(to: String!, emailTpl: ID!, where: ShipmentWhereInput!): Boolean!
+
+    # Because this endpoint necessarily makes external connections, we don't
+    # want to auto-start a mutation transaction
+    createShipments(orderID: ID!, packageIDs: [ID!]!): CreateShipmentsResponse!
+}
+
+type ShipmentLabelsResponse {
+    labelsPDF: [String!]!
+    allLabels: String!
+}
+
+type CreateShipmentsResponse {
+    order: Order!
+    shipments: [ShipmentLabelsResponse!]!
+    labelsPDF: [String!]!
+    allLabels: String!
+}
+
+extend type Mutation {
+    cancelShipment(shipmentID: ID!): Shipment!
+    cancelShipmentByColliIDs(colliIDs: [ID!]!): Boolean!
+    debugUpdateLabelIDs(parcelID: ID!, itemID: String!): Boolean!
+
+    cancelFulfillmentSync(shipmentParcelID: ID!): Boolean!
+    cancelCancelSync(shipmentParcelID: ID!): Boolean!
+}

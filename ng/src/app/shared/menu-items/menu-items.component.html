@@ -1,0 +1,113 @@
+<ng-container class="container" *ngIf="app$|async; let state">
+	<div class="brand-header">
+		<a [href]="paths.DASHBOARD">DELIVRIO</a>
+		<p class="tenant-name">{{tenantName}}</p>
+	</div>
+	<mat-nav-list role="list" class="dark-theme">
+
+		<a [routerLink]="paths.DASHBOARD">
+			<mat-list-item class="list-item" role="listitem" [routerLinkActive]="['active-link']">
+				<span class="item-content">
+					<mat-icon matListItemIcon>dashboard</mat-icon>
+					Dashboard
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="paths.PRODUCTS">
+			<mat-list-item class="list-item" [routerLinkActive]="['active-link']">
+				<span class="item-content">
+					<mat-icon matListItemIcon>category</mat-icon>
+					Products
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="state?.buildInfo?.LimitedSystem ? null : paths.ORDERS">
+			<mat-list-item class="list-item" routerLinkActive="active-link">
+				<span class="item-content">
+					<mat-icon *ngIf="!state?.buildInfo?.LimitedSystem" matListItemIcon>list_alt</mat-icon>
+					<mat-icon *ngIf="state?.buildInfo?.LimitedSystem" matListItemIcon>lock</mat-icon>
+					Orders
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="state?.buildInfo?.LimitedSystem ? null : paths.SHIPMENTS">
+			<mat-list-item class="list-item" role="listitem" routerLinkActive="active-link">
+				<span class="item-content">
+					<mat-icon *ngIf="!state?.buildInfo?.LimitedSystem" matListItemIcon>local_post_office</mat-icon>
+					<mat-icon *ngIf="state?.buildInfo?.LimitedSystem" matListItemIcon>lock</mat-icon>
+					Shipments
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="state?.buildInfo?.LimitedSystem ? null : paths.DOCUMENTS">
+			<mat-list-item class="list-item" role="listitem" [routerLinkActive]="['active-link']">
+				<span class="item-content">
+					<mat-icon *ngIf="!state?.buildInfo?.LimitedSystem" matListItemIcon>article</mat-icon>
+					<mat-icon *ngIf="state?.buildInfo?.LimitedSystem" matListItemIcon>lock</mat-icon>
+					Documents
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="state?.buildInfo?.LimitedSystem ? null : paths.CONSOLIDATIONS">
+			<mat-list-item class="list-item" role="listitem" routerLinkActive="active-link">
+				<span class="item-content">
+					<mat-icon *ngIf="!state?.buildInfo?.LimitedSystem" matListItemIcon>merge_type</mat-icon>
+					<mat-icon *ngIf="state?.buildInfo?.LimitedSystem" matListItemIcon>lock</mat-icon>
+					Consolidations
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="state?.buildInfo?.LimitedSystem ? null : paths.RETURNS">
+			<mat-list-item class="list-item" role="listitem" routerLinkActive="active-link">
+				<span class="item-content">
+					<mat-icon *ngIf="!state?.buildInfo?.LimitedSystem" matListItemIcon>keyboard_return</mat-icon>
+					<mat-icon *ngIf="state?.buildInfo?.LimitedSystem" matListItemIcon>lock</mat-icon>
+					Returns
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="paths.HISTORY_LOGS">
+			<mat-list-item class="list-item" role="listitem" routerLinkActive="active-link">
+				<span class="item-content">
+					<mat-icon matListItemIcon>history</mat-icon>
+					History & Logs
+				</span>
+			</mat-list-item>
+		</a>
+
+		<a [routerLink]="paths.SETTINGS">
+			<mat-list-item class="list-item" role="listitem" routerLinkActive="active-link">
+				<span class="item-content">
+					<mat-icon matListItemIcon>settings</mat-icon>
+					Settings
+				</span>
+			</mat-list-item>
+		</a>
+
+		<mat-list-item class="list-item" role="listitem" (click)="logout()">
+			<span class="item-content">
+				<mat-icon matListItemIcon>logout</mat-icon>
+				Logout
+			</span>
+		</mat-list-item>
+
+	</mat-nav-list>
+	<div class="build-info">
+		<div>
+			Updated:
+		</div>
+		<div [matTooltip]="state.buildInfo.Time | date:'medium'">
+			{{state.buildInfo.Time|relativeTime:0}}
+		</div>
+		<div>
+			{{state.buildInfo.Hash}}
+		</div>
+	</div>
+</ng-container>

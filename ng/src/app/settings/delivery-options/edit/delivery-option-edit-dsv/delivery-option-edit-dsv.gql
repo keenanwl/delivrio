@@ -1,0 +1,40 @@
+query FetchDeliveryOptionEditDSV($id: ID!) {
+	deliveryOptionDSV(id: $id) {
+		deliveryOption {
+			carrierService {
+				id
+			}
+			clickOptionDisplayCount
+		}
+
+		deliveryOption {
+			name
+			description
+			clickCollect
+			overrideReturnAddress
+			overrideSenderAddress
+			hideDeliveryOption
+			clickOptionDisplayCount
+			deliveryEstimateFrom
+			deliveryEstimateTo
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: dsv}}) {
+		edges {
+			node {
+				... CarrierServiceItem
+			}
+		}
+	}
+}
+
+mutation SaveDeliveryOptionEditDSV($id: ID!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!,
+) {
+	updateDeliveryOptionDSV(
+		id: $id,
+		inputDeliveryOption: $inputDeliveryOption
+	) {
+		id
+	}
+}

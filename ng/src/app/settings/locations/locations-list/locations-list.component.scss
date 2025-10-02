@@ -1,0 +1,24 @@
+.container {
+	background: #e4e4e4;
+	height: 100%;
+	max-width: 100%;
+	display: flex;
+	.row-container {
+		cursor: pointer;
+	}
+	.inset-container {
+		flex-grow: 1;
+		table {
+			width: 100%;
+			box-shadow: none;
+			border-radius: 10px;
+			overflow: hidden;
+			mat-chip-row {
+				margin-left: 5px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,96 @@
+h1 {
+	margin-bottom: 20px;
+}
+
+h3 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.header {
+	display: flex;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+button	{
+	margin-left: 10px;
+}
+.column {
+	flex-grow: 1;
+}
+.column-container {
+	display: flex;
+	max-width: 100%;
+
+	.row {
+		display: flex;
+		min-height: 75px;
+		align-items: center;
+		> * {
+			flex-grow: 1;
+		}
+	}
+	.right-margin {
+		margin-right: 20px;
+	}
+	.extra-pad {
+		padding-bottom: 21.5px;
+	}
+}
+.image-actions {
+	text-align: center;
+	> * {
+		margin: 6px;
+	}
+}
+.preview-image {
+	width: 100%;
+	height: 250px;
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	img {
+		margin: 0 auto;
+		max-width: 250px;
+		max-height: 250px;
+	}
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.card-spacer {
+	height: 20px;
+}
+.variants-images-container {
+	display: flex;
+	flex-direction: row;
+	.variants-container {
+		flex-grow: 1;
+	}
+	.product-images {
+		margin-left: 10px;
+		width: 400px;
+	}
+}
+.image-pagination-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.chevron-container {
+		flex-grow: 1;
+		text-align: center;
+	}
+}
+.image-variant-selectors {
+	display: flex;
+	flex-direction: column;
+	.image-variant-toggle {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}
+.variant-header {
+	display: flex;
+}
+.product-status {
+	--mdc-chip-label-text-color: #FFFFFF;
+}

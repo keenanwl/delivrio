@@ -1,0 +1,33 @@
+<div class="container" *ngIf="settings$|async; let state">
+	<h3>Manage registration</h3>
+	<mat-divider></mat-divider>
+	<div class="data">
+		<p *ngIf="!state.remoteData">Remote connection data not found.</p>
+		<div class="rows" *ngIf="!!state.remoteData">
+			<div class="row">
+				<p class="bold">Name:</p>
+				<span class="spacer"></span>
+				<p>{{state.remoteData.workstation_name}}</p>
+			</div>
+			<div class="row">
+				<p class="bold">URL:</p>
+				<span class="spacer"></span>
+				<p>{{state.remoteData.url}}</p>
+			</div>
+			<div class="row">
+				<p class="bold">Last ping:</p>
+				<span class="spacer"></span>
+				<p>{{state.remoteData.last_ping}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="action-row">
+		<button mat-stroked-button color="warn" (click)="removeAllData()">
+			<mat-icon>clear</mat-icon>
+			Clear current registration
+		</button>
+		<button mat-stroked-button (click)="close()">
+			Close
+		</button>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+query FetchDocument($id: ID!) {
+	document(id: $id) {
+		name
+		endAt
+		startAt
+		htmlTemplate
+		htmlFooter
+		htmlHeader
+		carrierBrand {
+			id
+		}
+		paperSize
+		mergeType
+	}
+	carrierBrands {
+		edges {
+			node {
+				id
+				label
+			}
+		}
+	}
+}
+
+mutation UpdateDocument($id: ID!, $input: UpdateDocumentInput!) {
+	updateDocument(id: $id, input: $input) {
+		id
+	}
+}
+
+query DownloadDocument($id: ID!) {
+	documentDownload(id: $id) {
+		base64PDF
+	}
+}

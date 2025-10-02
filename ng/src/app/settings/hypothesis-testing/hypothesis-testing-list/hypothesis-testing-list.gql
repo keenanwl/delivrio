@@ -1,0 +1,29 @@
+query FetchHypothesisTestingList {
+	hypothesisTests {
+		edges {
+			node {
+				id
+				name
+				active
+				connection {
+					name
+				}
+			}
+		}
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+				connectionBrand {
+					label
+				}
+			}
+		}
+	}
+}
+
+mutation CreateHypothesisTestDeliveryOption($name: String!, $connectionID: ID!) {
+	createHypothesisTestDeliveryOption(name: $name, connectionID: $connectionID)
+}

@@ -1,0 +1,16 @@
+query FetchCarrierEditDF($id: ID!) {
+	carrier(id: $id) {
+		id
+		name
+		carrierDF {
+			id
+			customerID
+			agreementNumber
+		}
+	}
+}
+mutation UpdateCarrierAgreementDF($id: ID!, $name: String!, $input: UpdateCarrierDFInput!) {
+	updateCarrierAgreementDF(id: $id, name: $name, input: $input) {
+		id
+	}
+}

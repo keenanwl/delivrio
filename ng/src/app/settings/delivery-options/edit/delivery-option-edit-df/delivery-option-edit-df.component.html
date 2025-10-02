@@ -1,0 +1,33 @@
+<app-dvo-card *ngIf="deliveryOptionsDFEdit$|async; let state">
+	<div class="page-header">
+		<h3>Edit Danske Fragtmænd Delivery Option</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<form [formGroup]="editForm"
+		  class="section-margin container">
+		<app-dvo-card [background]="'#e4e4e4'">
+			<app-delivery-option-edit-base [availableServices]="state.carrierServices"
+										   [formValues]="state?.form.model"
+										   (formChange)="baseFormChange($event)"
+			/>
+		</app-dvo-card>
+		<div class="section-margin">
+			<app-dvo-card class="section-margin" [background]="'#e4e4e4'">
+				<h3>Add-ons</h3>
+				<div class="column-container">
+				</div>
+			</app-dvo-card>
+		</div>
+	</form>
+
+	<div class="section-margin">
+		<app-delivery-option-edit-rules [deliveryOptionID]="state.selectedID">
+		</app-delivery-option-edit-rules>
+	</div>
+</app-dvo-card>
+

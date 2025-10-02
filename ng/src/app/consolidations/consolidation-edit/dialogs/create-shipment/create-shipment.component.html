@@ -1,0 +1,65 @@
+<div class="container" *ngIf="consolidationEdit$|async; let state">
+	<h3>Create shipment</h3>
+	<div class="body">
+		<ng-container *ngIf="state.loading">
+			<p>Awaiting carrier response...</p>
+			<mat-spinner class="spinner"></mat-spinner>
+		</ng-container>
+	</div>
+
+	<div class="pdf-container" *ngIf="state.labelsPDF.length > 0">
+		<pdf-viewer
+			[src]="state.labelsPDF[state.labelViewerOffset] | preparePdf"
+			[rotation]="0"
+			[original-size]="false"
+			[show-all]="true"
+			[fit-to-page]="false"
+			[zoom]="1"
+			[zoom-scale]="'page-width'"
+			[stick-to-page]="false"
+			[render-text]="true"
+			[external-link-target]="'blank'"
+			[autoresize]="true"
+			[show-borders]="false"
+			style="height: 600px;"
+		></pdf-viewer>
+		<div class="label-offset-container">
+			<button mat-icon-button (click)="decrement()">
+				<mat-icon>chevron_left</mat-icon>
+			</button>
+			<span class="spacer">
+				{{state.labelViewerOffset + 1}} / {{state.labelsPDF.length}}
+			</span>
+			<button mat-icon-button (click)="increment()">
+				<mat-icon>chevron_right</mat-icon>
+			</button>
+		</div>
+	</div>
+
+
+	<div class="action-row">
+		<a download="delivrio_labels.pdf"
+		   [href]="state.allLabelsPDF.length > 0 ? 'data:application/pdf;base64,' + state.allLabelsPDF : ''">
+			<button mat-raised-button color="primary" [disabled]="state.shipmentErrors.length > 0 || state.loading">
+				<mat-icon>bookmarks</mat-icon>
+				Download labels
+			</button>
+		</a>
+		<button mat-raised-button
+				color="primary"
+				[disabled]="state.shipmentErrors.length > 0 || state.loading">
+			<mat-icon>print</mat-icon>
+			Print
+		</button>
+	</div>
+	<div class="action-row">
+		<button mat-raised-button [disabled]="state.loading">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+		<button mat-raised-button color="warn" [disabled]="state.labelsPDF.length === 0 || state.loading">
+			<mat-icon>delete</mat-icon>
+			Cancel shipment
+		</button>
+	</div>
+</div>

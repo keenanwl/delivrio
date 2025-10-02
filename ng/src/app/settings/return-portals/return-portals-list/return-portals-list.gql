@@ -1,0 +1,30 @@
+query FetchReturnPortals {
+	returnPortals {
+		edges {
+			node {
+				id
+				name
+				returnOpenHours
+				automaticallyAccept
+				returnLocation {
+					name
+				}
+				connection {
+					name
+				}
+			}
+		}
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+mutation CreateReturnPortal($name: String!, $connection: ID!) {
+	createReturnPortal(name: $name, connection: $connection)
+}

@@ -1,0 +1,38 @@
+h3 {
+	margin-top: 10px;
+}
+.column-container {
+	display: flex;
+	width: 500px;
+	.column {
+		flex-grow: 1;
+	}
+	.row {
+		.access-right-container {
+			background: #FFFFFF;
+			border-radius: 15px;
+			display: flex;
+			max-width: 350px;
+			padding: 5px;
+			.label {
+				display: flex;
+				flex-grow: 1;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		display: flex;
+		min-height: 75px;
+		align-items: center;
+		> * {
+			flex-grow: 1;
+		}
+	}
+	.right-margin {
+		margin-right: 20px;
+	}
+	.extra-pad {
+		padding-bottom: 21.5px;
+	}
+}

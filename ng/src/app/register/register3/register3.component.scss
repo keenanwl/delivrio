@@ -1,0 +1,22 @@
+@use "../../styles/signup-buttons";
+
+h3 {
+	font-size: 36px;
+}
+
+.sign-up-text {
+	margin-top: 35px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.multiselects-container {
+	display: flex;
+	flex-direction: column;
+	.selector {
+		max-width: 400px;
+		flex-grow: 1;
+		margin: 0 auto;
+		width: 100%;
+	}
+}

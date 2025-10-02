@@ -1,0 +1,68 @@
+query FetchUser {
+	user {
+		email
+		id
+		tenant {
+			id
+			name
+		}
+	}
+	buildInfo {
+		Hash
+		Time
+		LimitedSystem
+	}
+}
+
+query Search($term: String!) {
+	search(term: $term) {
+		id
+		entity
+		title
+		imagePath
+	}
+}
+
+query FetchSelectedWorkstation {
+	selectedWorkstation {
+		workstation {
+			... SelectedWorkstation
+		}
+		limitExceeded
+		jobs {
+			id
+			status
+			printerMessages
+			createdAt
+			printer {
+				name
+				workstation {
+					name
+				}
+			}
+		}
+	}
+	user {
+		pickupDay
+	}
+}
+query FetchSelectableWorkstations {
+	workstations {
+		edges {
+			node {
+				... SelectedWorkstation
+			}
+		}
+	}
+}
+
+mutation SaveSelectedWorkstation($id: ID!, $pickupDay: UserPickupDay!) {
+	saveSelectedWorkstation(id: $id, pickupDay: $pickupDay)
+}
+
+fragment SelectedWorkstation on Workstation {
+	id
+	name
+	lastPing
+	status
+}

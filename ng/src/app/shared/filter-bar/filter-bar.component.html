@@ -1,0 +1,41 @@
+<div class="filter-form">
+	<div class="spinner-container" *ngIf="loading">
+		<mat-spinner style="width: 25px; height: 25px;"></mat-spinner>
+	</div>
+
+	<button *ngIf="!loading" class="filter-icon" matSuffix mat-icon-button aria-label="Filter" >
+		<mat-icon>filter_list</mat-icon>
+	</button>
+	<mat-chip-grid #chipGrid>
+		<mat-chip-row (click)="chipClickSelect(where)"
+					  [highlighted]="where.filterID === active?.id"
+					  *ngFor="let where of allSelected">
+
+			{{where.filterName}}: {{where.optionName}}
+			<button matChipRemove (click)="removeChip(where.filterID)">
+				<mat-icon>cancel</mat-icon>
+			</button>
+		</mat-chip-row>
+	</mat-chip-grid>
+	&nbsp;
+	<input class="field"
+		   type="text"
+		   #autoInput
+		   (keyup)="inputChange(autoInput.value)"
+		   [matChipInputFor]="chipGrid"
+		   [matAutocomplete]="auto"
+		   [formControl]="filterControl"
+		   [placeholder]="!!active ? 'Type to filter by ' + active.name : 'Click to select filter'">
+
+	<mat-autocomplete #auto="matAutocomplete" (optionSelected)="dropDownSelected($event.option.value)">
+		<mat-option *ngFor="let available of getDropdownData(filterCategories, searchOptions)" [value]="available">
+			<mat-icon>{{available.icon}}</mat-icon>
+			{{available.name}}
+		</mat-option>
+	</mat-autocomplete>
+
+	<button (click)="removeAllChips()" matSuffix mat-icon-button aria-label="Clear" [disabled]="allSelected.length === 0">
+		<mat-icon>close</mat-icon>
+	</button>
+</div>
+

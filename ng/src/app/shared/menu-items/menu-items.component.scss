@@ -1,0 +1,56 @@
+.profile-info {
+	//font-family: 'Capsule Sans Text';
+	text-align: left;
+}
+.greeting {
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.list-item {
+	text-decoration: none;
+	color: white !important;
+	border-radius: 100px;
+	margin-top: 10px;
+}
+.list-item:hover {
+	background: #4e4e4e;
+	color: white;
+	border-radius: 100px;
+}
+// Focus gets added by angular
+.active-link:focus::before {
+	opacity: 0;
+}
+.item-content {
+	color: white;
+	display: flex;
+	mat-icon {
+		margin-right: 7px;
+	}
+}
+.brand-header {
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+	a {
+		font-weight: bold;
+	}
+}
+.brand-header a {
+	font-size: 38px;
+	color: #FFFFFF;
+	text-decoration: unset;
+}
+.build-info {
+	margin-top: 100px;
+	font-size: 14px;
+	text-align: center;
+	overflow-wrap: anywhere;
+}
+a {
+	text-decoration: none;
+}
+.tenant-name {
+	font-size: 12px;
+}

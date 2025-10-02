@@ -1,0 +1,95 @@
+query FetchDeliveryOptionEditPostNord($id: ID!) {
+	carrierAdditionalServicePostNords(where: {hasDeliveryOptionPostNordWith: {hasDeliveryOptionWith: {id: $id}}}) {
+		edges {
+			node {
+				internalID
+			}
+		}
+	}
+	clickCollectLocations: deliveryOptionPostNord(deliveryOptionID: $id) {
+		deliveryOption {
+			clickCollectLocation {
+				id
+				name
+				address {
+					addressOne
+					addressTwo
+					zip
+					city
+					country {
+						id
+						label
+						alpha2
+					}
+					company
+				}
+			}
+		}
+	}
+	selectedEmailTemplates: deliveryOptionPostNord(deliveryOptionID: $id) {
+		deliveryOption {
+			emailClickCollectAtStore {
+				id
+			}
+		}
+	}
+	deliveryOptionPostNord(deliveryOptionID: $id) {
+		deliveryOption {
+			... BaseDeliveryOption
+		}
+	}
+	locations(where: {hasLocationTagsWith: {internalIDContainsFold: "click_and_collect"}}) {
+		edges {
+			node {
+				id
+				name
+				address {
+					addressOne
+					addressTwo
+					zip
+					city
+					country {
+						id
+						label
+						alpha2
+					}
+					company
+				}
+			}
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: post_nord}}) {
+		edges {
+			node {
+				...CarrierServiceItem
+			}
+		}
+	}
+	emailTemplates {
+		edges {
+			node {
+				id
+				name
+				mergeType
+			}
+		}
+	}
+}
+
+query AvailableAdditionalServicesPostNord($carrierServiceID: ID!) {
+	availableAdditionalServicesPostNord(carrierServiceID: $carrierServiceID)
+}
+
+mutation SaveDeliveryOptionEditPostNord($id: ID!,
+	$input: UpdateDeliveryOptionPostNordInput!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!,
+	$inputAdditionalServices: [String!]!
+) {
+	updateDeliveryOptionPostNord(id: $id,
+		input: $input,
+		inputDeliveryOption: $inputDeliveryOption,
+		inputAdditionalServices: $inputAdditionalServices
+	) {
+		id
+	}
+}

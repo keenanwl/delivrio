@@ -1,0 +1,22 @@
+type DashboardTile {
+    id: ID!
+    title: String!
+    value: String!
+}
+
+type RateRequests {
+    requests: [RateRequest!]!
+    requestsError: [RateRequest!]!
+}
+type RateRequest {
+    date: String!
+    optionCount: Int!
+    error: String
+    req: String
+}
+
+extend type Query {
+    dashboardTiles: [DashboardTile!]!
+    trailingProductUpdates: [Int!]!
+    rateRequests: RateRequests!
+}

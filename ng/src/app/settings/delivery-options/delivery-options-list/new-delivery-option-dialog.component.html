@@ -1,0 +1,29 @@
+<ng-container *ngIf="deliveryOptionsList$|async; let do">
+	<div class="container">
+		<h3>Create delivery option</h3>
+		<mat-form-field class="option-name">
+			<mat-label>Option name</mat-label>
+			<input #name matInput/>
+		</mat-form-field>
+		<mat-form-field class="carrier-agreement">
+			<mat-label>Carrier agreement</mat-label>
+			<mat-select #selectAgree [value]="do.agreements[0]?.id">
+				<mat-option *ngFor="let a of do.agreements" [value]="a.id">
+					{{a.carrierBrand.label}}: {{a.name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field class="connections">
+			<mat-label>Connection</mat-label>
+			<mat-select #selectConn [value]="do.connections[0]?.id">
+				<mat-option *ngFor="let c of do.connections" [value]="c.id">
+					{{c.connectionBrand.label}}: {{c.name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<button class="button-create" mat-raised-button color="primary" (click)="selected(name.value, selectAgree.value, selectConn.value)">
+			<mat-icon>done</mat-icon>
+			Create
+		</button>
+	</div>
+</ng-container>

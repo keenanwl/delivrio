@@ -1,0 +1,56 @@
+<app-dvo-card *ngIf="deliveryOptionsUSPSEdit$|async; let cl">
+	<div class="page-header">
+		<h3>Edit USPS delivery option</h3>
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<app-dvo-card [background]="'#e4e4e4'">
+		<app-delivery-option-edit-base [availableServices]="cl.carrierServices"
+									   [formValues]="cl?.deliveryOptionEditUSPSForm.model"
+									   (formChange)="baseFormChange($event)"
+		/>
+	</app-dvo-card>
+	<div class="section-margin">
+		<app-dvo-card [background]="'#e4e4e4'">
+			<div class="header">
+				<h3>Additional USPS services</h3>
+				<span class="spacer"></span>
+				<div>Show less common
+					<mat-slide-toggle #showAdditional [checked]="cl.showUnavailableAdditionalServices"
+									  (change)="toggleShowAdditional(showAdditional.checked)"
+									  color="primary"></mat-slide-toggle>
+				</div>
+			</div>
+
+			<div class="column-container additional-services">
+				<div class="column">
+					<ng-container *ngFor="let addService of cl.availableAdditionalServices">
+						<div class="row extra-pad right-margin"
+							 *ngIf="cl.showUnavailableAdditionalServices || addService.commonlyUsed">
+							<div class="slide-container">
+								<span class="label">{{addService.label}}</span>
+								<span class="spacer"></span>
+								<mat-slide-toggle #signature
+												  [checked]="isAdditionalServiceEnabled(addService)"
+												  [disabled]="isAdditionalServiceCommon(addService)"
+												  (change)="additionalServiceChange(addService, signature.checked)"
+												  color="primary">
+								</mat-slide-toggle>
+							</div>
+						</div>
+					</ng-container>
+				</div>
+			</div>
+		</app-dvo-card>
+	</div>
+
+	<div class="section-margin">
+		<app-delivery-option-edit-rules [deliveryOptionID]="cl.selectedID">
+		</app-delivery-option-edit-rules>
+	</div>
+</app-dvo-card>
+

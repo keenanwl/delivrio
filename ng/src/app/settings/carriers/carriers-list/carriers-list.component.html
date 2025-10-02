@@ -1,0 +1,47 @@
+<ng-container *ngIf="carrierList$|async; let state">
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<app-dvo-card>
+		<div class="page-header">
+			<h3>Carrier agreements</h3>
+			<span class="spacer"></span>
+
+			<button mat-fab extended color="primary" (click)="addNew()">
+				<mat-icon>add</mat-icon>
+				Add agreement
+			</button>
+		</div>
+		<div class="container">
+			<div *ngIf="state.carriersList.length === 0">
+				Add a new carrier to get started!
+			</div>
+			<div *ngFor="let agreement of state.carriersList; let i = index" class="carrier-card">
+				<div class="logo-area spacer" [style.background]="agreement.carrierBrand.backgroundColor">
+					<div class="menu-container">
+						<button mat-icon-button [matMenuTriggerFor]="menu" class="more-options">
+							<mat-icon>more_vert</mat-icon>
+						</button>
+						<mat-menu #menu="matMenu">
+							<button mat-menu-item (click)="editCarrier(agreement.id, agreement.carrierBrand.internalID)">
+								<mat-icon>edit</mat-icon>
+								<span>Manage</span>
+							</button>
+							<button mat-menu-item disabled>
+								<mat-icon>delete</mat-icon>
+								<span>Delete</span>
+							</button>
+						</mat-menu>
+					</div>
+					<div class="logo-container">
+						<span class="label" [style.color]="agreement.carrierBrand.textColor">{{agreement.carrierBrand.label}}</span>
+					</div>
+				</div>
+				<div class="info-area">
+					<div class="agreement-name">{{agreement.name}}</div>
+					<span class="spacer"></span>
+				</div>
+			</div>
+		</div>
+	</app-dvo-card>
+</ng-container>

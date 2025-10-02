@@ -1,0 +1,55 @@
+query FetchProducts (
+	$first: Int,
+	$last: Int,
+	$after: Cursor,
+	$before: Cursor,
+) {
+	products (
+		first: $first
+		last: $last
+		after: $after
+		before: $before
+	) {
+		edges {
+			node {
+				id
+				title
+				status
+				bodyHTML
+				createdAt
+				updatedAt
+				productVariant {
+					id
+					dimensionHeight
+					dimensionWidth
+					dimensionLength
+					productImage {
+						url
+					}
+					product {
+						productImage {
+							url
+						}
+					}
+				}
+				productTags {
+					id
+					name
+				}
+			}
+		}
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		totalCount
+	}
+}
+
+mutation CreateNewProduct($input: CreateProductInput!) {
+	createProduct(input: $input) {
+		id
+	}
+}

@@ -1,0 +1,51 @@
+$color-red: #e00440;
+.text-grey {
+  color: #757575;
+}
+
+.text-red {
+  color: $color-red;
+}
+
+.statement {
+  margin-top: 100px;
+  h2 {
+    font-weight: bold;
+  }
+}
+
+h1 {
+  font-size: 72px;
+  text-align: center;
+}
+h2 {
+  font-size: 64px;
+  text-align: center;
+}
+
+.benefits {
+  width: 85%;
+  margin: 20px auto;
+  .benefits-item {
+    display: flex;
+    list-style-type: none;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 40px;
+    mat-icon {
+      font-size: 40px;
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.statement {
+  margin-top: 100px;
+  h2 {
+    font-weight: bold;
+  }
+}
+

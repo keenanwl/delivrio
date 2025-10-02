@@ -1,0 +1,140 @@
+<app-dvo-card *ngIf="plan$|async; let plan">
+	<h2>Subscription plan</h2>
+	<div class="plan-container">
+		<app-dvo-card class="plan-item" [background]="'#e4e4e4'" *ngFor="let p of plan.plans; let i = index">
+			<h3>{{p.node.label}}</h3>
+			<p class="price">{{p.node.priceDkk | currency}}</p>
+			<p class="description" *ngIf="i === 0">Display delivery options in your checkout.</p>
+			<p class="description" *ngIf="i === 1">Everything from Free. Simple pick/pack.</p>
+			<p class="description" *ngIf="i === 2">Everything from Basic. Handle returns automatically.</p>
+			<p class="description" *ngIf="i === 3">Everything from Growth. Advanced pick/pack & invoice control.</p>
+
+			<div class="plan-selector">
+				<div *ngIf="plan.myPlan?.group?.plan?.id === p.node.id" class="current-plan">
+					<button mat-stroked-button>
+					Your current plan
+					</button>
+				</div>
+				<div *ngIf="plan.myPlan?.group?.plan?.id !== p.node.id" class="current-plan">
+					<button mat-raised-button color="primary" (click)="changePlan(p.node.id)">
+						Upgrade to {{p.node.label}}
+					</button>
+				</div>
+			</div>
+			<div class="plan-features" *ngIf="i === 0">
+				<div class="feature">
+					<span class="left">0 Shipments</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">1 Platform</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">1 Carrier</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+			</div>
+			<div class="plan-features" *ngIf="i === 1">
+				<div class="feature">
+					<span class="left">750 Shipments</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">Unlimited Platforms</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">Unlimited Carriers</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">Unlimited Users</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">2 Work Stations</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">2 Workflows</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">750 Tasks</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+			</div>
+			<div class="plan-features" *ngIf="i === 2">
+				<div class="feature">
+					<span class="left">3 000 Shipments</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">Return portal</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">5 Work Stations</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">5 Workflows</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">2000 Tasks</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+			</div>
+			<div class="plan-features" *ngIf="i === 3">
+				<div class="feature">
+					<span class="left">10 000 Shipments</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">Paperless Pick/Pack</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">Cost control</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">10 Work Stations</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">10 Workflows</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+				<div class="feature">
+					<span class="left">5500 Tasks</span>
+					<span class="spacer"></span>
+					<mat-icon>info_outline</mat-icon>
+				</div>
+			</div>
+		</app-dvo-card>
+	</div>
+</app-dvo-card>
+

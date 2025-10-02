@@ -1,0 +1,5 @@
+extend type Query {
+    # Potentially has side effect of request labels or generating a PDF, so we don't want auto-tx started
+    createPackingListPrintJob(colliIDs: [ID!]!): Boolean!
+    createLabelsPrintJob(colliIDs: [ID!]!): Boolean!
+}

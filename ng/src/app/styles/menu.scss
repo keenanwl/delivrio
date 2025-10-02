@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin menu($theme) {
+
+	$color-config: mat.m2-get-color-config($theme, 'primary');
+	$primary-palette: map.get($color-config, 'primary');
+
+	app-menu-items {
+		.active-link, .active-link:focus {
+			background: mat.m2-get-color-from-palette($primary-palette, 900);
+			.item-content {
+				color: mat.m2-get-contrast-color-from-palette($primary-palette, 900);
+			}
+		}
+	}
+}

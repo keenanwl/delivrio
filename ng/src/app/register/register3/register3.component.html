@@ -1,0 +1,31 @@
+<ng-container *ngIf="register3$|async; let register3">
+	<div class="form-container">
+		<app-already-customer-header [progressPercent]="100" [progressStep]="3"></app-already-customer-header>
+		<h3 class="sign-up-text">What should DELIVRIO connect to?</h3>
+		<div class="multiselects-container">
+			<mat-form-field class="selector">
+				<mat-label>Platforms</mat-label>
+				<mat-select multiple (selectionChange)="platformChange($event.value)">
+					<mat-option *ngFor="let platform of register3.available_platforms" [value]="platform.id">
+						{{platform.name}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+			<mat-form-field class="selector">
+				<mat-label>Carriers</mat-label>
+				<mat-select multiple (selectionChange)="carrierChange($event.value)">
+					<mat-option *ngFor="let carrier of register3.available_carriers" [value]="carrier.id">
+					{{carrier.name}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+
+		<div class="action-container">
+		<!--<button class="button-back" color="accent" mat-raised-button>Back</button>-->
+			<button class="button-next"
+			(click)="signup()"
+			color="primary" mat-raised-button>Sign up</button>
+		</div>
+	</div>
+</ng-container>

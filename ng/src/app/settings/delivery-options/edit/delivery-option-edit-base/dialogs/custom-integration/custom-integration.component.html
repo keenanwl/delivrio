@@ -1,0 +1,26 @@
+<div class="container">
+	<h3>Webshipper integration</h3>
+	<p>Enter the ID of the Webshipper service you would
+		like to connect this delivery option with. When DELIVRIO provides rates to Shopify,
+		they will then be in a format Webshipper understands.</p>
+	<mat-form-field appearance="outline">
+		<mat-label>Webshipper service ID</mat-label>
+		<input #webshipperID [value]="_initialVal" matInput (keyup)="updateVal(webshipperID.value)"/>
+		<mat-hint>
+			Must be numeric e.g. 14 or 52
+		</mat-hint>
+	</mat-form-field>
+	<p>This will be synchronized to Shopify with the relevant drop point, for example:</p>
+	<pre>{{JSON.stringify(webshipperCode, undefined, 4)}}</pre>
+	<div class="action-row">
+		<button mat-stroked-button color="primary" (click)="save(webshipperID.value)">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>
+

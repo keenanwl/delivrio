@@ -1,0 +1,36 @@
+query FetchSeatGroup($id: ID!) {
+	seatGroup(id: $id) {
+		id
+		name
+		seatGroupAccessRight {
+			id
+			level
+			accessRight {
+				id
+				label
+				internalID
+			}
+		}
+	}
+	accessRights {
+		edges {
+			node {
+				id
+				label
+				internalID
+			}
+		}
+	}
+}
+
+mutation CreateSeatGroup($input: CreateSeatGroupInput!, $accessRights: [CreateSeatGroupAccessRightInput!]) {
+	createSeatGroup(input: $input, accessRights: $accessRights) {
+		id
+	}
+}
+
+mutation ReplaceSeatGroup($id: ID!, $input: UpdateSeatGroupInput!, $accessRights: [CreateSeatGroupAccessRightInput!]) {
+	replaceSeatGroup(id: $id, input: $input, accessRights: $accessRights) {
+		id
+	}
+}

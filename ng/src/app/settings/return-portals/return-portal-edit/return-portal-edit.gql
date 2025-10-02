@@ -1,0 +1,66 @@
+
+query FetchReturnPortal($id: ID!) {
+	returnPortal(id: $id) {
+		name
+		returnOpenHours
+		automaticallyAccept
+		returnLocation {
+			id
+		}
+		returnPortalClaim {
+			id
+			name
+			description
+			restockable
+		}
+		connection {
+			id
+		}
+		emailConfirmationLabel {
+			id
+		}
+		emailConfirmationQrCode {
+			id
+		}
+		emailReceived {
+			id
+		}
+		emailAccepted {
+			id
+		}
+		deliveryOptions {
+			id
+		}
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	emailTemplates {
+		edges {
+			node {
+				id
+				name
+				mergeType
+			}
+		}
+	}
+	deliveryOptions(where: {hasCarrierServiceWith: {return: true}}) {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+mutation UpdateReturnPortal($id: ID!, $input: UpdateReturnPortalInput!, $inputClaims: [MutateReturnPortalClaim!]!) {
+	updateReturnPortal(id: $id, input: $input, inputClaims: $inputClaims) {
+		id
+	}
+}

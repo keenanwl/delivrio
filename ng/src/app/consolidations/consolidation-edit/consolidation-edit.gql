@@ -1,0 +1,117 @@
+query FetchConsolidation($id: ID!) {
+	consolidation(id: $id) {
+		publicID
+		description
+		status
+		sender {
+			... AddressInfo
+		}
+		recipient {
+			... AddressInfo
+		}
+		deliveryOption {
+			id
+		}
+		orders {
+			...ConsolidationOrder
+		}
+		pallets {
+			id
+			publicID
+			description
+			packaging {
+				id
+			}
+			orders {
+				...ConsolidationOrder
+			}
+		}
+	}
+	consolidationShipments(consolidationID: $id) {
+		mayBook
+		mayPrebook
+		shipment {
+			id
+			shipmentPallet {
+				id
+				pallet {
+					id
+				}
+			}
+		}
+	}
+	locationInfo: consolidation(id: $id) {
+		sender {
+			... AddressInfo
+		}
+		recipient {
+			... AddressInfo
+		}
+	}
+	deliveryOptions(where: {hasCarrierServiceWith: {consolidation: true}}) {
+		edges {
+			node {
+				id
+				name
+				carrierService {
+					return
+				}
+			}
+		}
+	}
+	packagings(where: {hasCarrierBrandWith: {internalID: df}}) {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+fragment ConsolidationOrder on Order {
+	id
+	orderPublicID
+	status
+}
+
+query ConsolidationSearchOrders($term: String!) {
+	orders(where: {orderPublicIDContainsFold: $term}) {
+		edges {
+			node {
+				...ConsolidationOrder
+			}
+		}
+	}
+}
+
+mutation UpdateConsolidation($id: ID!, $input: UpdateConsolidationInput!, $sender: CreateAddressInput, $recipient: CreateAddressInput, $inputPallets: [CreateOrUpdatePallet!]!) {
+	updateConsolidation(
+		id: $id,
+		input: $input,
+		sender: $sender,
+		recipient: $recipient,
+		inputPallets: $inputPallets,
+	) {
+		id
+	}
+}
+
+query ConsolidationSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+			}
+		}
+	}
+}
+
+query CreateConsolidationShipment($consolidationID: ID!, $prebook: Boolean!) {
+	createConsolidationShipment(consolidationID: $consolidationID, prebook: $prebook) {
+		allLabels
+		labelsPDF
+	}
+}

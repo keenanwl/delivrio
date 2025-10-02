@@ -1,0 +1,16 @@
+type ConnectionListItem {
+    id: String!
+    name: String!
+    connectionBrand: ConnectionBrand!
+}
+
+extend type Query {
+    connection(id: ID): Connection
+    connectionList: [ConnectionListItem]!
+    connectionShopify(id: ID!): ConnectionShopify
+}
+
+extend type Mutation {
+    createShopifyConnection(input: CreateConnectionShopifyInput!, inputConnection: CreateConnectionInput!): ConnectionShopify
+    updateShopifyConnection(id: ID!, input: UpdateConnectionShopifyInput!, inputConnection: UpdateConnectionInput!): ConnectionShopify
+}

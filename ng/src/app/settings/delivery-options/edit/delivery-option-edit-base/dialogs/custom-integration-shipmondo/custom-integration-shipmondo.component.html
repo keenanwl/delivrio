@@ -1,0 +1,29 @@
+<div class="container">
+	<h3>Shipmondo integration</h3>
+	<p>Enter the ID of the Shipmondo service you would
+		like to connect this delivery option with.
+		When DELIVRIO provides rates to Shopify,
+		they will then be in a format Shipmondo understands.</p>
+
+	<p>Include the placeholder <code>{{"{{"}}.DropPointID&#125;&#125;</code> for drop point support.</p>
+	<mat-form-field appearance="outline">
+		<mat-label>Shipmondo service ID</mat-label>
+		<input #shipmondoID [value]="_initialVal" matInput (keyup)="updateVal(shipmondoID.value)"/>
+		<mat-hint>
+			example: dk_gls_service_point_{{"{{"}}.DropPointID&#125;&#125;
+		</mat-hint>
+	</mat-form-field>
+	<p>This will be synchronized to Shopify with the relevant drop point, for example:</p>
+	<pre>{{demoVal}}</pre>
+	<div class="action-row">
+		<button mat-stroked-button color="primary" (click)="save(shipmondoID.value)">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>
+

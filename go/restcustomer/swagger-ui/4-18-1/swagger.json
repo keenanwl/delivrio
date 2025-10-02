@@ -1,0 +1,843 @@
+{
+  "consumes": [
+    "application-json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "An API for managing DELIVRIO entities.",
+    "contact": {
+      "name": "Keenan Linsly",
+      "email": "kwl@delivrio.com"
+    },
+    "version": "1.0.0"
+  },
+  "basePath": "/rest/v1",
+  "paths": {
+    "/order": {
+      "get": {
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "description": "Returns the order information",
+        "operationId": "OrderResponse",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "external-id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OrderResponse",
+            "schema": {
+              "$ref": "#/definitions/OrderResponse"
+            }
+          },
+          "400": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "404": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "500": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "description": "Responds with the save info for each POSTed order\nBe aware partial success will return status 207.\nMax orders per request: 5",
+        "operationId": "OrdersCreateRequest",
+        "parameters": [
+          {
+            "name": "OrdersCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/OrdersCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OrdersCreateResponse",
+            "schema": {
+              "$ref": "#/definitions/OrdersCreateResponse"
+            }
+          },
+          "207": {
+            "description": "OrdersCreateResponse",
+            "schema": {
+              "$ref": "#/definitions/OrdersCreateResponse"
+            }
+          },
+          "400": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "404": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "500": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "post": {
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "description": "Responds with the save info for each POSTed product\nBe aware partial success will return status 207",
+        "operationId": "ProductsCreateRequest",
+        "parameters": [
+          {
+            "name": "ProductsCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ProductsCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ProductsCreateResponse",
+            "schema": {
+              "$ref": "#/definitions/ProductsCreateResponse"
+            }
+          },
+          "207": {
+            "description": "ProductsCreateResponse",
+            "schema": {
+              "$ref": "#/definitions/ProductsCreateResponse"
+            }
+          },
+          "400": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "404": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "500": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          }
+        }
+      }
+    },
+    "/shipments": {
+      "post": {
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "description": "Returns the shipment information",
+        "operationId": "ShipmentsResponse",
+        "parameters": [
+          {
+            "name": "ShipmentsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/ShipmentsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OrderResponse",
+            "schema": {
+              "$ref": "#/definitions/OrderResponse"
+            }
+          },
+          "207": {
+            "description": "OrderResponse",
+            "schema": {
+              "$ref": "#/definitions/OrderResponse"
+            }
+          },
+          "400": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "404": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          },
+          "500": {
+            "description": "GeneralError",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Address": {
+      "type": "object",
+      "required": [
+        "first_name",
+        "last_name",
+        "street_one",
+        "street_two",
+        "postal_code",
+        "city",
+        "country"
+      ],
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "country": {
+          "description": "Alpha2",
+          "type": "string",
+          "example": "\"DK\" | \"DE\" | \"FR\""
+        },
+        "email": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "street_one": {
+          "type": "string"
+        },
+        "street_two": {
+          "type": "string"
+        },
+        "vat_number": {
+          "type": "string"
+        }
+      }
+    },
+    "Colli": {
+      "type": "object",
+      "properties": {
+        "delivery_address": {
+          "$ref": "#/definitions/Address"
+        },
+        "order_lines": {
+          "description": "May contain duplicate product variants at different prices/currencies",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderLine"
+          }
+        },
+        "sender_address": {
+          "$ref": "#/definitions/Address"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      }
+    },
+    "ColliRequest": {
+      "type": "object",
+      "properties": {
+        "order_line_external_ids": {
+          "description": "List of external order lines IDs to be included in this parcel.\nFor instance, allows Shopify order line IDs lookup.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ErrorOrderLines": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "order_line_external_id": {
+          "type": "string"
+        }
+      }
+    },
+    "GeneralError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "description": "Error description",
+          "type": "string"
+        },
+        "status": {
+          "description": "HTTP Status of the error",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "ImageCreate": {
+      "type": "object",
+      "required": [
+        "url",
+        "external_id"
+      ],
+      "properties": {
+        "external_id": {
+          "description": "ID from system external to DELIVRIO",
+          "type": "string",
+          "example": "99999911111888888222222"
+        },
+        "url": {
+          "description": "The full URL to the image hosted on an external system",
+          "type": "string",
+          "example": "https://cdn.example.com/a/image/path/12345.jpg"
+        },
+        "variant_indexes": {
+          "description": "The array indexes of the variants this image should be associated with.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "example": [
+            1,
+            5,
+            9
+          ]
+        }
+      }
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "colli": {
+          "description": "An order may contain \u003e= 1 colli",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Colli"
+          }
+        },
+        "comment_external": {
+          "description": "Comment may be included in packaging or messing to end-customer",
+          "type": "string"
+        },
+        "comment_internal": {
+          "description": "Comment only visible within DELIVRIO",
+          "type": "string"
+        },
+        "connection_name": {
+          "description": "The name of the connection. Will fail if connection name duplicated in DELIVRIO.",
+          "type": "string"
+        },
+        "external_id": {
+          "description": "ID from system external to DELIVRIO",
+          "type": "string",
+          "example": "99999911111888888222222"
+        },
+        "id": {
+          "description": "Internal DELIVRIO ID",
+          "type": "string"
+        },
+        "public_id": {
+          "description": "Visible to end-customer. Must be unique.",
+          "type": "string",
+          "example": "SH123456789"
+        }
+      }
+    },
+    "OrderCreate": {
+      "type": "object",
+      "required": [
+        "public_id",
+        "connection_name"
+      ],
+      "properties": {
+        "comment_external": {
+          "type": "string"
+        },
+        "comment_internal": {
+          "type": "string"
+        },
+        "connection_name": {
+          "type": "string"
+        },
+        "delivery_address": {
+          "$ref": "#/definitions/Address"
+        },
+        "external_id": {
+          "description": "ID from system external to DELIVRIO",
+          "type": "string",
+          "example": "99999911111888888222222"
+        },
+        "order_lines": {
+          "description": "May contain duplicate product variants at different prices/currencies",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderLine"
+          }
+        },
+        "public_id": {
+          "description": "Visible to end-customer. Must be unique.",
+          "type": "string",
+          "example": "SH123456789"
+        },
+        "sender_address": {
+          "$ref": "#/definitions/Address"
+        }
+      }
+    },
+    "OrderLine": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "example": "\"DKK\" | \"EUR\" | \"USD\""
+        },
+        "external_product_id": {
+          "description": "Mutually exclusive with product_variant_id",
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "product_variant_id": {
+          "description": "Mutually exclusive with external_product_id",
+          "type": "string"
+        },
+        "units": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "OrderResponse": {
+      "type": "object",
+      "properties": {
+        "order": {
+          "$ref": "#/definitions/Order"
+        },
+        "shipments": {
+          "description": "Existing shipments. A single order may be split into multiple shipments\nso the same orderID may be found multiple times in the array",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShipmentResponse"
+          }
+        }
+      }
+    },
+    "OrderSaved": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "description": "Save error. Present when Success is false.",
+          "type": "string"
+        },
+        "order_id": {
+          "description": "Internal DELIVRIO ID. Present when save is successful.",
+          "type": "string"
+        },
+        "success": {
+          "description": "Whether the order was saved.",
+          "type": "boolean"
+        }
+      }
+    },
+    "OrdersCreateRequest": {
+      "type": "object",
+      "properties": {
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderCreate"
+          }
+        }
+      }
+    },
+    "OrdersCreateResponse": {
+      "type": "object",
+      "properties": {
+        "orders": {
+          "description": "1:1 output corresponding to posted Orders",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderSaved"
+          }
+        }
+      }
+    },
+    "ParcelLabel": {
+      "type": "object",
+      "properties": {
+        "error_order_lines": {
+          "description": "Error order lines may occur if the given order line is already part of a dispatched shipment",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorOrderLines"
+          }
+        },
+        "label_pdf": {
+          "description": "Base64 encoded PDF label.",
+          "type": "string"
+        },
+        "link": {
+          "description": "URL to request PDF label for this parcel\nCan the link be authenticated?",
+          "type": "string"
+        }
+      }
+    },
+    "ProductCreate": {
+      "type": "object",
+      "required": [
+        "title",
+        "status",
+        "product_variants"
+      ],
+      "properties": {
+        "body_html": {
+          "type": "string"
+        },
+        "external_id": {
+          "description": "ID from system external to DELIVRIO",
+          "type": "string",
+          "example": "99999911111888888222222"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImageCreate"
+          }
+        },
+        "product_variants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductVariantCreate"
+          }
+        },
+        "status": {
+          "type": "string",
+          "example": "active"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "T-shirts",
+            "Branded",
+            "normal-delivery"
+          ]
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductSaved": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "description": "Save error. Present when Success is false.",
+          "type": "string"
+        },
+        "product_id": {
+          "description": "Internal DELIVRIO ID. Present when save is successful.",
+          "type": "string"
+        },
+        "success": {
+          "description": "Whether the order was saved.",
+          "type": "boolean"
+        }
+      }
+    },
+    "ProductVariantCreate": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "Description of the specific variant",
+          "type": "string",
+          "example": "A green t-shirt"
+        },
+        "ean": {
+          "description": "EAN Number for the variant",
+          "type": "string",
+          "example": "1234567891234"
+        },
+        "external_id": {
+          "description": "ID from system external to DELIVRIO",
+          "type": "string",
+          "example": "99999911111888888222222"
+        },
+        "height": {
+          "description": "Height cm",
+          "type": "integer",
+          "format": "int64",
+          "example": 10
+        },
+        "length": {
+          "description": "Length cm",
+          "type": "integer",
+          "format": "int64",
+          "example": 10
+        },
+        "width": {
+          "description": "Width cm",
+          "type": "integer",
+          "format": "int64",
+          "example": 10
+        }
+      }
+    },
+    "ProductsCreateRequest": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductCreate"
+          }
+        }
+      }
+    },
+    "ProductsCreateResponse": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "description": "1:1 output corresponding to posted Orders",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductSaved"
+          }
+        }
+      }
+    },
+    "ReturnColli": {
+      "type": "object",
+      "properties": {
+        "carrier_label_id": {
+          "type": "string"
+        },
+        "order_lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnOrderLine"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      }
+    },
+    "ReturnOrderLine": {
+      "type": "object",
+      "properties": {
+        "order_line_external_id": {
+          "type": "string"
+        },
+        "return_reason_id": {
+          "type": "string"
+        },
+        "return_reason_name": {
+          "type": "string"
+        }
+      }
+    },
+    "ReturnReasonsResponse": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "description": "Internal DELIVRIO ID",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "restockable": {
+          "type": "boolean"
+        },
+        "return_portal_id": {
+          "description": "Refundable       bool   `json:\"refundable\"`",
+          "type": "string"
+        },
+        "return_portal_name": {
+          "type": "string"
+        }
+      }
+    },
+    "ReturnResponse": {
+      "type": "object",
+      "properties": {
+        "return_collis": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnColli"
+          }
+        }
+      }
+    },
+    "ShipmentCreate": {
+      "type": "object",
+      "properties": {
+        "collis": {
+          "description": "A list of individual parcels for which a label needs to be generated.\nThe labels are grouped when the carrier supports this feature.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ColliRequest"
+          }
+        },
+        "order_status": {
+          "$ref": "#/definitions/Status"
+        }
+      }
+    },
+    "ShipmentError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "description": "HTTP Status of the error",
+          "type": "integer",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/ShipmentErrorType"
+        }
+      }
+    },
+    "ShipmentErrorType": {
+      "type": "string"
+    },
+    "ShipmentResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ShipmentError"
+        },
+        "order_id": {
+          "type": "string"
+        },
+        "order_status": {
+          "$ref": "#/definitions/Status"
+        },
+        "parcels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ParcelLabel"
+          }
+        }
+      }
+    },
+    "ShipmentsRequest": {
+      "type": "object",
+      "properties": {
+        "shipment_requests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShipmentCreate"
+          }
+        }
+      }
+    },
+    "ShipmentsResponse": {
+      "type": "object",
+      "properties": {
+        "shipments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShipmentResponse"
+          }
+        }
+      }
+    },
+    "Status": {
+      "type": "string",
+      "title": "Status defines the type for the \"status\" enum field."
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "X-DELIVRIO-key",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ]
+}

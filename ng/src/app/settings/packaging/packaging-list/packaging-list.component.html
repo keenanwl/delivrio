@@ -1,0 +1,53 @@
+<div class="container" *ngIf="packaging$|async; let state">
+	<div class="inset-container">
+		<div class="page-header">
+			<h3>Packaging types</h3>
+			<span class="spacer"></span>
+			<button (click)="addNew()" mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add packaging
+			</button>
+		</div>
+		<div class="loading-bar">
+			<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+		</div>
+		<table mat-table [dataSource]="state.packagingList">
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="dimensions">
+				<th mat-header-cell *matHeaderCellDef>Dimensions (cm)</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.heightCm}} x {{element.widthCm}} x {{element.lengthCm}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="carrier">
+				<th mat-header-cell *matHeaderCellDef>Carrier</th>
+				<td mat-cell *matCellDef="let element">
+					{{!!element.carrierBrand?.label ? element.carrierBrand?.label : 'All carriers'}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="active">
+				<th mat-header-cell *matHeaderCellDef>Active</th>
+				<td mat-cell *matCellDef="let element">
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="actions">
+				<th mat-header-cell *matHeaderCellDef>
+					Actions
+				</th>
+				<td mat-cell *matCellDef="let element">
+					<button mat-icon-button (click)="archive($event, element)">
+						<mat-icon>archive</mat-icon>
+					</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row class="row-container" *matRowDef="let row; columns: displayedColumns;" ></tr>
+		</table>
+	</div>
+</div>

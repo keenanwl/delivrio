@@ -1,0 +1,20 @@
+<div class="panel-container">
+	<div class="right-panel">
+		<div class="record card" *ngFor="let t of timelineData">
+			<h4 [matTooltip]="t.createdAt | date:'medium'">{{t.createdAt | relativeTime:0}} by {{t.user?.name}}</h4>
+			<ng-container *ngFor="let o of t.orderHistory">
+				<div class="event" *ngIf="showOnlyOrdersFromID.length === 0 || showOnlyOrdersFromID === o.order.id">
+					<p>- {{o.description}}</p>
+				</div>
+			</ng-container>
+			<ng-container *ngFor="let o of t.returnColliHistory">
+				<div class="event">
+					<p>- {{o.description}}</p>
+				</div>
+			</ng-container>
+		</div>
+		<button class="view-more" mat-stroked-button color="primary">
+			View full history
+		</button>
+	</div>
+</div>

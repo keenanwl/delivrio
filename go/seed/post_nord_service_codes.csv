@@ -1,0 +1,2194 @@
+issuerCode,issuerCountry,issuerCountryCode,serviceCode,serviceName,adnlServiceCode,adnlServiceName,allowedConsigneeCountry,allowedConsignorCountry,mandatory
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,EE,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,SE,FI,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A8,Dangerous Goods LQ,NO,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,GB,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,SK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,GG,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,FI,NO,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,GL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,LI,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A3,SMS-avisering,FI,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,PL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,LT,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,C6,Leverings bekreftelse,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,SI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,BE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,FI,FI,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,IT,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,B8,Driver Notification - Phone,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,GL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,EE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,DK,NO,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,LT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,FI,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,FR,Franco,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D5,Private receiver,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,BE,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,C1,Receipient freight,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D9,Klimatkompensation,NO,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,UA,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,C4,ID check,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A9,Driver notification,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,E8,Split Shipment,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E6,Pickup Confirmation,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,90,Varuförsäkring,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,BE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,PT,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,C2,QR Kode,ALL,DK,FALSE
+Z11,DENMARK,DK,30,Mypack Home Small,A3,SMS notification,NO,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A6,FlexDelivery,NO,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,47,Alkoholdryck,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A8,Limited Quantity of Dangerous Goods,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,HR,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,IM,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,C7,FlexChange,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,NL,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,Q1,Time agreed delivery,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,FR,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,FI,SE,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,GR,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,RO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D1,Return to Sender,SE,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,C2,Print Label,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,BE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,CZ,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,TR,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A8,Begränsad mängd farligt gods,SE,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,A5,Varuförsäkring,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D7,Before 12,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,FI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,NL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,LT,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A8,Dangerous Goods LQ,AX,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A8,Limited Quantity of Dangerous Goods,DK,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,3,Goods return,ALL,ALL,TRUE
+Z12,SWEDEN,SE,RR,Rek,A1,Postförskott,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,JE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,F7,Before 7,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,HU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,LU,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,PT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,SJ,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),FO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,MK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,PT,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,D1,Returner til avsender,ALL,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,CZ,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,SK,ALL,TRUE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,74,Avemballering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,IT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,GR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,PL,ALL,TRUE
+Z12,SWEDEN,SE,59,Retail Delivery,D9,Klimatkompensation,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,EE,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,GB,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,G4,Fast liggetid 7 dagar,SE,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A4,e-postavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,A3,SMS-avisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,AT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,GB,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,DK,NO,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,LI,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,E5,Collect in Store ¿ Label Only,NO,ALL,FALSE
+Z12,SWEDEN,SE,86,Varubrev 1:a Klass,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,MC,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,SE,ALL,FALSE
+Z12,SWEDEN,SE,86,Varubrev 1:a Klass,16,Söndagsinlämning,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A6,FlexDelivery,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,LV,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,SE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B8,Driver Notification - Phone,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,MC,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A9,Notification by Phone,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D5,Private Receiver,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D6,Delivery before 9 (MEDIO 2017),NO,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E4,Collect in store,ALL,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,D9,Klimatkompensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,SI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A6,FlexDelivery,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,SE,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D1,Immidiate Return,DK,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,C1,Recipient freight,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,FI,DK,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E4,Collect in store,SE,SE,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,74,Avemballering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,FR,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,UA,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,SE,FI,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,C4,ID check,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,SK,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,C7,FlexChange,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,IS,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,GB,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,A5,Varuförsäkring,ALL,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,EE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,IM,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,H1,To parcellocker,SE,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,G3,Utökad liggetid 14 dagar,SE,SE,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,LT,ALL,TRUE
+Z12,SWEDEN,SE,20,Return Pickup,A8,Begränsad mängd farligt gods,FI,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,43,Julemærkefonden,ALL,DK,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,NO,NO,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,LV,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,B9,ADR,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D6,Delivery before 9 (MEDIO 2017),DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,HR,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,LT,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D9,Klimatkompensation,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D2,Signature Assurance,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,DK,DK,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,BY,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,SE,DK,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A1,Cash on Delivery,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,TR,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,D1,Returner til avsender,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,HR,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,A2,eBrevsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D2,Signature Assurance,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,DE,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,C1,Recipient Freight,ALL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D9,Klimatkompensation,DK,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,E4,Collect in store,NO,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,EE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B8,Driver notification,ALL,DK,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,PL,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,LU,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,CH,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,JE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,SE,NO,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,FI,NO,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,BG,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D2,Kvittenskrav,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,HR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,HR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,AT,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,B9,Dangerous Goods,DK,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,KM,"Kvittensbild, via mail",ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,62,Insurance DK,DK,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,C4,ID check,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,FI,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,B7,Leverans till anvisad plats,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,MC,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,SE,FI,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,FI,DK,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,UA,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,A2,eBrevsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,SK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,FI,NO,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,IE,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A8,Limited Quantity of Dangerous Goods,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E7,Pickup Handover,SE,ALL,FALSE
+Z12,SWEDEN,SE,LX,Expressbrev,FS,"Faktura, med inlämningsundrlag",ALL,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D2,Signatur bekreftelse,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,SI,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,KB,Mottagarkvittens,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,AX,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,SE,DK,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A8,Limited Quantity of Dangerous Goods,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,FI,NO,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,HR,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,LV,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,LV,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,LI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,87,Returuppdrag,!SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,LV,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,C4,Legitimationskontroll,DK,ALL,FALSE
+Z11,DENMARK,DK,4,Tracked Letters,A4,Email notification,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,24,Utökad identifiering,SE,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A9,Driver notification,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,89,Split shipment,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,IR,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,GR,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,NO,DK,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,21,Ej till ombud,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A3,SMS notification,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,UA,ALL,TRUE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,D4,Digitallock,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,HR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,DE,ALL,FALSE
+Z12,SWEDEN,SE,49,InNight Reverse,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,B8,Driver notification,FI,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,80,Samordnad Varudistribution,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,ME,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,KM,"Kvittensbild, via mail",ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E6,Pickup Confirmation,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,Q1,Time agreed delivery,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,AT,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,SI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,NO,FI,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,IE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,SE,ALL,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,M7,Not to outdoor parcel locker,FI,FI,FALSE
+Z11,DENMARK,DK,83,Groupage,B7,Carry-in,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,FI,DK,TRUE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,SE,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,FO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,NL,ALL,TRUE
+Z12,SWEDEN,SE,20,Return Pickup,A5,Varuförsäkring,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,EE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,BE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,HU,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,PL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A8,Limited Quantity of Dangerous Goods,ALL,DK,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,D5,Private Receiver,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,LI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,FI,DK,FALSE
+Z13,NORWAY,NO,52,Pallet,C6,Leverings bekreftelse,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,HR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,SI,ALL,TRUE
+Z12,SWEDEN,SE,51,Företagspaket Comeback,2,Behållarhyra,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E2,Carry out,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,90,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,NL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,62,Insurance DK,ALL,DK,FALSE
+Z11,DENMARK,DK,83,Groupage,10,Ad-hoc pickup,ALL,ALL,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,A9,Notification by phone,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,PT,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,FI,FI,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D3,Föravisering,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,AX,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,FR,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D3,Föravisering,!FO,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,34,Upphämtning,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,HU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A9,Driver notification,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,IM,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E7,Pickup Handover,SE,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E1,Däck,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,DK,DK,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,BG,ALL,FALSE
+Z11,DENMARK,DK,4,Tracked Letters,A3,SMS notification,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A5,Insurance,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,IT,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,AX,ALL,TRUE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,DK,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,GR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,LV,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,NO,DK,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,GB,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,89,EDI - mangelfuld adresse,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,LU,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,HU,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D6,Before 9,NO,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,A9,Notification by telephone,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,GG,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,SK,ALL,TRUE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,LU,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,LV,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,NO,NO,TRUE
+Z12,SWEDEN,SE,RR,Rek,FE,"Faktura, utan inlämningsundrlag",ALL,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,D4,Digitallock,ALL,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E7,Pickup Handover,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,NO,FI,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,C7,FlexChange,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,GB,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B9,Dangerous goods,ALL,DK,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B9,Dangerous Goods,FI,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,DE,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,DE,ALL,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,B6,Carry-in Heavy,ALL,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,D9,Klimatkompensation,NO,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,A5,Insurance,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,IM,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,A4,Notification by e-mail,NO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,FI,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,LV,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,NL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E6,Pickup Confirmation,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A8,Limited Quantity of Dangerous Goods,ALL,FO,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,BE,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,B8,Chaufförsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,GG,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D4,Digitallock,ALL,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,A2,eBrevsavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,RO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,LI,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,ES,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,LI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,NO,NO,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,DE,ALL,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,A1,Postförskott,SE,ALL,TRUE
+Z13,NORWAY,NO,52,Pallet,D3,,ALL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C5,Leveransavisering,NO,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D9,Climate compensation,ALL,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,A4,Notification by e-mail,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,CZ,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E4,Collect in store,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,AT,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,AX,FALSE
+Z12,SWEDEN,SE,LX,Expressbrev,FB,Förbetald,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,GB,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,C4,ID check,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,NO,FI,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,NL,ALL,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,E5,Collect in Store ¿ Label Only,SE,SE,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,AT,ALL,TRUE
+Z13,NORWAY,NO,19,MyPack Collect,B1,Temperature,ALL,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,PB,Posten Norway Distribution,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,LV,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,G3,Utökad liggetid 14 dagar,SE,SE,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A5,Insurance Europe,FI,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,PU,Personlig utlämning,ALL,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,D9,Klimatkompensation,FI,ALL,FALSE
+Z11,DENMARK,DK,30,Mypack Home Small,A4,Email notification,NO,ALL,TRUE
+Z13,NORWAY,NO,52,Pallet,C5,Leverings orientering,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,SI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,SE,SE,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,HU,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,CH,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,MC,ALL,TRUE
+Z11,DENMARK,DK,48,InNight,89,EDI - mangelfuld adresse,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,HU,ALL,TRUE
+Z12,SWEDEN,SE,59,Retail Delivery,E4,Collect in store,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,MK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,IE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,IT,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,FI,DK,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D6,Before 9,FI,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D9,Klimatkompensation,FI,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,SE,DK,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A8,Dangerous Goods LQ,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,DK,ALL,FALSE
+Z12,SWEDEN,SE,LX,Expressbrev,FE,"Faktura, utan inlämningsundrlag",ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B7,Carry-In,NO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,HR,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,HR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,D9,Climate Compensation,NO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,ES,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C7,FlexChange,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D6,Delivery before 9 (MEDIO 2017),ALL,DK,FALSE
+Z13,NORWAY,NO,24,Return Drop Off,A5,Insurance,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,DK,DK,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,FB,Förbetald,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,ES,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,GR,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A6,Delivery without POD,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,SJ,FALSE
+Z13,NORWAY,NO,17,MyPack Home,A5,Insurance,NO,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,DE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,AX,FALSE
+Z11,DENMARK,DK,83,Groupage,62,Insurance DK,DK,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B7,Carry-In,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,RO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,B8,Driver notification,SE,ALL,FALSE
+Z12,SWEDEN,SE,49,InNight Reverse,B3,Garantiretur,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,LT,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,Q1,Time agreed delivery,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,FR,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,3,Goods return,ALL,DK,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,IE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,GB,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B8,Driver Notification - Phone,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,SE,ALL,TRUE
+Z11,DENMARK,DK,83,Groupage,B7,Carry-in,ALL,DK,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,FI,NO,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A8,Begränsad mängd farligt gods,!IS,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D7,Before 12,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,BE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,DK,DK,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D6,Delivery before 9 (MEDIO 2017),SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,GR,ALL,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,SE,NO,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,GR,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A7,Valfritt hämtställe,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D7,Before 12,FI,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,H5,Good distribution practice,AX,FI,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A8,Dangerous Goods LQ,DK,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,A5,Insurance,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C6,Delivery Confirmation,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,ES,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,MC,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,NL,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A7,Valfritt hämtställe,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,SE,FI,TRUE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A1,Cash on Delivery,AX,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D5,Private receiver,DK,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,F1,Sameday delivery,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,CZ,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,GB,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,RO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,DE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,AX,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,B8,Driver Notification - Phone,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,CH,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,CH,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,SE,DK,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,NO,SE,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,17,Två utkörningsförsök,SE,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E2,Carry out,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,SE,FI,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D1,Immidiate Return,SE,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E3,Return Pickup Private,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,PL,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,B8,Driver notification (phone),NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,ES,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E5,Collect in Store ¿ Label Only,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D7,Before 12,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,HU,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,HR,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,B9,Dangerous goods,NO,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,C4,ID check,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B9,Dangerous goods,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A2,Notification by letter,SE,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,SE,FI,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,SJ,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,A5,Insurance,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,JE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,LV,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,NO,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,C7,Flex change,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,BG,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D6,Delivery before 9 (MEDIO 2017),SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,BE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,GB,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E6,Pickup Confirmation,FI,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,F2,Express,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D1,Immidiate Return,NO,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,D1,Returner til avsender,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,IM,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D2,Signature Assurance,ALL,DK,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,D9,Climate compensation,ALL,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,FI,FI,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D2,Kvittenskrav,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,GL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,Q1,Time agreed delivery,ALL,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,C2,Print Label,SE,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A7,Valfritt hämtställe,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E1,Däck,!FO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,EE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,RO,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A1,Postförskott,SE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,D5,Private Receiver,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,MC,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,GB,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,EE,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,90,Varuförsäkring,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,SE,NO,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D6,Before 9,FI,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,FO,FALSE
+Z13,NORWAY,NO,18,Parcel,C5,Leverings orientering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,HR,ALL,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,E3,Return Pickup Private,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,BG,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,89,Split shipment,NO,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,EE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,34,Upphämtning,FI,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A8,Dangerous Goods LQ,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D1,Immidiate Return,ALL,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,C5,Leveransavisering,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,VA,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E8,Split shipment,GB,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,LU,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,NO,SE,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A8,Limited Quantity of Dangerous Goods,ALL,NO,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,CH,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,CH,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E2,Carry out,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,PT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D2,Signature Assurance,NO,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,UI,Utkökad indentifiering,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,IE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,LU,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,89,EDI - mangelfuld adresse,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,PT,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,B9,Dangerous Goods,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,FI,FI,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,AT,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,IT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,ES,ALL,FALSE
+Z12,SWEDEN,SE,49,InNight Reverse,B9,ADR,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,LV,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,C1,Receipient freight,NO,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,B9,Dangerous Goods,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,NO,ALL,TRUE
+Z12,SWEDEN,SE,87,Varubrev Retur,A3,SMS-avisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,ES,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,EE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,BY,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,90,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,LV,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,FI,SE,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,17,Två utkörningsförsök,SE,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,D3,,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A2,Letter notification,NO,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A5,Insurance Europe,FI,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,CZ,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,B7,Leverans till anvisad plats,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,BY,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,CZ,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,NO,DK,FALSE
+Z12,SWEDEN,SE,RR,Rek,PU,Personlig utlämning,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,B4,Returemballage,SE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,34,Upphämtning,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,BG,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,IM,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,AT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,GR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A8,Limited Quantity of Dangerous Goods,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,BE,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,LT,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,HU,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,FO,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,G3,Utökad liggetid 14 dagar,SE,SE,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,IS,ALL,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,DE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,SI,ALL,FALSE
+Z12,SWEDEN,SE,34,International tracked letter,61,Skrymmande,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,CZ,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,LU,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,NO,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,A1,Cash on delivery,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,LU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,LV,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A9,Notification by Phone,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,DK,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,HU,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,SK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,RO,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,FI,FI,TRUE
+Z11,DENMARK,DK,83,Groupage,D6,Delivery before 9 (MEDIO 2017),FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,LU,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,BA,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,GB,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,SJ,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D6,Before 9,SE,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,F1,Sameday delivery,SE,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,A3,Notification by SMS,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,RO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,DE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,DK,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A8,Limited Quantity of Dangerous Goods,NO,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,E9,Collection Request,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,HU,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,A5,Insurance,NO,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,PT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,SI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,LI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E6,Pickup Confirmation,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,HR,ALL,TRUE
+Z12,SWEDEN,SE,83,PostNord Groupage,E3,Return Pickup Private,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,LU,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,SI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,LI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,FI,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,DE,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,C4,Legitimationskontroll,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,GB,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,AX,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,C2,Print Label,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,NO,NO,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,C4,Legitimationskontroll,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,SE,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,D7,Delivery before 12,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,LT,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,GB,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,G4,Fast liggetid 7 dagar,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,5,Value,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,HR,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,TR,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D2,Kvittenskrav,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D2,Kvittenskrav,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,SE,NO,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,SE,DK,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,FI,FI,TRUE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,DK,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,ES,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,RS,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,UA,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,61,Insurance ROW,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,HR,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,MB,Mottagningsbevis,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,BY,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D5,Private Receiver,FI,ALL,FALSE
+Z13,NORWAY,NO,24,Return Drop Off,D9,Climate compensation,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,CZ,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,CH,ALL,TRUE
+Z13,NORWAY,NO,52,Pallet,A8,Limited quantity of dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,DK,FI,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,IT,ALL,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,A6,Leverans utan kvittens,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D6,Delivery before 9 (MEDIO 2017),DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,IM,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,43,Julemærkefonden,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,GL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,IT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,LI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D5,Private receiver,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,3,Goods return,ALL,DK,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,NL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,AX,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A4,Email notification,FI,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B8,Driver Notification - Phone,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D7,Before 12,DK,ALL,FALSE
+Z12,SWEDEN,SE,48,InNight,44,GDP Temperaturkrav,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,EE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,PT,ALL,TRUE
+Z13,NORWAY,NO,18,Parcel,D3,,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,SI,FALSE
+Z12,SWEDEN,SE,49,InNight Reverse,C1,Recipient freight,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,BE,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,RO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,H6,MPS,FI,FI,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,SE,SE,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,IE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,DE,ALL,TRUE
+Z13,NORWAY,NO,17,MyPack Home,B4,Remove packaging for scrapping,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,IR,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,DK,DK,FALSE
+Z13,NORWAY,NO,30,MyPack Home Small (Parcel Letter),C6,Leverings bekreftelse,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,5,Value,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,CZ,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,F7,Before 7,FI,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,C7,Flex change,ALL,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A5,Insurance,NO,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,A9,Notification by phone,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,FR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,GB,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,D9,Climate Compensation,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D2,Kvittenskrav,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,DK,SE,FALSE
+Z12,SWEDEN,SE,11,Varubrev Ekonomi,A2,eBrevsavisering,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C4,Legitimationskontroll,FI,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,IT,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,JE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,IS,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,GB,ALL,TRUE
+Z12,SWEDEN,SE,83,PostNord Groupage,C4,Legitimationskontroll,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,NO,DK,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D3,Delivery Advice,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,IE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,IT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,FR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,ES,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,IE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,SE,DK,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,LV,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,D8,Ålderskontroll,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,NO,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,SE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,CZ,ALL,TRUE
+Z13,NORWAY,NO,52,Pallet,D9,Climate compensation,ALL,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,G3,Utökad liggetid 14 dagar,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C1,Recipient freight,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,LV,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,TR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,IT,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E3,Return Pickup Private,DK,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,AT,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,D3,Delivery Advice,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,SI,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,D9,Climate compensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,LI,ALL,TRUE
+Z12,SWEDEN,SE,83,PostNord Groupage,E3,Return Pickup Private,FI,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D2,Kvittenskrav,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,NO,NO,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A4,e-postavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,PT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,FI,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A8,Begränsad mängd farligt gods,DK,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,GB,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,UA,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,CZ,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,D4,Digitallock,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,NL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,CH,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,JE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,HR,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A3,SMS-avisering,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,BA,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,HU,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,DK,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,FE,"Faktura, utan inlämningsundrlag",ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,NO,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,NL,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D6,Delivery before 9,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,GG,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,D9,Klimatkompensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,SE,NO,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A8,Limited Quantity of Dangerous Goods,FO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,AX,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,21,Ej till ombud,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,C4,ID check,SE,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,B8,Chaufförsavisering,FI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D6,Delivery before 9 (MEDIO 2017),NO,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A1,Cash on Delivery,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,PL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,RO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,PL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,CZ,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,Q1,Time agreed delivery,ALL,ALL,FALSE
+Z13,NORWAY,NO,32,MyPack Home,B4,Remove packaging for scrapping,ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B1,Temperature Controlled,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,FI,NO,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,B9,Dangerous Goods,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,BG,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,RO,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,LU,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,PL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E8,Split shipment,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,CH,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C4,Legitimationskontroll,DK,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,24,Utökad identifiering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,GL,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,CH,ALL,TRUE
+Z14,FINLAND,FI,48,InNight,Q1,Time Agreed,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,CH,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,DK,SE,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A9,Notification by phone,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,GL,FALSE
+Z14,FINLAND,FI,48,InNight,A5,Insurance,FI,ALL,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,A4,e-postavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,LU,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,BE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,IT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,NL,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,UA,Utökat ansvar,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,BG,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,FR,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,D9,Climate compensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,DE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,62,Insurance DK,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A8,Limited Quantity of Dangerous Goods,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A4,e-postavisering,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,PT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A8,Dangerous Goods LQ,DK,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,FI,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,LU,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,HR,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,DK,FI,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,RO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A8,Dangerous Goods LQ,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A4,e-postavisering,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A5,Insurance,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,DK,NO,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,IE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,A6,Leverans utan kvittens,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,FR,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D4,Digitallock,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D6,Before 9,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,ES,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,TR,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,CH,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,7,Economy to FO/GL,GL,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,AT,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,FI,DK,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,D6,Before 9,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,FR,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,F6,EARLY COLLECT,SE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,AX,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,B8,Driver Notification - Phone,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D4,Digitallock,ALL,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,A8,Limited quantity of dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B9,Dangerous goods,ALL,DK,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,DE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,NO,SE,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,ES,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,B8,Driver notification,DK,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D2,Kvittenskrav,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,FO,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E2,Carry out,SE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,Q1,Time Agreed,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,DK,DK,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,LV,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,SK,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,D5,Private Receiver,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,IE,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,SE,FI,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,NO,ALL,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,E7,Pickup Handover,NO,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,A3,Notification by SMS,NO,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,E8,Split shipment,NO,ALL,FALSE
+Z13,NORWAY,NO,48,InNight,D9,Climate compensation,ALL,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,M6,Print Label Pickup,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A4,Email notification,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,AT,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,CH,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A6,Leverans utan kvittens,SE,ALL,FALSE
+Z12,SWEDEN,SE,11,Varubrev Ekonomi,A4,e-postavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,H5,Good distribution practice,FI,AX,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D9,Climate Compensation,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,BE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,BG,ALL,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,B7,Leverans till anvisad plats,SE,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A5,Insurance,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,PT,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,FI,FI,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A2,eBrevsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,A3,SMS-avisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,UP,Utplock,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,AT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A6,FlexDelivery,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,PT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,PL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,PL,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,B9,Dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,BE,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,CZ,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A5,Varuförsäkring,DK,ALL,FALSE
+Z13,NORWAY,NO,32,MyPack Home,A8,Limited quantity of dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,SI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,NL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,SE,SE,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A2,Letter notification,AX,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,SK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,GL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,CZ,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,43,Julemærkefonden,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,SK,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E2,Carry out,FI,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,C5,Leveransavisering,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,BY,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,HR,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,30,Tilläggsförsäkring,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A5,Insurance,FI,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,LV,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,AT,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,NO,SE,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,FR,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,BG,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,HU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,FO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,GG,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C5,Leveransavisering,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,C4,ID check,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,CZ,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,SE,SE,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,IE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A6,FlexDelivery,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,DE,ALL,FALSE
+Z12,SWEDEN,SE,11,Varubrev Ekonomi,C7,FlexChange,SE,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,B8,Driver notification (phone),ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D5,Private receiver,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,89,EDI - mangelfuld adresse,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,FR,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,SE,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,62,Insurance DK,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D1,Immidiate Return,NO,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,B7,Carry-In,ALL,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E5,Collect in Store ¿ Label Only,DK,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,D7,Delivery before 12,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,SI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,SI,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,F8,Private Receiver Direct Delivery,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,SK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,BG,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,CZ,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,PL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,BG,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,IS,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A8,Dangerous Goods LQ,SE,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B9,Dangerous Goods,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,LT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,LU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,ES,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C6,Delivery Confirmation,FI,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,FI,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,47,Alkoholdryck,IT,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,LT,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,NO,FI,FALSE
+Z12,SWEDEN,SE,RR,Rek,FR,Franco,ALL,ALL,FALSE
+Z12,SWEDEN,SE,87,Varubrev Retur,C2,Print Label,ALL,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D8,Ålderskontroll,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,LU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D1,Immidiate Return,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,LU,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,JE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,ES,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,CZ,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,GL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,LV,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,AX,ALL,TRUE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,PT,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,7,Utökad liggetid 30 dagar,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,BA,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D3,Föravisering,!SJ,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A6,Delivery without POD,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,BG,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,MC,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,B7,Leverans till anvisad plats,ALL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D6,Before 9,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D9,Climate Compensation,FI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,PL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,FI,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,DK,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,DK,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,AT,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,E5,Collect in Store ¿ Label Only,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,DK,FI,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,EE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D2,Signature Assurance,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,HU,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,LT,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,2,Behållarhyra,ALL,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,C6,Leverings bekreftelse,ALL,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,SK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,IT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D5,Private receiver,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,NO,DK,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,PT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D1,Return to Sender,DK,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B9,Dangerous Goods,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,IE,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,90,Varuförsäkring,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,89,EDI - mangelfuld adresse,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,FR,ALL,TRUE
+Z12,SWEDEN,SE,30,MyPack Home Small,D9,Klimatkompensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,EE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A6,Delivery without POD,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,HR,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,ES,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,DK,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D7,Before 12,NO,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E7,Pickup Handover,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,LU,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D7,Before 12,SE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D1,Return to Sender,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,FO,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,LT,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A6,Delivery without POD,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,SI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,AT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A7,Valfritt hämtställe,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E1,Däck,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,GB,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E2,Carry out,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,GB,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A5,Insurance Europe,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,10,Ad-hoc pickup,SE,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,SK,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,B8,Driver notification (phone),NO,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,D2,Signatur bekreftelse,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E3,Return Pickup Private,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,TR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,LU,ALL,TRUE
+Z12,SWEDEN,SE,20,Return Pickup,C5,Leveransavisering,DK,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E7,Pickup Handover,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,PT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,AT,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,C1,Recipient freight,SE,SE,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,BG,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D7,Before 12,ALL,DK,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,FR,FALSE
+Z13,NORWAY,NO,32,MyPack Home,A3,Notification by SMS,NO,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,SE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,EE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,FR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,JE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,JE,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,E4,Collect in store,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,PL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,CH,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,A4,e-postavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,IS,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A4,Email notification,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,LU,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,PL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,FO,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,ME,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C6,Utlämningsavisering,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,SI,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,AT,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,C5,Leveransavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A5,Insurance Europe,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,BG,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,90,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,IT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,CZ,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,RS,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,FO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,DK,SE,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,SI,ALL,TRUE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A2,eBrevsavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,NL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,CZ,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,PL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,MC,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,SK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D9,Klimatkompensation,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,FI,DK,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,FR,ALL,TRUE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,GB,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,EE,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E2,Carry out,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,LU,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,PT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C6,Utlämningsavisering,NO,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,B8,Driver notification (phone),ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,FR,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,IS,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,NO,FI,TRUE
+Z12,SWEDEN,SE,59,Retail Delivery,E5,Collect in Store ¿ Label Only,SE,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,B9,ADR,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,FR,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,DE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,BA,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E6,Pickup Confirmation,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A2,eBrevsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,PU,Personlig utlämning,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,SE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,LI,ALL,TRUE
+Z12,SWEDEN,SE,48,InNight,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,LT,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C4,Legitimationskontroll,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,LT,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,NO,ALL,TRUE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,LV,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,GR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,JE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,SK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,HR,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,SE,DK,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,NL,ALL,TRUE
+Z12,SWEDEN,SE,83,PostNord Groupage,A6,Leverans utan kvittens,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,NL,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,SI,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A5,Insurance,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,A2,eBrevsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,PL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,GL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C5,Delivery Notification,SE,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,G4,Fast liggetid 7 dagar,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,CZ,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,47,Alkoholdryck,CZ,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,HR,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,B8,Chaufförsavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,IE,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,E8,Split shipment,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,3,Goods return,ALL,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,SI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,EE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A8,Limited Quantity of Dangerous Goods,NO,ALL,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,FS,"Faktura, med inlämningsundrlag",ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,5,Value,FO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D3,Föravisering,!GL,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,17,Två utkörningsförsök,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D7,Before 12,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,DK,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,FR,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D7,Before 12,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,NO,DK,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,CH,ALL,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,EE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A3,SMS-avisering,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,FI,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D9,Klimatkompensation,SE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,FR,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A3,SMS-avisering,ALL,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,D2,Signatur bekreftelse,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,NL,ALL,FALSE
+Z11,DENMARK,DK,48,InNight,89,EDI - mangelfuld adresse,FO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,GR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,HR,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,LV,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A4,e-postavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,FS,"Faktura, med inlämningsundrlag",ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,D5,Private Receiver,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,E4,Mypack Collect in Store,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A9,Driver notification,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D6,Before 9,FI,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,HR,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,90,Varuförsäkring,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A6,Leverans utan kvittens,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,PL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,DK,NO,TRUE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,IS,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A6,FlexDelivery,ALL,DK,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A5,Insurance Europe,SE,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D3,,ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A5,Varuförsäkring,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D1,Return to Sender,SE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A2,Letter notification,SE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,AX,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,D9,Klimatkompensation,ALL,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,KI,Mottagarkvittens med utökad index,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,KI,Mottagarkvittens med utökad index,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,GL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,BA,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,DE,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D5,Privat mottagare,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A2,Letter notification,FI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,LU,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,AT,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D7,Before 12,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,LV,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,DK,DK,TRUE
+Z11,DENMARK,DK,83,Groupage,A3,SMS notification,DK,ALL,FALSE
+Z11,DENMARK,DK,91,EMS,A3,SMS notification,ALL,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,C4,ID check,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,EE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,EE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,LT,ALL,TRUE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,HR,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,IE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,DK,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,A2,eBrevsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,HU,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,BE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E1,Däck,!SJ,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,GB,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,IT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D7,Before 12,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B8,Driver notification,FO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,RO,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D1,Returner til avsender,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,DK,SE,TRUE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,AX,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,GL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,LU,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,FI,NO,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C5,Delivery Notification,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,EE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B8,Driver Notification - Phone,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,BG,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,34,Upphämtning,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,AT,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,DE,ALL,TRUE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,G4,Fast liggetid 7 dagar,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,FO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,EE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E8,Split shipment,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,MC,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,BE,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,A6,Leverans utan kvittens,ALL,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,A2,eBrevsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A6,Delivery without POD,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,SE,DK,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D9,Klimatkompensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,HU,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,NO,SE,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,D7,Before 12,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A9,Driver notification,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,GR,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D1,Return to Sender,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,HU,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E6,Pickup Confirmation,DK,ALL,FALSE
+Z12,SWEDEN,SE,87,Varubrev Retur,C7,FlexChange,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,LT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,EE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,MC,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D1,Return to Sender,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,90,Varuförsäkring,ALL,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,PB,Posten Norway Distribution,NO,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,A2,eBrevsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D2,Kvittenskrav,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,ME,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A9,Notification by phone,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A9,Notification by Phone,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,NO,FI,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,SK,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D8,Ålderskontroll,SE,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,LI,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D6,Before 9,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,NO,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,BG,ALL,FALSE
+Z12,SWEDEN,SE,87,Varubrev Retur,A2,eBrevsavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,PL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D7,Before 12,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,SK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,AT,ALL,FALSE
+Z13,NORWAY,NO,30,MyPack Home Small (Parcel Letter),D1,Returner til avsender,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A6,FlexDelivery,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,IS,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,LU,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,SE,DK,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,RO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,FR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,CZ,ALL,TRUE
+Z13,NORWAY,NO,83,Groupage,A8,Limited quantity of dangerous goods,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,AX,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,PL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,D9,Climate Compensation,SJ,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,DE,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,62,Insurance DK,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B9,Dangerous goods,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A8,Limited Quantity of Dangerous Goods,FI,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A3,SMS-avisering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,PT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A8,Begränsad mängd farligt gods,!AX,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,LU,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D1,Immidiate Return,ALL,DK,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,SK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,CH,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E8,Split shipment,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D1,Return to Sender,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,SI,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,B8,Chaufförsavisering,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,AX,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,NO,SE,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,A7,Optional service point,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B9,Dangerous goods,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,NO,FI,TRUE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,SE,NO,FALSE
+Z12,SWEDEN,SE,53,PALL.ETT Special,B9,ADR,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,DK,ALL,TRUE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E4,Collect in store,DK,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E4,Collect in store,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,IM,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,GG,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,AX,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,DE,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,E1,Tyres,ALL,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,D1,Returner til avsender,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,FR,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,IE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,FI,SE,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,FR,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D7,Before 12,FI,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A8,Begränsad mängd farligt gods,!SJ,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,GG,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,FR,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,74,Avemballering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,CZ,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C4,Legitimationskontroll,NO,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A6,Delivery without POD,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,IM,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,FI,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,LT,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A8,Limited Quantity of Dangerous Goods,ALL,SE,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A2,Letter notification,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D9,Klimatkompensation,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,BE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,Q1,Time agreed delivery,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D1,Immidiate Return,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,HU,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E7,Pickup Handover,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,CZ,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A5,Insurance,FI,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,NL,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,BY,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,IT,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A3,SMS-avisering,ALL,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,D5,Privat mottaker,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,FI,DK,FALSE
+Z13,NORWAY,NO,48,InNight,B9,Dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,HU,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D2,Kvittenskrav,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,NL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,BA,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,HR,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,FI,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,LT,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,90,Varuförsäkring,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,LV,ALL,TRUE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,90,Varuförsäkring,ALL,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,C2,Print Label,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RK,Rek Retur,A3,SMS-avisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,IM,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,25,Distribution of tobacco,SE,SE,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C4,Legitimationskontroll,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,ES,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,RO,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,G3,Utökad liggetid 14 dagar,SE,SE,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,DE,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,B8,Chaufförsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,GB,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,62,Insurance DK,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,LV,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,ES,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,SE,SE,FALSE
+Z12,SWEDEN,SE,RK,Rek Retur,FE,"Faktura, utan inlämningsundrlag",ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,GL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,RS,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,CZ,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,AX,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,C6,Leverings bekreftelse,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,PT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,GG,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A6,Leverans utan kvittens,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,SJ,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,ES,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,AT,ALL,FALSE
+Z12,SWEDEN,SE,RK,Rek Retur,A2,eBrevsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A4,e-postavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D7,Before 12,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D2,Signature Assurance,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,FI,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,SK,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,NO,SE,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D2,Signature Assurance,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,EE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,HU,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,SE,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,NO,DK,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,BE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,ES,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,LT,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E7,Pickup Handover,NO,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,A3,SMS-avisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,48,InNight,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,SJ,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,DK,FI,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,LT,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,44,GDP Temperaturkrav,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,BG,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,BE,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,IT,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,74,Avemballering,ALL,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,BG,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,F2,Express,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,SE,FI,TRUE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,HR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,GG,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,RO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,NO,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,D3,Delivery Advice,NO,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,B8,Chaufförsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,FE,"Faktura, utan inlämningsundrlag",ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,FO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,SK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,IE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,PT,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,10,Ad-hoc pickup,NO,ALL,TRUE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,AX,ALL,FALSE
+Z12,SWEDEN,SE,RK,Rek Retur,FR,Franco,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,NO,NO,FALSE
+Z12,SWEDEN,SE,VV,Värde,KB,Mottagarkvittens,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,FR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,AX,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,BA,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D4,Digitallock,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,ES,ALL,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,E7,Pickup Handover,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,ES,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,LI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,LU,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,PT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,LV,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,B7,Carry-In,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,GR,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,GB,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,DK,SE,FALSE
+Z12,SWEDEN,SE,53,PALL.ETT Special,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,FB,Förbetald,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,BY,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,A6,Leverans utan kvittens,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,RO,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,GR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,CH,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,FR,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,BG,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,7,Economy to FO/GL,GL,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,MC,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,A8,Limited quantity of dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,EE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,SI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,DK,NO,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,G4,Fast liggetid 7 dagar,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,LU,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,SE,ALL,FALSE
+Z12,SWEDEN,SE,86,Varubrev 1:a Klass,C7,FlexChange,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,FI,FI,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,IT,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,CH,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,FR,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,DK,FI,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,BE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,CH,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,SI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,MC,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,B8,Driver Notification - Phone,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,BG,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,17,Två utkörningsförsök,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,SJ,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,NL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A6,FlexDelivery,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,FR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,FO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,ES,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),NO,ALL,FALSE
+Z13,NORWAY,NO,48,InNight,A5,Insurance,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C5,Leveransavisering,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,62,Insurance DK,ALL,DK,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,EE,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,24,Utökad identifiering,CZ,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,NL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A8,Dangerous Goods LQ,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,LV,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,AT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D5,Private Receiver,DK,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,DK,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,DK,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,SE,ALL,TRUE
+Z14,FINLAND,FI,83,PostNord Groupage,C1,Recipient Freight,FI,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,A6,Flex delivery,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,E4,Mypack Collect in Store,SE,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,E1,Däck,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,62,Insurance DK,ALL,DK,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,RO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,MK,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,MC,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,HR,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,SE,ALL,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,FE,"Faktura, utan inlämningsundrlag",ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D2,Signature Assurance,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,AT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,GL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C6,Utlämningsavisering,DK,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,A4,e-postavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,RO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D3,Föravisering,DK,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A8,Limited Quantity of Dangerous Goods,ALL,DK,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C6,Utlämningsavisering,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,SE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D7,Before 12,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,PT,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A1,Postförskott,NO,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,ES,ALL,FALSE
+Z12,SWEDEN,SE,48,InNight,A3,SMS-avisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,LU,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,AX,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,B7,Carry-in,ALL,DK,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A2,Notification by letter,NO,ALL,TRUE
+Z11,DENMARK,DK,83,Groupage,B9,Dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,HU,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,DK,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,B9,Dangerous Goods,LT,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,DE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,ES,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,FI,NO,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,FR,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A9,Driver notification,FI,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,MB,Mottagningsbevis,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,SK,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,SI,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,LV,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,PL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D3,Föravisering,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,FO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,ALL,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,90,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,SI,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A6,Leverans utan kvittens,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D7,Before 12,NO,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,UP,Utplock,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B9,Dangerous goods,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D2,Kvittenskrav,FI,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,IT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,5,Value,DK,ALL,FALSE
+Z13,NORWAY,NO,24,Return Drop Off,C2,Print Label,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,IT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A3,SMS-avisering,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,SK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,JE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D3,Föravisering,!IS,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,GG,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,MK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),FI,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,C5,Leverings orientering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,51,Age check,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,NO,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,C4,Legitimationskontroll,FI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A9,Driver notification,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,EE,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D7,Delivery before 12,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,DE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A6,Leverans utan kvittens,NO,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,74,Avemballering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,SI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D1,Immidiate Return,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,LT,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D5,Private receiver,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,LT,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,C7,Flex change,ALL,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E5,Collect in Store ¿ Label Only,SE,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,IE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,FI,SE,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,DK,FI,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,C7,Flex change,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,MC,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,NO,NO,TRUE
+Z13,NORWAY,NO,17,MyPack Home,D2,Signatur bekreftelse,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,D9,Climate Compensation,DK,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,A3,Notification by SMS,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,FI,FI,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,EE,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,CZ,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,BG,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,PL,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,C5,Leverings orientering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,62,Insurance DK,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,D9,Climate Compensation,SE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D2,Signature Assurance,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E2,Carry out,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,SE,FI,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,FO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,RO,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,2,Behållarhyra,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,BG,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,FI,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,34,Upphämtning,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,LV,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A8,Limited Quantity of Dangerous Goods,ALL,FI,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D6,Before 9,SE,ALL,FALSE
+Z12,SWEDEN,SE,91,International Parcel,A5,Varuförsäkring,ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,F8,Private Receiver Direct Delivery,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,AT,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E4,Collect in store,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,IE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B7,Carry-in,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,CH,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,DK,FI,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,H6,MPS,AX,FI,FALSE
+Z12,SWEDEN,SE,11,Varubrev Ekonomi,A3,SMS-avisering,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,MC,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,PL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,EE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,MC,ALL,FALSE
+Z12,SWEDEN,SE,48,InNight,A4,e-postavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E6,Pickup Confirmation,FI,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,46,Pallöverföring,ALL,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,ES,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,DK,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,47,Alkoholdryck,PL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A9,Driver notification,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,GR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,IT,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A8,Limited Quantity of Dangerous Goods,ALL,GL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,NL,ALL,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,E3,Return Pickup Private,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,LT,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,AT,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,MC,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,BG,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,IS,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,21,Ej till ombud,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,GB,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,KB,Mottagarkvittens,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A8,Limited Quantity of Dangerous Goods,LU,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D6,Delivery before 9 (MEDIO 2017),ALL,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,A4,Notification by e-mail,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,SE,SE,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,IM,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,FR,ALL,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,DK,FI,FALSE
+Z11,DENMARK,DK,83,Groupage,A6,FlexDelivery,NO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A8,Begränsad mängd farligt gods,!GL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,RO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,FO,ALL,FALSE
+Z13,NORWAY,NO,30,MyPack Home Small (Parcel Letter),A3,Notification by SMS,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,BE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,ES,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D7,Before 12,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A2,Notification by letter,DK,ALL,TRUE
+Z12,SWEDEN,SE,59,Retail Delivery,C5,Leveransavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D2,Signature Assurance,ALL,DK,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,UA,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,B7,Carry-In,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,A4,e-postavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,GG,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D7,Before 12,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,AT,ALL,TRUE
+Z12,SWEDEN,SE,86,Varubrev 1:a Klass,D3,Föravisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D2,Signature Assurance,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D6,Before 9,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,CH,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,RS,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,ES,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,DE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A5,Insurance Europe,NO,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,D1,Return to Sender,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,SJ,FALSE
+Z11,DENMARK,DK,17,Mypack Home,5,Value,GL,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D2,Signature Assurance,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,FR,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,34,Upphämtning,DK,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A6,FlexDelivery,DK,DK,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,LT,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A4,Email notification,DK,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A7,Valfritt hämtställe,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,46,Pallöverföring,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,D3,Delivery Advice,FI,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,NO,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,CH,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,PT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,B9,Dangerous goods,DK,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E6,Pickup Confirmation,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,EE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,7,Economy to FO/GL,FO,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,E5,Collect in Store - Label Only,DK,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E6,Pickup Confirmation,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,FI,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,24,Utökad identifiering,IT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D3,Föravisering,!AX,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,SK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,BE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,FR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,IT,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,34,Upphämtning,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,61,Insurance ROW,ALL,ALL,FALSE
+Z13,NORWAY,NO,32,MyPack Home,B5,Return electrical items for scrapping,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,IT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,BG,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,B8,Chaufförsavisering,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,EE,ALL,TRUE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,Q1,Time agreed delivery,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A8,Limited Quantity of Dangerous Goods,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B7,Carry-in,ALL,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,21,Ej till ombud,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,FR,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,A2,eBrevsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,FI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C6,Delivery Confirmation,NO,ALL,FALSE
+Z12,SWEDEN,SE,37,Tompallsdistribution,46,Pallöverföring,ALL,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,G3,Utökad liggetid 14 dagar,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,ES,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,SK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,LU,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,E8,Split shipment,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,DE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,IT,FALSE
+Z13,NORWAY,NO,52,Pallet,A6,Flex delivery,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,GL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,7,Economy to FO/GL,FO,ALL,TRUE
+Z12,SWEDEN,SE,20,Return Pickup,D4,Digitallock,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,DE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,GB,ALL,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,AT,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D2,Signature Assurance,DK,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C4,Legitimationskontroll,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,RO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,SE,FI,FALSE
+Z11,DENMARK,DK,83,Groupage,A3,SMS notification,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C5,Delivery Notification,NO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,HU,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,NO,FI,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,GB,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,IR,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A6,FlexDelivery,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,ALL,DK,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,PT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,38,EARLY COLLECT,SE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,DE,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,FI,SE,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E8,Split shipment,GB,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,LT,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,D5,Privat mottaker,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,CZ,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,HR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,RO,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,EE,FALSE
+Z13,NORWAY,NO,83,Groupage,B7,Carry-In,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,NL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,F9,2 delivery attempts,SE,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,SJ,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A4,e-postavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,LT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,PL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D7,Before 12,SE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D1,Return to Sender,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A8,Begränsad mängd farligt gods,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,AX,ALL,TRUE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,SJ,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,A5,Varuförsäkring,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,SJ,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C4,Legitimationskontroll,DK,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,BE,ALL,TRUE
+Z14,FINLAND,FI,19,MyPack Collect,A4,Standard Self-Service and E-mail Info,BE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,ALL,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,SE,NO,TRUE
+Z11,DENMARK,DK,83,Groupage,D7,Before 12,ALL,DK,FALSE
+Z13,NORWAY,NO,17,MyPack Home,A6,Flex delivery,NO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,HU,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,FR,Franco,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,BG,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,A5,Varuförsäkring,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,GR,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,DK,NO,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,AX,ALL,TRUE
+Z13,NORWAY,NO,19,MyPack Collect,E4,Collect in Store,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,SJ,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,CZ,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,HU,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C5,Leveransavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,SK,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,FR,Franco,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,BG,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D2,Signature Assurance,SE,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,AX,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,AT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,FR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,IE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A6,Delivery without POD,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,DK,SE,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,B8,Chaufförsavisering,SE,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,M5,NOT TO PARCEL LOCKER,SE,ALL,FALSE
+Z11,DENMARK,DK,91,EMS,A4,Email notification,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,G3,Utökad liggetid 14 dagar,SE,SE,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,MC,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A9,Driver notification,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E9,Collection Request,LU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,MK,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E7,Pickup Handover,DK,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C4,Legitimationskontroll,SE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B7,Carry-In,NO,ALL,FALSE
+Z12,SWEDEN,SE,48,InNight,B9,ADR,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,KI,Mottagarkvittens med utökad index,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,NO,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,BE,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,LI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A5,Insurance Europe,DK,NO,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,AT,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,BE,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,IS,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D1,Immidiate Return,FI,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E1,Däck,!IS,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,D3,Föravisering,SE,ALL,FALSE
+Z12,SWEDEN,SE,LX,Expressbrev,FR,Franco,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,BE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,MK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,DE,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,IS,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,LU,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,LT,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,IT,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,AT,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,CZ,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,LV,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,DK,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E7,Pickup Handover,DK,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,FB,Förbetald,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,RS,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,LI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D7,Before 12,FI,ALL,FALSE
+Z13,NORWAY,NO,18,Parcel,D6,Delivery before 9,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,IT,ALL,TRUE
+Z13,NORWAY,NO,48,InNight,A8,Limited quantity of dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B7,Carry-in,SE,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,C1,Recipient freight,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,FI,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,IE,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,SK,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,E8,Split shipment,GB,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,LT,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,FO,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,LU,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,C5,Leveransavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,FR,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E5,Collect in Store ¿ Label Only,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,HU,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,AX,ALL,TRUE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,CH,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,NL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,IT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D9,Climate Compensation,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,NL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,F6,EARLY COLLECT,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,NO,DK,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,B8,Chaufförsavisering,NO,ALL,FALSE
+Z12,SWEDEN,SE,49,InNight Reverse,B4,Returemballage,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,NO,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,D2,Signatur bekreftelse,ALL,ALL,FALSE
+Z12,SWEDEN,SE,11,Varubrev Ekonomi,D3,Föravisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,SK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,ES,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,A8,Dangerous Goods LQ,NO,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,89,EDI - mangelfuld adresse,DK,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A8,Begränsad mängd farligt gods,!FO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,ES,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,AT,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,HR,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D6,Delivery before 9 (MEDIO 2017),ALL,DK,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,ALL,DK,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,PL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,BE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D7,Before 12,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,PL,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,NO,FI,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,SE,NO,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,FI,SE,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,AT,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B7,Carry-in,DK,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,A9,Notification by telephone,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A6,Delivery without POD,FI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D1,Immidiate Return,DK,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,E5,Collect in Store ¿ Label only,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,NO,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,ES,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,IT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A6,FlexDelivery,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D5,Private receiver,SE,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,BA,ALL,FALSE
+Z12,SWEDEN,SE,91,International Parcel,30,Tilläggsförsäkring,ALL,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,B9,Dangerous goods,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,DE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,SE,NO,TRUE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,SE,SE,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,7,Utökad liggetid 30 dagar,ALL,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,C4,ID check,ALL,ALL,FALSE
+Z12,SWEDEN,SE,RL,Rek Extra,A1,Postförskott,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,B8,Driver notification,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,IS,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,B8,Chaufförsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,30,Mypack Home Small,A5,Insurance Europe,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,CZ,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D5,Privat mottagare,ALL,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,ES,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A6,FlexDelivery,DK,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A1,Cash on Delivery,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,NO,SE,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,FI,DK,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,E4,Mypack Collect in Store,DK,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A3,SMS notification,FI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,DK,FI,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,RO,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,SE,FALSE
+Z13,NORWAY,NO,18,Parcel,A4,Notification by e-mail,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,B8,Driver Notification - Phone,FI,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,AT,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,TR,ALL,TRUE
+Z12,SWEDEN,SE,83,PostNord Groupage,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,BE,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,D9,Klimatkompensation,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,10,Ad-hoc pickup,IT,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E2,Carry out,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,C1,Recipient freight,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A8,Limited Quantity of Dangerous Goods,GL,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,E5,Collect in Store ¿ Label Only,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,SK,ALL,FALSE
+Z12,SWEDEN,SE,AF,Brevpostförskott,A2,eBrevsavisering,ALL,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B7,Carry-In,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,FI,ALL,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,C6,Utlämningsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C5,Leveransavisering,DK,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,IT,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,DK,NO,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,38,EARLY COLLECT,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,D9,Climate Compensation,AX,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A8,Limited Quantity of Dangerous Goods,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,NO,NO,FALSE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,C4,Legitimationskontroll,DK,ALL,FALSE
+Z13,NORWAY,NO,19,MyPack Collect,A2,Notification by letter,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B7,Carry-In,SE,ALL,FALSE
+Z12,SWEDEN,SE,11,Varubrev Ekonomi,C5,Leveransavisering,SE,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,D9,Klimatkompensation,ALL,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,B8,Chaufförsavisering,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,IS,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,IE,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,C6,Delivery Confirmation,SE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,NL,ALL,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,D9,Klimatkompensation,FI,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B9,Dangerous goods,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,EE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,ES,ALL,FALSE
+Z14,FINLAND,FI,49,InNight Reverse,A5,Insurance,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,GB,ALL,TRUE
+Z14,FINLAND,FI,18,PostNord Parcel,A8,Dangerous Goods LQ,CH,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A9,Driver notification,ALL,DK,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,LI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,RO,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,LU,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,NO,DK,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,ES,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,LT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A6,FlexDelivery,SE,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A8,Dangerous Goods LQ,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,CH,ALL,FALSE
+Z12,SWEDEN,SE,48,InNight,A8,Begränsad mängd farligt gods,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,D7,Before 12,NO,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,LT,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,89,EDI - mangelfuld adresse,DK,SE,FALSE
+Z12,SWEDEN,SE,59,Retail Delivery,D7,Before 12,FI,SE,FALSE
+Z11,DENMARK,DK,83,Groupage,A6,FlexDelivery,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,10,Ad-hoc pickup,DK,ALL,TRUE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,G4,Fast liggetid 7 dagar,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,LI,ALL,FALSE
+Z14,FINLAND,FI,24,Return Drop Off,C2,Print Label,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A3,SMS notification,DE,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A8,Limited Quantity of Dangerous Goods,FI,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,SI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A9,Driver notification,NO,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,FR,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,NL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A9,Notification by Phone,NO,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A8,Limited Quantity of Dangerous Goods,DK,SE,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,LV,ALL,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,LV,ALL,TRUE
+Z11,DENMARK,DK,52,Pallet Pickup,B9,Dangerous goods,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,JE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,M5,NOT TO PARCEL LOCKER,FI,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,A2,eBrevsavisering,!DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,GR,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D9,Climate Compensation,DK,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,IE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,NO,NO,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,E7,Pickup Handover,DK,NO,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E3,Return Pickup Private,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B7,Carry-In,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A6,FlexDelivery,FI,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,D2,Kvittenskrav,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,DK,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,24,Utökad identifiering,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A4,Email notification,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D2,Signature Assurance,DK,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,C5,Delivery Notification,FI,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,IT,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,IS,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,B8,Driver Notification - Phone,MK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A5,Insurance Europe,LV,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,SI,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,FI,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,5,Value,GL,ALL,FALSE
+Z12,SWEDEN,SE,87,Varubrev Retur,D3,Föravisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,AX,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,D6,Delivery before 9,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,NL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,34,Upphämtning,SE,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,D4,Digitallock,SE,ALL,FALSE
+Z12,SWEDEN,SE,57,PostNord Parcel Special,B7,Leverans till anvisad plats,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D2,Signature Assurance,SE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,D5,Private receiver,FI,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E1,Däck,!GL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,NL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,GB,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,NO,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,IE,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,C5,Leveransavisering,NO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,LT,ALL,FALSE
+Z12,SWEDEN,SE,87,Varubrev Retur,A4,e-postavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A2,Notification by letter,AX,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,A3,SMS notification,SE,SE,TRUE
+Z11,DENMARK,DK,83,Groupage,10,Ad-hoc pickup,FI,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A3,SMS notification,CH,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,LV,ALL,TRUE
+Z12,SWEDEN,SE,18,PostNord Parcel,D1,Return to Sender,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,HU,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A6,FlexDelivery,ALL,FI,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,E1,Däck,!AX,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,A4,e-postavisering,FI,ALL,FALSE
+Z14,FINLAND,FI,18,PostNord Parcel,E1,Tyres,LU,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,A8,Dangerous Goods LQ,LU,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,IR,ALL,TRUE
+Z12,SWEDEN,SE,83,PostNord Groupage,D6,Before 9,DK,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A7,Optional Service Point,LI,ALL,TRUE
+Z12,SWEDEN,SE,52,PostNord Pallet,D9,Klimatkompensation,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A5,Insurance Europe,LV,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A7,Optional service point,FR,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,HU,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,A5,Insurance Europe,ALL,DE,FALSE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,DK,DK,FALSE
+Z11,DENMARK,DK,17,Mypack Home,D1,Immidiate Return,DK,ALL,FALSE
+Z12,SWEDEN,SE,20,Return Pickup,E7,Pickup Handover,NO,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,EE,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,A6,Flex delivery,NO,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,A6,Delivery without POD,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,BE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,RO,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,CH,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,C5,Leveransavisering,ALL,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,E8,Split shipment,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,AT,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,FS,"Faktura, med inlämningsundrlag",ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,EE,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,SE,ALL,FALSE
+Z12,SWEDEN,SE,49,InNight Reverse,B5,Returgods,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,D7,Before 12,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,NO,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,AT,ALL,TRUE
+Z11,DENMARK,DK,20,Return Pickup,D9,Climate Compensation,FI,SE,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,GR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,10,Ad-hoc pickup,LT,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,GR,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,SI,ALL,TRUE
+Z11,DENMARK,DK,17,Mypack Home,E1,Tyres,PT,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,C7,FlexChange,SE,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,A4,Email notification,FI,NO,TRUE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,CZ,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,G4,Fast liggetid 7 dagar,ALL,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,10,Ad-hoc pickup,ME,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,FI,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C7,FlexChange,PL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,MC,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,A9,Driver notification,ALL,DK,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,AT,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,C7,FlexChange,SE,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,LV,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,D5,Private Receiver,DK,ALL,FALSE
+Z12,SWEDEN,SE,91,International Parcel,90,Varuförsäkring,ALL,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E2,Carry out,NO,ALL,FALSE
+Z13,NORWAY,NO,32,MyPack Home,A4,Notification by e-mail,NO,ALL,FALSE
+Z12,SWEDEN,SE,42,Expresspaket,90,Varuförsäkring,ALL,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,A6,Delivery without POD,FI,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,B5,Return electrical items for scrapping,ALL,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A4,Email notification,HU,ALL,TRUE
+Z12,SWEDEN,SE,17,PostNord MyPack Home,24,Utökad identifiering,PL,ALL,FALSE
+Z12,SWEDEN,SE,VV,Värde,A4,e-postavisering,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A3,SMS notification,SI,ALL,FALSE
+Z11,DENMARK,DK,20,Return Pickup,62,Insurance DK,FI,SE,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E2,Carry out,NO,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E2,Carry out,FI,ALL,FALSE
+Z14,FINLAND,FI,52,PostNord Pallett,D5,Private Receiver,DE,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,LU,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,D7,Before 12,DK,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A5,Insurance Europe,ES,ALL,FALSE
+Z12,SWEDEN,SE,RR,Rek,UP,Utplock,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,5,Value,FO,ALL,FALSE
+Z12,SWEDEN,SE,18,PostNord Parcel,G4,Fast liggetid 7 dagar,ALL,ALL,FALSE
+Z12,SWEDEN,SE,19,PostNord MyPack Collect,24,Utökad identifiering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,F8,Private Receiver Direct Delivery,SE,ALL,FALSE
+Z11,DENMARK,DK,83,Groupage,B9,Dangerous goods,FI,ALL,FALSE
+Z14,FINLAND,FI,48,InNight,E1,Tyres,ALL,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,43,Julemærkefonden,DK,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,D5,Privat mottaker,ALL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,LT,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,ES,ALL,FALSE
+Z12,SWEDEN,SE,83,PostNord Groupage,E6,Pickup Confirmation,DK,ALL,FALSE
+Z12,SWEDEN,SE,30,MyPack Home Small,C2,Print Label,SE,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,AT,ALL,FALSE
+Z13,NORWAY,NO,52,Pallet,E8,Split shipment,DK,ALL,FALSE
+Z11,DENMARK,DK,17,Mypack Home,A4,Email notification,RO,ALL,FALSE
+Z13,NORWAY,NO,83,Groupage,A3,Notification by SMS,NO,ALL,FALSE
+Z11,DENMARK,DK,19,Mypack Collect,A3,SMS notification,GB,ALL,TRUE
+Z11,DENMARK,DK,18,PostNord Parcel,A4,Email notification,PL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C5,Delivery Notification,NL,ALL,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,E1,Tyres,BE,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,E4,Collect in Store,ALL,ALL,FALSE
+Z11,DENMARK,DK,24,Return DropOff,D9,Climate Compensation,ALL,SE,FALSE
+Z11,DENMARK,DK,18,PostNord Parcel,10,Ad-hoc pickup,SK,ALL,FALSE
+Z13,NORWAY,NO,17,MyPack Home,B7,Carry-In,ALL,ALL,FALSE
+Z12,SWEDEN,SE,52,PostNord Pallet,E6,Pickup Confirmation,FI,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,FO,ALL,FALSE
+Z14,FINLAND,FI,19,MyPack Collect,A3,SMS notification,DK,ALL,FALSE
+Z11,DENMARK,DK,52,Pallet Pickup,A8,Limited Quantity of Dangerous Goods,ALL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,C6,Delivery Confirmation,NL,ALL,FALSE
+Z14,FINLAND,FI,17,MyPack Home,E1,Tyres,NO,ALL,FALSE
+Z14,FINLAND,FI,83,PostNord Groupage,B9,Dangerous Goods,DK,ALL,FALSE
+Z12,SWEDEN,SE,24,PostNord Return Drop Off,A2,eBrevsavisering,ALL,ALL,FALSE
+Z12,SWEDEN,SE,86,Varubrev 1:a Klass,A2,eBrevsavisering,SE,ALL,FALSE
+Z12,SWEDEN,SE,RK,Rek Retur,C2,Print Label,ALL,ALL,FALSE

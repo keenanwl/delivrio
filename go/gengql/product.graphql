@@ -1,0 +1,30 @@
+scalar Upload
+
+input UpdateProductVariantIDInput {
+    id: ID!
+    variant: UpdateProductVariantInput!
+}
+
+extend type Query {
+    product(id: ID!): Product
+}
+
+input ProductVariantImageInput {
+    variantIDs: [ID!]!
+    imageID: ID!
+}
+
+extend type Mutation {
+    createProduct(input: CreateProductInput!, variants: [CreateProductVariantInput!], images: [String!]): Product
+    updateProduct(id: ID!, input: UpdateProductInput!, variants: [UpdateProductVariantIDInput!], images: [ProductVariantImageInput!]): Product
+    uploadProductImage(productID: ID!, image: String!): Product!
+    deleteProductImage(imageID: ID!): Product!
+    archiveProductVariant(variantID: ID!): Product!
+
+    createVariant(productID: ID!, input: CreateProductVariantInput): ProductVariant!
+    mustInventory(productVariantID: ID!): InventoryItem!
+    updateInventory(iventoryItemID: ID!, input: UpdateInventoryItemInput!): InventoryItem!
+
+    createProductTags(input: [String!]): [ProductTag]
+    deleteTag(id: ID!): [ProductTag]
+}

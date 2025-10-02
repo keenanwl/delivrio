@@ -1,0 +1,47 @@
+.container {
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	.header {
+		display: flex;
+		margin-bottom: 10px;
+		h4 {
+			margin-right: 5px;
+		}
+	}
+	mat-form-field.expand {
+		width: 400px;
+	}
+	.dimensions-inputs {
+		margin-top: 15px;
+		mat-form-field {
+			margin-right: 10px;
+		}
+	}
+	mat-button-toggle-group {
+		display: flex;
+		mat-button-toggle {
+			flex-grow: 1;
+			flex-basis: 0;
+		}
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+}
+
+.demo-container {
+	min-height: 500px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	margin-top: 15px;
+	mat-form-field {
+		flex-grow: 1;
+		margin-right: 10px;
+	}
+}

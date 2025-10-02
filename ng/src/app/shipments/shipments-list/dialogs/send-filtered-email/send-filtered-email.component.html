@@ -1,0 +1,32 @@
+<div class="container" *ngIf="shipments$|async; let state">
+	<h2>Send shipment overview email</h2>
+	<p>Selected filters apply.</p>
+	<div class="form-container">
+		<mat-form-field class="email-field">
+			<mat-label>Email</mat-label>
+			<input #email matInput placeholder="someone@example.com">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Email template</mat-label>
+			<mat-select #template>
+				<mat-option *ngFor="let email of state.emailTemplates" [value]="email.id">
+					<span class="option-container">
+						<span class="option-name">{{email.name}}</span>
+					</span>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<mat-slide-toggle>Repeat everyday at 08:00</mat-slide-toggle>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="send(email.value, template.value)">
+			<mat-icon>send</mat-icon>
+			Send
+		</button>
+		<button mat-raised-button>
+			<mat-icon>done</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

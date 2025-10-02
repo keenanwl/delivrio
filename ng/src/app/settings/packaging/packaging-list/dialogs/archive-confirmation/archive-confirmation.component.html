@@ -1,0 +1,15 @@
+<div class="container">
+	<h3>Archive packaging type?</h3>
+	<p>Are you sure you want to archive packaging type: <b>{{packagingName}}</b></p>
+	<p>After archiving, this packaging type will not be assignable to new orders and will be hidden throughout the system.</p>
+	<div class="action-row">
+		<button mat-raised-button color="primary" (click)="confirm()">
+			<mat-icon>done</mat-icon>
+			Confirm
+		</button>
+		<button mat-raised-button  (click)="cancel()">
+			<mat-icon>cancel</mat-icon>
+			Cancel
+		</button>
+	</div>
+</div>

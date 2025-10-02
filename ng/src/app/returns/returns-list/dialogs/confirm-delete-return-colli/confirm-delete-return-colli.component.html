@@ -1,0 +1,16 @@
+<div class="container">
+	<h3>Confirm delete</h3>
+	<p>Are you sure you want to mark this return as deleted?</p>
+	<p>This action will change the return status to "deleted"
+		and it will be permanently removed at a later point.</p>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="confirmButton()">
+			<mat-icon>done</mat-icon>
+			Confirm
+		</button>
+		<button mat-fab extended (click)="close()">
+			Go back
+		</button>
+	</div>
+</div>

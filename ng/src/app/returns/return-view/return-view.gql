@@ -1,0 +1,47 @@
+query FetchReturnCollisView($orderID: ID!) {
+	returnColli(orderID: $orderID) {
+		... ReturnColliEditInfo
+	}
+}
+
+fragment ReturnColliEditInfo on ReturnColliEdit {
+	order {
+		orderPublicID
+	}
+	collis {
+		colli {
+			id
+			deliveryOption {
+				id
+				name
+				carrier {
+					carrierBrand {
+						label
+					}
+				}
+			}
+			labelPdf
+			status
+			returnOrderLine {
+				orderLine {
+					... OrderLines
+				}
+			}
+			sender: sender {
+				... AddressInfo
+			}
+			recipient: recipient {
+				... AddressInfo
+			}
+		}
+		timeline {
+			... TimelineViewer
+		}
+	}
+}
+
+mutation UpdateReturnColliStatus($returnColliID: ID!, $status: ReturnColliStatus!) {
+	updateReturnColliStatus(returnColliID: $returnColliID, status: $status) {
+		... ReturnColliEditInfo
+	}
+}

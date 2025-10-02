@@ -1,0 +1,26 @@
+fragment TimelineViewer on ChangeHistory {
+	id
+	createdAt
+	user {
+		id
+		name
+	}
+	orderHistory {
+		id
+		type
+		description
+		order {
+			id
+			orderPublicID
+		}
+	}
+	shipmentHistory {
+		id
+		type
+	}
+	returnColliHistory {
+		id
+		description
+		type
+	}
+}

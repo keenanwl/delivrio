@@ -1,0 +1,84 @@
+<ng-container *ngIf="deliveryOptionEditRules$|async; let state">
+	<form class="section-margin" [formGroup]="editRules"
+		  ngxsForm="deliveryOptionEditRules.rulesForm"
+		  ngxsFormErrors="deliveryOptionEditRules.rulesForm">
+		<app-dvo-card>
+			<h3>Delivery rules</h3>
+			<div class="button-rule-container">
+				<div class="button-rule"
+					 (click)="selectRule(rule.id, index)"
+					 matRipple
+					 [class.selected]="state.selectedRule === rule.id"
+					 *ngFor="let rule of state.rules; index as index">
+						<span class="center">
+							{{rule.name}}
+							<br/>
+							<span class="rule-price">{{rule?.price}} {{rule?.currency?.display}}</span>
+						</span>
+					<button mat-icon-button [matMenuTriggerFor]="menu">
+						<mat-icon>more_vert</mat-icon>
+					</button>
+					<mat-menu #menu="matMenu">
+						<button mat-menu-item (click)="editPrice(rule.name, rule?.price, rule?.currency?.id)">
+							<mat-icon>edit</mat-icon>
+							Edit price
+						</button>
+						<button mat-menu-item (click)="confirmDeleteRule(rule.name, rule.id)">
+							<mat-icon>delete</mat-icon>
+							Delete rule
+						</button>
+					</mat-menu>
+				</div>
+				<button mat-stroked-button class="add-button" (click)="newRule()">
+					<mat-icon>add</mat-icon>
+					Add rule
+				</button>
+			</div>
+			<h4>Condition groups for {{state?.rules[state?.selectedRuleIndex]?.name}}</h4>
+			<div class="button-rule-container">
+				<div class="button-rule"
+					 matRipple
+					 (click)="groupEditor(group.id, index)"
+					 *ngFor="let group of state.rules[state.selectedRuleIndex]?.deliveryRuleConstraintGroup; index as index">
+						<span class="center">
+							Group {{index + 1}}
+						</span>
+				</div>
+				<span *ngIf="state.selectedRule.length === 0">
+					Add a delivery rule before adding conditions
+				</span>
+				<button mat-stroked-button
+						[disabled]="state.selectedRule.length === 0"
+						class="add-button"
+						(click)="groupEditor('', state.rules[state.selectedRuleIndex]?.deliveryRuleConstraintGroup.length)">
+					<mat-icon>add</mat-icon>
+					Add condition group
+				</button>
+			</div>
+			<h4>Countries</h4>
+			<mat-form-field class="country-field">
+				<mat-label>Countries</mat-label>
+				<mat-chip-grid #chipList>
+					<mat-chip-row *ngFor="let country of state.rules[state.selectedRuleIndex]?.country"
+								  color="primary"
+								  (removed)="removeCountry(country.id)">
+						{{country.label}} ({{country.alpha2}})
+						<button matChipRemove>
+							<mat-icon>cancel</mat-icon>
+						</button>
+					</mat-chip-row>
+					<input placeholder="Type to search..."
+						   #countriesInput
+						   [matAutocomplete]="countriesAuto"
+						   [matChipInputFor]="chipList"
+						   (keyup)="searchCountries(countriesInput.value)">
+					<mat-autocomplete #countriesAuto="matAutocomplete" (optionSelected)="countriesInput.value = ''; addCountry($event.option.value)">
+						<mat-option *ngFor="let country of state.searchCountries" [value]="country">
+							{{country.label}} ({{country.alpha2}})
+						</mat-option>
+					</mat-autocomplete>
+				</mat-chip-grid>
+			</mat-form-field>
+		</app-dvo-card>
+	</form>
+</ng-container>

@@ -1,0 +1,17 @@
+<div class="container">
+	<h2>Show/hide columns</h2>
+	<mat-selection-list #list (selectionChange)="changeSelection(list.selectedOptions.selected)">
+		<ng-container *ngFor="let item of availableColumns; last as last">
+			<mat-list-option [value]="item" checkboxPosition="before" [selected]="selectedColumns.includes(item)">
+				{{item}}
+			</mat-list-option>
+			<mat-divider *ngIf="!last"></mat-divider>
+		</ng-container>
+	</mat-selection-list>
+	<div class="action-row">
+		<button mat-raised-button (click)="close()">
+			<mat-icon>done</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

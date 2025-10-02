@@ -1,0 +1,22 @@
+<div class="container" *ngIf="packaging$|async; let state">
+	<h3>Select packaging</h3>
+	<p>{{helpText}}</p>
+	<mat-selection-list multiple="false" *ngIf="!state.loading">
+		<mat-list-option (click)="selectPackaging(null)">
+			None
+		</mat-list-option>
+		<mat-list-option *ngFor="let opt of state.packaging" (click)="selectPackaging(opt)">
+			<div matListItemTitle>{{opt.name}}</div>
+		</mat-list-option>
+	</mat-selection-list>
+	<div *ngIf="state.loading" class="spinner">
+		<mat-spinner color="primary"></mat-spinner>
+	</div>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

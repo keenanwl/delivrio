@@ -1,0 +1,36 @@
+<div class="container" *ngIf="apiTokens$|async; let state">
+	<h3>Add API token</h3>
+	<p>This is a personal access token. All API usage will be linked to the access rights and history records of this account.</p>
+	<ng-container *ngIf="state.newToken.length === 0">
+		<mat-form-field>
+			<mat-label>Name</mat-label>
+			<input #name matInput value="" [placeholder]="'Token name'" [disabled]="state.loading">
+		</mat-form-field>
+		<div class="action-row">
+			<button mat-raised-button color="primary" (click)="create(name.value)" [disabled]="state.loading">
+				Save & show API token
+			</button>
+		</div>
+	</ng-container>
+
+	<ng-container *ngIf="state.newToken.length > 0">
+		<p>The token below will only be visible once and cannot be displayed again.</p>
+		<mat-form-field>
+			<mat-label>Token</mat-label>
+			<textarea matInput [value]="state.newToken" readonly></textarea>
+		</mat-form-field>
+		<div class="action-row">
+			<button mat-raised-button
+					color="primary"
+					(click)="copySuccess()"
+					[cdkCopyToClipboard]="state.newToken">
+				<mat-icon>content_copy</mat-icon>
+				Copy to clipboard
+			</button>
+			<button mat-raised-button (click)="close()">
+				<mat-icon>done</mat-icon>
+				Close
+			</button>
+		</div>
+	</ng-container>
+</div>

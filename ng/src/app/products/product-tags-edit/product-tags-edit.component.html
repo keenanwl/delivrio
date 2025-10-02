@@ -1,0 +1,44 @@
+<ng-container *ngIf="product$|async; let p">
+	<div class="page-header">
+		<h3>Product tags</h3>
+	</div>
+	<app-dvo-card>
+		<div class="container">
+			<div class="column">
+				<h4>Current tags</h4>
+				<p *ngIf="p.productTags.length === 0">Add some tags to get started</p>
+				<mat-chip-listbox multiple="true">
+					<mat-chip-option *ngFor="let tag of p.productTags">
+						{{tag.name}} ({{tag.products.length}})
+						<button matChipRemove (click)="delete(tag.id)">
+							<mat-icon>cancel</mat-icon>
+						</button>
+					</mat-chip-option>
+				</mat-chip-listbox>
+			</div>
+			<div class="column">
+				<h4>New tags</h4>
+				<mat-form-field>
+					<mat-label>Tags</mat-label>
+					<mat-chip-grid #chipList>
+						<mat-chip-row *ngFor="let tag of tagsToSave" (removed)="remove(tag)">
+							{{tag}}
+							<button matChipRemove>
+								<mat-icon>cancel</mat-icon>
+							</button>
+						</mat-chip-row>
+						<input placeholder="Add tags..."
+							   [matChipInputFor]="chipList"
+							   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+							   [matChipInputAddOnBlur]="true"
+							   (matChipInputTokenEnd)="add($event)">
+					</mat-chip-grid>
+					<mat-hint>Paste a comma separated list for bulk addition</mat-hint>
+				</mat-form-field>
+				<button class="button-create" mat-stroked-button (click)="save()">
+					Save
+				</button>
+			</div>
+		</div>
+	</app-dvo-card>
+</ng-container>

@@ -1,0 +1,53 @@
+<div class="page-header">
+	<h3>Edit EasyPost agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="save()">
+		<mat-icon>done</mat-icon>
+		Save
+	</button>
+</div>
+
+<app-dvo-card *ngIf="carrierEditEasyPost$|async; let cl">
+	<form #form
+		  [formGroup]="editForm"
+		  ngxsForm="carrierEditEasyPost.carrierEditEasyPostForm"
+		  ngxsFormErrors="carrierEditEasyPost.carrierEditEasyPostForm"
+		  class="column-container">
+		<div class="row right-margin">
+			<mat-form-field>
+				<mat-label>Name</mat-label>
+				<input formControlName="name" matInput/>
+				<mat-error *ngIf="editForm.controls.name.invalid">
+					{{editForm.controls.name.errors}}
+				</mat-error>
+			</mat-form-field>
+		</div>
+		<ng-container [formGroup]="editForm.controls.carrierEasyPost">
+			<div class="row right-margin">
+				<mat-form-field>
+					<mat-label>EasyPost API Key</mat-label>
+					<input [formControl]="editForm.controls.carrierEasyPost.controls.apiKey" matInput/>
+					<mat-error *ngIf="editForm.controls.carrierEasyPost.controls.apiKey.invalid">
+						{{editForm.controls.carrierEasyPost.controls.apiKey.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row right-margin">
+				<mat-form-field>
+					<mat-label>EasyPost Carrier Account ID</mat-label>
+					<input [formControl]="editForm.controls.carrierEasyPost.controls.carrierAccounts" matInput/>
+					<mat-error *ngIf="editForm.controls.carrierEasyPost.controls.carrierAccounts.invalid">
+						{{editForm.controls.carrierEasyPost.controls.carrierAccounts.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row right-margin">
+				<app-toggle-container [name]="'Test API'">
+					<mat-slide-toggle [formControl]="editForm.controls.carrierEasyPost.controls.test"
+									  color="primary">
+					</mat-slide-toggle>
+				</app-toggle-container>
+			</div>
+		</ng-container>
+	</form>
+</app-dvo-card>

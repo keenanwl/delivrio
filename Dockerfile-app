@@ -1,0 +1,44 @@
+# Use an official node image as the base image for building the Angular frontend and the Go backend
+FROM node:20 AS builder
+
+# Set the working directory
+WORKDIR /app
+
+# Step 1: Install Angular dependencies
+# Copy the frontend package.json and package-lock.json files
+COPY ./ng/package*.json ./ng/
+RUN cd ng && npm install
+
+# Step 2: Install Go and download dependencies
+# Install Go
+RUN curl -LO https://golang.org/dl/go1.22.4.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.22.4.linux-amd64.tar.gz
+ENV PATH=$PATH:/usr/local/go/bin
+
+# Step 3: Build Angular Frontend
+# Copy the rest of the Angular application
+COPY ./ ./
+RUN cd ng && npm run build
+RUN cd ng && npm run build:returns
+
+# Step 4: Build Go application
+# Copy the rest of the Go application
+RUN go mod download
+RUN cd go && make build
+
+# Create a final image using a minimal base image
+FROM ubuntu:22.04
+
+# Set the working directory
+WORKDIR /app
+
+# Create the directory for the SQLite database
+RUN mkdir -p /data
+# For sast download
+RUN apt update && apt install curl -y
+
+# Copy the built Go binary and Angular frontend assets from the builder stage
+# The entrypoint script sets a fixed time for e2e testing
+COPY --from=builder /app/go/delivrio .
+COPY --from=builder /app/ng/cypress/delivrio_config.yaml .
+

@@ -1,0 +1,34 @@
+query ListLocations {
+	locations {
+		edges {
+			node {
+				id
+				name
+				address {
+					email
+					firstName
+					lastName
+					addressOne
+					addressTwo
+					zip
+					city
+					country {
+						id
+						label
+						alpha2
+					}
+				}
+				locationTags {
+					id
+					label
+				}
+			}
+		}
+	}
+}
+
+mutation CreateLocation($input: CreateLocationInput!, $inputAddress: CreateAddressInput!) {
+	createLocation(input: $input, inputAddress: $inputAddress) {
+		id
+	}
+}

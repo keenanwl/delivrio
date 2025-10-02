@@ -1,0 +1,5 @@
+mutation ReplaceSignupOptions($userID: ID!, $input: CreateSignupOptionsInput!) {
+	replaceSignupOptions(userID: $userID, input: $input) {
+		id
+	}
+}

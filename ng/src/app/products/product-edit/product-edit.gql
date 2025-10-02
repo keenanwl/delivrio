@@ -1,0 +1,181 @@
+query FetchProduct($id: ID!) {
+	product(id: $id) {
+		title
+		status
+		bodyHTML
+		createdAt
+		productTags {
+			id
+			name
+		}
+	}
+	productVariants(where: {
+		and: {
+			archived: false,
+			hasProductWith: {id: $id}
+		}
+	}) {
+		edges {
+			node {
+				...ProductVariantInfo
+			}
+		}
+	}
+	productForImage: product(id: $id) {
+		productImage {
+			...ProductImageInfo
+		}
+	}
+	productTags {
+		edges {
+			node {
+				id
+				name
+				createdAt
+			}
+		}
+	}
+}
+
+query ProductsSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+			}
+		}
+	}
+}
+
+mutation MustInventoryItem($productVariantID: ID!) {
+	mustInventory(productVariantID: $productVariantID) {
+		...InventoryItemFrag
+	}
+}
+
+fragment ProductVariantInfo on ProductVariant {
+	id
+	archived
+	description
+	dimensionWidth
+	dimensionLength
+	dimensionHeight
+	weightG
+	eanNumber
+	createdAt
+	updatedAt
+}
+
+fragment InventoryItemFrag on InventoryItem {
+	id
+	code
+	sku
+	countryOfOrigin {
+		id
+		label
+		alpha2
+	}
+	countryHarmonizedCode {
+		code
+		country {
+			id
+			label
+			alpha2
+		}
+	}
+}
+
+fragment ProductImageInfo on ProductImage {
+	id
+	externalID
+	url
+	productVariant {
+		id
+	}
+}
+
+mutation CreateProduct($input: CreateProductInput!, $variants: [CreateProductVariantInput!], $images: [String!]) {
+	createProduct(input: $input, variants: $variants, images: $images) {
+		id
+	}
+}
+mutation UpdateProduct($id: ID!, $input: UpdateProductInput!, $variants: [UpdateProductVariantIDInput!], $images: [ProductVariantImageInput!]!) {
+	updateProduct(id: $id, input: $input, variants: $variants, images: $images) {
+		id
+	}
+}
+
+mutation CreateVariant($productID: ID!, $input: CreateProductVariantInput) {
+	createVariant(productID: $productID, input: $input) {
+		id
+		description
+		dimensionWidth
+		dimensionLength
+		dimensionHeight
+		weightG
+		eanNumber
+		createdAt
+		updatedAt
+	}
+}
+
+mutation ProductUploadImage($productID: ID!, $image: String!) {
+	uploadProductImage(productID: $productID, image: $image) {
+		productImage {
+			...ProductImageInfo
+		}
+	}
+}
+
+mutation ProductDeleteImage($imageID: ID!) {
+	deleteProductImage(imageID: $imageID) {
+		productImage {
+			...ProductImageInfo
+		}
+	}
+}
+
+mutation ArchiveVariant($variantID: ID!) {
+	archiveProductVariant(variantID: $variantID) {
+		id
+	}
+}
+
+mutation MustInventory($productVariantID: ID!) {
+	mustInventory(productVariantID: $productVariantID) {
+		id
+		code
+		sku
+		countryOfOrigin {
+			label
+		}
+		countryHarmonizedCode {
+			code
+			country {
+				id
+				label
+			}
+		}
+	}
+}
+
+mutation UpdateInventoryItem($id: ID!, $input: UpdateInventoryItemInput!) {
+	updateInventory(input: $input, iventoryItemID: $id) {
+		...InventoryItemFrag
+	}
+}
+
+query ProductSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+				region
+			}
+		}
+	}
+}

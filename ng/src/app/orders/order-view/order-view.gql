@@ -1,0 +1,156 @@
+query FetchOrderView($id: ID!) {
+	connections {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	order(id: $id) {
+		... OrderView
+	}
+	orderShipments(orderID: $id) {
+		mayShipRemaining
+		shipmentStatuses {
+			shipmentID
+			colliID
+			ccSignatures
+		}
+	}
+	orderTimeline(orderID: $id) {
+		... TimelineViewer
+	}
+}
+
+mutation CancelShipmentByColliIDs($colliIDs: [ID!]!) {
+	cancelShipmentByColliIDs(colliIDs: $colliIDs)
+}
+
+query FetchLabels($colliIDs: [ID!]!) {
+	shipmentLabels(colliIDs: $colliIDs) {
+		allLabels
+		labelsPDF
+	}
+}
+
+query FetchPackingSlips($colliIDs: [ID!]!) {
+	packingSlips(colliIDs: $colliIDs) {
+		allPackingSlips
+		packingSlips
+	}
+}
+
+fragment OrderView on Order {
+	orderPublicID
+	commentExternal
+	commentInternal
+	connection {
+		id
+		name
+	}
+	status
+	colli {
+		... ColliViewInfo
+	}
+}
+
+fragment ColliViewInfo on Colli {
+	id
+	recipient {
+		... AddressInfo
+	}
+	sender {
+		... AddressInfo
+	}
+	status
+	orderLines {
+		... OrderLines
+	}
+	deliveryOption {
+		id
+		clickCollect
+		name
+		carrier {
+			carrierBrand {
+				label
+			}
+		}
+	}
+	packaging {
+		name
+		lengthCm
+		widthCm
+		heightCm
+	}
+	clickCollectLocation {
+		name
+		address {
+			addressOne
+			addressTwo
+			zip
+			city
+			state
+			country {
+				alpha2
+			}
+		}
+	}
+	parcelShop {
+		name
+		address {
+			addressOne
+			addressTwo
+			zip
+			city
+			state
+			country {
+				alpha2
+			}
+		}
+	}
+}
+
+mutation UpdateOrder($id: ID!, $input: UpdateOrderInput!) {
+	updateOrder(id: $id, input: $input) {
+		... OrderView
+	}
+}
+
+mutation MoveOrderLine($orderLineID: ID!, $colliID: ID!) {
+	moveOrderLine(colliID: $colliID, orderLineID: $orderLineID) {
+		... ColliViewInfo
+	}
+}
+
+mutation DeletePackage($colliID: ID!) {
+	deleteColli(colliID: $colliID) {
+		... OrderView
+	}
+}
+
+mutation DuplicateColli($fromColliID: ID!) {
+	duplicateColli(fromColliID: $fromColliID) {
+		... OrderView
+	}
+}
+
+# Not mutation to prevent auto-tx
+query CreateShipments($orderID: ID!, $parcelIDs: [ID!]!) {
+	createShipments(orderID: $orderID, packageIDs: $parcelIDs) {
+		labelsPDF
+		allLabels
+	}
+}
+
+query CreatePackingSlipPrintJobs($colliIDs: [ID!]!) {
+	createPackingListPrintJob(colliIDs: $colliIDs)
+}
+
+query CreateLabelPrintJobs($colliIDs: [ID!]!) {
+	createLabelsPrintJob(colliIDs: $colliIDs)
+}
+
+query PackingSlipsClearCache($orderIDs: [ID!]!) {
+	packingSlipsClearCache(orderIDs: $orderIDs)
+}

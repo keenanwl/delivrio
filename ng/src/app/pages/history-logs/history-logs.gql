@@ -1,0 +1,28 @@
+query HistoryLogs {
+	historyLogs {
+		histories {
+			id
+			createdAt
+			origin
+			returnColliHistory {
+				description
+			}
+			orderHistory {
+				description
+			}
+			user {
+				id
+				name
+				surname
+			}
+		}
+		system_event {
+			id
+			eventType
+			status
+			createdAt
+			description
+			data
+		}
+	}
+}

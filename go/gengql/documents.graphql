@@ -1,0 +1,13 @@
+type DocumentDownload {
+    base64PDF: String!
+}
+
+extend type Query {
+    document(id: ID!): Document!
+    documentDownload(id: ID!): DocumentDownload!
+}
+
+extend type Mutation {
+    createDocument(name: String!, mergeType: DocumentMergeType!): ID!
+    updateDocument(id: ID!, input: UpdateDocumentInput!): Document!
+}

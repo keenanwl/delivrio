@@ -1,0 +1,168 @@
+<div class="container" *ngIf="returnPortalEdit$|async; let state">
+	<div class="page-header">
+		<h3>Edit return portal</h3>
+		<span class="spacer"></span>
+		<a [routerLink]="viewerPath" [queryParams]="{id: state.returnPortalID}" target="_blank">
+			<button mat-stroked-button>
+				<mat-icon>link</mat-icon>
+				Demo
+			</button>
+		</a>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<app-dvo-card class="card-form">
+		<form [formGroup]="editForm" ngxsForm="returnPortalEdit.returnPortalEditForm">
+			<div class="general-info">
+				<mat-form-field>
+					<mat-label>Name</mat-label>
+					<input formControlName="name" matInput />
+					<mat-error *ngIf="editForm.controls.name.invalid">
+						{{editForm.controls.name.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Return horizon</mat-label>
+					<input formControlName="returnOpenHours" matInput />
+					<mat-error *ngIf="editForm.controls.returnOpenHours.invalid">
+						{{editForm.controls.name.errors}}
+					</mat-error>
+					<mat-hint>Number of hours from purchase date</mat-hint>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Connection</mat-label>
+					<mat-select [value]="state.returnPortalEditForm.model?.connection.id" disabled>
+						<mat-option *ngFor="let connect of state.connections" [value]="connect.id">
+							{{connect.name}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<mat-checkbox formControlName="automaticallyAccept">Automatically accept</mat-checkbox>
+			</div>
+			<div class="claims">
+				<div class="header">
+					<h3>
+						Cause of claim
+						<button mat-icon-button (click)="addClaim()">
+							<mat-icon>add</mat-icon>
+						</button>
+					</h3>
+				</div>
+
+				<div formArrayName="returnPortalClaim" *ngFor="let claim of editForm.controls.returnPortalClaim.controls; let i = index">
+					<div class="claim-row" [formGroupName]="i">
+						<mat-form-field>
+							<mat-label>Name</mat-label>
+							<input formControlName="name" matInput />
+						</mat-form-field>
+						<mat-form-field>
+							<mat-label>Description</mat-label>
+							<input formControlName="description" matInput />
+						</mat-form-field>
+						<mat-checkbox formControlName="restockable">Restockable</mat-checkbox>
+						<button mat-icon-button (click)="deleteClaimRow(i)">
+							<mat-icon>delete</mat-icon>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="email-templates">
+				<div class="header">
+					<h3>Email templates</h3>
+				</div>
+				<mat-form-field [formGroup]="editForm.controls.emailConfirmationLabel">
+					<mat-label>Status pending (label)</mat-label>
+					<mat-select formControlName="id"
+								[value]="state.returnPortalEditForm.model?.emailConfirmationLabel?.id">
+						<mat-option [value]="null">
+							Unset
+						</mat-option>
+						<mat-option *ngFor="let temp of state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliLabel" [value]="temp.id">
+							{{temp.name}}
+						</mat-option>
+						<mat-option *ngIf="(state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliLabel).length === 0">
+							<a [routerLink]="emailTemplatePath">Add template of merge type: 'return_label'</a>
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<mat-form-field [formGroup]="editForm.controls.emailConfirmationQrCode">
+					<mat-label>Status pending (QR code)</mat-label>
+					<mat-select formControlName="id"
+								[value]="state.returnPortalEditForm.model?.emailConfirmationQrCode?.id">
+						<mat-option [value]="null">
+							Unset
+						</mat-option>
+						<mat-option *ngFor="let temp of state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliQRCode" [value]="temp.id">
+							{{temp.name}}
+						</mat-option>
+						<mat-option *ngIf="(state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliQRCode).length === 0">
+							<a [routerLink]="emailTemplatePath">Add template of merge type: 'return_qr_code'</a>
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<mat-form-field  [formGroup]="editForm.controls.emailReceived">
+					<mat-label>Status received</mat-label>
+					<mat-select formControlName="id"
+								[value]="state.returnPortalEditForm.model?.emailReceived?.id">
+						<mat-option [value]="null">
+							Unset
+						</mat-option>
+						<mat-option *ngFor="let temp of state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliReceived" [value]="temp.id">
+							{{temp.name}}
+						</mat-option>
+						<mat-option *ngIf="(state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliReceived).length === 0">
+							<a [routerLink]="emailTemplatePath">Add template of merge type: 'return_received'</a>
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<mat-form-field  [formGroup]="editForm.controls.emailAccepted">
+					<mat-label>Status accepted</mat-label>
+					<mat-select formControlName="id"
+								[value]="state.returnPortalEditForm.model?.emailAccepted?.id">
+						<mat-option [value]="null">
+							Unset
+						</mat-option>
+						<mat-option *ngFor="let temp of state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliAccepted" [value]="temp.id">
+							{{temp.name}}
+						</mat-option>
+						<mat-option *ngIf="(state.emailTemplates | filterEmailTemplates:mergeTypeReturnColliAccepted).length === 0">
+							<a [routerLink]="emailTemplatePath">Add template of merge type: 'return_accepted'</a>
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="return-methods">
+				<h3>Return methods ({{state.returnPortalEditForm.model.deliveryOptions?.length || 0}})</h3>
+				<p *ngIf="state.returnDeliveryOptions.length === 0">
+					Add your first <a [href]="returnMethodPath">return method</a>
+				</p>
+				<mat-chip-listbox [multiple]="true" (change)="selectDeliveryOptions($event)">
+					<mat-chip-option *ngFor="let opt of state.returnDeliveryOptions"
+									 [value]="opt.id"
+									 [selected]="opt ?.id|deliveryOptionSelected:state.returnPortalEditForm.model?.deliveryOptions">
+						{{ opt.name }}
+					</mat-chip-option>
+				</mat-chip-listbox>
+			</div>
+			<div class="installation">
+				<h3>iFrame installation (easy)</h3>
+				<mat-form-field>
+					<mat-label>HTML iFrame</mat-label>
+					<textarea matInput [value]="replaceTokens(state.returnPortalID, iframe)"></textarea>
+				</mat-form-field>
+				<h3>WebElements installation (advanced)</h3>
+				<p>Customize your return portal - we've defined extensive branding points to give you full control, without breaking future upgrades.</p>
+				<mat-form-field class="element-container">
+					<mat-label>Web element</mat-label>
+					<textarea matInput [value]="replaceTokens(state.returnPortalID, webComponent)"></textarea>
+				</mat-form-field>
+
+			</div>
+
+		</form>
+	</app-dvo-card>
+
+</div>

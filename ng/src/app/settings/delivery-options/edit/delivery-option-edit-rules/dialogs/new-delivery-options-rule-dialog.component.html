@@ -1,0 +1,11 @@
+<div class="container">
+	<h3>Create new delivery rule</h3>
+	<mat-form-field class="option-name" appearance="fill">
+		<mat-label>Rule name</mat-label>
+		<input #name matInput/>
+	</mat-form-field>
+	<button class="button-create" mat-raised-button (click)="selected(name.value)">
+		<mat-icon>done</mat-icon>
+		Create
+	</button>
+</div>

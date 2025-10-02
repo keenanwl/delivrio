@@ -1,0 +1,46 @@
+<div class="column">
+	<mat-divider></mat-divider>
+	<div class="row">
+		<span class="title">Booking ID:</span>
+		<span class="value">{{bookingID}}</span>
+	</div>
+	<div class="row">
+		<span class="title">Reference number:</span>
+		<span class="value">{{shipmentReferenceNumber}}</span>
+	</div>
+	<mat-divider />
+</div>
+<ng-container *ngFor="let item of labelsItemIDs; let index = index">
+	<div class="column">
+		<p>
+			Package {{index+1}}
+			<button mat-mini-fab (click)="editIDs(item.id)">
+				<mat-icon>
+					edit
+				</mat-icon>
+			</button>
+		</p>
+		<div class="row">
+			<span class="title">Item ID:</span>
+			<span class="value">{{item.itemID}}</span>
+			<pdf-viewer
+				[src]="item.labelPdf | preparePdf"
+				[rotation]="0"
+				[original-size]="false"
+				[show-all]="true"
+				[fit-to-page]="false"
+				[zoom]="1"
+				[zoom-scale]="'page-width'"
+				[stick-to-page]="false"
+				[render-text]="true"
+				[external-link-target]="'blank'"
+				[autoresize]="true"
+				[show-borders]="false"
+				style="width: 400px; height: 600px;"
+			></pdf-viewer>
+		</div>
+
+	</div>
+	<mat-divider></mat-divider>
+</ng-container>
+

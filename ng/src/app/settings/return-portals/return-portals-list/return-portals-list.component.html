@@ -1,0 +1,50 @@
+<ng-container *ngIf="portals$|async; let state">
+	<div class="page-header">
+		<h3>Return portals</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="addNew()">
+			<mat-icon>add</mat-icon>
+			Add return portal
+		</button>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<table mat-table [dataSource]="state.returnPortalsList">
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>Name</th>
+			<td mat-cell *matCellDef="let element">
+				{{element?.name}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="horizon">
+			<th mat-header-cell *matHeaderCellDef>Horizon</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.returnOpenHours / 24}}d/{{element.returnOpenHours}}h
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="automaticallyAccept">
+			<th mat-header-cell *matHeaderCellDef>Auto accept</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.automaticallyAccept}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="connection">
+			<th mat-header-cell *matHeaderCellDef>Connection</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.connection.name}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef>  </th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-icon-button (click)="delete(element.id)">
+					<mat-icon>archive</mat-icon>
+				</button>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr class="row" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="edit(row.id)"></tr>
+	</table>
+</ng-container>

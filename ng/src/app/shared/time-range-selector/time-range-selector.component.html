@@ -1,0 +1,61 @@
+<div class="container">
+	<h2>Time range selector</h2>
+	<div class="time-selector">
+		<div class="column hours-from">
+			<button mat-icon-button (click)="incrementHourFrom()">
+				<mat-icon>keyboard_arrow_up</mat-icon>
+			</button>
+			{{hourFrom | zeroPad:2}}
+			<button mat-icon-button (click)="decrementHoursFrom()">
+				<mat-icon>keyboard_arrow_down</mat-icon>
+			</button>
+		</div>
+		<div class="column">
+			:
+		</div>
+		<div class="column minutes-from">
+			<button mat-icon-button (click)="incrementMinutesFrom()">
+				<mat-icon>keyboard_arrow_up</mat-icon>
+			</button>
+			{{minutesFrom | zeroPad:2}}
+			<button mat-icon-button (click)="decrementMinutesFrom()">
+				<mat-icon>keyboard_arrow_down</mat-icon>
+			</button>
+		</div>
+		<div class="column">
+			-
+		</div>
+		<div class="column hours-to">
+			<button mat-icon-button (click)="incrementHourTo()">
+				<mat-icon>keyboard_arrow_up</mat-icon>
+			</button>
+			{{hourTo | zeroPad:2}}
+			<button mat-icon-button (click)="decrementHoursTo()">
+				<mat-icon>keyboard_arrow_down</mat-icon>
+			</button>
+		</div>
+		<div class="column">
+			:
+		</div>
+		<div class="column minutes-to">
+			<button mat-icon-button (click)="incrementMinutesTo()">
+				<mat-icon>keyboard_arrow_up</mat-icon>
+			</button>
+			{{minutesTo | zeroPad:2}}
+			<button mat-icon-button (click)="decrementMinutesTo()">
+				<mat-icon>keyboard_arrow_down</mat-icon>
+			</button>
+		</div>
+	</div>
+	<p><span *ngIf="invalid">The time range is invalid. Start time may not overlap end time.</span></p>
+	<div class="action-buttons" *ngIf="!hideDialog">
+		<button mat-raised-button color="primary" [disabled]="invalid" (click)="save()">
+			<mat-icon>done</mat-icon>
+			OK
+		</button>
+		<button mat-stroked-button (click)="close()">
+			<mat-icon>cancel</mat-icon>
+			cancel
+		</button>
+	</div>
+</div>

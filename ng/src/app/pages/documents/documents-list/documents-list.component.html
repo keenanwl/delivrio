@@ -1,0 +1,48 @@
+<div class="container" *ngIf="documents$|async; let state">
+	<div class="inset-container">
+		<div class="page-header">
+			<h3>Documents</h3>
+			<span class="spacer"></span>
+			<button (click)="addNew()" mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add document
+			</button>
+		</div>
+		<div class="loading-bar">
+			<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+		</div>
+		<table mat-table [dataSource]="state.documentsList">
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="carrier">
+				<th mat-header-cell *matHeaderCellDef>Carrier</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.carrierBrand?.label}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="mergeType">
+				<th mat-header-cell *matHeaderCellDef>Merge Type</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.mergeType}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="createdAt">
+				<th mat-header-cell *matHeaderCellDef>Created</th>
+				<td mat-cell *matCellDef="let element" [matTooltip]="element.createdAt | date:'medium'">
+					{{element.createdAt | relativeTime:0}}
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row
+				class="row-container"
+				*matRowDef="let row; columns: displayedColumns;"
+				[routerLink]="paths.DOCUMENT_EDIT"
+				[queryParams]="{id: row.id}"></tr>
+		</table>
+	</div>
+</div>

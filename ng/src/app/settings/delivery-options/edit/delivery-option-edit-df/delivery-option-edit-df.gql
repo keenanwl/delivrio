@@ -1,0 +1,26 @@
+query FetchDeliveryOptionEditDF($id: ID!) {
+	deliveryOptionDF(id: $id) {
+		deliveryOption {
+			... BaseDeliveryOption
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: df}}) {
+		edges {
+			node {
+				... CarrierServiceItem
+			}
+		}
+	}
+}
+
+mutation SaveDeliveryOptionEditDF(
+	$id: ID!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!,
+) {
+	updateDeliveryOptionDF(
+		id: $id,
+		inputDeliveryOption: $inputDeliveryOption
+	) {
+		id
+	}
+}

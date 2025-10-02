@@ -1,0 +1,51 @@
+query FetchNotifications {
+	notifications {
+		edges {
+			node {
+				...NotificationsListItem
+			}
+		}
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	emailTemplates {
+		edges {
+			node {
+				id
+				name
+				mergeType
+			}
+		}
+	}
+}
+
+fragment NotificationsListItem on Notification {
+	id
+	name
+	active
+	connection {
+		id
+		name
+	}
+	emailTemplate {
+		id
+		name
+		mergeType
+	}
+}
+
+mutation CreateNotification($name: String!, $connectionID: ID!, $emailTemplateID: ID!) {
+	createNotification(name: $name, connectionID: $connectionID, emailTemplateID: $emailTemplateID) {
+		...NotificationsListItem
+	}
+}
+
+mutation ToggleNotification($notificationID: ID!, $checked: Boolean!) {
+	toggleNotification(checked: $checked, notificationID: $notificationID)
+}

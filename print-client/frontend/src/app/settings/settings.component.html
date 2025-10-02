@@ -1,0 +1,67 @@
+<div class="container" *ngIf="settings$|async; let state">
+	<span class="spacer"></span>
+	<div class="form-container">
+		<div class="header">
+			<button (click)="goHome()" mat-icon-button>
+				<mat-icon>chevron_left</mat-icon>
+			</button>
+			<h3>Settings</h3>
+			<span class="spacer"></span>
+			<button mat-stroked-button (click)="registrationDialog()">
+				<mat-icon>app_registration</mat-icon>
+				Registration
+			</button>
+		</div>
+		<div>This computer has {{state.devices.length}} devices connected
+			<button mat-icon-button (click)="refresh()">
+				<mat-icon>refresh</mat-icon>
+			</button>
+		</div>
+		<h4>Select scanner:</h4>
+		<mat-selection-list [multiple]="false">
+			<mat-divider></mat-divider>
+			<ng-container *ngFor="let device of state.devices">
+				<mat-list-option (click)="saveSelectedDevice(device.id)" [selected]="device.active">
+					{{device.name}} {{device.vendor_id}} {{device.product_id}}
+				</mat-list-option>
+				<mat-divider></mat-divider>
+			</ng-container>
+		</mat-selection-list>
+
+
+		<h4>Select printer(s):</h4>
+		<mat-selection-list [multiple]="true">
+			<mat-divider></mat-divider>
+			<ng-container *ngFor="let printer of state.printers">
+				<mat-list-option #printerOption
+								 [selected]="printer.active"
+								 (click)="togglePrinter(printer.name, printerOption.selected)">
+					<mat-icon matListItemIcon (click)="archivePrinter($event, printer.id)">archive</mat-icon>
+					{{printer.name}}
+				</mat-list-option>
+				<mat-divider></mat-divider>
+			</ng-container>
+		</mat-selection-list>
+
+		<div class="header">
+			<h4>Add network printer:</h4>
+			<mat-spinner class="loading-spinner" *ngIf="state.loading"></mat-spinner>
+			<button *ngIf="!state.loading" mat-icon-button (click)="searchNetworkPrinters()">
+				<mat-icon>search</mat-icon>
+			</button>
+		</div>
+
+		<div class="add-network-printer-row">
+			<mat-form-field>
+				<mat-label>Printer IP address (include port)</mat-label>
+				<input #ipInput matInput />
+				<mat-hint>ex: 192.168.0.144:9100</mat-hint>
+			</mat-form-field>
+			<button mat-icon-button color="primary" (click)="saveNetworkPrinter(ipInput.value)">
+				<mat-icon>done</mat-icon>
+			</button>
+		</div>
+
+	</div>
+	<span class="spacer"></span>
+</div>

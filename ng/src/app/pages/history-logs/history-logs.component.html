@@ -1,0 +1,94 @@
+<div class="container" *ngIf="state$|async; let state">
+	<div class="page-header">
+		<h3>History & Logs</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="refresh()">
+			<mat-icon>refresh</mat-icon>
+			Refresh
+		</button>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<div class="history-logs-container">
+		<app-dvo-card class="histories">
+			<div class="page-header">
+				<h4>History</h4>
+				<span class="spacer"></span>
+				<!-- Needs implementing -->
+				<!--<button mat-icon-button>
+					<mat-icon>chevron_left</mat-icon>
+				</button>
+				<button mat-icon-button>
+					<mat-icon>chevron_right</mat-icon>
+				</button>-->
+			</div>
+			<mat-list>
+				<mat-list-item class="history-row" *ngFor="let row of state.histories">
+					<mat-icon matListItemIcon *ngIf="row.orderHistory.length > 0">
+						list_alt
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.returnColliHistory.length > 0">
+						keyboard_return
+					</mat-icon>
+					<span matListItemTitle [matTooltip]="row.createdAt | date:'medium'">
+						{{row.createdAt | relativeTime:0}}
+						{{!!row.user ? 'by' : ''}} {{row.user?.name}} {{row.user?.surname.slice(0, 1)}}
+					</span>
+					<span matListItemLine>Origin: {{row.origin}}</span>
+					<span matListItemLine *ngFor="let rc of row.returnColliHistory">
+						{{rc.description}}
+					</span>
+				</mat-list-item>
+			</mat-list>
+		</app-dvo-card>
+		<app-dvo-card class="logs">
+			<div class="page-header">
+				<h4>Logs</h4>
+				<span class="spacer"></span>
+				<!-- Needs implementing -->
+<!--				<button mat-icon-button>
+					<mat-icon>chevron_left</mat-icon>
+				</button>
+				<button mat-icon-button>
+					<mat-icon>chevron_right</mat-icon>
+				</button>-->
+			</div>
+			<mat-list>
+				<mat-list-item class="history-row" *ngFor="let row of state.logs">
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.BackgroundProductMutate">
+						category
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.ShopifyProductSync">
+						task
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.ShopifyOrderSync">
+						task
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.SyncCancelledShipments">
+						task
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.ShopifyOrderCancelledSync">
+						task
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.BackgroundTasks">
+						task
+					</mat-icon>
+					<mat-icon matListItemIcon *ngIf="row.eventType === logEventType.SendNotifications">
+						mail
+					</mat-icon>
+					<span matListItemTitle [matTooltip]="row.createdAt | date:'medium'">
+						{{row.createdAt | relativeTime:0}}:
+						{{row.status}}
+					</span>
+					<span matListItemLine>
+						Type: {{row.eventType}}
+					</span>
+					<span matListItemLine [matTooltip]="row.data">
+						{{row.description}}
+					</span>
+				</mat-list-item>
+			</mat-list>
+		</app-dvo-card>
+	</div>
+</div>

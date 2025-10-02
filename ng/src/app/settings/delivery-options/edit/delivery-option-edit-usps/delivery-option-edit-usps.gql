@@ -1,0 +1,104 @@
+query FetchDeliveryOptionEditUSPS($id: ID!) {
+	carrierAdditionalServiceUspSs(where: {hasDeliveryOptionUSPSWith: {hasDeliveryOptionWith: {id: $id}}}) {
+		edges {
+			node {
+				... USPSAdditionalServices
+			}
+		}
+	}
+	clickCollectLocations: deliveryOptionUSPS(deliveryOptionID: $id) {
+		deliveryOption {
+			clickCollectLocation {
+				id
+				name
+				address {
+					addressOne
+					addressTwo
+					zip
+					city
+					country {
+						id
+						label
+						alpha2
+					}
+					company
+				}
+			}
+		}
+	}
+	selectedEmailTemplates: deliveryOptionUSPS(deliveryOptionID: $id) {
+		deliveryOption {
+			emailClickCollectAtStore {
+				id
+			}
+		}
+	}
+	deliveryOptionUSPS(deliveryOptionID: $id) {
+		deliveryOption {
+			... BaseDeliveryOption
+		}
+	}
+	locations(where: {hasLocationTagsWith: {internalIDContainsFold: "click_and_collect"}}) {
+		edges {
+			node {
+				id
+				name
+				address {
+					addressOne
+					addressTwo
+					zip
+					city
+					country {
+						id
+						label
+						alpha2
+					}
+					company
+				}
+			}
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: usps}}) {
+		edges {
+			node {
+				... CarrierServiceItem
+			}
+		}
+	}
+	emailTemplates {
+		edges {
+			node {
+				id
+				name
+				mergeType
+			}
+		}
+	}
+}
+
+fragment USPSAdditionalServices on CarrierAdditionalServiceUSPS {
+	id
+	internalID
+	label
+	commonlyUsed
+}
+
+query AvailableAdditionalServicesUSPS($carrierServiceID: ID!) {
+	availableAdditionalServicesUSPS(carrierServiceID: $carrierServiceID) {
+		... USPSAdditionalServices
+	}
+}
+
+mutation SaveDeliveryOptionEditUSPS($id: ID!,
+	$input: UpdateDeliveryOptionUSPSInput!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!,
+	$inputAdditionalServices: [ID!]!
+) {
+	updateDeliveryOptionUSPS(id: $id,
+		input: $input,
+		inputDeliveryOption: $inputDeliveryOption,
+		inputAdditionalServices: $inputAdditionalServices
+	) {
+		id
+	}
+}

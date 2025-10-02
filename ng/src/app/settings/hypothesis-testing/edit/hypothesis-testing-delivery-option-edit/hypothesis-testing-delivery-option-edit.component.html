@@ -1,0 +1,125 @@
+<div class="container" *ngIf="state$|async; let state">
+	<div class="header-row">
+		<h3>Edit hypothesis test</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+	</div>
+	<app-dvo-card>
+		<form [formGroup]="editForm" ngxsFormArray="hypothesisTestingDeliveryOptionEdit.editForm">
+			<div class="row">
+				<mat-form-field class="column">
+					<mat-label>Test name</mat-label>
+					<input formControlName="name" matInput />
+					<mat-error *ngIf="editForm.controls.name.invalid">
+						{{editForm.controls.name.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-slide-toggle class="column" formControlName="active"
+								  color="primary">
+					Active
+				</mat-slide-toggle>
+			</div>
+			<div class="row" formGroupName="hypothesisTestDeliveryOption">
+				<mat-slide-toggle formControlName="byIntervalRotation"
+								  color="primary">
+					Randomize across time intervals
+				</mat-slide-toggle>
+				<mat-form-field class="column">
+					<mat-label>Time interval length (hours)</mat-label>
+					<input formControlName="rotationIntervalHours" matInput />
+					<mat-error *ngIf="editForm.controls.hypothesisTestDeliveryOption.controls.rotationIntervalHours.invalid">
+						{{editForm.controls.hypothesisTestDeliveryOption.controls.rotationIntervalHours.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row" formGroupName="hypothesisTestDeliveryOption">
+				<mat-slide-toggle formControlName="byOrder"
+								  color="primary">
+					Randomize by order
+				</mat-slide-toggle>
+			</div>
+			<div class="row" formGroupName="hypothesisTestDeliveryOption">
+				<mat-slide-toggle formControlName="randomizeWithinGroupSort"
+								  color="primary">
+					Randomize delivery option list order
+				</mat-slide-toggle>
+			</div>
+			<div class="row" cdkDropListGroup formGroupName="hypothesisTestDeliveryOption">
+				<div class="column all-delivery-options">
+					<h3>Connection delivery options</h3>
+					<p>Always shown if active</p>
+					<!--<p class="get-started" *ngIf="state.availableDeliveryOptions.length === 0">
+						Add some delivery options
+						<button mat-stroked-button [routerLink]="deliveryOptionPath">
+							<mat-icon>link</mat-icon>
+							Get started
+						</button>
+					</p>-->
+					<div class="drop-zone" cdkDropList
+						 (cdkDropListDropped)="drop($event, 'available')">
+						<mat-list >
+							<ng-container
+								*ngFor="let do of state.availableDeliveryOptions; index as index; last as last">
+								<mat-list-item cdkDrag [cdkDragData]="do">
+									<mat-icon matListItemIcon *ngIf="do.hideDeliveryOption">hide_source</mat-icon>
+									<div matListItemTitle>{{do.name}}</div>
+									<div matListItemLine>{{do.description}}</div>
+								</mat-list-item>
+								<mat-divider *ngIf="!last"></mat-divider>
+							</ng-container>
+						</mat-list>
+					</div>
+				</div>
+				<div class="column control-group">
+					<h3>Control group</h3>
+					<p>Shown to a random 50% of users</p>
+					<div class="drop-zone" (cdkDropListDropped)="drop($event, 'control')" cdkDropList>
+						<mat-list>
+							<mat-list-item formArrayName="deliveryOptionGroupOne"
+										   cdkDrag
+										   [cdkDragData]="{
+										   	name: do.controls.name.value,
+										   	id: do.controls.id.value,
+										   	description: do.controls.description.value,
+										   	hideDeliveryOption: do.controls.hideDeliveryOption.value
+										   	}"
+										   *ngFor="let do of editForm.controls.hypothesisTestDeliveryOption.controls.deliveryOptionGroupOne.controls; index as index">
+								<mat-icon matListItemIcon *ngIf="do.controls.hideDeliveryOption.value">hide_source</mat-icon>
+								<div matListItemTitle>{{do.controls.name.value}}</div>
+								<div matListItemLine>{{do.controls.description.value}}</div>
+							</mat-list-item>
+						</mat-list>
+					</div>
+				</div>
+				<div class="column test-group">
+					<h3>Test group</h3>
+					<p>Shown to a random 50% of users</p>
+					<div class="drop-zone" (cdkDropListDropped)="drop($event, 'test')" cdkDropList>
+						<mat-list>
+							<mat-list-item formArrayName="deliveryOptionGroupTwo"
+										   cdkDrag
+										   [cdkDragData]="{
+										   	name: do.controls.name.value,
+										   	id: do.controls.id.value,
+										   	description: do.controls.description.value,
+										   	hideDeliveryOption: do.controls.hideDeliveryOption.value
+										   	}"
+										   *ngFor="let do of editForm.controls.hypothesisTestDeliveryOption.controls.deliveryOptionGroupTwo.controls; index as index">
+								<mat-icon matListItemIcon *ngIf="do.controls.hideDeliveryOption.value">hide_source</mat-icon>
+								<div matListItemTitle>{{do.controls.name.value}}</div>
+								<div matListItemLine>{{do.controls.description.value}}</div>
+							</mat-list-item>
+						</mat-list>
+					</div>
+				</div>
+			</div>
+
+		</form>
+
+	</app-dvo-card>
+
+</div>
+

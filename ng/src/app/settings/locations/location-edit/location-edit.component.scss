@@ -1,0 +1,13 @@
+.header {
+	display: flex;
+}
+mat-form-field {
+	margin-right: 10px;
+	min-width: 45%;
+}
+form {
+	display: flex;
+	.column {
+		flex-grow: 1;
+	}
+}

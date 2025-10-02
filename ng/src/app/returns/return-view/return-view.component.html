@@ -1,0 +1,64 @@
+<div class="container" *ngIf="returnView$|async; let state">
+	<div class="header">
+		<h1>Return for order {{state.orderPublicID}}</h1>
+		<span class="spacer"></span>
+		<mat-slide-toggle color="primary"
+						  (toggleChange)="toggleDeleted()"
+						  [checked]="state.showDeleted">
+			Show deleted
+		</mat-slide-toggle>
+	</div>
+	<ng-container *ngFor="let colliTimeline of state.view">
+		<div class="colli-view" *ngIf="state.showDeleted || colliTimeline.colli.status !== returnColliStatusDeleted">
+			<div class="left-column">
+				<app-order-lines [orderLines]="summarizeOrderLines(colliTimeline.colli.returnOrderLine)"></app-order-lines>
+			</div>
+			<div class="right-column">
+				<app-colli-view [colli]="colliTimeline.colli">
+					<div class="label-button-container">
+						<button mat-icon-button
+								(click)="showPDF(colliTimeline.colli.labelPdf)"
+								*ngIf="colliTimeline.colli.labelPdf.length > 0">
+							<mat-icon>local_shipping</mat-icon>
+						</button>
+					</div>
+					<button mat-icon-button [cdkMenuTriggerFor]="packageEditMenu">
+						<mat-icon>more_vert</mat-icon>
+					</button>
+					<ng-template #packageEditMenu>
+						<mat-nav-list cdkMenu class="package-more-menu">
+							<mat-list-item cdkMenuItem (click)="markAccepted(colliTimeline.colli.id)">
+								<mat-icon matListItemIcon>done</mat-icon>
+								Accept
+							</mat-list-item>
+							<mat-divider></mat-divider>
+							<mat-list-item cdkMenuItem (click)="markDeclined(colliTimeline.colli.id)">
+								<mat-icon matListItemIcon>assignment_return</mat-icon>
+								Decline
+							</mat-list-item>
+							<mat-divider></mat-divider>
+							<!--<mat-list-item [routerLink]="viewPath" [queryParams]="{orderID: colliTimeline}" cdkMenuItem>
+								<mat-icon matListItemIcon>edit</mat-icon>
+								Edit
+							</mat-list-item>
+							<mat-divider></mat-divider>-->
+							<mat-list-item cdkMenuItem>
+								<mat-icon matListItemIcon>delete</mat-icon>
+								Delete
+							</mat-list-item>
+						</mat-nav-list>
+					</ng-template>
+				</app-colli-view>
+			</div>
+			<div class="third-column">
+				<app-dvo-card class="timeline">
+					<h3>Timeline</h3>
+					<app-timeline-viewer [timelineData]="colliTimeline.timeline" [showOnlyOrdersFromID]="state.orderID">
+					</app-timeline-viewer>
+				</app-dvo-card>
+			</div>
+
+		</div>
+	</ng-container>
+</div>
+

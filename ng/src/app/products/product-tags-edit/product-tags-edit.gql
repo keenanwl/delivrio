@@ -1,0 +1,36 @@
+query FetchProductTagsEdit {
+	productTags {
+		edges {
+			node {
+				id
+				name
+				createdAt
+				products {
+					id
+				}
+			}
+		}
+	}
+}
+
+mutation CreateTags($input: [String!]) {
+	createProductTags(input: $input) {
+		id
+		name
+		createdAt
+		products {
+			id
+		}
+	}
+}
+
+mutation DeleteTag($id: ID!) {
+	deleteTag(id: $id) {
+		id
+		name
+		createdAt
+		products {
+			id
+		}
+	}
+}

@@ -1,0 +1,58 @@
+.container {
+	min-width: 560px;
+	max-width: 960px;
+	min-height: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	.connection-card {
+		width: 300px;
+		height: 190px;
+		margin: 10px;
+		border-radius: 20px;
+		display: flex;
+		flex-direction: column;
+		.logo-area {
+			background: #4d94ba;
+			border-radius: 20px 20px 0 0;
+			display: flex;
+			text-align: center;
+			align-items: center;
+			vertical-align: center;
+			> span {
+				flex-grow: 1;
+				color: #FFFFFF;
+				font-weight: bold;
+				font-size: 36px;
+				.more-options {
+					position: relative;
+					top: -50px;
+					right: -50px;
+				}
+				.label {
+					position: relative;
+					left: 20px;
+				}
+			}
+
+		}
+		.info-area {
+			height: 45px;
+			line-height: 45px;
+			padding-left: 15px;
+			padding-right: 3px;
+			border-radius: 0 0 20px 20px;
+			background: #FFFFFF;
+			border-bottom: #CCCCCC 1px solid;
+			border-right: #CCCCCC 1px solid;
+			border-left: #CCCCCC 1px solid;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			span {
+				text-wrap: nowrap;
+				overflow: hidden;
+				margin-right: 3px;
+			}
+		}
+	}
+}

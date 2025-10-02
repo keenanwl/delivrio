@@ -1,0 +1,27 @@
+<div class="container">
+	<span class="spacer"></span>
+	<div class="form-container">
+		<h1>DELIVRIO print client</h1>
+		<p class="help-text">Connect this computer to the Delivrio cloud by setting up a
+			<span class="external-link" (click)="openURL('http://localhost:4401/settings/workspaces')">workspace<mat-icon>link</mat-icon></span>
+		</p>
+		<div class="field-container">
+			<mat-form-field appearance="outline">
+				<mat-label>Remote URL</mat-label>
+				<input #baseURL matInput value="http://localhost:4401/api/print-client/ping" />
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Registration token</mat-label>
+				<textarea #regToken matInput></textarea>
+			</mat-form-field>
+		</div>
+		<div class="action-container">
+			<button class="button-next" color="primary" mat-raised-button (click)="submit(baseURL.value, regToken.value)">
+				<mat-icon>cloud</mat-icon>
+				Connect
+			</button>
+		</div>
+	</div>
+
+	<span class="spacer"></span>
+</div>

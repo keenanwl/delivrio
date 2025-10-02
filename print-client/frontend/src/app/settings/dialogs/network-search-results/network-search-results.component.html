@@ -1,0 +1,45 @@
+<div class="container" *ngIf="settings$|async; let state">
+	<div class="loading-container"  *ngIf="state.loading">
+		<h2>Searching your network...</h2>
+		<mat-spinner class="loading-spinner"></mat-spinner>
+	</div>
+	<div class="found-container" *ngIf="!state.loading">
+		<h2>Discovered network printers</h2>
+		<div class="pattern-container" *ngFor="let res of state.searchResults">
+			<p><b>Search pattern: {{res.search_term}}</b></p>
+			<mat-divider></mat-divider>
+			<section>
+				<header>
+					<div class="col">Hostname</div>
+					<div class="col">Host</div>
+					<div class="col">Port</div>
+					<div class="col"></div>
+				</header>
+				<div class="row" *ngFor="let row of res.results">
+					<div class="col">{{row.hostname}}</div>
+					<div class="col">{{row.host}}</div>
+					<div class="col">{{row.port}}</div>
+					<div class="col">
+						<button mat-raised-button
+								color="primary"
+								(click)="addNetworkLocation(row.host, row.port)"
+								*ngIf="row.already_active">
+							<mat-icon>add</mat-icon>
+							add
+						</button>
+						<p *ngIf="!row.already_active">active</p>
+					</div>
+				</div>
+				<p *ngIf="res.results.length === 0">(no results)</p>
+			</section>
+		</div>
+		<span class="spacer"></span>
+		<div class="action-row">
+			<button mat-raised-button (click)="close()">
+				<mat-icon>close</mat-icon>
+				Close
+			</button>
+		</div>
+	</div>
+
+</div>

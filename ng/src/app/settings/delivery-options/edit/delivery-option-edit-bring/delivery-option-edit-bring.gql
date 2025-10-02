@@ -1,0 +1,44 @@
+query FetchDeliveryOptionEditBring($id: ID!) {
+	deliveryOptionBring(id: $id) {
+		deliveryOption {
+			carrierService {
+				id
+			}
+			clickOptionDisplayCount
+			name
+			description
+			clickCollect
+			overrideReturnAddress
+			overrideSenderAddress
+			hideDeliveryOption
+			clickOptionDisplayCount
+			deliveryEstimateFrom
+			deliveryEstimateTo
+			# Yes, this is odd
+			deliveryOptionBring {
+				electronicCustoms
+			}
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: bring}}) {
+		edges {
+			node {
+				... CarrierServiceItem
+			}
+		}
+	}
+}
+
+mutation SaveDeliveryOptionEditBring($id: ID!,
+	$input: UpdateDeliveryOptionBringInput!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!
+) {
+	updateDeliveryOptionBring(
+		id: $id,
+		input: $input,
+		inputDeliveryOption: $inputDeliveryOption,
+		#inputAdditionalServices: $inputAdditionalServices
+	) {
+		id
+	}
+}

@@ -1,0 +1,35 @@
+.container {
+	margin-top: 10px;
+	min-width: 560px;
+}
+.column, .toggle-container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-basis: 0;
+	> * {
+		flex-grow: 1;
+	}
+}
+.column-container {
+	.column {
+		flex-grow: 1;
+	}
+	.row {
+		min-height: 59.5px;
+		align-items: center;
+	}
+	.right-margin {
+		margin-right: 20px;
+	}
+	.extra-pad {
+		padding-bottom: 21.5px;
+	}
+}
+mat-form-field {
+	width: 500px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+mat-slide-toggle {
+	padding: 20px;
+}

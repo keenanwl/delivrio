@@ -1,0 +1,72 @@
+.container {
+	padding: 20px;
+}
+.tile-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+.tile {
+	border-radius: 10px;
+	margin: 20px;
+	width: 200px;
+	height: 200px;
+	background: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+
+	justify-content: center;
+	align-items: center;
+	.title {
+		font-weight: normal;
+		font-size: 18px;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align: center;
+	}
+	.value {
+		font-size: 54px;
+		width: 80%;
+		overflow: hidden;
+		text-align: center;
+	}
+}
+.test-header {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.tile-triple {
+	border-radius: 10px;
+	margin: 20px;
+	width: 200px * 3;
+	height: 180px;
+	background: #FFFFFF;
+	padding: 10px;
+	.title {
+		font-weight: bold;
+		font-size: 18px;
+		width: 100%;
+		text-align: center;
+	}
+	.subtitle {
+		text-align: center;
+	}
+	.row {
+		.fixed-column {
+			width: 80px;
+		}
+		margin-top: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+.align-right {
+	text-align: right;
+	padding-right: 5px;
+}
+.align-center {
+	text-align: center;
+}
+p {
+	margin-top: 20px;
+}

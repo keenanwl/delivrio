@@ -1,0 +1,39 @@
+h1 {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.panel-container {
+	display: flex;
+	.left-panel {
+		min-width: 200px;
+		max-width: 200px;
+		padding-left: 20px;
+
+		.menu-item {
+			height:30px;
+			border-radius:  0px 100px 100px 0px;
+			border-left-style: solid;
+			border-left-color: #808080;
+		}
+		.link-active {
+			background: #E00440;
+			border-radius:  0px 100px 100px 0px;
+			border-left-style: solid;
+			border-left-color: #E00440;
+		}
+		mat-list-item:hover {
+			border-left-style: solid;
+			border-left-color: #E00440;
+			background: transparent;
+		}
+
+	}
+	.right-panel {
+		padding-left: 20px;
+		padding-right: 20px;
+		width: 100%;
+	}
+}
+.mdc-list-item__primary-text:active {
+	color: white;
+}

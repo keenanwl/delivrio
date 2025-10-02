@@ -1,0 +1,8 @@
+type HistoryLog {
+    histories: [ChangeHistory!]!
+    system_event: [SystemEvents!]!
+}
+
+extend type Query {
+    historyLogs: HistoryLog!
+}

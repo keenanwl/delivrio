@@ -1,0 +1,103 @@
+<ng-container *ngIf="workstationEdit$ | async as ws">
+	<div class="page-header">
+		<h3>Edit workstation</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+		<button mat-stroked-button (click)="disable()">
+			<mat-icon>archive</mat-icon>
+			Archive
+		</button>
+	</div>
+	<app-dvo-card>
+		<div class="container">
+			<form #form [formGroup]="editForm" ngxsForm="workstationEdit.workstationEditForm" class="column-container">
+				<div class="row">
+					<mat-form-field>
+						<mat-label>Workstation name</mat-label>
+						<input formControlName="name" matInput />
+						<mat-error *ngIf="editForm.controls.name.invalid">
+							{{editForm.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+					<span class="spacer"></span>
+					<span [matTooltip]="ws.workstationEditForm.model?.lastPing | date:'medium'">
+						Last contact: {{ws.workstationEditForm.model?.lastPing | relativeTime:ticker}}</span>
+				</div>
+				<div class="row">
+					<app-toggle-container [name]="'Auto print receiver'">
+						<mat-slide-toggle formControlName="autoPrintReceiver"
+										  color="primary">
+						</mat-slide-toggle>
+					</app-toggle-container>
+				</div>
+				<div class="printer-container">
+					<div class="column-headers">
+						<div class="header-name">
+							Name
+						</div>
+						<div class="header-name">
+							PDF labels
+						</div>
+						<div class="header-name">
+							ZPL labels
+						</div>
+						<div class="header-name">
+							PNG labels
+						</div>
+						<div class="header-name">
+							Use Shell
+						</div>
+						<div class="header-name">
+							Documents
+						</div>
+						<div class="header-name">
+							Rotate 180
+						</div>
+						<div class="header-name">
+							Paper size
+						</div>
+					</div>
+
+					<mat-divider></mat-divider>
+					<ng-container formArrayName="printer" *ngFor="let printer of editForm.controls.printer.controls; index as index">
+						<div class="printer-line" [formGroupName]="index">
+							<div class="column-value">
+								<span class="name">
+									{{printer.controls.name.value}}
+									<mat-icon [matTooltip]="'Last contact: ' + (printer.controls.lastPing.value | date:'medium')">
+										cloud_queue
+									</mat-icon>
+								</span>
+							</div>
+							<mat-checkbox class="column-value" formControlName="labelPdf" />
+							<mat-checkbox class="column-value" formControlName="labelZpl" />
+							<mat-checkbox class="column-value" formControlName="labelPng" />
+							<mat-checkbox class="column-value" formControlName="useShell" />
+							<mat-checkbox class="column-value" formControlName="document" />
+							<mat-checkbox class="column-value" formControlName="rotate180" />
+							<mat-form-field class="column-value">
+								<mat-select formControlName="printSize" [value]="printer.controls.printSize">
+									<mat-option [value]="paperSizeA4">
+										A4
+									</mat-option>
+									<mat-option [value]="paperSize100x150">
+										10x15 cm
+									</mat-option>
+									<mat-option [value]="paperSize100x192">
+										10x19 cm
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+
+						</div>
+						<mat-divider></mat-divider>
+					</ng-container>
+
+				</div>
+			</form>
+		</div>
+	</app-dvo-card>
+</ng-container>

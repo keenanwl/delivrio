@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-app
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    networks:
+      - app-network
+    command: ["./delivrio", "-init-seed=true", "-test-clock=2022-06-22T15:29:34Z", "-test-seed=true"]
+    volumes:
+      - db_data:/data
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:

@@ -1,0 +1,51 @@
+<div class="page-header">
+	<h3>Edit Danske Fragtmænd carrier agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="save()">
+		<mat-icon>checkmark</mat-icon>
+		Save
+	</button>
+</div>
+<app-dvo-card *ngIf="state$|async; let state">
+	<div class="container">
+		<form [formGroup]="form"
+			  ngxsForm="carrierEditDF.form"
+			  ngxsFormErrors="carrierEditDF.form"
+			  class="column-container">
+			<div class="column">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Name</mat-label>
+						<input formControlName="name" matInput/>
+						<mat-error *ngIf="form.controls.name.invalid">
+							{{form.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="column" [formGroup]="form.controls.carrierDF">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Agreement Number</mat-label>
+						<input formControlName="agreementNumber" matInput/>
+						<mat-error *ngIf="form.controls.carrierDF.controls.agreementNumber.invalid">
+							{{form.controls.carrierDF.controls.agreementNumber.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="column" [formGroup]="form.controls.carrierDF">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Customer ID</mat-label>
+						<input formControlName="customerID" matInput/>
+						<mat-error *ngIf="form.controls.carrierDF.controls.customerID.invalid">
+							{{form.controls.carrierDF.controls.customerID.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+		</form>
+	</div>
+</app-dvo-card>
+

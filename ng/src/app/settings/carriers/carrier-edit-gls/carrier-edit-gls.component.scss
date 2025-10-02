@@ -1,0 +1,31 @@
+.header {
+	display: flex;
+	margin-bottom: 10px;
+	align-items: center;
+}
+.container {
+	margin-top: 10px;
+	min-width: 560px;
+	min-height: 400px;
+}
+.column-container {
+	display: flex;
+	width: 500px;
+	.column {
+		flex-grow: 1;
+	}
+	.row {
+		display: flex;
+		min-height: 59.5px;
+		align-items: center;
+		> * {
+			flex-grow: 1;
+		}
+	}
+	.right-margin {
+		margin-right: 20px;
+	}
+	.extra-pad {
+		padding-bottom: 21.5px;
+	}
+}

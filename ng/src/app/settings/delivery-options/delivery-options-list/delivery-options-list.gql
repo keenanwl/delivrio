@@ -1,0 +1,70 @@
+query ListDeliveryOptions($showArchived: Boolean!) {
+  deliveryOptionsFiltered(showArchived: $showArchived) {
+      ...DeliveryOptionListItem
+  }
+}
+
+fragment DeliveryOptionListItem on DeliveryOption {
+	id
+	name
+	carrier {
+		name
+		carrierBrand {
+			internalID
+			labelShort
+			backgroundColor
+			textColor
+			logoURL
+		}
+	}
+	carrierService {
+		label
+	}
+	connection {
+		name
+	}
+}
+
+query FetchCarrierAgreementsAndConnections {
+	carriers {
+		edges {
+			node {
+				id
+				name
+				carrierBrand {
+					label
+				}
+			}
+		}
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+				connectionBrand {
+					label
+				}
+			}
+		}
+	}
+}
+
+mutation CreateDeliveryOption($name: String!, $agreementID: ID!, $connectionID: ID!) {
+	createDeliveryOption(name: $name, agreementID: $agreementID, connectionID: $connectionID) {
+		id
+		carrier
+	}
+}
+
+mutation UpdateDeliveryOptionSortOrder($nextSortOrder: [ID!]!) {
+	updateDeliveryOptionSortOrder(newOrder: $nextSortOrder) {
+		...DeliveryOptionListItem
+	}
+}
+
+scalar ID
+
+mutation DeliveryOptionArchive($id: ID!) {
+	deliveryOptionArchive(deliveryOptionID: $id)
+}

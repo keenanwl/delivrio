@@ -1,0 +1,58 @@
+<div class="container">
+	<h2>Add email templates</h2>
+	<div class="fields">
+		<mat-form-field class="option-name">
+			<mat-label>Name</mat-label>
+			<input #name matInput/>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Email type</mat-label>
+			<mat-select #merge [value]="mergeType.OrderConfirmation">
+				<mat-optgroup label="Orders -- customer notifications">
+					<mat-option [value]="mergeType.OrderConfirmation">
+						<span class="option-container">
+							<span class="option-name">Order confirmation (fires on order sync)</span>
+						</span>
+					</mat-option>
+					<mat-option [value]="mergeType.OrderPicked">
+						<span class="option-container">
+							<span class="option-name">Order picked & packed (fires when label printed)</span>
+						</span>
+					</mat-option>
+				</mat-optgroup>
+				<mat-optgroup label="Returns -- customer notifications">
+					<mat-option [value]="mergeType.ReturnColliLabel">
+						<span class="option-container">
+							<span class="option-name">Return label (fires on creation)</span>
+						</span>
+					</mat-option>
+					<mat-option [value]="mergeType.ReturnColliQr">
+						<span class="option-container">
+							<span class="option-name">Return QR code (fires on creation)</span>
+						</span>
+					</mat-option>
+					<mat-option [value]="mergeType.ReturnColliReceived">
+						<span class="option-container">
+							<span class="option-name">Return received (fires on carrier receipt)</span>
+						</span>
+					</mat-option>
+					<mat-option [value]="mergeType.ReturnColliAccepted">
+						<span class="option-container">
+							<span class="option-name">Return accepted (fires when accepted)</span>
+						</span>
+					</mat-option>
+				</mat-optgroup>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="create(name.value, merge.value)">
+			<mat-icon>done</mat-icon>
+			Next
+		</button>
+		<button mat-raised-button (click)="close()">
+			Cancel
+		</button>
+	</div>
+</div>

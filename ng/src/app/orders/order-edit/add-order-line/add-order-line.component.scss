@@ -1,0 +1,32 @@
+.container {
+	margin: 20px;
+}
+
+.header-row {
+	line-height: 48px;
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.product-row {
+	line-height: 48px;
+	img {
+		max-width: 50px;
+		max-height: 50px;
+	}
+}
+
+mat-form-field {
+	width: 100%;
+}
+
+mat-selection-list a {
+	text-decoration: none;
+}
+
+.spinner-container {
+	width: 100%;
+	mat-spinner {
+		margin: 0px auto;
+	}
+}

@@ -1,0 +1,14 @@
+query FetchCarrierPostNord($carrierID: ID!) {
+	carrierPostNord(id: $carrierID) {
+		customerNumber
+		carrier {
+			name
+		}
+	}
+}
+
+mutation UpdateCarrierPostNord($id: ID!, $name: String!, $input: UpdateCarrierPostNordInput!) {
+	updateCarrierAgreementPostNord(id: $id, name: $name, input: $input) {
+		id
+	}
+}

@@ -1,0 +1,3 @@
+extend type Query {
+    country(id: ID!): Country
+}

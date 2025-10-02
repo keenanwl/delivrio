@@ -1,0 +1,21 @@
+.container {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 450px;
+}
+
+p {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.action-row {
+	text-align: center;
+	button {
+		margin-left: 7px;
+	}
+}
+textarea {
+	min-height: 100px;
+}

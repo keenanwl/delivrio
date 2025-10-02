@@ -1,0 +1,30 @@
+.container {
+	padding: 20px;
+	width: 650px;
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+}
+.job-row {
+	padding: 15px;
+	display: flex;
+	align-items: center;
+}
+span {
+	margin-right: 5px;
+}
+.row-container {
+	flex-grow: 1;
+}
+.msg {
+	text-align: center;
+}
+.workstation-name {
+	text-align: center;
+}
+.cancel-messages {
+	width: 50px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}

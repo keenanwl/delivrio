@@ -1,0 +1,14 @@
+mat-form-field {
+	margin-right: 5px;
+	width: 400px;
+}
+.form-container {
+	margin-top: 10px;
+}
+.option-container {
+	display: flex;
+	flex-direction: column;
+	.option-address {
+		font-size: 12px;
+	}
+}

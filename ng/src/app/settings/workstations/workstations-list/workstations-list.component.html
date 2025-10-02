@@ -1,0 +1,61 @@
+<div class="container" *ngIf="workstations$|async; let state">
+	<div class="inset-container">
+		<div class="page-header">
+			<h3>Workstations</h3>
+			<span class="spacer"></span>
+			<button (click)="addNew()" mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add workstation
+			</button>
+			<button mat-icon-button [matMenuTriggerFor]="menu">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item *ngIf="!state.showArchived" (click)="toggleArchived()">
+					<mat-icon>visibility</mat-icon>
+					<span>Show archived</span>
+				</button>
+				<button mat-menu-item *ngIf="state.showArchived" (click)="toggleArchived()">
+					<mat-icon>visibility_off</mat-icon>
+					<span>Hide archived</span>
+				</button>
+			</mat-menu>
+		</div>
+		<div class="loading-bar">
+			<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+		</div>
+		<table mat-table [dataSource]="state.workstations">
+
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td mat-cell *matCellDef="let element" class="name-field">
+					{{element.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="printers">
+				<th mat-header-cell *matHeaderCellDef>Printer count</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.printer.length}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="selectedUser">
+				<th mat-header-cell *matHeaderCellDef>Current User</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.selectedUser?.name}} {{element.selectedUser?.surname}}
+					{{!!element.selectedUser ? "": "-"}}
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="status">
+				<th mat-header-cell *matHeaderCellDef>Status</th>
+				<td mat-cell *matCellDef="let element">
+					<mat-chip-row highlighted [style.background-color]="element.status | workstationStatusPipe">
+						{{element.status}}
+					</mat-chip-row>
+				</td>
+			</ng-container>
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row class="row-container" *matRowDef="let row; columns: displayedColumns;" (click)="edit(row.id)"></tr>
+		</table>
+	</div>
+</div>

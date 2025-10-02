@@ -1,0 +1,43 @@
+<ng-container *ngIf="notifications$|async; let state">
+	<div class="container">
+		<div class="header">
+			<h4>Add notification</h4>
+			<mat-icon matTooltip="A notification sends a message to either an administrator or end consumer depending on the trigger selected">
+				help_outline
+			</mat-icon>
+		</div>
+
+		<mat-form-field class="notification-name">
+			<mat-label>Notification name</mat-label>
+			<input #name matInput/>
+		</mat-form-field>
+		<mat-form-field class="connection">
+			<mat-label>Connection</mat-label>
+			<mat-select #selectConnection [value]="state.connections[0]?.id">
+				<mat-option *ngFor="let c of state.connections" [value]="c.id">
+					{{c.name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field class="email-template">
+			<mat-label>Email template</mat-label>
+			<mat-select #selectTemplate [value]="state.emailTemplates[0]?.id">
+				<mat-option *ngFor="let t of state.emailTemplates" [value]="t.id">
+					{{t.name}} ({{t.mergeType}})
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<div class="action-row">
+			<button class="button-create" mat-raised-button color="primary"
+					(click)="create(name.value, selectConnection.value, selectTemplate.value)">
+				<mat-icon>done</mat-icon>
+				Create
+			</button>
+			<button class="button-close" mat-raised-button (click)="close()">
+				<mat-icon>close</mat-icon>
+				Close
+			</button>
+		</div>
+
+	</div>
+</ng-container>

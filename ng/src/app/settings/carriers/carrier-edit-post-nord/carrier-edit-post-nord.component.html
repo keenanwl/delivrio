@@ -1,0 +1,35 @@
+<div class="page-header">
+	<h3>Edit PostNord carrier agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="save()">
+		<mat-icon>done</mat-icon>
+		Save
+	</button>
+</div>
+
+<app-dvo-card *ngIf="carrierEditPostNord$|async; let cl">
+	<form #form
+		  [formGroup]="editForm"
+		  ngxsForm="carrierEditPostNord.carrierEditPostNordForm"
+		  ngxsFormErrors="carrierEditPostNord.carrierEditPostNordForm"
+		  class="column-container">
+		<div class="row right-margin" formGroupName="carrier">
+			<mat-form-field>
+				<mat-label>Name</mat-label>
+				<input formControlName="name" matInput/>
+				<mat-error *ngIf="editForm.controls.carrier.controls.name.invalid">
+					{{editForm.controls.carrier.controls.name.errors}}
+				</mat-error>
+			</mat-form-field>
+		</div>
+		<div class="row right-margin">
+			<mat-form-field>
+				<mat-label>PostNord customer number</mat-label>
+				<input formControlName="customerNumber" matInput/>
+				<mat-error *ngIf="editForm.controls.customerNumber.invalid">
+					{{editForm.controls.customerNumber.errors}}
+				</mat-error>
+			</mat-form-field>
+		</div>
+	</form>
+</app-dvo-card>

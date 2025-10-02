@@ -1,0 +1,18 @@
+query FetchUserSeats {
+	users (where: {and: {isGlobalAdmin: false, emailNEQ: "k.linsly@gmail.com"}, }) {
+		edges {
+			node {
+				id
+				email
+				name
+				surname
+				createdAt
+				isAccountOwner
+				seatGroup {
+					id
+					name
+				}
+			}
+		}
+	}
+}

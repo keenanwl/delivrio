@@ -1,0 +1,76 @@
+stages:
+  - build-1
+  - build-2
+  - deploy
+  - test
+  - e2e
+  - cleanup
+
+include:
+  - template: Jobs/SAST.gitlab-ci.yml
+    # Separate repo to keep deploy internals private
+  - project: 'keenanwl/delivrio-internal'
+    file: '/.gitlab-ci-review-deploy.yml'
+
+build_server:
+  image:
+    name: "delivrio-go:latest"
+    pull_policy: if-not-present
+  stage: build-2
+  allow_failure: true
+  variables:
+    # Only supports relative paths?
+    SECURE_FILES_DOWNLOAD_PATH: '/secure-files/'
+  dependencies:
+    - build_frontend
+  script:
+    - curl --silent "https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer" | bash
+    - cd go
+    - ls -l /secure-files/
+    - cp /builds/keenanwl/delivery/secure-files/users.go seed/users_internal.go
+    - make test
+    - go vet
+    # Quite slow, so disable for now..
+    #- go generate ./...
+    - make build-review
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - go/delivrio
+
+build_frontend:
+  image: "node:18-buster"
+  stage: build-1
+  allow_failure: true
+  script:
+    - cd ng
+    - npm ci --legacy-peer-deps
+    - npm run-script build
+    - make build-returns
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - ng/dist
+
+# Requires a runner with extra permissions for DinD
+# Don't use DinD in anything close to production
+e2e_all:
+  image: "delivrio-docker-node-e2e:latest"
+  stage: e2e
+  only:
+    - main
+  services:
+    - name: docker:25-dind
+      alias: docker
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  interruptible: true
+  script:
+    - docker info
+    - docker compose -p delivrio up --detach --build
+    - docker volume ls
+    - (cd ng && npm ci)
+    - (cd ng && npm install -g wait-on)
+    - (cd ng && wait-on -v http-get://localhost:8080/api/health-check && npm run-script e2e)
+

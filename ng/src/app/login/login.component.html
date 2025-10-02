@@ -1,0 +1,33 @@
+<app-toolbar></app-toolbar>
+<div class="page-container" *ngIf="login$ | async as login">
+	<div class="login-wrapper">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<h1>Welcome Back</h1>
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<form class="form-container" (ngSubmit)="fireLogin(emailInput.value, passwordInput.value)">
+					<mat-form-field appearance="outline">
+						<mat-label>Email</mat-label>
+						<input matInput type="email" #emailInput required placeholder="Enter your email">
+						<mat-error>Please provide a valid email address</mat-error>
+					</mat-form-field>
+
+					<mat-form-field appearance="outline">
+						<mat-label>Password</mat-label>
+						<input matInput type="password" #passwordInput required placeholder="Enter your password">
+						<mat-error>Please provide a valid password</mat-error>
+					</mat-form-field>
+
+					<button mat-raised-button color="primary" type="submit">Login</button>
+				</form>
+			</mat-card-content>
+			<mat-card-actions class="reset-create">
+				<a mat-button [routerLink]="paths.REQUEST_PASSWORD">Reset password</a>
+				<a mat-button [routerLink]="paths.REGISTER">Create account</a>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</div>

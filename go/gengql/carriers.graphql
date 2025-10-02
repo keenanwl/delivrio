@@ -1,0 +1,24 @@
+extend type Query {
+    carrierGLS(id: ID!): CarrierGLS
+    carrierPostNord(id: ID!): CarrierPostNord
+    carrierUSPS(id: ID!): CarrierUSPS
+    carrier(id: ID): Carrier
+}
+
+type CreateCarrierAgreementSuccess {
+    id: ID!
+    carrier: CarrierBrandInternalID!
+}
+
+extend type Mutation {
+    createCarrierAgreement(name: String!, carrierBrand: ID!): CreateCarrierAgreementSuccess!
+
+    updateCarrierAgreementBring(id: ID!, name: String!, input: UpdateCarrierBringInput!): Carrier!
+    updateCarrierAgreementDAO(id: ID!, name: String!, input: UpdateCarrierDAOInput!): Carrier!
+    updateCarrierAgreementDF(id: ID!, name: String!, input: UpdateCarrierDFInput!): Carrier!
+    updateCarrierAgreementDSV(id: ID!, name: String!, input: UpdateCarrierDSVInput!): Carrier!
+    updateCarrierAgreementEasyPost(id: ID!, name: String!, input: UpdateCarrierEasyPostInput!): Carrier!
+    updateCarrierAgreementGLS(id: ID!, name: String!, input: UpdateCarrierGLSInput!): CarrierGLS!
+    updateCarrierAgreementPostNord(id: ID!, name: String!, input: UpdateCarrierPostNordInput!): CarrierPostNord!
+    updateCarrierAgreementUSPS(id: ID!, name: String!, input: UpdateCarrierUSPSInput!): CarrierUSPS!
+}

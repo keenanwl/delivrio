@@ -1,0 +1,32 @@
+scalar Time
+
+query FetchWorkstation($id: ID!) {
+	workstation(id: $id) {
+		status
+		name
+		autoPrintReceiver
+		lastPing
+		printer {
+			id
+			name
+			labelPdf
+			labelZpl
+			labelPng
+			useShell
+			printSize
+			document
+			rotate180
+			lastPing
+		}
+	}
+}
+
+mutation UpdateWorkstation($id: ID!, $input: UpdateWorkstationInput!) {
+	updateWorkstation(id: $id, input: $input) {
+		id
+	}
+}
+
+mutation ArchiveWorkstation($id: ID!) {
+	archiveWorkstation(id: $id)
+}

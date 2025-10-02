@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="scene" [style.width.px]="length" [style.height.px]="height">
+		<div [ngClass]="['box', boxDisplaySide[boxDisplayIndex]]" [style.width.px]="length" [style.height.px]="height">
+			<div class="box__face box__face--front"
+				 [style.width.px]="length"
+				 [style.height.px]="height"
+				 [style.transform]="'rotateY(0deg) translateZ(' + (width /2) + 'px)'">
+				<ng-container *ngIf="showLabels">
+					front
+				</ng-container>
+			</div>
+			<div class="box__face box__face--back"
+				 [style.width.px]="length"
+				 [style.height.px]="height"
+				 [style.transform]="'rotateY(180deg) translateZ(' + (width /2) + 'px)'">
+				<ng-container *ngIf="showLabels">
+					back
+				</ng-container>
+			</div>
+			<div class="box__face box__face--right"
+				 [style.width.px]="width"
+				 [style.height.px]="height"
+				 [style.left.px]="length - (width/2)"
+				 [style.transform]="'rotateY(90deg) translateZ(' + (0) + 'px)'">
+				<ng-container *ngIf="showLabels">
+					right
+				</ng-container>
+			</div>
+			<div class="box__face box__face--left"
+				 [style.width.px]="width"
+				 [style.height.px]="height"
+				 [style.left.px]="-(width/2)"
+				 [style.transform]="'rotateY(-90deg) translateZ(' + (0) + 'px)'">
+				<ng-container *ngIf="showLabels">
+					left
+				</ng-container>
+			</div>
+			<div class="box__face box__face--top"
+				 [style.width.px]="length"
+				 [style.height.px]="width"
+				 [style.top.px]="-(width/2)"
+				 [style.transform]="'rotateX(90deg) translateZ(' + (0) + 'px)'">
+				<ng-container *ngIf="showLabels">
+					top
+				</ng-container>
+			</div>
+			<div class="box__face box__face--bottom"
+				 [style.width.px]="length"
+				 [style.height.px]="width"
+				 [style.top.px]="height-(width/2)"
+				 [style.transform]="'rotateX(-90deg) translateZ(' + (0) + 'px)'">
+				<ng-container *ngIf="showLabels">
+					bottom
+				</ng-container>
+			</div>
+		</div>
+	</div>
+	<div class="spacer"></div>
+	<div class="button-no-grow-wrap">
+		<button mat-raised-button (click)="rotate()">
+			<mat-icon>rotate_right</mat-icon>
+			Rotate box
+		</button>
+	</div>
+
+</div>

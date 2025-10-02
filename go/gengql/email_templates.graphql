@@ -1,0 +1,9 @@
+extend type Query {
+    emailTemplate(id: ID!): EmailTemplate!
+    sendTestEmail(id: ID!, toEmail: String!): Boolean!
+}
+
+extend type Mutation {
+    createEmailTemplates(name: String!, merge: EmailTemplateMergeType!): ID!
+    updateEmailTemplate(id: ID!, input: UpdateEmailTemplateInput!): EmailTemplate!
+}

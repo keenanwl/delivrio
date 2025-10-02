@@ -1,0 +1,22 @@
+<ng-container *ngIf="app$|async; let app">
+	<h1>Account</h1>
+	<div class="panel-container">
+		<mat-nav-list class="left-panel navigation">
+			<mat-list-item class="menu-item" [routerLink]="Paths.ACCOUNT_PROFILE" [routerLinkActive]="'link-active'">
+				Profile
+			</mat-list-item>
+			<!--<mat-list-item class="menu-item" [routerLink]="'/account/plan'" [routerLinkActive]="'link-active'">
+				Plan
+			</mat-list-item>-->
+			<!--<mat-list-item class="menu-item" [routerLink]="'/account/invoices'" [routerLinkActive]="'link-active'">
+				Invoices
+			</mat-list-item>-->
+			<mat-list-item class="menu-item" [routerLink]="'/account/company-info'" [routerLinkActive]="'link-active'">
+				Company info
+			</mat-list-item>
+		</mat-nav-list>
+		<div class="right-panel">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</ng-container>

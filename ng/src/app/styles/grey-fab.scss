@@ -1,0 +1,30 @@
+.grey-fabs {
+	.mat-mdc-fab.mat-primary, .mat-mdc-mini-fab.mat-primary {
+		--mdc-fab-container-color: #ababab;
+		--mdc-fab-icon-color: #808080;
+		--mat-mdc-fab-color: #808080;
+		font-weight: 600;
+	}
+	.mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
+		font-weight: 600;
+	}
+	.mat-mdc-standard-chip.mat-warn.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-warn.mat-mdc-chip-highlighted {
+		font-weight: 600;
+		margin: 5px;
+	}
+	.mdc-data-table__header-cell {
+		font-weight: 600;
+		color: #808080;
+	}
+	.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label {
+		color: #FFFFFF;
+		font-weight: 600;
+	}
+	.mat-mdc-raised-button:not(:disabled) {
+		border-radius: 50px;
+	}
+	.mat-mdc-outlined-button:not(:disabled) {
+		border-radius: 50px;
+	}
+}
+

@@ -1,0 +1,86 @@
+<ng-container *ngIf="packaging$|async; let state">
+	<div class="container">
+		<div class="header">
+			<h4>Add packaging type</h4>
+			<mat-icon matTooltip="These are the dimensions of a specific type of box or package, so the carrier knows the dimensions of what you are shipping.">
+				help_outline
+			</mat-icon>
+		</div>
+		<div class="row">
+			<mat-form-field class="notification-name expand">
+				<mat-label>Packaging name</mat-label>
+				<input #name matInput/>
+				<mat-hint>Ex: "large box"</mat-hint>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Carrier</mat-label>
+				<mat-select #brand [value]="''">
+					<mat-option [value]="''">All carriers</mat-option>
+					<mat-option *ngFor="let c of state.carrierBrands" [value]="c">{{c.label}}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+
+		<div class="dimensions-inputs">
+			<mat-form-field>
+				<mat-label>Length</mat-label>
+				<input value="30" type="number" #length matInput>
+				<span matSuffix>cm</span>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Width</mat-label>
+				<input value="20" type="number" #width matInput>
+				<span matSuffix>cm</span>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Height</mat-label>
+				<input value="10" type="number" #height matInput>
+				<span matSuffix>cm</span>
+			</mat-form-field>
+		</div>
+		<div class="row" *ngIf="brand.value.internalID === carrierBrands.Usps">
+			<mat-form-field>
+				<mat-label>USPS Rate Indicator</mat-label>
+				<mat-select [formControl]="rateCtrl" [value]="state.rateIndicators[0].id">
+					<mat-option *ngFor="let r of state.rateIndicators" [value]="r.id">{{r.name}}</mat-option>
+				</mat-select>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>USPS Processing Category</mat-label>
+				<mat-select [formControl]="categoryCtrl" [value]="state.processingCategories[0].id">
+					<mat-option *ngFor="let c of state.processingCategories" [value]="c.id">{{c.name}}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div class="row" *ngIf="brand.value.internalID === carrierBrands.Df">
+			<mat-form-field>
+				<mat-label>Danske Fragtmænd packaging type</mat-label>
+				<mat-select [formControl]="dfAPITypeCtrl">
+					@for (t of dfAPITypes | keyvalue; track t) {
+						<mat-option [value]="t.value">{{t.value}}</mat-option>
+					}
+				</mat-select>
+			</mat-form-field>
+			<mat-slide-toggle  [formControl]="stackableCtrl" color="primary" [labelPosition]="'before'">
+				Stackable
+			</mat-slide-toggle>
+		</div>
+
+		<div class="demo-container">
+			<app-dimensions-viewer [showLabels]="true" [dimensions]="{height: height.value * 10, width: width.value * 10, length: length.value * 10}"/>
+		</div>
+
+		<div class="action-row">
+			<button class="button-create" mat-raised-button color="primary"
+					(click)="create(name.value, height.value, width.value, length.value, brand.value)">
+				<mat-icon>done</mat-icon>
+				Create
+			</button>
+			<button class="button-close" mat-raised-button (click)="close()">
+				<mat-icon>close</mat-icon>
+				Close
+			</button>
+		</div>
+
+	</div>
+</ng-container>

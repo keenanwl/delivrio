@@ -1,0 +1,116 @@
+<div class="column-container">
+	<div class="column">
+		<ng-container [formGroup]="form">
+			<div class="row right-margin">
+				<mat-form-field>
+					<mat-label>Name</mat-label>
+					<input [formControl]="form.controls.name" matInput/>
+					<mat-error *ngIf="form.controls.name.invalid">
+						{{form.controls.name.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>{{carrierName}} service</mat-label>
+					<mat-select [formControl]="form.controls.carrierService.controls.id">
+						<mat-optgroup [label]="'Outbound'">
+							<mat-option [value]="opt.id"
+										*ngFor="let opt of (availableServices | carrierServiceGrouper).outbound">
+								{{opt.label}}
+							</mat-option>
+						</mat-optgroup>
+						<mat-optgroup [label]="'Returns'">
+							<mat-option [value]="opt.id"
+										*ngFor="let opt of (availableServices | carrierServiceGrouper).inbound">
+								{{opt.label}}
+							</mat-option>
+						</mat-optgroup>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="row right-margin">
+				<mat-form-field appearance="outline">
+					<mat-label>Description</mat-label>
+					<input [formControl]="form.controls.description" matInput/>
+					<mat-error *ngIf="form.controls.description.invalid">
+						{{form.controls.description.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>Max options displayed</mat-label>
+					<input [formControl]="form.controls.clickOptionDisplayCount" matInput/>
+					<mat-error *ngIf="form.controls.clickOptionDisplayCount.invalid">
+						{{form.controls.clickOptionDisplayCount.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row right-margin">
+				<mat-form-field appearance="outline">
+					<mat-label>Delivery estimate from (days)</mat-label>
+					<input [formControl]="form.controls.deliveryEstimateFrom" matInput/>
+					<mat-error *ngIf="form.controls.deliveryEstimateFrom.invalid">
+						{{form.controls.deliveryEstimateFrom.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>Delivery estimate to (days)</mat-label>
+					<input [formControl]="form.controls.deliveryEstimateTo" matInput/>
+					<mat-error *ngIf="form.controls.deliveryEstimateTo.invalid">
+						{{form.controls.deliveryEstimateTo.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row right-margin">
+				<app-toggle-container [name]="'Webshipper integration'">
+					<p>ID: {{form.controls.webshipperID.value}}</p>
+					<button mat-icon-button (click)="enableWebshipper()">
+						<mat-icon>edit</mat-icon>
+					</button>
+					<mat-slide-toggle [formControl]="form.controls.webshipperIntegration"
+									  color="primary">
+					</mat-slide-toggle>
+				</app-toggle-container>
+				<app-toggle-container [name]="'Shipmondo integration'">
+					<div class="shipmondo-value">{{form.controls.shipmondoDeliveryOption.value}}</div>
+					<button mat-icon-button (click)="enableShipmondo()">
+						<mat-icon>edit</mat-icon>
+					</button>
+					<mat-slide-toggle [formControl]="form.controls.shipmondoIntegration"
+									  color="primary">
+					</mat-slide-toggle>
+				</app-toggle-container>
+			</div>
+			<div class="row right-margin">
+				<app-toggle-container [name]="'Hide delivery option'">
+					<mat-slide-toggle [formControl]="form.controls.hideDeliveryOption"
+									  color="primary">
+					</mat-slide-toggle>
+				</app-toggle-container>
+				<app-toggle-container [name]="'Default packaging'">
+					{{!!form.controls.defaultPackaging.controls?.name.value ? form.controls.defaultPackaging.controls?.name.value : "none"}}
+					<button mat-icon-button (click)="selectPackaging()">
+						<mat-icon>edit</mat-icon>
+					</button>
+				</app-toggle-container>
+			</div>
+			<div class="row right-margin">
+				<app-toggle-container [name]="'Include customs'">
+					<mat-slide-toggle [formControl]="form.controls.customsEnabled"
+									  color="primary">
+					</mat-slide-toggle>
+				</app-toggle-container>
+				<app-toggle-container [name]="'Hide when company field is empty'">
+					<mat-slide-toggle [formControl]="form.controls.hideIfCompanyEmpty"
+									  color="primary">
+					</mat-slide-toggle>
+				</app-toggle-container>
+				<!--<mat-form-field appearance="outline">
+					<mat-label>Customs signer (person name)</mat-label>
+					<input [formControl]="form.controls.customsSigner" matInput/>
+					<mat-error *ngIf="form.controls.customsSigner.invalid">
+						{{form.controls.customsSigner.errors}}
+					</mat-error>
+				</mat-form-field>-->
+			</div>
+		</ng-container>
+	</div>
+</div>

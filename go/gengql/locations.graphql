@@ -1,0 +1,9 @@
+extend type Query {
+    location(id: ID!): Location
+    allLocationsIn(country: ID): [Location!]!
+}
+
+extend type Mutation {
+    createLocation(input: CreateLocationInput!, inputAddress: CreateAddressInput!): Location
+    updateLocation(id: ID!, input: UpdateLocationInput!, inputAddress: UpdateAddressInput!): Location
+}

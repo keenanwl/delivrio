@@ -1,0 +1,16 @@
+query FetchCarrierEasyPost($carrierID: ID!) {
+	carrier(id: $carrierID) {
+		name
+		carrierEasyPost {
+			apiKey
+			carrierAccounts
+			test
+		}
+	}
+}
+
+mutation UpdateCarrierEasyPost($id: ID!, $name: String!, $input: UpdateCarrierEasyPostInput!) {
+	updateCarrierAgreementEasyPost(id: $id, name: $name, input: $input) {
+		id
+	}
+}

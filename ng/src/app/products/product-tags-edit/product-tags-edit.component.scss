@@ -1,0 +1,16 @@
+h4 {
+	margin-bottom: 10px;
+}
+
+.container {
+	display: flex;
+	.column {
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		width: 400px;
+	}
+}
+.card-container {
+	display: flex;
+}

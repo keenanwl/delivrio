@@ -1,0 +1,271 @@
+query FetchColli($id: ID!) {
+	colli(id: $id) {
+		order {
+			connection {
+				id
+			}
+		}
+		deliveryOption {
+			id
+			clickCollect
+		}
+		recipient {
+			... AddressInfo
+		}
+		sender {
+			... AddressInfo
+		}
+		packaging {
+			id
+			name
+			lengthCm
+			widthCm
+			heightCm
+		}
+		orderLines {
+			... OrderLines
+		}
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	deliveryPoint(colliID: $id) {
+		... DeliveryPointListItem
+	}
+	clickCollectLocation(colliID: $id) {
+		id
+		name
+		address {
+			...AddressInfo
+		}
+	}
+}
+
+fragment DeliveryPointListItem on DeliveryPoint {
+	id
+	name
+	address {
+		addressOne
+		addressTwo
+		zip
+		city
+		state
+		country {
+			alpha2
+		}
+	}
+}
+
+query OrdersSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+				region
+			}
+		}
+	}
+}
+
+fragment OrderLines on OrderLine {
+	id
+	units
+	unitPrice
+	discountAllocationAmount
+	currency {
+		display
+	}
+	productVariant {
+		id
+		dimensionLength
+		dimensionWidth
+		dimensionHeight
+		weightG
+		description
+		archived
+		productImage {
+			url
+		}
+		product {
+			id
+			externalID
+			title
+			status
+		}
+	}
+}
+
+fragment AddressInfo on Address {
+	id
+	firstName
+	lastName
+	phoneNumber
+	email
+	addressOne
+	addressTwo
+	zip
+	city
+	state
+	country {
+		id
+		alpha2
+		label
+	}
+	company
+}
+
+query FetchDeliveryOptions($orderInfo: DeliveryOptionSeedInput!) {
+	deliveryOptionsList(orderInfo: $orderInfo) {
+		deliveryOptionID
+		name
+		status
+		price
+		warning
+		requiresDeliveryPoint
+		deliveryPoint
+		clickAndCollect
+		currency {
+			id
+			display
+		}
+	}
+}
+
+query FetchAvailableDeliveryPoints($deliveryOptionID: ID, $lookupAddress: CreateAddressInput) {
+	availableDeliveryPoints(deliveryOptionID: $deliveryOptionID, address: $lookupAddress) {
+		... DeliveryPointListItem
+	}
+}
+
+query FetchAvailableClickCollectLocations($deliveryOptionID: ID!) {
+	locations(where: {hasDeliveryOptionWith: {id: $deliveryOptionID}}) {
+		edges {
+			node {
+				id
+				name
+				address {
+					...AddressInfo
+				}
+			}
+		}
+	}
+}
+
+query SearchProducts($term: String!) {
+	productVariants(where: {
+		or: [
+			{descriptionContainsFold: $term}
+			{hasProductWith: {
+				or: [
+					{titleContainsFold: $term},
+					{bodyHTMLContainsFold: $term},
+				]
+			}}
+		]
+	}) {
+		edges {
+			node {
+				id
+				dimensionLength
+				dimensionWidth
+				dimensionHeight
+				weightG
+				description
+				archived
+				productImage {
+					url
+				}
+				product {
+					id
+					externalID
+					title
+					status
+					productImage {
+						url
+					}
+				}
+			}
+		}
+	}
+}
+
+mutation AddColliToOrder(
+	$orderID: ID!,
+	$input: CreateColliInput!,
+	$deliveryOptionID: ID,
+	$deliveryPointID: ID,
+	$ccLocationID: ID,
+	$packagingID: ID,
+	$recipientAddress: CreateAddressInput!,
+	$senderAddress: CreateAddressInput!,
+	$products: [ProductVariantQuantity!]!
+) {
+	createColli(
+		orderID: $orderID,
+		input: $input,
+		deliveryOptionID: $deliveryOptionID,
+		deliveryPointID: $deliveryPointID,
+		ccLocationID: $ccLocationID,
+		packagingID: $packagingID,
+		recipientAddress: $recipientAddress,
+		senderAddress: $senderAddress,
+		products: $products
+	) {
+		id
+	}
+}
+
+mutation UpdateColli(
+	$id: ID!,
+	$input: UpdateColliInput!,
+	$deliveryOptionID: ID,
+	$deliveryPointID: ID,
+	$ccLocationID: ID,
+	$packagingID: ID,
+	$recipientAddressID: ID!,
+	$recipientAddress: UpdateAddressInput!,
+	$senderAddressID: ID!,
+	$senderAddress: UpdateAddressInput!,
+	$updateExistingRecipient: Boolean,
+	$products: [ProductVariantQuantity!]!
+	$removeProducts: [ID!]!
+) {
+	updateColli(
+		id: $id,
+		input: $input,
+		deliveryOptionID: $deliveryOptionID,
+		deliveryPointID: $deliveryPointID,
+		ccLocationID: $ccLocationID,
+		packagingID: $packagingID,
+		recipientAddressID: $recipientAddressID,
+		recipientAddress: $recipientAddress,
+		senderAddressID: $senderAddressID,
+		senderAddress: $senderAddress,
+		updateExistingRecipient: $updateExistingRecipient,
+		products: $products
+		removeProducts: $removeProducts
+	) {
+		id
+	}
+}
+
+query FetchPackaging {
+	packagings {
+		edges {
+			node {
+				id
+				name
+				lengthCm
+				heightCm
+				widthCm
+			}
+		}
+	}
+}

@@ -1,0 +1,93 @@
+<div class="page-header">
+	<h3>Edit GLS carrier agreement</h3>
+	<span class="spacer"></span>
+	<button mat-fab extended color="primary" (click)="onSubmit()">
+		<mat-icon>checkmark</mat-icon>
+		Save
+	</button>
+</div>
+<app-dvo-card *ngIf="carrierEdit$|async; let cl">
+	<div class="container">
+		<form #form
+			  [formGroup]="editForm"
+			  ngxsForm="carrierEditGLS.carrierEditForm"
+			  ngxsFormErrors="carrierEditGLS.carrierEditForm"
+			  class="column-container">
+			<div class="column">
+				<div class="row right-margin">
+					<mat-form-field>
+						<mat-label>Name</mat-label>
+						<input formControlName="name" matInput/>
+						<mat-error *ngIf="editForm.controls.name.invalid">
+							{{editForm.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<ng-container [formGroup]="editForm.controls.carrierGLS">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>GLS Username</mat-label>
+							<input formControlName="glsUsername" matInput/>
+							<mat-error *ngIf="editForm.controls.carrierGLS.controls.glsUsername.invalid">
+								{{editForm.controls.carrierGLS.controls.glsUsername.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>GLS Password</mat-label>
+							<input formControlName="glsPassword" matInput/>
+							<mat-error *ngIf="editForm.controls.carrierGLS.controls.glsPassword.invalid">
+								{{editForm.controls.carrierGLS.controls.glsPassword.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Customer ID</mat-label>
+							<input formControlName="customerID" matInput/>
+							<mat-error *ngIf="editForm.controls.carrierGLS.controls.customerID.invalid">
+								{{editForm.controls.carrierGLS.controls.customerID.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</ng-container>
+			</div>
+			<div class="column">
+				<ng-container [formGroup]="editForm.controls.carrierGLS">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Contact ID</mat-label>
+							<input formControlName="contactID" matInput/>
+							<mat-error *ngIf="editForm.controls.carrierGLS.controls.contactID.invalid">
+								{{editForm.controls.carrierGLS.controls.contactID.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>GLS Country Code</mat-label>
+							<input formControlName="glsCountryCode" matInput/>
+							<mat-error *ngIf="editForm.controls.carrierGLS.controls.glsCountryCode.invalid">
+								{{editForm.controls.carrierGLS.controls.glsCountryCode.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row extra-pad">
+						<mat-slide-toggle formControlName="syncShipmentCancellation"
+										  color="primary">
+							Synchronize Shipment Cancellation
+						</mat-slide-toggle>
+					</div>
+					<div class="row extra-pad">
+						<mat-slide-toggle formControlName="printErrorOnLabel"
+										  color="primary">
+							Print Error on Label
+						</mat-slide-toggle>
+					</div>
+				</ng-container>
+			</div>
+		</form>
+	</div>
+</app-dvo-card>
+

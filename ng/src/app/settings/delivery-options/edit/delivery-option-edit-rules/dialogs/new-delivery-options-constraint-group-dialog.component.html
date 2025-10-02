@@ -1,0 +1,196 @@
+<div class="container" *ngIf="deliveryOptionEditRules$|async; let do">
+	<h3 *ngIf="do.selectedConstraintGroup.length === 0">Create new condition group</h3>
+	<h3 *ngIf="do.selectedConstraintGroup.length > 0">Edit condition group</h3>
+	<form>
+		<div class="binding-logic-container">
+			<mat-button-toggle-group [value]="do ?.constraintLogicType" (change)="updateConstraintLogic($event.value)">
+				<mat-button-toggle [value]="DeliveryRuleConstraintGroupConstraintLogic.Or">
+					any
+				</mat-button-toggle>
+				<mat-button-toggle [value]="DeliveryRuleConstraintGroupConstraintLogic.And">
+					all
+				</mat-button-toggle>
+			</mat-button-toggle-group>
+		</div>
+		<p>If
+			<span class="bold" *ngIf="do?.constraintLogicType === DeliveryRuleConstraintGroupConstraintLogic.Or">any</span>
+			<span class="bold" *ngIf="do?.constraintLogicType === DeliveryRuleConstraintGroupConstraintLogic.And">all</span>
+			of the following conditions are met, show this delivery option:
+		</p>
+		<div *ngFor="let con of do?.constraints; index as index; trackBy: trackBy">
+			<div class="constraint-line">
+				<mat-form-field appearance="fill">
+					<mat-label>Property</mat-label>
+					<mat-select #property required
+								(selectionChange)="updateProperty(index, $event.value)"
+								[value]="con.constraint.propertyType">
+						<ng-container *ngFor="let pt of DeliveryRuleConstraintPropertyType | keyvalue">
+							<mat-option [value]="pt.value">
+								{{pt.value}}
+							</mat-option>
+						</ng-container>
+					</mat-select>
+				</mat-form-field>
+				<mat-form-field appearance="fill">
+					<mat-label>Comparison</mat-label>
+					<mat-select required
+								[value]="con.constraint.comparison"
+								(selectionChange)="updateComparison(index, $event.value)">
+						<ng-container *ngIf="!isTimeProperty(property.value)">
+							<mat-option [value]="DeliveryRuleConstraintComparison.Equals">Is</mat-option>
+							<mat-option [value]="DeliveryRuleConstraintComparison.NotEquals">Is not</mat-option>
+						</ng-container>
+						<ng-container *ngIf="isNumericProperty(property.value)">
+							<mat-option [value]="DeliveryRuleConstraintComparison.LessThan">Is below</mat-option>
+							<mat-option [value]="DeliveryRuleConstraintComparison.GreaterThan">Is above</mat-option>
+						</ng-container>
+						<ng-container *ngIf="isNumericRangeProperty(property.value) || isTimeProperty(property.value)">
+							<mat-option [value]="DeliveryRuleConstraintComparison.Between">Is between range</mat-option>
+							<mat-option [value]="DeliveryRuleConstraintComparison.Outside">Is outside range</mat-option>
+						</ng-container>
+						<ng-container *ngIf="isValuesProperty(property.value)">
+							<mat-option [value]="DeliveryRuleConstraintComparison.Prefix">Prefix (insensitive)</mat-option>
+							<mat-option [value]="DeliveryRuleConstraintComparison.Contains">Contains (insensitive)</mat-option>
+							<mat-option [value]="DeliveryRuleConstraintComparison.Suffix">Suffix (insensitive)</mat-option>
+						</ng-container>
+					</mat-select>
+				</mat-form-field>
+				<ng-container [ngSwitch]="property.value">
+					<mat-chip-listbox multiple *ngSwitchCase="DeliveryRuleConstraintPropertyType.DayOfWeek"
+									  [value]="con.constraint?.selectedValue.dayOfWeek"
+									  (change)="updateDaysOfWeek(index, $event.value)">
+						<mat-chip-option value="monday">Mon</mat-chip-option>
+						<mat-chip-option value="tuesday">Tue</mat-chip-option>
+						<mat-chip-option value="wednesday">Wed</mat-chip-option>
+						<mat-chip-option value="thursday">Thu</mat-chip-option>
+						<mat-chip-option value="friday">Fri</mat-chip-option>
+						<mat-chip-option value="saturday">Sat</mat-chip-option>
+						<mat-chip-option value="sunday">Sun</mat-chip-option>
+					</mat-chip-listbox>
+
+					<div class="value-input" *ngSwitchCase="DeliveryRuleConstraintPropertyType.TimeOfDay">
+						<mat-form-field appearance="fill" class="value-input">
+							<mat-label>Time range</mat-label>
+							<input matInput [value]="con.constraint?.selectedValue.timeOfDay" disabled />
+							<span matSuffix>
+								<mat-icon (click)="selectTimeRange(index)">edit</mat-icon>
+							</span>
+						</mat-form-field>
+					</div>
+					<div class="value-input" *ngSwitchCase="DeliveryRuleConstraintPropertyType.ProductTag">
+						<ng-container *ngTemplateOutlet="tagSelector"></ng-container>
+					</div>
+					<div class="value-input" *ngSwitchCase="DeliveryRuleConstraintPropertyType.AllProductsTagged">
+						<ng-container *ngTemplateOutlet="tagSelector"></ng-container>
+					</div>
+					<ng-template #tagSelector>
+						<mat-form-field appearance="fill" class="value-input">
+							<mat-label>Product tags</mat-label>
+							<mat-chip-grid #chipGrid>
+								<div class="chip-container">
+									<mat-chip-row *ngFor="let tag of con.tags"
+												  color="primary"
+												  (removed)="removeTag(index, tag)">
+										{{ tag.name }}
+										<button matChipRemove>
+											<mat-icon>cancel</mat-icon>
+										</button>
+									</mat-chip-row>
+								</div>
+							</mat-chip-grid>
+							<input placeholder="Add tag..."
+								   #tagSelector
+								   [formControl]="productTagSearch"
+								   [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+								   [matChipInputSeparatorKeyCodes]="separatorKeysCodes" />
+							<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectTag(index, $event, tagSelector)">
+								<mat-option *ngFor="let tag of do.searchProductTags" [value]="tag">
+									{{tag.name}}
+								</mat-option>
+							</mat-autocomplete>
+						</mat-form-field>
+					</ng-template>
+					<ng-container *ngSwitchCase="DeliveryRuleConstraintPropertyType.PostalCodeNumeric">
+						<mat-form-field appearance="fill" class="value-input">
+							<mat-label>Postal codes (numeric only)</mat-label>
+							<mat-chip-grid #chipGrid>
+								<div class="chip-container">
+									<mat-chip-row *ngFor="let postalCode of con.constraint.selectedValue.numericRange"
+												  color="primary"
+												  (removed)="removePostalCode(index, postalCode)">
+										{{ postalCode }}
+										<button matChipRemove>
+											<mat-icon>cancel</mat-icon>
+										</button>
+									</mat-chip-row>
+								</div>
+							</mat-chip-grid>
+							<input placeholder="Add postal code..."
+								   #postalCodeNumeric
+								   [matChipInputFor]="chipGrid"
+								   (matChipInputTokenEnd)="addZip(index, $event.value, postalCodeNumeric)"
+								   (blur)="addPostalCodeBlur(index, $event, postalCodeNumeric)"
+								   [matChipInputSeparatorKeyCodes]="separatorKeysCodes" />
+						</mat-form-field>
+					</ng-container>
+					<ng-container *ngSwitchCase="DeliveryRuleConstraintPropertyType.PostalCodeString">
+						<mat-form-field appearance="fill" class="value-input">
+							<mat-label>Postal codes (string)</mat-label>
+							<mat-chip-grid #chipGrid>
+								<div class="chip-container">
+									<mat-chip-row *ngFor="let postalCode of con.constraint.selectedValue.values"
+												  color="primary"
+												  (removed)="removePostalCodeString(index, postalCode)">
+										{{ postalCode }}
+										<button matChipRemove>
+											<mat-icon>cancel</mat-icon>
+										</button>
+									</mat-chip-row>
+								</div>
+							</mat-chip-grid>
+							<input placeholder="Add postal code..."
+								   #postalCodeString
+								   (blur)="addPostalCodeBlurString(index, $event, postalCodeString)"
+								   [matChipInputFor]="chipGrid"
+								   (matChipInputTokenEnd)="addPostalCodeString(index, $event.value, postalCodeString)"
+								   [matChipInputSeparatorKeyCodes]="separatorKeysCodes" />
+						</mat-form-field>
+					</ng-container>
+					<mat-form-field appearance="fill" class="value-input" *ngSwitchDefault>
+						<mat-label>Value</mat-label>
+						<input matInput
+							   #numericInput
+							   [value]="con.constraint.selectedValue.numeric"
+							   (keyup)="updateNumericValue(index, numericInput.value)"/>
+					</mat-form-field>
+				</ng-container>
+
+				<button mat-icon-button (click)="removeLine(index)">
+					<mat-icon>delete</mat-icon>
+				</button>
+			</div>
+		</div>
+		<button mat-stroked-button (click)="addConstraint()">
+			<mat-icon>add</mat-icon>
+			add constraint
+		</button>
+	</form>
+	<div class="action-container">
+		<button *ngIf="do.selectedConstraintGroup.length === 0" class="button-create" mat-raised-button color="primary" (click)="saveNew()">
+			<mat-icon>check</mat-icon>
+			Create new condition group
+		</button>
+		<button *ngIf="do.selectedConstraintGroup.length > 0" class="button-create" mat-raised-button color="primary" (click)="saveEdit()">
+			<mat-icon>check</mat-icon>
+			Save
+		</button>
+		<button *ngIf="do.selectedConstraintGroup.length > 0" class="button-create" mat-raised-button color="warn" (click)="delete()">
+			<mat-icon>delete</mat-icon>
+			Delete
+		</button>
+		<button class="button-create" mat-raised-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

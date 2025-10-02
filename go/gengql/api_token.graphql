@@ -1,0 +1,15 @@
+extend type Query {
+    myAPITokens: [APIToken!]!
+    devicePing(token: String!): Boolean!
+}
+
+type CreateAPITokenSuccess {
+    id: ID!
+    token: String!
+}
+
+extend type Mutation {
+    createAPIToken(name: String!): CreateAPITokenSuccess!
+    updateAPIToken(id: ID!, name: String!): Boolean!
+    deleteAPIToken(id: ID!): [APIToken!]!
+}

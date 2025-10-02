@@ -1,0 +1,58 @@
+<div class="package-container" *ngFor="let pack of returnOrder?.packages; let packageIndex = index">
+	<h2 *ngIf="returnOrder?.packages.length > 1">
+		Package {{packageIndex + 1}}
+	</h2>
+	<div class="item-container" *ngFor="let item of pack.items">
+		<mat-checkbox color="primary"
+					  #selected
+					  [checked]="isSelected(selectedItems, item.order_line_id)"
+					  (click)="toggle($event, item, selected.checked)" />
+		<span class="spacer"></span>
+		<div class="image-container">
+			<img *ngIf="item.image_url.length > 0" [src]="item.image_url" width="250" height="230"/>
+			<div class="no-image" *ngIf="item.image_url.length === 0">
+				No Image
+			</div>
+		</div>
+		<div class="item-body">
+			<div class="item-names">
+				<h4>{{item.name}}</h4>
+				<p>{{item.variant_name}}</p>
+				<p class="quantity">
+					<button color="primary"
+							mat-mini-fab
+							class="quantity-button"
+							*ngIf="item.quantity > 1"
+							[disabled]="!mayAdjustQuantity(selectedItems, item.order_line_id)"
+							(click)="decrement(item.order_line_id)">
+						<mat-icon>remove</mat-icon>
+					</button>
+					{{selectedQuantity(selectedItems, item.order_line_id)}} / {{item.quantity}}
+					<button color="primary"
+							mat-mini-fab
+							class="quantity-button"
+							*ngIf="item.quantity > 1"
+							[disabled]="!mayAdjustQuantity(selectedItems, item.order_line_id)"
+							(click)="increment(item.order_line_id)">
+						<mat-icon>add</mat-icon>
+					</button>
+				</p>
+
+				<mat-form-field class="return-reason">
+					<mat-label>Return reason</mat-label>
+					<mat-select required
+					            #reason
+								(selectionChange)="reasonChanged(item, reason.value)">
+						<mat-option *ngFor="let reason of returnOrder?.return_reasons" [value]="reason.id">
+							{{reason.name}}
+							<span>
+								<ng-container *ngIf="reason.description.length > 0"> - </ng-container>
+								{{reason.description}}
+							</span>
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+		</div>
+	</div>
+</div>

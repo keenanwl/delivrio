@@ -1,0 +1,117 @@
+enum DeliveryOptionBrandNameStatus @goModel(model: "delivrio.io/go/deliveryoptions.DeliveryOptionBrandNameStatus") {
+    SELECTED
+    AVAILABLE
+    NOT_AVAILABLE
+}
+
+type DeliveryOptionBrandName @goModel(model: "delivrio.io/go/deliveryoptions.DeliveryOptionBrandName") {
+    deliveryOptionID: ID!
+    name: String!
+    description: String!
+    status: DeliveryOptionBrandNameStatus!
+    # When not matched, price/currency is ambiguous and won't be displayed
+    price: String
+    currency: Currency
+    warning: String
+    requiresDeliveryPoint: Boolean!
+    deliveryPoint: Boolean!
+    clickAndCollect: Boolean!
+}
+
+input DeliveryOptionProductLineInput @goModel(model: "delivrio.io/go/deliveryoptions.DeliveryOptionProductLineInput") {
+    productVariantID: ID!
+    units: Int!
+    unitPrice: Float!
+}
+
+input DeliveryOptionSeedInput @goModel(model: "delivrio.io/go/deliveryoptions.DeliveryOptionSeedInput") {
+    connectionID: ID!
+    country: ID!
+    zip: String!
+    productLines: [DeliveryOptionProductLineInput!]
+}
+
+input ProductVariantQuantity {
+    orderLineID: ID!
+    variantID: ID!
+    units: Int!
+    price: Float!
+    discount: Float!
+    currency: String!
+}
+
+type OrderShipmentStatus {
+    mayShipRemaining: Boolean!
+    shipmentStatuses: [ParcelStatuses!]!
+}
+
+type ParcelStatuses {
+    colliID: ID!
+    shipmentID: ID
+    ccSignatures: [String!]!
+}
+
+type DeliveryPoint {
+    id: ID!
+    name: String!
+    address: AddressGlobal!
+}
+
+type PackingSlipsOutput {
+    packingSlips: [String!]!
+    allPackingSlips: String!
+}
+
+extend type Query {
+    order(id: ID): Order
+    orderShipments(orderID: ID!): OrderShipmentStatus
+    colli(id: ID): Colli
+    orderTimeline(orderID: ID!): [ChangeHistory]!
+    deliveryOptionsList(orderInfo: DeliveryOptionSeedInput!): [DeliveryOptionBrandName]!
+    deliveryPoint(colliID: ID!): DeliveryPoint
+    availableDeliveryPoints(deliveryOptionID: ID, address: CreateAddressInput): [DeliveryPoint!]!
+    clickCollectLocation(colliID: ID!): Location
+    packingSlips(colliIDs: [ID!]!): PackingSlipsOutput!
+    packingSlipsByOrder(orderIDs: [ID!]!): PackingSlipsOutput!
+    packingSlipsClearCache(orderIDs: [ID!]!): Boolean!
+}
+
+extend type Mutation {
+    duplicateColli(fromColliID: ID!): Order!
+    deleteColli(colliID: ID!): Order!
+    moveOrderLine(orderLineID: ID!, colliID: ID!): [Colli!]
+    createColli(
+        orderID: ID!,
+        input: CreateColliInput!,
+        deliveryOptionID: ID,
+        deliveryPointID: ID,
+        ccLocationID: ID,
+        packagingID: ID,
+        recipientAddress: CreateAddressInput!,
+        senderAddress: CreateAddressInput!,
+        products: [ProductVariantQuantity!]!
+    ): Order!
+    updateColli(
+        id: ID!,
+        input: UpdateColliInput!,
+        deliveryOptionID: ID,
+        deliveryPointID: ID,
+        ccLocationID: ID,
+        packagingID: ID,
+        recipientAddressID: ID!,
+        recipientAddress: UpdateAddressInput!,
+        senderAddressID: ID!,
+        senderAddress: UpdateAddressInput!,
+        updateExistingRecipient: Boolean,
+        products: [ProductVariantQuantity!]!
+        removeProducts: [ID!]!
+    ): Colli
+    createEmptyOrder(input: CreateOrderInput!): Order
+    updateOrder(id: ID!, input: UpdateOrderInput!): Order
+    bulkUpdatePackaging(orderIDs: [ID!]!, packagingID: ID): BulkUpdateMessage!
+}
+
+type BulkUpdateMessage {
+    success: Boolean!
+    msg: String!
+}

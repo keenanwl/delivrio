@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+<p [innerHTML]="body"></p>
+<ng-container *ngFor="let button of buttons">
+	<button mat-raised-button (click)="fireCallback(button.callback)">
+		{{button.text}}
+	</button>
+</ng-container>

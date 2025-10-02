@@ -1,0 +1,129 @@
+<app-dvo-card *ngIf="deliveryOptionsBringEdit$|async; let state">
+	<div class="page-header">
+		<h3>Edit Bring Delivery Option</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<form [formGroup]="editForm"
+		  class="section-margin container"
+		  ngxsForm="deliveryOptionEditBring.form"
+		  ngxsFormErrors="deliveryOptionEditBring.form">
+		<app-dvo-card [background]="'#e4e4e4'">
+			<h3>General</h3>
+			<div class="column-container">
+				<div class="column">
+					<div class="row right-margin">
+						<mat-form-field appearance="outline">
+							<mat-label>Name</mat-label>
+							<input formControlName="name" matInput/>
+							<mat-error *ngIf="editForm.controls.name.invalid">
+								{{editForm.controls.name.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row extra-pad right-margin">
+						<div class="slide-container">
+							<span class="label">Use for click & collect</span>
+							<span class="spacer"></span>
+							<mat-slide-toggle formControlName="clickCollect"
+											  color="primary">
+								<mat-error *ngIf="editForm.controls.clickCollect.invalid">
+									{{editForm.controls.clickCollect.errors}}
+								</mat-error>
+							</mat-slide-toggle>
+						</div>
+					</div>
+					<div class="row extra-pad right-margin">
+						<div class="slide-container">
+							<span class="label">Override sender address</span>
+							<span class="spacer"></span>
+							<mat-slide-toggle formControlName="overrideSenderAddress"
+											  color="primary">
+							</mat-slide-toggle>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="row right-margin" formGroupName="carrierService">
+						<mat-form-field class="full-width">
+							<mat-label>Bring service</mat-label>
+							<mat-select formControlName="id"
+										[value]="state.form.model?.deliveryOption?.carrierService?.id">
+								<mat-optgroup [label]="'Outbound'">
+									<mat-option [value]="opt.id"
+												*ngFor="let opt of (state.carrierServices | carrierServiceGrouper).outbound">
+										{{opt.label}}
+									</mat-option>
+								</mat-optgroup>
+								<mat-optgroup [label]="'Returns'">
+									<mat-option [value]="opt.id"
+												*ngFor="let opt of (state.carrierServices | carrierServiceGrouper).inbound">
+										{{opt.label}}
+									</mat-option>
+								</mat-optgroup>
+							</mat-select>
+						</mat-form-field>
+					</div>
+					<div class="row extra-pad">
+						<div class="slide-container">
+							<span class="label">Override return address</span>
+							<span class="spacer"></span>
+							<mat-slide-toggle formControlName="overrideReturnAddress"
+											  color="primary">
+							</mat-slide-toggle>
+						</div>
+					</div>
+					<div class="row extra-pad">
+						<div class="slide-container">
+							<span class="label">Hide delivery option</span>
+							<span class="spacer"></span>
+							<mat-slide-toggle formControlName="hideDeliveryOption"
+											  color="primary">
+							</mat-slide-toggle>
+						</div>
+					</div>
+				</div>
+			</div>
+		</app-dvo-card>
+		<div class="section-margin">
+			<app-dvo-card class="section-margin" [background]="'#e4e4e4'">
+				<h3>Add-ons</h3>
+				<div class="column-container">
+					<div class="column">
+						<div class="row extra-pad right-margin" [formGroup]="editForm.controls.deliveryOptionBring">
+							<div class="slide-container">
+								<span class="label">Electronic customs</span>
+								<span class="spacer"></span>
+								<mat-slide-toggle [formControl]="editForm.controls.deliveryOptionBring.controls.electronicCustoms"
+												  color="primary">
+								</mat-slide-toggle>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="row extra-pad right-margin" [formGroup]="editForm.controls.deliveryOptionBring">
+							<!-- complete hack to easily arrive at the right spacing until more toggles are implemented -->
+							<div class="slide-container" style="opacity: 0">
+								<span class="label">Electronic customs</span>
+								<span class="spacer"></span>
+								<mat-slide-toggle
+												  color="primary">
+								</mat-slide-toggle>
+							</div>
+						</div>
+					</div>
+				</div>
+			</app-dvo-card>
+		</div>
+	</form>
+
+	<div class="section-margin">
+		<app-delivery-option-edit-rules [deliveryOptionID]="state.selectedID">
+		</app-delivery-option-edit-rules>
+	</div>
+</app-dvo-card>
+

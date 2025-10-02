@@ -1,0 +1,35 @@
+query FetchDeliveryOptionsGLSEdit($id: ID!) {
+	deliveryOptionGLS(id: $id) {
+		deliveryOption {
+			... BaseDeliveryOption
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: gls}}) {
+		edges {
+			node {
+				...CarrierServiceItem
+			}
+		}
+	}
+	emailTemplates {
+		edges {
+			node {
+				id
+				name
+				mergeType
+			}
+		}
+	}
+}
+
+mutation UpdateDeliveryOptionGLS(
+	$id: ID!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!
+) {
+	updateDeliveryOptionGLS(
+		id: $id,
+		inputDeliveryOption: $inputDeliveryOption
+	) {
+		id
+	}
+}

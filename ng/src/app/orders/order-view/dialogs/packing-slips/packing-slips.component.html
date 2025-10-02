@@ -1,0 +1,68 @@
+<div class="container" *ngIf="orderView$|async; let state">
+	<h1>Packing slip</h1>
+
+	<div class="body">
+		<ng-container *ngIf="state.loading">
+			<p>Loading...</p>
+			<mat-spinner color="primary"></mat-spinner>
+		</ng-container>
+		<ng-container *ngIf="!state.loading && state.shipmentErrors.length > 0">
+			<p *ngFor="let e of state.shipmentErrors">
+				{{e.message}}
+			</p>
+		</ng-container>
+		<div class="pdf-container" *ngIf="state.packingSlipsPDF.length > 0">
+			<!--<img [src]="'data:image/png;base64,' + state.packingSlipsPDF[state.labelViewerOffset]" />-->
+			<pdf-viewer
+				[src]="state.packingSlipsPDF[state.labelViewerOffset] | preparePdf"
+				[rotation]="0"
+				[original-size]="false"
+				[show-all]="true"
+				[fit-to-page]="false"
+				[zoom]="1"
+				[zoom-scale]="'page-width'"
+				[stick-to-page]="false"
+				[render-text]="true"
+				[external-link-target]="'blank'"
+				[autoresize]="true"
+				[show-borders]="true"
+				style="min-width: 400px; min-height: 600px;"
+			></pdf-viewer>
+			<div class="label-offset-container">
+				<button mat-icon-button (click)="decrement()">
+					<mat-icon>chevron_left</mat-icon>
+				</button>
+				<span class="spacer">
+					{{state.labelViewerOffset + 1}} / {{state.packingSlipsPDF.length}}
+				</span>
+				<button mat-icon-button (click)="increment()">
+					<mat-icon>chevron_right</mat-icon>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="action-row">
+		<a download="delivrio_packing_slips.pdf"
+		   [href]="state.allPackingSlipsPDF.length > 0 ? 'data:application/pdf;base64,' + state.allPackingSlipsPDF : ''">
+			<button mat-raised-button color="primary" [disabled]="state.shipmentErrors.length > 0 || state.loading">
+				<mat-icon>bookmarks</mat-icon>
+				Download packing slips
+			</button>
+		</a>
+		<button mat-raised-button
+				(click)="print()"
+				color="primary"
+				[disabled]="state.shipmentErrors.length > 0 || state.loading">
+			<mat-icon>print</mat-icon>
+			Print
+		</button>
+	</div>
+	<div class="action-row">
+		<button mat-raised-button [disabled]="state.loading" (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>
+

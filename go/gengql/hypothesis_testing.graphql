@@ -1,0 +1,23 @@
+
+type DashboardHypothesisTestResult {
+    id: ID!
+    Name: String!
+    ControlSuccess: Int!
+    ControlFailure: Int!
+    TestSuccess: Int!
+    TestFailure: Int!
+    SignificantlyDifferent: Boolean!
+    ControlWin: Float!
+    TestWin: Float!
+}
+
+extend type Query {
+    hypothesisTest(id: ID!): HypothesisTest!
+    unassignedDeliveryOptions(hypothesisTestID: ID!): [DeliveryOption!]!
+    hypothesisTestResultsDashboard: [DashboardHypothesisTestResult!]!
+}
+
+extend type Mutation {
+    createHypothesisTestDeliveryOption(name: String!, connectionID: ID!): ID!
+    updateHypothesisTestDeliveryOption(id: ID!, input: UpdateHypothesisTestInput!, inputDeliveryOption: UpdateHypothesisTestDeliveryOptionInput!): HypothesisTest!
+}

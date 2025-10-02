@@ -1,0 +1,12 @@
+.container {
+	h2 {
+		margin-bottom: 10px;
+	}
+	mat-form-field {
+		width: 100%;
+	}
+	min-width: 450px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}

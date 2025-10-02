@@ -1,0 +1,32 @@
+h3 {
+	margin-top: 10px;
+}
+.header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.column-container {
+	display: flex;
+	width: 500px;
+	.column {
+		flex-grow: 1;
+	}
+	.row {
+		display: flex;
+		gap: 10px;
+		min-height: 59.5px;
+		align-items: center;
+		> * {
+			flex-grow: 1;
+		}
+	}
+	.extra-pad {
+		padding-bottom: 21.5px;
+	}
+}
+mat-form-field {
+
+	width: 350px;
+}

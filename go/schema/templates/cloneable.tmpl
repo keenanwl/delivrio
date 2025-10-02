@@ -1,0 +1,34 @@
+{{/* Tell Intellij/GoLand to enable the autocompletion based on the *gen.Graph type. */}}
+{{/* gotype: entgo.io/ent/entc/gen.Graph */}}
+
+{{ define "cloneable" }}
+
+{{/* Add the base header for the generated file */}}
+{{ $pkg := base $.Config.Package }}
+{{ template "header" $ }}
+// Start the field
+{{/* Loop over all nodes and add the Clone method */}}
+{{ range $n := $.Nodes }}
+    {{if $n.Annotations.DelivrioAnnotations.Clone}}
+        {{ $receiver := $n.Receiver }}
+
+		// Clone creates a copy of the {{$n.Name}} entity with all its fields.
+		func ({{ $receiver }} *{{ $n.Name }}) CloneEntity(tx *Tx) *{{ $n.Name }}Create {
+
+            clone := tx.{{.Name}}.Create()
+
+            {{- range $f := $n.Fields }}
+                {{if not $f.Annotations.DelivrioAnnotations.SkipClone}}
+                    {{if not $f.Annotations.Sensitive}}
+				        clone = clone.Set{{pascal $f.Name}}({{$receiver}}.{{pascal $f.Name}})
+	                {{- end }}
+	            {{- end }}
+	        {{- end }}
+
+	        return clone
+		}
+    {{- end }}
+{{- end }}
+
+{{ end }}
+

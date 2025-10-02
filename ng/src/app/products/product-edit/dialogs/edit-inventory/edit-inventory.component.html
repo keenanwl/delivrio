@@ -1,0 +1,50 @@
+<ng-container *ngIf="product$|async; let state">
+	<div class="container">
+		<h3>Edit customs data</h3>
+		<form [formGroup]="editForm" ngxsForm="productEdit.inventoryItemForm">
+			<mat-form-field>
+				<mat-label>Tariff Code</mat-label>
+				<input formControlName="code" matInput/>
+				<mat-error *ngIf="editForm.controls.code.invalid">
+					{{editForm.controls.code.errors}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>SKU</mat-label>
+				<input formControlName="sku" matInput/>
+				<mat-error *ngIf="editForm.controls.sku.invalid">
+					{{editForm.controls.sku.errors}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="country-field">
+				<mat-label>Country of Origin</mat-label>
+				<mat-chip-grid #chipList>
+					<mat-chip-row color="primary">
+						{{editForm.controls.countryOfOrigin.controls.label.value}}
+						({{editForm.controls.countryOfOrigin.controls.alpha2.value}})
+					</mat-chip-row>
+				</mat-chip-grid>
+				<input placeholder="Type to search..."
+					   #countriesInputRecipient
+					   [matAutocomplete]="countriesAutoRecipient"
+					   [matChipInputFor]="chipList"
+					   (keyup)="searchCountries(countriesInputRecipient.value)">
+				<mat-autocomplete #countriesAutoRecipient="matAutocomplete" (optionSelected)="countriesInputRecipient.value = ''; changeCountry($event.option.value)">
+					<mat-option *ngFor="let country of state.searchCountries" [value]="country">
+						{{country.label}} ({{country.alpha2}})
+					</mat-option>
+				</mat-autocomplete>
+			</mat-form-field>
+		</form>
+		<div class="action-row">
+			<button mat-stroked-button color="primary" (click)="save()">
+				<mat-icon>done</mat-icon>
+				Save
+			</button>
+			<button mat-stroked-button (click)="close()">
+				<mat-icon>cancel</mat-icon>
+				Cancel
+			</button>
+		</div>
+	</div>
+</ng-container>

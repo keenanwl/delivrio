@@ -1,0 +1,81 @@
+<div *ngIf="profile$|async; let profile">
+	<div class="page-header">
+		<h3>Profile</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="onSubmit()">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+	</div>
+	<app-dvo-card>
+		<form #profileForm [formGroup]="myProfileForm" ngxsForm="profile.myProfileForm">
+			<div class="row">
+				<mat-form-field>
+					<mat-label>Name</mat-label>
+					<input formControlName="name" matInput />
+					<mat-error *ngIf="myProfileForm.controls.name.invalid">
+						{{myProfileForm.controls.name.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field >
+					<mat-label>Surname</mat-label>
+					<input formControlName="surname" matInput />
+					<mat-error *ngIf="myProfileForm.controls.surname.invalid">
+						{{myProfileForm.controls.surname.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row">
+				<mat-form-field>
+					<mat-label>Email</mat-label>
+					<input formControlName="email" matInput />
+					<mat-error *ngIf="myProfileForm.controls.email.invalid">
+						{{myProfileForm.controls.email.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label >Phone no.</mat-label>
+					<input formControlName="phoneNumber" matInput />
+					<mat-error *ngIf="myProfileForm.controls.phoneNumber.invalid">
+						{{myProfileForm.controls.phoneNumber.errors}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="row">
+				<mat-form-field>
+					<mat-label>Language</mat-label>
+					<mat-select formControlName="language"
+								[compareWith]="languageComparisonFunction"
+								[value]="profile.myProfileForm.model?.language">
+						<mat-option *ngFor="let lang of profile.languages" [value]="lang">
+							{{lang.label}}
+						</mat-option>
+					</mat-select>
+					<mat-error *ngIf="myProfileForm.controls.language.invalid">
+						{{myProfileForm.controls.language.errors}}
+					</mat-error>
+				</mat-form-field>
+				@if (profile.availableTenants.length > 0) {
+					<mat-form-field [formGroup]="myProfileForm.controls.tenant">
+						<mat-label>Tenant</mat-label>
+						<mat-select formControlName="id"
+									[value]="profile.myProfileForm.model?.tenant.id">
+							<mat-option *ngFor="let tenant of profile.availableTenants" [value]="tenant.id">
+								{{tenant.name}}
+							</mat-option>
+						</mat-select>
+						<mat-error *ngIf="myProfileForm.controls.language.invalid">
+							{{myProfileForm.controls.language.errors}}
+						</mat-error>
+					</mat-form-field>
+				}
+			</div>
+
+			<div class="row">
+				<mat-slide-toggle formControlName="marketingConsent" color="primary">Email marketing consent</mat-slide-toggle>
+			</div>
+		</form>
+	</app-dvo-card>
+</div>
+
+

@@ -1,0 +1,123 @@
+query FetchOrders(
+	$where: OrderWhereInput,
+	$first: Int,
+	$last: Int,
+	$after: Cursor,
+	$before: Cursor,
+	$orderBy: OrderOrder
+) {
+	orders (
+		where: $where
+		first: $first
+		last: $last
+		after: $after
+		before: $before
+		orderBy: $orderBy
+	)
+	{
+		edges {
+			node {
+				id
+				createdAt
+				colli {
+					id
+					orderLines {
+						unitPrice
+						units
+						currency {
+							display
+						}
+					}
+					recipient {
+						id
+						firstName
+						lastName
+						country {
+							id
+							label
+							alpha2
+						}
+					}
+					deliveryOption {
+						name
+						carrier {
+							carrierBrand {
+								label
+							}
+						}
+					}
+					shipmentParcel {
+						status
+					}
+				}
+				orderPublicID
+				status
+				connection {
+					id
+					name
+					connectionBrand {
+						label
+					}
+				}
+			},
+			cursor
+		},
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		totalCount
+	}
+	connections {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+	locations (where: {hasLocationTagsWith: {internalID: "sender"}}) {
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+mutation CreateEmptyOrder($input: CreateOrderInput!) {
+	createEmptyOrder(input: $input) {
+		id
+		colli {
+			id
+		}
+	}
+}
+
+query FetchCountries {
+	countries {
+		edges {
+			node {
+				id
+				label
+			}
+		}
+	}
+}
+
+mutation BulkUpdatePackaging($orderIDs: [ID!]!, $packagingID: ID) {
+	bulkUpdatePackaging(orderIDs: $orderIDs, packagingID: $packagingID) {
+		success
+		msg
+	}
+}
+
+query BulkFetchPackingSlipsByOrder($orderIDs: [ID!]!) {
+	packingSlipsByOrder(orderIDs: $orderIDs) {
+		allPackingSlips
+		packingSlips
+	}
+}

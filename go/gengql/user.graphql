@@ -1,0 +1,37 @@
+extend type Query {
+    user(id: ID): User
+    seatGroup(id: ID!): SeatGroup
+    tenant(id: ID): Tenant
+    selectedWorkstation: SelectedWorkstation
+    buildInfo: BuildInfo!
+    availableTenants: [Tenant!]!
+}
+
+type BuildInfo {
+    Time: String!
+    Hash: String!
+    LimitedSystem: Boolean!
+}
+
+type SelectedWorkstation {
+    workstation: Workstation
+    jobs: [PrintJob!]!
+    limitExceeded: Boolean!
+}
+
+extend type Mutation {
+
+    updateUser(input: UpdateUserInput!, newTenantID: ID): User
+    updateCompanyInfo(input: UpdateTenantInput!, defaultLanguage: ID!, adminContact: CreateContactInput!, billingContact: CreateContactInput!, address: CreateAddressInput!): Tenant
+    updatePlan(planID: ID!): Tenant
+
+    createUserSeat(input: CreateUserInput!): User
+    updateUserSeat(id: ID!, input: UpdateUserInput!): User
+    updateUserPassword(id: ID!, input: String!): User
+
+    createSeatGroup(input: CreateSeatGroupInput!, accessRights: [CreateSeatGroupAccessRightInput!]): SeatGroup
+    replaceSeatGroup(id: ID!, input: UpdateSeatGroupInput!, accessRights: [CreateSeatGroupAccessRightInput!]): SeatGroup
+
+    replaceSignupOptions(userID: ID!, input: CreateSignupOptionsInput!): SignupOptions
+    replaceInterestedCarriersPlatforms(userID: ID!, inputCarriers: [ID!]!, inputPlatforms: [ID!]!): User
+}

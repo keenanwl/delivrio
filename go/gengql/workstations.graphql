@@ -1,0 +1,29 @@
+extend type Query {
+    workstation(id: ID!): Workstation!
+    filteredWorkstations(showArchived: Boolean!): [Workstation!]!
+}
+
+type CreateWorkstationSuccess {
+    id: ID!
+    registrationToken: String!
+    registrationTokenImg: String!
+}
+
+input UpdatePrinterWithIDInput {
+    id: ID!
+    updatePrinters: UpdatePrinterInput!
+}
+
+extend input UpdateWorkstationInput {
+    updatePrinters: [UpdatePrinterWithIDInput!]!
+}
+
+extend type Mutation {
+    createWorkstation(input: CreateWorkstationInput!): CreateWorkstationSuccess
+    updateWorkstation(id: ID!, input: UpdateWorkstationInput!): Workstation
+    saveSelectedWorkstation(id: ID!, pickupDay: UserPickupDay!): Boolean!
+    archiveWorkstation(id: ID!): Boolean!
+
+    #registerWorkstation(registrationCode: String!, workstationID: String!): Boolean
+    #syncPrinters(registrationCode: String!, workstationID: String!, printerIDs: [String!]!): Boolean
+}

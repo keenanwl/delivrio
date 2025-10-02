@@ -1,0 +1,50 @@
+<div class="container" *ngIf="state$|async; let state">
+	<h3>View document</h3>
+	<div class="body">
+		<ng-container *ngIf="state.loading">
+			<p>Converting to PDF...</p>
+			<mat-spinner class="spinner"></mat-spinner>
+		</ng-container>
+	</div>
+
+	<div class="pdf-container" *ngIf="state.base64PDF.length > 0">
+		<pdf-viewer
+			[src]="state.base64PDF | preparePdf"
+			[rotation]="0"
+			[original-size]="false"
+			[show-all]="true"
+			[fit-to-page]="false"
+			[zoom]="1"
+			[zoom-scale]="'page-width'"
+			[stick-to-page]="false"
+			[render-text]="true"
+			[external-link-target]="'blank'"
+			[autoresize]="true"
+			[show-borders]="false"
+			style="height: 600px;"
+		></pdf-viewer>
+	</div>
+
+
+	<div class="action-row">
+		<a [download]="prepareDownloadName(state?.form.model?.name)"
+		   [href]="state.base64PDF.length > 0 ? 'data:application/pdf;base64,' + state.base64PDF : ''">
+			<button mat-raised-button color="primary" [disabled]="state.loading">
+				<mat-icon>download</mat-icon>
+				Download document
+			</button>
+		</a>
+		<button mat-raised-button
+				color="primary"
+				[disabled]="state.loading">
+			<mat-icon>print</mat-icon>
+			Print
+		</button>
+	</div>
+	<div class="action-row">
+		<button mat-raised-button [disabled]="state.loading" (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+</div>

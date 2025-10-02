@@ -1,0 +1,57 @@
+<div class="container" *ngIf="consolidationEdit$|async; let state">
+	<h2>Edit pallet</h2>
+	<div class="fields">
+		<mat-form-field class="option-name">
+			<mat-label>Public ID</mat-label>
+			<input #publicID matInput [value]="state.editPallet?.publicID"/>
+		</mat-form-field>
+		<mat-form-field class="option-name">
+			<mat-label>Description</mat-label>
+			<input #description matInput [value]="state.editPallet?.description" />
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Packaging</mat-label>
+			<mat-select #packaging [value]="state.editPallet?.packaging?.id">
+				<mat-option [value]="null">
+					<span class="option-container">
+						<span class="option-name">Not selected</span>
+					</span>
+				</mat-option>
+				<mat-optgroup label="Danske Fragtmænd">
+					<ng-container *ngFor="let p of state.packagings">
+						<mat-option [value]="p.id">
+							<span class="option-container">
+								<span class="option-name">{{p.name}}</span>
+							</span>
+						</mat-option>
+					</ng-container>
+					<mat-option [value]="null" *ngIf="state.packagings.length === 0">
+						Not found.
+						<a [routerLink]="paths.SETTINGS_PACKAGING" target="_blank">
+							Create packaging.
+						</a>
+					</mat-option>
+				</mat-optgroup>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<p>Drag and drop orders to this pallet from the Order Search field.</p>
+	<mat-chip-set>
+		<ng-container *ngFor="let ord of state?.editPallet?.orders; last as last">
+			<mat-chip>
+				{{ord?.orderPublicID}}
+			</mat-chip>
+			<mat-divider *ngIf="!last"/>
+		</ng-container>
+	</mat-chip-set>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="addPalletUpdate(publicID.value, description.value, packaging.value)">
+			<mat-icon>done</mat-icon>
+			Update
+		</button>
+		<button mat-raised-button (click)="close()">
+			Cancel
+		</button>
+	</div>
+</div>

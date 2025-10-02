@@ -1,0 +1,125 @@
+<div *ngIf="deliveryOptionsPostNordEdit$|async; let cl">
+	<div class="page-header">
+		<h3>Edit PostNord delivery option</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<app-dvo-card>
+		<form class="section-margin container">
+			<app-delivery-option-edit-base [availableServices]="cl.carrierServices"
+										   [formValues]="cl.deliveryOptionEditPostNordForm.model"
+										   (formChange)="baseFormChange($event)"
+			/>
+			<div class="section-margin">
+				<app-dvo-card>
+					<div class="header">
+						<h3>Additional PostNord services</h3>
+						<span class="spacer"></span>
+						<div>Show unavailable
+							<mat-slide-toggle #showAdditional [checked]="cl.showUnavailableAdditionalServices"
+											  (change)="toggleShowAdditional(showAdditional.checked)"
+											  color="primary"></mat-slide-toggle>
+						</div>
+					</div>
+
+					<div class="column-container">
+						<div class="column">
+							<div class="row extra-pad right-margin">
+								<app-toggle-container [name]="'Email notification (by carrier)'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('email_notification')">
+									<mat-slide-toggle #signature
+													  [checked]="isAdditionalServiceEnabled('email_notification')"
+													  [disabled]="isAdditionalServiceDisabled('email_notification')"
+													  (change)="additionalServiceChange('email_notification', signature.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container >
+								<app-toggle-container [name]="'Use default service point'"  *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('optional_service_point')">
+									<span class="label"></span>
+									<span class="help-tooltip">
+										<mat-icon matTooltip="For services supporting alternative pick-up points, you can optionally allow the carrier to decide the closest pick-up location based on the provided customer address. Otherwise the pick-up point must be provided during the order creation process.">
+											help_outline</mat-icon>
+									</span>
+									<span class="spacer"></span>
+									<mat-slide-toggle #optionalServicePoint [checked]="isAdditionalServiceEnabled('optional_service_point')"
+													  [disabled]="isAdditionalServiceDisabled('optional_service_point')"
+													  (change)="additionalServiceChange('optional_service_point', optionalServicePoint.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container>
+								<app-toggle-container [name]="'Signature assurance'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('signature_assurance')">
+									<mat-slide-toggle #signature
+													  [checked]="isAdditionalServiceEnabled('signature_assurance')"
+													  [disabled]="isAdditionalServiceDisabled('signature_assurance')"
+													  (change)="additionalServiceChange('signature_assurance', signature.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container >
+								<app-toggle-container [name]="'SMS notification (by carrier)'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('sms_notification')">
+									<mat-slide-toggle #smsNotification [checked]="isAdditionalServiceEnabled('sms_notification')"
+													  [disabled]="isAdditionalServiceDisabled('sms_notification')"
+													  (change)="additionalServiceChange('sms_notification', smsNotification.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container >
+								<app-toggle-container [name]="'Insurance Europe'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('insurance_europe')">
+									<mat-slide-toggle #insuranceEurope
+													  [checked]="isAdditionalServiceEnabled('insurance_europe')"
+													  [disabled]="isAdditionalServiceDisabled('insurance_europe')"
+													  (change)="additionalServiceChange('insurance_europe', insuranceEurope.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container >
+								<app-toggle-container [name]="'QR code'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('qr_kode')">
+									<mat-slide-toggle #qrCode [checked]="isAdditionalServiceEnabled('qr_kode')"
+													  [disabled]="isAdditionalServiceDisabled('qr_kode')"
+													  (change)="additionalServiceChange('qr_kode', qrCode.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container >
+								<app-toggle-container [name]="'Carry-in'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('carry-in')">
+									<mat-slide-toggle #carryIn [checked]="isAdditionalServiceEnabled('carry-in')"
+													  [disabled]="isAdditionalServiceDisabled('carry-in')"
+													  (change)="additionalServiceChange('carry-in', carryIn.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container >
+								<app-toggle-container [name]="'Flex delivery'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('flexdelivery')">
+									<mat-slide-toggle #qrCode [checked]="isAdditionalServiceEnabled('flexdelivery')"
+													  [disabled]="isAdditionalServiceDisabled('flexdelivery')"
+													  (change)="additionalServiceChange('flexdelivery', qrCode.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container>
+								<app-toggle-container [name]="'Insurance DK'"
+													  *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('insurance_dk')">
+									<mat-slide-toggle #insuranceDK
+													  [checked]="isAdditionalServiceEnabled('insurance_dk')"
+													  [disabled]="isAdditionalServiceDisabled('insurance_dk')"
+													  (change)="additionalServiceChange('insurance_dk', insuranceDK.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container>
+								<app-toggle-container [name]="'Climate compensation'" *ngIf="cl.showUnavailableAdditionalServices || !isAdditionalServiceDisabled('climate_compensation')">
+									<mat-slide-toggle #qrCode [checked]="isAdditionalServiceEnabled('climate_compensation')"
+													  [disabled]="isAdditionalServiceDisabled('climate_compensation')"
+													  (change)="additionalServiceChange('climate_compensation', qrCode.checked)"
+													  color="primary">
+									</mat-slide-toggle>
+								</app-toggle-container>
+							</div>
+						</div>
+					</div>
+				</app-dvo-card>
+			</div>
+		</form>
+	</app-dvo-card>
+
+	<div class="section-margin">
+		<app-delivery-option-edit-rules [deliveryOptionID]="cl.selectedID">
+		</app-delivery-option-edit-rules>
+	</div>
+</div>

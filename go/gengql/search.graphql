@@ -1,0 +1,15 @@
+enum EntityType {
+    ORDER
+    PRODUCT
+}
+
+type SearchResult {
+    id: ID!
+    title: String!
+    imagePath: String
+    entity: EntityType!
+}
+
+extend type Query {
+    search(term: String!, filter: [EntityType!]): [SearchResult!]!
+}

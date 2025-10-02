@@ -1,0 +1,173 @@
+<ng-container *ngIf="connectionEdit$|async; let cl">
+	<div class="page-header">
+		<h3 *ngIf="!!cl.connectionShopifyID">Edit connection</h3>
+		<h3 *ngIf="!cl.connectionShopifyID">Create a new connection</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="onSubmit()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<app-dvo-card>
+		<div class="container">
+			<form #form [formGroup]="editForm" ngxsForm="connectionEdit.connectionEditForm" class="column-container">
+				<div class="column">
+					<mat-form-field>
+						<mat-label>Name</mat-label>
+						<input formControlName="name" matInput />
+						<mat-error *ngIf="editForm.controls.name.invalid">
+							{{editForm.controls.name.errors}}
+						</mat-error>
+					</mat-form-field>
+					<ng-container [formGroup]="editForm.controls.connectionShopify">
+						<mat-form-field>
+							<mat-label>Store URL</mat-label>
+							<input formControlName="storeURL" matInput />
+							<mat-error *ngIf="editForm.controls.connectionShopify.controls.storeURL.invalid">
+								{{editForm.controls.connectionShopify.controls.storeURL.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field >
+							<mat-label>Shopify API Key</mat-label>
+							<input formControlName="apiKey" matInput />
+							<mat-error *ngIf="editForm.controls.connectionShopify.controls.apiKey.invalid">
+								{{editForm.controls.connectionShopify.controls.apiKey.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field >
+							<mat-label>Sync Orders From</mat-label>
+							<input matInput formControlName="syncFrom" [matDatepicker]="picker">
+							<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker #picker></mat-datepicker>
+						</mat-form-field>
+						<mat-form-field class="example-form-field">
+							<mat-label>Sync Orders With Tags</mat-label>
+							<mat-chip-grid #filterTagsGrid aria-label="Enter filter tags" [formControl]="editForm.controls.connectionShopify.controls.filterTags">
+								@for (tag of editForm.controls.connectionShopify.controls.filterTags.value; track tag) {
+									<mat-chip-row (removed)="removeTag(tag)">
+										{{tag}}
+										<button matChipRemove aria-label="'remove tag ' + tag">
+											<mat-icon>cancel</mat-icon>
+										</button>
+									</mat-chip-row>
+								}
+							</mat-chip-grid>
+							<input
+								placeholder="New tag..."
+								[matChipInputFor]="filterTagsGrid"
+								[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+								[matChipInputAddOnBlur]="true"
+								(matChipInputTokenEnd)="addTag($event)"
+							/>
+							<mat-hint>Case insensitive & only 1 tag must match</mat-hint>
+							<mat-error *ngIf="editForm.controls.connectionShopify.controls.filterTags.invalid">
+								{{editForm.controls.connectionShopify.controls.filterTags.errors}}
+							</mat-error>
+						</mat-form-field>
+					</ng-container>
+
+					<ng-container [formGroup]="editForm.controls.connectionShopify">
+						<mat-form-field [formGroup]="editForm.controls.defaultDeliveryOption">
+							<mat-label>Default delivery option</mat-label>
+							<mat-select [formControl]="editForm.controls.defaultDeliveryOption.controls.id"
+										[value]="editForm.controls.defaultDeliveryOption.controls.id">
+								<mat-option [value]="null">
+								<span class="option-container">
+									<span class="option-name">None</span>
+									<span class="option-address">
+									</span>
+								</span>
+								</mat-option>
+								<mat-option *ngFor="let dopt of cl.deliveryOptions" [value]="dopt.id">
+								<span class="option-container">
+									<span class="option-name">{{dopt.name}}</span>
+									<span class="option-address">
+										{{dopt.description}}
+									</span>
+								</span>
+								</mat-option>
+							</mat-select>
+							<mat-hint>
+								All synced orders without a delivery option will default to this one
+							</mat-hint>
+							<mat-error *ngIf="editForm.controls.defaultDeliveryOption.controls.id.invalid">
+								{{editForm.controls.defaultDeliveryOption.controls.id.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field [formGroup]="editForm.controls.packingSlipTemplate">
+							<mat-label>Packing slip template</mat-label>
+							<mat-select [formControl]="editForm.controls.packingSlipTemplate.controls.id"
+										[value]="editForm.controls.packingSlipTemplate.controls.id">
+								<mat-option [value]="null">
+								<span class="option-container">
+									<span class="option-name">None</span>
+									<span class="option-address">
+									</span>
+								</span>
+								</mat-option>
+								<mat-option *ngFor="let ps of cl.packingSlipDocs" [value]="ps.id">
+									<span class="option-container">
+										<span class="option-name">{{ps.name}}</span>
+									</span>
+								</mat-option>
+							</mat-select>
+							<mat-hint>
+								Create a new <a [routerLink]="Paths.DOCUMENTS">document</a>
+							</mat-hint>
+							<mat-error *ngIf="editForm.controls.packingSlipTemplate.controls.id.invalid">
+								{{editForm.controls.packingSlipTemplate.controls.id.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field [formGroup]="editForm.controls.currency">
+							<mat-label>Shop currency</mat-label>
+							<mat-select [formControl]="editForm.controls.currency.controls.id"
+										[value]="editForm.controls.currency.controls.id">
+								<mat-option *ngFor="let c of cl.currencies" [value]="c.id">
+									<span class="option-container">
+										<span class="option-name">
+											{{c.display}}
+										</span>
+									</span>
+								</mat-option>
+							</mat-select>
+							<mat-error *ngIf="editForm.controls.currency.controls.id.invalid">
+								{{editForm.controls.currency.controls.id.errors}}
+							</mat-error>
+						</mat-form-field>
+					</ng-container>
+				</div>
+				<div class="toggle-container">
+					<app-toggle-container [name]="'Synchronize orders'">
+						<mat-slide-toggle formControlName="syncOrders"
+										  color="primary">
+						</mat-slide-toggle>
+					</app-toggle-container>
+					<app-toggle-container [name]="'Synchronize products'">
+						<mat-slide-toggle formControlName="syncProducts"
+										  color="primary">
+						</mat-slide-toggle>
+					</app-toggle-container>
+					<app-toggle-container [name]="'Show rates in checkout'"
+										  [formGroup]="editForm.controls.connectionShopify">
+						<mat-icon [matTooltip]="'Not available with entry-level Shopify plan'">info</mat-icon>
+						<mat-slide-toggle [formControl]="editForm.controls.connectionShopify.controls.rateIntegration"
+										  color="primary">
+						</mat-slide-toggle>
+					</app-toggle-container>
+					<app-toggle-container [name]="'Auto print packing slips'"
+										  [formGroup]="editForm.controls.connectionShopify">
+						<mat-icon [matTooltip]="'Prints to all workstations with `auto print receiver` enabled. Will only print orders synced while this toggle is active.'">info</mat-icon>
+						<mat-slide-toggle [formControl]="editForm.controls.autoPrintParcelSlip"
+										  color="primary">
+						</mat-slide-toggle>
+					</app-toggle-container>
+				</div>
+			</form>
+		</div>
+		<app-locations-selector [allLocations]="cl.locations"
+								(locationsSelected)="updateLocations($event)"
+								[selectedLocations]="toSelectedLocations(cl.connectionEditForm.model)" />
+	</app-dvo-card>
+
+</ng-container>

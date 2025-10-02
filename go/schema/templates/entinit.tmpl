@@ -1,0 +1,51 @@
+package schema
+
+import (
+	"entgo.io/contrib/entgql"
+	"entgo.io/ent"
+	"entgo.io/ent/schema"
+	"entgo.io/ent/schema/edge"
+	"entgo.io/ent/schema/field"
+
+)
+
+type {{ . }} struct {
+    ent.Schema
+}
+
+func ({{ . }}) Annotations() []schema.Annotation {
+	return []schema.Annotation{
+		entgql.RelayConnection(),
+		entgql.QueryField(),
+		entgql.Mutations(
+			entgql.MutationCreate(),
+			entgql.MutationUpdate(),
+		),
+	}
+}
+
+func ({{ . }}) Edges() []ent.Edge {
+	return []ent.Edge{
+		//
+	}
+}
+
+func ({{ . }}) Hooks() []ent.Hook {
+	return []ent.Hook{
+		//
+	}
+}
+
+func ({{ . }}) Mixin() []ent.Mixin {
+    return []ent.Mixin{
+        BaseMixin{},
+        TenantMixin{},
+        pulid.MixinWithPrefix(pulid_server_prefix.TypeToPrefix("{{ . }}")),
+    }
+}
+
+func ({{ . }}) Fields() []ent.Field {
+    return []ent.Field{
+        //
+    }
+}

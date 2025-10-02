@@ -1,0 +1,63 @@
+<div class="container">
+	<h1>{{title}}</h1>
+	<div class="body">
+		<ng-container *ngIf="loading">
+			<p>{{loadingMessage}}</p>
+			<mat-spinner color="primary"></mat-spinner>
+		</ng-container>
+		<ng-container *ngIf="!loading && errors.length > 0">
+			<p *ngFor="let e of errors">
+				{{e}}
+			</p>
+		</ng-container>
+		<div class="pdf-container" *ngIf="labelsPDF.length > 0">
+			<pdf-viewer
+				[src]="labelsPDF[labelViewerOffset] | preparePdf"
+				[rotation]="0"
+				[original-size]="false"
+				[show-all]="true"
+				[fit-to-page]="false"
+				[zoom]="1"
+				[zoom-scale]="'page-width'"
+				[stick-to-page]="false"
+				[render-text]="true"
+				[external-link-target]="'blank'"
+				[autoresize]="true"
+				[show-borders]="false"
+				style="min-width: 525px; min-height: 600px;"
+			></pdf-viewer>
+			<div class="label-offset-container">
+				<button mat-icon-button (click)="decrement()">
+					<mat-icon>chevron_left</mat-icon>
+				</button>
+				<span class="spacer">
+					{{labelViewerOffset + 1}} / {{labelsPDF.length}}
+				</span>
+				<button mat-icon-button (click)="increment()">
+					<mat-icon>chevron_right</mat-icon>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="action-row">
+		<a download="delivrio_labels.pdf"
+		   [href]="allPDFs.length > 0 ? 'data:application/pdf;base64,' + allPDFs : ''">
+			<button mat-raised-button color="primary" [disabled]="errors.length > 0 || loading">
+				<mat-icon>bookmarks</mat-icon>
+				Download labels
+			</button>
+		</a>
+		<button mat-raised-button color="primary" [disabled]="errors.length > 0 || loading" (click)="print()">
+			<mat-icon>print</mat-icon>
+			Print
+		</button>
+		<button mat-raised-button (click)="close()">
+			<mat-icon>close</mat-icon>
+			Close
+		</button>
+	</div>
+	<div class="action-row">
+		<ng-content #content></ng-content>
+	</div>
+</div>

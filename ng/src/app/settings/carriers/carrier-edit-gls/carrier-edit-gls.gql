@@ -1,0 +1,21 @@
+query FetchCarrierEditGLS($id: ID!) {
+	carrier(id: $id) {
+		id
+		name
+		carrierGLS {
+			contactID
+			glsUsername
+			glsPassword
+			glsCountryCode
+			customerID
+			syncShipmentCancellation
+			printErrorOnLabel
+		}
+	}
+}
+
+mutation UpdateCarrierAgreementGLS($id: ID!, $name: String!, $input: UpdateCarrierGLSInput!) {
+	updateCarrierAgreementGLS(id: $id, name: $name, input: $input) {
+		id
+	}
+}

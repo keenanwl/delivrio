@@ -1,0 +1,16 @@
+<form class="form-container" [formGroup]="form">
+	<mat-form-field>
+		<mat-label>Click & collect ready for pickup</mat-label>
+		<mat-select formControlName="clickCollectAtStore"
+					[value]="selectedEmailTemplates.clickCollectAtStore">
+			<mat-option *ngFor="let email of allEmailTemplates | emailTemplateFilter:'seller'" [value]="email.id">
+				<span class="option-container">
+					<span class="option-name">{{email.name}}</span>
+				</span>
+			</mat-option>
+		</mat-select>
+		<mat-error *ngIf="form.controls.clickCollectAtStore.invalid">
+			{{form.controls.clickCollectAtStore.errors}}
+		</mat-error>
+	</mat-form-field>
+</form>

@@ -1,0 +1,49 @@
+query FetchDeliveryOptionEditEasyPost($id: ID!) {
+	deliveryOptionEasyPost(id: $id) {
+		deliveryOption {
+			carrierService {
+				id
+			}
+			clickOptionDisplayCount
+		}
+		carrierAddServEasyPost {
+			id
+		}
+
+		deliveryOption {
+			... BaseDeliveryOption
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: easy_post}}) {
+		edges {
+			node {
+				... CarrierServiceItem
+			}
+		}
+	}
+}
+
+query FetchAdditionalServiceEasyPost($carrierServiceID: ID!) {
+	carrierAdditionalServiceEasyPosts(where: {hasCarrierServiceEasyPostWith: {hasCarrierServiceWith: {id: $carrierServiceID}}}) {
+		edges {
+			node {
+				id
+				label
+			}
+		}
+	}
+}
+
+mutation SaveDeliveryOptionEditEasyPost(
+	$id: ID!,
+	$input: UpdateDeliveryOptionEasyPostInput!
+	$inputDeliveryOption: UpdateDeliveryOptionInput!
+) {
+	updateDeliveryOptionEasyPost(
+		id: $id,
+		input: $input,
+		inputDeliveryOption: $inputDeliveryOption
+	) {
+		id
+	}
+}

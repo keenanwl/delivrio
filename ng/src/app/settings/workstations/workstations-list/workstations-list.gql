@@ -1,0 +1,23 @@
+query FetchWorkstations($showArchived: Boolean!) {
+	filteredWorkstations(showArchived: $showArchived) {
+		id
+		name
+		lastPing
+		status
+		printer {
+			id
+		}
+		selectedUser {
+			name
+			surname
+		}
+	}
+}
+
+mutation CreateWorkstation($input: CreateWorkstationInput!) {
+	createWorkstation(input: $input) {
+		id
+		registrationToken
+		registrationTokenImg
+	}
+}

@@ -1,0 +1,27 @@
+<div class="container" *ngIf="portals$|async; let state">
+	<h3>Create return portal</h3>
+	<div class="fields">
+		<mat-form-field class="option-name">
+			<mat-label>Name</mat-label>
+			<input #name matInput/>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Connection</mat-label>
+			<mat-select #connection [value]="state.connections[0]?.id">
+				<mat-option *ngFor="let connect of state.connections" [value]="connect.id">
+					{{connect.name}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="create(name.value, connection.value)">
+			<mat-icon>done</mat-icon>
+			Next
+		</button>
+		<button mat-raised-button (click)="cancel()">
+			Cancel
+		</button>
+	</div>
+</div>

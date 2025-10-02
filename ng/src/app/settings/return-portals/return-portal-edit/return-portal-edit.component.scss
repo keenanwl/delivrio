@@ -1,0 +1,61 @@
+.card-form {
+	margin-top: 20px;
+}
+.header {
+	display: flex;
+	align-items: center;
+}
+.claims {
+	margin-top: 10px;
+}
+.claim-row {
+	display: flex;
+	align-items: stretch;
+}
+.action-row {
+	margin-bottom: 20px;
+}
+.general-info, .claim-row {
+	display: flex;
+	mat-form-field {
+		margin-right: 7px;
+		flex-grow: 1;
+	}
+}
+.email-templates {
+	mat-form-field {
+		width: 450px;
+		margin-right: 10px;
+	}
+}
+.installation {
+	mat-form-field {
+		min-width: 450px;
+		width: 100%;
+		height: 100px;
+	}
+	textarea {
+		min-width: 450px;
+		width: 100%;
+		height: 75px;
+	}
+}
+.card-form {
+	h3 {
+		margin-bottom: 15px;
+	}
+}
+mat-chip-listbox {
+	margin-bottom: 15px;
+}
+.installation {
+	p {
+		margin-bottom: 20px;
+	}
+	mat-form-field {
+		margin-bottom: 25px;
+	}
+	.element-container, .element-container textarea {
+		min-height: 350px;
+	}
+}

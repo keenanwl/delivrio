@@ -1,0 +1,85 @@
+<div class="list-container" *ngIf="deliveryOptionsList$|async; let state">
+	<div class="page-header">
+		<h3>Delivery Options Overview</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="createNew()">
+			<mat-icon>add</mat-icon>
+			Add delivery option
+		</button>
+		<button mat-icon-button [matMenuTriggerFor]="menu">
+			<mat-icon>more_vert</mat-icon>
+		</button>
+		<mat-menu #menu="matMenu">
+			<button mat-menu-item *ngIf="!state.showArchived" (click)="toggleArchived()">
+				<mat-icon>visibility</mat-icon>
+				<span>Show archived</span>
+			</button>
+			<button mat-menu-item *ngIf="state.showArchived" (click)="toggleArchived()">
+				<mat-icon>visibility_off</mat-icon>
+				<span>Hide archived</span>
+			</button>
+		</mat-menu>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<table mat-table
+		   [dataSource]="state.deliveryOptionsList"
+		   class="table"
+		   cdkDropList
+		   (cdkDropListDropped)="drop($event)">
+		<ng-container matColumnDef="logo">
+			<th mat-header-cell *matHeaderCellDef></th>
+			<td mat-cell *matCellDef="let element">
+				<div class="logo"
+					 [style.color]="element.carrier.carrierBrand.textColor"
+					 [style.background-color]="element.carrier.carrierBrand.backgroundColor">
+					{{ element.carrier.carrierBrand.labelShort }}
+				</div>
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="carrierAgreement">
+			<th mat-header-cell *matHeaderCellDef>Carrier agreement</th>
+			<td mat-cell *matCellDef="let element">
+				{{ element.carrier?.name }}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="carrierService">
+			<th mat-header-cell *matHeaderCellDef>Carrier service</th>
+			<td mat-cell *matCellDef="let element">
+				{{ element.carrierService?.label }}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="deliveryOptionName">
+			<th mat-header-cell *matHeaderCellDef>Delivery option name</th>
+			<td mat-cell *matCellDef="let element">
+				{{ element.name }}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="connection">
+			<th mat-header-cell *matHeaderCellDef>Connection</th>
+			<td mat-cell *matCellDef="let element">
+				{{ element.connection.name }}
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="actions">
+			<th mat-header-cell *matHeaderCellDef>
+				Actions
+			</th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-icon-button (click)="archive($event, element)">
+					<mat-icon>archive</mat-icon>
+				</button>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row class="row-container" (click)="editOption(row.id, row.carrier.carrierBrand.internalID)"
+			[cdkDragPreviewClass]="'is-dragging'" [cdkDragData]="row.id" cdkDrag
+			*matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+</div>
+

@@ -1,0 +1,3 @@
+schema:
+  - http://localhost:8080/api/query-goland
+documents: '**/*.gengql'

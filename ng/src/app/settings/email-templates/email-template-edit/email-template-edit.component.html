@@ -1,0 +1,161 @@
+<div class="container" *ngIf="state$|async; let state">
+	<div class="page-header">
+		<h3>Edit email template</h3>
+		<span class="spacer"></span>
+		<button mat-stroked-button (click)="openTestDialog()">
+			<mat-icon>send</mat-icon>
+			Test email
+		</button>
+		<button (click)="save()" mat-fab extended color="primary">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<div class="row">
+		<app-dvo-card class="editor-fields">
+			<form [formGroup]="form" ngxsFormArray="emailTemplateEdit.form">
+				<mat-form-field>
+					<mat-label>Name</mat-label>
+					<input formControlName="name" matInput />
+					<mat-error *ngIf="form.controls.name.invalid">
+						{{form.controls.name.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Subject</mat-label>
+					<input formControlName="subject" matInput />
+					<mat-error *ngIf="form.controls.subject.invalid">
+						{{form.controls.subject.errors}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Email type</mat-label>
+					<mat-select formControlName="mergeType">
+						<mat-optgroup label="Orders -- customer notifications">
+							<mat-option [value]="mergeType.OrderConfirmation">
+								<span class="option-container">
+									<span class="option-name">Order confirmation (fires on order sync)</span>
+								</span>
+							</mat-option>
+							<mat-option [value]="mergeType.OrderPicked">
+								<span class="option-container">
+									<span class="option-name">Order picked & packed (fires when label printed)</span>
+								</span>
+							</mat-option>
+						</mat-optgroup>
+						<mat-optgroup label="Returns -- customer notifications">
+							<mat-option [value]="mergeType.ReturnColliLabel">
+								<span class="option-container">
+									<span class="option-name">Return label (fires on creation)</span>
+								</span>
+							</mat-option>
+							<mat-option [value]="mergeType.ReturnColliQr">
+								<span class="option-container">
+									<span class="option-name">Return QR code (fires on creation)</span>
+								</span>
+							</mat-option>
+							<mat-option [value]="mergeType.ReturnColliReceived">
+								<span class="option-container">
+									<span class="option-name">Return received (fires on carrier receipt)</span>
+								</span>
+							</mat-option>
+							<mat-option [value]="mergeType.ReturnColliAccepted">
+								<span class="option-container">
+									<span class="option-name">Return accepted (fires when accepted)</span>
+								</span>
+							</mat-option>
+						</mat-optgroup>
+					</mat-select>
+					<mat-error *ngIf="form.controls.mergeType.invalid">
+						{{form.controls.mergeType.errors}}
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field>
+					<mat-label>HTML markup</mat-label>
+					<textarea formControlName="htmlTemplate" class="template-value" matInput></textarea>
+				</mat-form-field>
+			</form>
+		</app-dvo-card>
+		<app-dvo-card class="merge-variables">
+			<h3>Merge variables</h3>
+			<p>
+				Include the following optional placeholders in your email HTML.
+				When the email is sent, the placeholders will be replaced with
+				their respective values.
+			</p>
+			<mat-divider></mat-divider>
+			<div class="merge-variable-list">
+				<div class="list-item" *ngFor="let variable of singleVariables|keyvalue">
+					<span [class.used]="variable.value">
+						{{variable.key}}
+					</span>
+				</div>
+			</div>
+
+			<mat-divider></mat-divider>
+			<h3>Order Lines</h3>
+			<div class="merge-variable-order-line">
+				<p>Lines between "range .OrderLines" and "end" will be repeated for each order line.
+					Add HTML around each property for custom styling. "range .OrderLines" and "end"
+					lines are required if any are used from this section.
+				</p>
+				<mat-divider></mat-divider>
+				<div class="list-item">
+					<span [class.used]="orderLineVariables['{{range .OrderLines}}']">
+						{{ "{{range .OrderLines}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.Quantity}}']">
+						{{ "{{.Quantity}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.Price}}']">
+						{{ "{{.Price}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.Total}}']">
+						{{ "{{.Total}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.ProductName}}']">
+						{{ "{{.ProductName}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.ProductVariantName}}']">
+						{{ "{{.ProductVariantName}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.ProductFirstImageURL}}']">
+						{{ "{{.ProductFirstImageURL}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.ReturnClaimName}}']">
+						{{ "{{.ReturnClaimName}\}" }}
+					</span>
+				</div>
+				<div class="list-item indent">
+					<span [class.used]="orderLineVariables['{{.ReturnClaimDescription}}']">
+						{{ "{{.ReturnClaimDescription}\}" }}
+					</span>
+				</div>
+				<div class="list-item">
+					<span [class.used]="orderLineVariables['{{end}}']">
+						{{ "{{end}\}" }}
+					</span>
+				</div>
+			</div>
+		</app-dvo-card>
+	</div>
+</div>
+

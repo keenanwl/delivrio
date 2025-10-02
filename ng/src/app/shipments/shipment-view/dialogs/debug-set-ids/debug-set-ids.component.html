@@ -1,0 +1,13 @@
+<div class="container">
+	<p>For debugging, set the item ID so that a specific label can be scanned</p>
+	<mat-form-field>
+		<mat-label>Item ID</mat-label>
+		<input #itemID matInput />
+	</mat-form-field>
+	<div class="action-row">
+		<span class="spacer"></span>
+		<button mat-raised-button color="primary" (click)="save(itemID.value)">
+			Save
+		</button>
+	</div>
+</div>

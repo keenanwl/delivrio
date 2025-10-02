@@ -1,0 +1,25 @@
+query FetchMyAPITokens {
+	myAPITokens {
+		... APITokenFragment
+	}
+}
+
+fragment APITokenFragment on APIToken {
+	id
+	name
+	createdAt
+	lastUsed
+}
+
+mutation CreateAPIToken($name: String!) {
+	createAPIToken(name: $name) {
+		id
+		token
+	}
+}
+
+mutation DeleteToken($ID: ID!) {
+	deleteAPIToken(id: $ID) {
+		... APITokenFragment
+	}
+}

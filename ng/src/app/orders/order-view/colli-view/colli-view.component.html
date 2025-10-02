@@ -1,0 +1,65 @@
+<app-dvo-card class="delivery-info">
+	<div class="row flex-row">
+		<mat-chip-row [style.background-color]="colli?.status | colliStatusColorPipe" highlighted>
+			{{colli?.status}}
+		</mat-chip-row>
+		<span class="spacer"></span>
+		<ng-content></ng-content>
+	</div>
+	<mat-divider></mat-divider>
+	<div class="row">
+		<h3>Delivery Option</h3>
+		<p>
+			<span *ngIf="!!colli?.deliveryOption">{{colli?.deliveryOption?.name}} | {{colli?.deliveryOption?.carrier?.carrierBrand?.label}}</span>
+			<span *ngIf="!colli?.deliveryOption">Not selected</span>
+		</p>
+	</div>
+	<ng-container *ngIf="colli?.parcelShop">
+		<mat-divider></mat-divider>
+		<div class="row">
+			<h3>Delivery Point</h3>
+			<p>
+				<span>{{colli?.parcelShop.name}}</span>
+				<span>{{colli?.parcelShop.address.addressOne}}</span>
+				<span>{{colli?.parcelShop.address.addressTwo}}</span>
+				<span>{{colli?.parcelShop.address.country.alpha2}} {{colli?.parcelShop.address.zip}} {{colli?.parcelShop.address.city}}</span>
+			</p>
+		</div>
+	</ng-container>
+	<ng-container>
+		<mat-divider></mat-divider>
+		<div class="row">
+			<h3>Packaging</h3>
+			<span class="packaging-row" *ngIf="!!colli?.packaging?.name">
+				<span>{{colli?.packaging?.name}}</span>
+				<span class="spacer"></span>
+				<span>{{colli?.packaging?.lengthCm}}x{{colli?.packaging?.widthCm}}x{{colli?.packaging?.heightCm}}</span>
+			</span>
+			<span class="packaging-row" *ngIf="!colli?.packaging?.name">
+				Workstation default
+			</span>
+		</div>
+	</ng-container>
+	<mat-divider></mat-divider>
+	<div class="row" *ngIf="!!colli?.recipient">
+		<h3>Recipient</h3>
+		<p>
+			<span>{{colli?.recipient.firstName}} {{colli?.recipient.lastName}}</span>
+			<span>{{colli?.recipient.company}}</span>
+			<span>{{colli?.recipient.addressOne}}</span>
+			<span>{{colli?.recipient.addressTwo}}</span>
+			<span>{{colli?.recipient.country.alpha2}} {{colli?.recipient.zip}} {{colli?.recipient.city}} {{colli?.recipient.state}}</span>
+		</p>
+	</div>
+	<mat-divider></mat-divider>
+	<div class="row" *ngIf="!!colli?.sender">
+		<h3>Sender</h3>
+		<p>
+			<span>{{colli?.sender.firstName}} {{colli?.sender.lastName}}</span>
+			<span>{{colli?.sender.company}}</span>
+			<span>{{colli?.sender.addressOne}}</span>
+			<span>{{colli?.sender.addressTwo}}</span>
+			<span>{{colli?.sender.country.alpha2}} {{colli?.sender.zip}} {{colli?.sender.city}} {{colli?.sender.state}}</span>
+		</p>
+	</div>
+</app-dvo-card>

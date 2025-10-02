@@ -1,0 +1,63 @@
+<div class="container" *ngIf="consolidationList$|async; let state">
+	<div class="page-header">
+		<h3>Consolidations</h3>
+		<span class="spacer"></span>
+		<button (click)="add()" mat-fab extended color="primary">
+			<mat-icon>add</mat-icon>
+			Add consolidation
+		</button>
+	</div>
+
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<table mat-table [dataSource]="state.consolidations">
+		<ng-container matColumnDef="createdAt">
+			<th mat-header-cell *matHeaderCellDef>
+				Created
+			</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.createdAt | date:"mediumDate"}} {{element.createdAt | date:'shortTime'}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>Public ID</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.publicID}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="description">
+			<th mat-header-cell *matHeaderCellDef>Description</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.description}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="status">
+			<th mat-header-cell *matHeaderCellDef>Status</th>
+			<td mat-cell *matCellDef="let element">
+				<mat-chip-row [style.background-color]="element.status | shipmentStatusColorPipe" highlighted>
+					{{element.status}}
+				</mat-chip-row>
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="pallets">
+			<th mat-header-cell *matHeaderCellDef>Pallets</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.pallets.length}}
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="orders">
+			<th mat-header-cell *matHeaderCellDef>Orders</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.orders.length}}
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row
+			class="row-container"
+			*matRowDef="let row; columns: displayedColumns;"
+			[routerLink]="paths.CONSOLIDATION_EDIT"
+			[queryParams]="{id: row.id}"></tr>
+	</table>
+
+</div>

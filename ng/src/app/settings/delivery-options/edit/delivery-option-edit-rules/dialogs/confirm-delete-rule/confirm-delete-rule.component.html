@@ -1,0 +1,14 @@
+<div class="container">
+	<h3>Confirm delete of rule {{name}}?</h3>
+	<p>This can not be reverted.</p>
+	<div class="action-row">
+		<button mat-raised-button color="primary" (click)="confirm()">
+			<mat-icon>check</mat-icon>
+			Confirm
+		</button>
+		<button mat-raised-button (click)="close()">
+			<mat-icon>done</mat-icon>
+			Cancel
+		</button>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+query FetchHypothesisTest($id: ID!) {
+	hypothesisTest(id: $id) {
+		id
+		name
+		active
+		hypothesisTestDeliveryOption {
+			id
+			byIntervalRotation
+			byOrder
+			randomizeWithinGroupSort
+			rotationIntervalHours
+			deliveryOptionGroupOne {
+				id
+				name
+				description
+				hideDeliveryOption
+			}
+			deliveryOptionGroupTwo {
+				id
+				name
+				description
+				hideDeliveryOption
+			}
+		}
+	}
+	unassignedDeliveryOptions(hypothesisTestID: $id) {
+		id
+		name
+		description
+		hideDeliveryOption
+	}
+}
+
+mutation UpdateHypothesisTestDeliveryOption($id: ID!, $input: UpdateHypothesisTestInput!, $inputDeliveryOption: UpdateHypothesisTestDeliveryOptionInput!) {
+	updateHypothesisTestDeliveryOption(id: $id, input: $input, inputDeliveryOption: $inputDeliveryOption) {
+		id
+	}
+}

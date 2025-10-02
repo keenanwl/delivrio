@@ -1,0 +1,48 @@
+query FetchInput {
+  allocations {
+    deliveryAddress {
+      countryCode
+      longitude
+      latitude
+      zip
+      provinceCode
+      city
+      # Extra info for more complete A/B test hash
+      address1
+      address2
+    }
+  }
+  cart {
+    cost {
+      totalAmount {
+        amount
+      }
+    }
+    deliverableLines {
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            id
+          }
+        }
+      }
+    }
+    lines {
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            id
+          }
+        }
+      }
+      cost {
+        totalAmount {
+          amount
+        }
+      }
+    }
+  }
+}

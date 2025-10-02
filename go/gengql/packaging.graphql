@@ -1,0 +1,9 @@
+extend type Query {
+    packagingFiltered(showArchived: Boolean!): [Packaging!]!
+}
+
+extend type Mutation {
+    createPackaging(input: CreatePackagingInput!, inputPackagingUSPS: CreatePackagingUSPSInput, inputPackagingDF: CreatePackagingDFInput): [Packaging!]!
+    updatePackaging(input: UpdatePackagingInput!, inputPackagingUSPS: UpdatePackagingUSPSInput, inputPackagingDF: CreatePackagingDFInput): [Packaging!]!
+    archivePackaging(id: ID!): Boolean!
+}

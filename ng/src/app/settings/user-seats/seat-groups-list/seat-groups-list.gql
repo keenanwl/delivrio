@@ -1,0 +1,23 @@
+query FetchSeatGroups {
+	seatGroups {
+		edges {
+			node {
+				id
+				name
+				createdAt
+				user {
+					id
+					email
+				}
+				seatGroupAccessRight {
+					id
+					level
+					accessRight {
+						id
+						label
+					}
+				}
+			}
+		}
+	}
+}

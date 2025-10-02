@@ -1,0 +1,25 @@
+query FetchConsolidations {
+	consolidations {
+		edges {
+			node {
+				id
+				createdAt
+				publicID
+				description
+				status
+				pallets {
+					id
+				}
+				orders {
+					id
+				}
+			}
+		}
+	}
+}
+
+mutation AddConsolidation($publicID: String!, $description: String!) {
+	createConsolidation(publicID: $publicID, description: $description) {
+		id
+	}
+}

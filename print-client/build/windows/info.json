@@ -1,0 +1,15 @@
+{
+	"fixed": {
+		"file_version": "{{.Info.ProductVersion}}"
+	},
+	"info": {
+		"0000": {
+			"ProductVersion": "1.0.1",
+			"CompanyName": "DELIVRIO ApS",
+			"FileDescription": "Print Client",
+			"LegalCopyright": "Copyright 2024 DELIVRIO",
+			"ProductName": "DELIVRIO Print Client",
+			"Comments": "{{.Info.Comments}}"
+		}
+	}
+}

@@ -1,0 +1,32 @@
+query FetchUserPlan {
+	user {
+		tenant {
+			plan {
+				id
+				label
+			}
+		}
+		language {
+			id
+			label
+		}
+	}
+}
+
+query FetchPlanList {
+	plans {
+		edges {
+			node {
+				id
+				label
+				priceDkk
+			}
+		}
+	}
+}
+
+mutation UpdatePlan($planID: ID!) {
+	updatePlan(planID: $planID) {
+		id
+	}
+}

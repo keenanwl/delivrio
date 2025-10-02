@@ -1,0 +1,74 @@
+<div *ngIf="returnsList$|async; let state" class="container">
+	<h2>Create new return</h2>
+	<ng-container *ngIf="state.newReturnPage === 'select-order-lines'">
+		<form>
+			<mat-form-field>
+				<mat-label>Search orders</mat-label>
+				<input type="text"
+					   placeholder="Type to search..."
+					   matInput
+					   [formControl]="orderLookupControl"
+					   [matAutocomplete]="auto">
+				<button matSuffix mat-icon-button (click)="resetSearch()">
+					<mat-icon>close</mat-icon>
+				</button>
+				<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+					<mat-option *ngFor="let option of state.searchResults"
+								[value]="option.id"
+								(click)="selectSearchResult(option)">
+						{{option.title}}
+					</mat-option>
+				</mat-autocomplete>
+			</mat-form-field>
+		</form>
+		<p *ngIf="!state.selectedOrder">Search to select an order</p>
+		<p *ngIf="!!state.selectedOrder">{{state.selectedOrder.title}}</p>
+		<app-return-portal-select-items
+			(toggleEvt)="toggle($event)"
+			(incrementEvt)="increment($event)"
+			(decrementEvt)="decrement($event)"
+			(reasonChangedEvt)="reasonChanged($event)"
+			[selectedItems]="state.selectedItems"
+			[returnOrder]="state.itemsView"></app-return-portal-select-items>
+		<div class="action-row">
+			<span class="spacer"></span>
+			<button mat-fab
+					extended
+					color="primary"
+					(click)="createOpen()"
+					[disabled]="!state.selectedOrder">
+				<mat-icon>chevron_right</mat-icon>
+				Next
+			</button>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="state.newReturnPage === 'select-delivery-option'">
+		<p>Select return delivery option</p>
+		<div class="return-colli-delivery-option" *ngFor="let colliID of state.newReturnColliIDs; let i = index">
+			<h3>Package {{i+1}}</h3>
+			<span *ngIf="!!state.newReturnColliDeliveryOptionsResults[i] && state.newReturnColliDeliveryOptionsResults[i]?.length === 0">
+				No return delivery options found
+			</span>
+			<mat-selection-list #list [multiple]="false" (selectionChange)="changeDeliveryOption(colliID, list.selectedOptions.selected)">
+				<mat-list-option *ngFor="let opt of state.newReturnColliDeliveryOptionsResults[i]"
+								 [value]="opt.deliveryOptionID">
+					<span matListItemTitle>{{opt.name}}</span>
+					<span matListItemLine>{{opt.description}}</span>
+				</mat-list-option>
+			</mat-selection-list>
+		</div>
+
+		<div class="action-row">
+			<span class="spacer"></span>
+			<button mat-fab
+					extended
+					color="primary"
+					(click)="createPending()"
+					[disabled]="!state.selectedOrder">
+				<mat-icon>done</mat-icon>
+				Create & generate label
+			</button>
+		</div>
+	</ng-container>
+
+</div>

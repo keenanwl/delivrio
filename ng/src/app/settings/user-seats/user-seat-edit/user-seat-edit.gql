@@ -1,0 +1,38 @@
+query FetchUserSeat($id: ID!) {
+	user(id: $id) {
+		id
+		name
+		surname
+		email
+		seatGroup {
+			id
+			name
+		}
+	}
+	seatGroups{
+		edges {
+			node {
+				id
+				name
+			}
+		}
+	}
+}
+
+mutation CreateUserSeat($input: CreateUserInput!) {
+	createUserSeat(input: $input) {
+		id
+	}
+}
+
+mutation UpdateUserSeat($id: ID!, $input: UpdateUserInput!) {
+	updateUserSeat(id: $id, input: $input) {
+		id
+	}
+}
+
+mutation UpdatePassword($id: ID!, $input: String!) {
+	updateUserPassword(id: $id, input: $input) {
+		id
+	}
+}

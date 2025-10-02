@@ -1,0 +1,50 @@
+<div class="container" *ngIf="notifications$|async; let state">
+	<div class="inset-container">
+		<div class="page-header">
+			<h3>Notifications</h3>
+			<span class="spacer"></span>
+			<button (click)="addNew()" mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add notification
+			</button>
+		</div>
+		<div class="loading-bar">
+			<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+		</div>
+		<table mat-table [dataSource]="state.notificationsList">
+			&lt;!&ndash;<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="connection">
+				<th mat-header-cell *matHeaderCellDef>Connection</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.connection.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="template">
+				<th mat-header-cell *matHeaderCellDef>Email template</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.emailTemplate.name}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="trigger">
+				<th mat-header-cell *matHeaderCellDef>Trigger</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.emailTemplate.mergeType}}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="active">
+				<th mat-header-cell *matHeaderCellDef>Active</th>
+				<td mat-cell *matCellDef="let element">
+					<mat-slide-toggle (toggleChange)="toggle(element.id, !element.active)" color="primary" [checked]="element.active" />
+				</td>
+			</ng-container>&ndash;&gt;
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row class="row-container" *matRowDef="let row; columns: displayedColumns;" ></tr>
+		</table>
+	</div>
+</div>

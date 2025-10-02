@@ -1,0 +1,263 @@
+<div class="container" *ngIf="consolidationEdit$|async; let state" cdkDropListGroup>
+	<div class="page-header">
+		<h3>Edit consolidation</h3>
+		<span class="spacer"></span>
+		<div class="locked-warning" *ngIf="!state.shipmentInfo.mayBook && !state.loading">
+			This consolidation has a confirmed shipment and can't be edited
+		</div>
+		<span class="spacer"></span>
+		<a [routerLink]="paths.SHIPMENT_VIEW" [queryParams]="{id: state.shipmentInfo.shipment?.id}" *ngIf="!!state.shipmentInfo.shipment">
+			<button mat-stroked-button color="primary">
+				<mat-icon>link</mat-icon>
+				View shipment
+			</button>
+		</a>
+		<button mat-flat-button color="primary" (click)="createShipment(false)" [disabledInteractive]="state.shipmentInfo.mayBook">
+			<mat-icon>beenhere</mat-icon>
+			Book shipment
+		</button>
+		<button extended mat-fab color="primary" (click)="save()">
+			<mat-icon>
+				done
+			</mat-icon>
+			Save
+		</button>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<div class="columns">
+		<div class="left-column">
+			<app-dvo-card class="name-card">
+				<h4>
+					<button mat-stroked-button color="primary" (click)="createShipment(true)" [disabledInteractive]="!state.shipmentInfo.mayPrebook">
+						<mat-icon>package_2</mat-icon>
+						<span *ngIf="!!state.shipmentInfo.shipment">Update Prebooking</span>
+						<span *ngIf="!state.shipmentInfo.shipment">Prebook shipment</span>
+					</button>
+					<span class="spacer"></span>
+					<mat-chip-set>
+						<mat-chip>
+							{{state.form.model?.status}}
+						</mat-chip>
+					</mat-chip-set>
+				</h4>
+				<form [formGroup]="form" ngxsForm="consolidationEdit.form">
+					<div class="row" [formGroup]="form.controls.deliveryOption">
+						<mat-form-field class="full-width">
+							<mat-label>Delivery Option</mat-label>
+							<mat-select formControlName="id"
+										[value]="state.form.model?.deliveryOption?.id">
+								<mat-optgroup [label]="'Outbound'">
+									<mat-option [value]="opt.id"
+												*ngFor="let opt of (state.deliveryOptions | deliveryOptionGrouper).outbound">
+										{{opt.name}}
+									</mat-option>
+								</mat-optgroup>
+								<mat-optgroup [label]="'Return'">
+									<mat-option [value]="opt.id"
+												*ngFor="let opt of (state.deliveryOptions | deliveryOptionGrouper).inbound">
+										{{opt.name}}
+									</mat-option>
+								</mat-optgroup>
+							</mat-select>
+							<mat-hint *ngIf="state.deliveryOptions.length === 0">
+								A consolidated <a [routerLink]="paths.SETTINGS_DELIVERY_OPTIONS">delivery option</a> has not been created
+							</mat-hint>
+						</mat-form-field>
+					</div>
+					<div class="row">
+						<mat-form-field>
+							<mat-label>Public ID</mat-label>
+							<input [formControl]="form.controls.publicID" matInput />
+							<mat-error *ngIf="form.controls.publicID.invalid">
+								{{form.controls.publicID.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row">
+						<mat-form-field>
+							<mat-label>Description</mat-label>
+							<textarea [formControl]="form.controls.description" matInput>
+							</textarea>
+							<mat-error *ngIf="form.controls.description.invalid">
+								{{form.controls.description.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</form>
+			</app-dvo-card>
+			<app-dvo-card class="name-card margin-top">
+				<div class="page-header">
+					<h3>Recipient</h3>
+					<span class="spacer"></span>
+					<button mat-stroked-button (click)="editRecipient()">
+						<mat-icon>edit</mat-icon>
+						edit
+					</button>
+				</div>
+				<p class="address-view" *ngIf="!!state?.recipient">
+					<span>{{state?.recipient?.firstName}} {{state?.recipient?.lastName}}</span>
+					<span>{{state?.recipient?.company}}</span>
+					<span>{{state?.recipient?.addressOne}}</span>
+					<span>{{state?.recipient?.addressTwo}}</span>
+					<span>{{state?.recipient?.country.alpha2}} {{state?.recipient?.zip}} {{state?.recipient?.city}} {{state?.recipient?.state}}</span>
+					<span>{{state?.recipient?.phoneNumber}}</span>
+					<span>{{state?.recipient?.email}}</span>
+				</p>
+				<p *ngIf="!state?.recipient">
+					Recipient not set
+				</p>
+				<mat-divider></mat-divider>
+				<div class="page-header">
+					<h3>Sender</h3>
+					<span class="spacer"></span>
+					<button mat-stroked-button (click)="editSender()">
+						<mat-icon>edit</mat-icon>
+						edit
+					</button>
+				</div>
+				<p class="address-view" *ngIf="!!state?.sender">
+					<span>{{state?.sender?.firstName}} {{state?.sender?.lastName}}</span>
+					<span>{{state?.sender?.company}}</span>
+					<span>{{state?.sender?.addressOne}}</span>
+					<span>{{state?.sender?.addressTwo}}</span>
+					<span>{{state?.sender?.country.alpha2}} {{state?.sender?.zip}} {{state?.sender?.city}} {{state?.sender?.state}}</span>
+					<span>{{state?.sender?.phoneNumber}}</span>
+					<span>{{state?.sender?.email}}</span>
+				</p>
+				<p *ngIf="!state?.sender">
+					Sender not set
+				</p>
+			</app-dvo-card>
+			<app-dvo-card class="name-card margin-top">
+				<h4>Search for orders</h4>
+				<form>
+					<div class="row">
+						<mat-form-field>
+							<mat-label>Search</mat-label>
+							<input matInput [formControl]="searchOrders" />
+						</mat-form-field>
+					</div>
+					<p *ngIf="searchOrders.value.length === 0">
+						Enter search term to get started
+					</p>
+					<p *ngIf="searchOrders.value.length > 0 && !state.loading && state.orderSearch.length === 0">
+						No results
+					</p>
+					<p *ngIf="searchOrders.value.length > 0 && !state.loading && state.orderSearch.length > 0">
+						Drag results to desired containers
+					</p>
+					<p *ngIf="searchOrders.value.length > 0 && state.loading">
+						Searching...
+					</p>
+					<mat-list cdkDropList [cdkDropListData]="{type: containerTypes.SEARCH, index: 0}"
+							  (cdkDropListDropped)="drop($event)">
+						<mat-divider />
+						<ng-container *ngFor="let ord of state.orderSearch; last as last; index as index">
+							<mat-list-item cdkDrag
+										   class="item-drag"
+										   [class.is-dragging]="ord.id === draggingID"
+										   [cdkDragData]="ord"
+										   (cdkDragStarted)="startDrag(ord.id)"
+										   (cdkDragEnded)="endDrag()">
+								<div class="order-search-result">
+									<span>{{ ord.orderPublicID }}</span>
+									<span class="spacer"></span>
+									<mat-chip [style.background-color]="ord.status | orderStatusColorPipe" highlighted>
+										{{ord.status}}
+									</mat-chip>
+								</div>
+							</mat-list-item>
+							<mat-divider *ngIf="!last"/>
+						</ng-container>
+					</mat-list>
+				</form>
+			</app-dvo-card>
+		</div>
+		<div class="right-column">
+			<app-dvo-card class="consolidation-card">
+				<h4>Contents</h4>
+				<div class="contents-container">
+					<div class="orders-list">
+						<div class="page-header">
+							<span class="bold">Non-pallet collis</span>
+						</div>
+						<div class="order-drop-target" cdkDropList
+							 [cdkDropListData]="{type: containerTypes.ORDERS, index: 0}"
+							 (cdkDropListDropped)="drop($event)"
+							 [class.is-dragging]="isDragging">
+							<p *ngIf="state.orders.length === 0">
+								No orders in this consolidation
+							</p>
+							<mat-chip-set>
+								<ng-container *ngFor="let ord of state.orders; last as last">
+									<mat-chip cdkDrag
+											  [class.is-dragging]="ord.id === draggingID"
+											  [cdkDragData]="ord"
+											  (cdkDragStarted)="startDrag(ord.id)"
+											  (cdkDragEnded)="endDrag()">
+										{{ord.orderPublicID}}
+										<button matChipRemove (click)="removeOrder(ord.id)">
+											<mat-icon>cancel</mat-icon>
+										</button>
+									</mat-chip>
+									<mat-divider *ngIf="!last"/>
+								</ng-container>
+							</mat-chip-set>
+						</div>
+					</div>
+					<div class="pallets-list">
+						<div class="page-header">
+							<span class="bold">Pallets</span>
+							<span class="spacer"></span>
+							<button mat-icon-button (click)="editPallet(undefined)">
+								<mat-icon>add</mat-icon>
+							</button>
+						</div>
+						<mat-divider/>
+						<div class="pallet-group">
+							<ng-container *ngFor="let pal of state.pallets; index as index">
+								<div class="pallet"
+									 [cdkDropListData]="{type: containerTypes.PALLET, index: index}"
+									 [class.is-dragging]="isDragging"
+									 (cdkDropListDropped)="drop($event)"
+									 cdkDropList>
+									<div class="pallet-header">
+										<button mat-icon-button
+												[matTooltip]="'This pallet is a part of the current shipment'"
+												*ngIf="hasShipment(pal.id, state.shipmentInfo)"
+												color="primary">
+											<mat-icon>package_2</mat-icon>
+										</button>
+										<span class="spacer"></span>
+										<button mat-icon-button (click)="editPallet(pal)">
+											<mat-icon>menu</mat-icon>
+										</button>
+									</div>
+									<mat-divider></mat-divider>
+									<mat-chip-set class="pallet-order-list">
+										<mat-divider/>
+										<ng-container *ngFor="let ord of pal.orders; last as last">
+											<mat-chip cdkDrag
+													  [class.is-dragging]="ord.id === draggingID"
+													  [cdkDragData]="ord"
+													  (cdkDragStarted)="startDrag(ord.id)"
+													  (cdkDragEnded)="endDrag()">
+												{{ ord.orderPublicID }}
+												<button matChipRemove (click)="removeOrder(ord.id)">
+													<mat-icon>cancel</mat-icon>
+												</button>
+											</mat-chip>
+											<mat-divider *ngIf="!last"/>
+										</ng-container>
+									</mat-chip-set>
+								</div>
+							</ng-container>
+						</div>
+					</div>
+				</div>
+			</app-dvo-card>
+		</div>
+	</div>
+</div>

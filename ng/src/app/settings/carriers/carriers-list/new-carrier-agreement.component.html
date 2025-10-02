@@ -1,0 +1,21 @@
+<ng-container *ngIf="carrierList$|async; let cl">
+	<div class="container">
+		<h4>Add agreement</h4>
+		<mat-form-field class="agreement-name">
+			<mat-label>Agreement name</mat-label>
+			<input #name matInput/>
+		</mat-form-field>
+		<mat-form-field class="carrier">
+			<mat-label>Carrier</mat-label>
+			<mat-select #select [value]="cl.brands[0]?.id">
+				<mat-option *ngFor="let c of cl.brands | alphabetize:'label'" [value]="c.id">
+					{{c.label}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<button class="button-create" mat-raised-button color="primary" (click)="selected(name.value, select.value)">
+			<mat-icon>done</mat-icon>
+			Create
+		</button>
+	</div>
+</ng-container>

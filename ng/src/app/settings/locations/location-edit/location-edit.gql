@@ -1,0 +1,54 @@
+query FetchLocation($id: ID!) {
+	location(id: $id) {
+		name
+		address {
+			email
+			firstName
+			lastName
+			phoneNumber
+			vatNumber
+			addressOne
+			addressTwo
+			zip
+			city
+			state
+			country {
+				id
+				label
+				alpha2
+			}
+			company
+		}
+		locationTags {
+			id
+			label
+		}
+	}
+	locationTags {
+		edges {
+			node {
+				id
+				label
+			}
+		}
+	}
+}
+
+query LocationSearchCountries($term: String!) {
+	countries (where: {or: [{labelContainsFold: $term}, {alpha2ContainsFold: $term}]}) {
+		edges {
+			node {
+				id
+				label
+				alpha2
+				region
+			}
+		}
+	}
+}
+
+mutation UpdateLocation($id: ID!, $input: UpdateLocationInput!, $inputAddress: UpdateAddressInput!) {
+	updateLocation(id: $id, input: $input, inputAddress: $inputAddress) {
+		id
+	}
+}

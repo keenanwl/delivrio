@@ -1,0 +1,13 @@
+<div class="container">
+	<h2>Add product</h2>
+	<mat-form-field>
+		<mat-label>Name</mat-label>
+		<input #name matInput/>
+	</mat-form-field>
+	<div class="action-row">
+		<button color="primary" mat-raised-button (click)="addProduct(name.value)">
+			<mat-icon>done</mat-icon>
+			Create
+		</button>
+	</div>
+</div>

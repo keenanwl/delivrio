@@ -1,0 +1,88 @@
+<h3>Locations</h3>
+<form class="form-container" [formGroup]="form">
+	<mat-form-field>
+		<mat-label>Seller address</mat-label>
+		<mat-select formControlName="seller"
+					[value]="selectedLocations.sellerID">
+			<mat-option *ngFor="let loc of allLocations | filterTags:'seller'" [value]="loc.id">
+				<span class="option-container">
+					<span class="option-name">{{loc.name}}</span>
+					<span class="option-address">
+						{{loc.address.addressOne}}
+						{{loc.address.addressTwo}}
+						{{loc.address.city}}
+						{{loc.address.zip}}
+						{{loc.address.country.alpha2}}
+					</span>
+				</span>
+			</mat-option>
+		</mat-select>
+		<mat-error *ngIf="form.controls.seller.invalid">
+			{{form.controls.seller.errors}}
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Sender address</mat-label>
+		<mat-select formControlName="sender"
+					[value]="selectedLocations.senderID">
+			<mat-option *ngFor="let loc of allLocations | filterTags:'sender'" [value]="loc.id">
+				<span class="option-container">
+					<span class="option-name">{{loc.name}}</span>
+					<span class="option-address">
+						{{loc.address.addressOne}}
+						{{loc.address.addressTwo}}
+						{{loc.address.city}}
+						{{loc.address.zip}}
+						{{loc.address.country.alpha2}}
+					</span>
+				</span>
+			</mat-option>
+		</mat-select>
+		<mat-error *ngIf="form.controls.sender.invalid">
+			{{form.controls.sender.errors}}
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Pickup address</mat-label>
+		<mat-select formControlName="pickup"
+					[value]="selectedLocations.pickupID">
+			<mat-option *ngFor="let loc of allLocations | filterTags:'pickup'" [value]="loc.id">
+				<span class="option-container">
+					<span class="option-name">{{loc.name}}</span>
+					<span class="option-address">
+						{{loc.address.addressOne}}
+						{{loc.address.addressTwo}}
+						{{loc.address.city}}
+						{{loc.address.zip}}
+						{{loc.address.country.alpha2}}
+					</span>
+				</span>
+
+			</mat-option>
+		</mat-select>
+		<mat-error *ngIf="form.controls.pickup.invalid">
+			{{form.controls.pickup.errors}}
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Return address</mat-label>
+		<mat-select formControlName="return"
+					[value]="selectedLocations.returnID">
+			<mat-option *ngFor="let loc of allLocations | filterTags:'return'" [value]="loc.id">
+				<span class="option-container">
+					<span class="option-name">{{loc.name}}</span>
+					<span class="option-address">
+						{{loc.address.addressOne}}
+						{{loc.address.addressTwo}}
+						{{loc.address.city}}
+						{{loc.address.zip}}
+						{{loc.address.country.alpha2}}
+					</span>
+				</span>
+			</mat-option>
+		</mat-select>
+		<mat-error *ngIf="form.controls.return.invalid">
+			{{form.controls.return.errors}}
+		</mat-error>
+	</mat-form-field>
+</form>

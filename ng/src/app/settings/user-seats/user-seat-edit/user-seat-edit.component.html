@@ -1,0 +1,69 @@
+<ng-container *ngIf="userSeats$|async; let cl">
+	<div class="header">
+		<h3 *ngIf="!!cl.userSeatID.length">Edit user</h3>
+		<h3 *ngIf="!cl.userSeatID.length">Create a new user</h3>
+		<span class="spacer"></span>
+		<button mat-stroked-button color="primary" (click)="updatePassword()">
+			<mat-icon>password</mat-icon>
+			Set password
+		</button>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+
+	<app-dvo-card>
+		<div class="container">
+			<form #form
+				  [formGroup]="editForm"
+				  ngxsForm="userSeats.userSeatsForm"
+				  class="column-container">
+				<div class="column">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Name</mat-label>
+							<input formControlName="name" matInput/>
+							<mat-error *ngIf="editForm.controls.name.invalid">
+								{{editForm.controls.name.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field>
+							<mat-label>Surname</mat-label>
+							<input formControlName="surname" matInput/>
+							<mat-error *ngIf="editForm.controls.surname.invalid">
+								{{editForm.controls.surname.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Email</mat-label>
+							<input formControlName="email" matInput/>
+							<mat-error *ngIf="editForm.controls.email.invalid">
+								{{editForm.controls.email.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field>
+							<mat-label>User group</mat-label>
+							<mat-select formControlName="seatGroup"
+										[compareWith]="groupComparisonFunction"
+										[value]="cl.userSeatsForm.model?.seatGroup">
+								<mat-option [value]="null">
+									none
+								</mat-option>
+								<mat-option *ngFor="let g of cl.seatGroups" [value]="g">
+									{{g.name}}
+								</mat-option>
+							</mat-select>
+							<mat-error *ngIf="editForm.controls.seatGroup.invalid">
+								{{editForm.controls.seatGroup.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+			</form>
+		</div>
+	</app-dvo-card>
+</ng-container>
+

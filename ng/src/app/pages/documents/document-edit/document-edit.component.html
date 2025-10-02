@@ -1,0 +1,201 @@
+<div class="container" *ngIf="state$|async; let state">
+	<div class="page-header">
+		<h3>Edit document</h3>
+		<span class="spacer"></span>
+		<button mat-stroked-button (click)="viewDocument()">
+			<mat-icon>view_comfy</mat-icon>
+			View
+		</button>
+		<button (click)="save()" mat-fab extended color="primary">
+			<mat-icon>done</mat-icon>
+			Save
+		</button>
+	</div>
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<div class="row">
+		<app-dvo-card class="editor-fields">
+			<form [formGroup]="form" ngxsFormArray="documentEdit.form">
+				<div class="top-container">
+					<div class="left-container">
+						<mat-form-field>
+							<mat-label>Name</mat-label>
+							<input [formControl]="form.controls.name" matInput />
+							<mat-error *ngIf="form.controls.name.invalid">
+								{{form.controls.name.errors}}
+							</mat-error>
+						</mat-form-field>
+						<ng-container [formGroup]="form.controls.carrierBrand" *ngIf="showCarrier()">
+							<mat-form-field>
+								<mat-label>Carrier</mat-label>
+								<mat-select [formControl]="form.controls.carrierBrand.controls.id">
+									<mat-option [value]="null">
+										unset
+									</mat-option>
+									<ng-container *ngFor="let c of state.carrierBrands | alphabetize:'label'">
+										<mat-option [value]="c.id">
+											{{c.label}}
+										</mat-option>
+									</ng-container>
+								</mat-select>
+								<mat-error *ngIf="form.controls.carrierBrand.controls.id.invalid">
+									{{form.controls.carrierBrand.controls.id.errors}}
+								</mat-error>
+							</mat-form-field>
+						</ng-container>
+					</div>
+					<div>
+						<div class="time-editor" *ngIf="showDateRange()">
+							<div class="time-container">
+								<div class="time-row">
+									<span class="bold">Start:</span>
+									<span class="spacer"></span>
+									{{form.controls.startAt.getRawValue() | date:'mediumDate'}}
+									{{form.controls.startAt.getRawValue() | date:'shortTime'}}
+								</div>
+								<div class="time-row">
+									<span class="bold">End:</span>
+									<span class="spacer"></span>
+									{{form.controls.endAt.getRawValue() | date:'mediumDate'}}
+									{{form.controls.endAt.getRawValue() | date:'shortTime'}}
+								</div>
+							</div>
+							<span class="spacer"></span>
+							<button mat-icon-button color="primary" (click)="editTime()">
+								<mat-icon>edit</mat-icon>
+							</button>
+						</div>
+						<mat-form-field>
+							<mat-label>Page size</mat-label>
+							<mat-select [formControl]="form.controls.paperSize">
+								<mat-option [value]="DocumentPaperSize.A4">
+									A4
+								</mat-option>
+								<mat-option [value]="DocumentPaperSize.FourXSix">
+									4 x 6" (10 x 15cm)
+								</mat-option>
+							</mat-select>
+							<mat-error *ngIf="form.controls.mergeType.invalid">
+								{{form.controls.mergeType.errors}}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field>
+							<mat-label>Merge type</mat-label>
+							<mat-select [formControl]="form.controls.mergeType">
+								<ng-container *ngFor="let t of DocumentMergeType | keyvalue:unsortedKVFn">
+									<mat-option [value]="t.key">
+										{{t.key}}
+									</mat-option>
+								</ng-container>
+							</mat-select>
+							<mat-error *ngIf="form.controls.mergeType.invalid">
+								{{form.controls.mergeType.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+				<mat-form-field>
+					<mat-label>HTML header markup</mat-label>
+					<textarea formControlName="htmlHeader" class="footer-header-template" matInput></textarea>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>HTML body markup</mat-label>
+					<textarea formControlName="htmlTemplate" class="template-value" matInput></textarea>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>HTML footer markup</mat-label>
+					<textarea formControlName="htmlFooter" class="footer-header-template" matInput></textarea>
+				</mat-form-field>
+			</form>
+		</app-dvo-card>
+		<app-dvo-card class="merge-variables">
+			<h3>PDF generator: "Gotenberg"</h3>
+			<p>
+				DELIVRIO uses a HTML to PDF generator called Gotenberg.
+				You can read more about the supported features and the
+				syntax for adding a Header and a Footer
+				<a target="_blank" href="https://gotenberg.dev/docs/routes#header-footer-chromium">here</a>.
+			</p>
+			<mat-divider></mat-divider>
+			<p [class.loop-error]="htmlTagErr" [class.bold]="htmlTagErr">
+				Note: each section must be a complete HTML document and thus start with the &lt;html&gt; tag and
+				<a target="_blank" href="https://gotenberg.dev/docs/routes#header-footer-chromium">other limitations</a>.</p>
+			<h3>Merge variables</h3>
+			<p>
+				Include the following optional placeholders in your document HTML.
+				When the document is processed, the placeholders will be replaced with
+				their respective values.
+			</p>
+
+			<ng-container *ngIf="form.controls.mergeType.value === DocumentMergeType.PackingSlip">
+				<mat-divider></mat-divider>
+				<h3>Packing slip variables</h3>
+				<div class="merge-variable-list">
+					<div class="list-item" *ngFor="let variable of allPackingSlipVariables|keyvalue:unsortedKVFn">
+						<span [class.used]="variable.value">
+							{{variable.key}}
+						</span>
+					</div>
+					<mat-divider></mat-divider>
+				</div>
+				<div class="merge-variable-order-line">
+					<p>
+						{{rangeExplanation}}
+					</p>
+					<mat-divider></mat-divider>
+					<div class="list-item">
+						<span [class.used]="orderLineLoopVariables['{{range .OrderLines}}']">
+							{{ "{{range .OrderLines}\}" }}
+						</span>
+					</div>
+					<div class="list-item indent" *ngFor="let v of orderLineRowVariables | keyvalue:unsortedKVFn">
+						<span [class.used]="orderLineLoopVariables[v.key]">
+							{{ v.key }}
+						</span>
+					</div>
+					<div class="list-item">
+						<span [class.used]="orderLineLoopVariables['{{end}}']">
+							{{ "{{end}\}" }}
+						</span>
+					</div>
+				</div>
+			</ng-container>
+			<ng-container *ngIf="form.controls.mergeType.value === DocumentMergeType.Orders">
+				<mat-divider></mat-divider>
+				<h3>Orders</h3>
+				<div class="merge-variable-list">
+					<div class="list-item" *ngFor="let variable of allOrdersListVariables|keyvalue:unsortedKVFn">
+						<span [class.used]="variable.value">
+							{{variable.key}}
+						</span>
+					</div>
+					<mat-divider></mat-divider>
+				</div>
+				<div class="merge-variable-order-line">
+					<p>
+						{{rangeExplanation}}
+					</p>
+					<mat-divider></mat-divider>
+					<div class="list-item">
+						<span [class.used]="ordersListLoopVariables['{{range .Orders}}']">
+							{{ "{{range .Orders}\}" }}
+						</span>
+					</div>
+					<div class="list-item indent-2x" *ngFor="let v of orderRowVariables | keyvalue:unsortedKVFn">
+						<span [class.used]="ordersListLoopVariables[v.key]">
+							{{ v.key }}
+						</span>
+					</div>
+					<div class="list-item">
+						<span [class.used]="ordersListLoopVariables['{{end}}']">
+							{{ "{{end}\}" }}
+						</span>
+					</div>
+				</div>
+			</ng-container>
+			<p class="loop-error bold" *ngIf="loopErr.length > 0">{{loopErr}}</p>
+		</app-dvo-card>
+	</div>
+</div>
+

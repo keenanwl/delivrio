@@ -1,0 +1,44 @@
+<ng-container *ngIf="connectionList$|async; let state">
+	<div class="loading-bar">
+		<mat-progress-bar *ngIf="state.loading" mode="indeterminate" />
+	</div>
+	<app-dvo-card>
+		<div class="page-header">
+			<h3>Connections</h3>
+			<span class="spacer"></span>
+			<button [routerLink]="'edit'" mat-fab extended color="primary">
+				<mat-icon>add</mat-icon>
+				Add connection
+			</button>
+		</div>
+		<div class="container">
+			<div *ngIf="state.connectionsList.length === 0">
+				Add a new connection to get started!
+			</div>
+			<div *ngFor="let conn of state.connectionsList; let i = index" class="connection-card">
+				<div class="logo-area spacer" [style.background]="conn.connectionBrand.label === 'Shopify' ? '#96BF48' : '#9C5D90'">
+					<span>
+						<span *ngIf="conn.connectionBrand.label === 'Shopify'" class="label">Shopify</span>
+						<button mat-icon-button [matMenuTriggerFor]="menu" class="more-options">
+							<mat-icon>more_vert</mat-icon>
+						</button>
+						<mat-menu #menu="matMenu">
+							<button mat-menu-item [routerLink]="editPath" [queryParams]="{id: conn.id}">
+								<mat-icon>edit</mat-icon>
+								<span>Manage</span>
+							</button>
+							<button mat-menu-item disabled>
+								<mat-icon>delete</mat-icon>
+								<span>Delete</span>
+							</button>
+						</mat-menu>
+					</span>
+				</div>
+				<div class="info-area">
+					<span>{{conn.name}}</span>
+					<span class="spacer"></span>
+				</div>
+			</div>
+		</div>
+	</app-dvo-card>
+</ng-container>

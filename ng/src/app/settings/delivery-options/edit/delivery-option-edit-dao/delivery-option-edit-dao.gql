@@ -1,0 +1,42 @@
+query FetchDeliveryOptionEditDAO($id: ID!) {
+	deliveryOptionDAO(id: $id) {
+		deliveryOption {
+			carrierService {
+				id
+			}
+			clickOptionDisplayCount
+		}
+
+		deliveryOption {
+			name
+			description
+			clickCollect
+			overrideReturnAddress
+			overrideSenderAddress
+			hideDeliveryOption
+			clickOptionDisplayCount
+			deliveryEstimateFrom
+			deliveryEstimateTo
+		}
+	}
+	carrierServices(where: {hasCarrierBrandWith: {internalID: dao}}) {
+		edges {
+			node {
+				... CarrierServiceItem
+			}
+		}
+	}
+}
+
+mutation SaveDeliveryOptionEditDAO(
+	$id: ID!,
+	$inputDeliveryOption: UpdateDeliveryOptionInput!
+) {
+	updateDeliveryOptionDAO(
+		id: $id,
+		#input: $input,
+		inputDeliveryOption: $inputDeliveryOption
+	) {
+		id
+	}
+}

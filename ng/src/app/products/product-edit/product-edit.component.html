@@ -1,0 +1,235 @@
+<ng-container *ngIf="product$|async; let cl">
+	<div class="page-header">
+		<h3 *ngIf="!!cl.productID.length">Edit product</h3>
+		<h3 *ngIf="!cl.productID.length">Create new product</h3>
+		<span class="spacer"></span>
+		<button mat-fab extended color="primary" (click)="manageTags()">
+			<mat-icon>edit</mat-icon>
+			Manage product tags
+		</button>
+		<button mat-fab extended color="primary" (click)="save()">
+			<mat-icon>checkmark</mat-icon>
+			Save
+		</button>
+	</div>
+	<app-dvo-card>
+		<div class="header">
+			<h3>Core product information</h3>
+			<span class="spacer"></span>
+			<mat-chip-row class="product-status" *ngIf="cl?.productForm.model?.status === 'active'" [style.background-color]="'rgb(79, 195, 117)'" selected>
+				Active
+			</mat-chip-row>
+			<mat-chip-row class="product-status" *ngIf="cl?.productForm.model?.status === 'archived'" [style.background-color]="'#000000'" selected>
+				Archived
+			</mat-chip-row>
+		</div>
+
+
+		<div class="container">
+			<form #form
+				  [formGroup]="editForm"
+				  ngxsForm="productEdit.productForm"
+				  class="column-container">
+				<div class="column">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Title</mat-label>
+							<input formControlName="title" matInput/>
+							<mat-error *ngIf="editForm.controls.title.invalid">
+								{{editForm.controls.title.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+				<div class="column">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>HTML Body</mat-label>
+							<input formControlName="bodyHTML" matInput/>
+							<mat-error *ngIf="editForm.controls.bodyHTML.invalid">
+								{{editForm.controls.bodyHTML.errors}}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+				<div class="column">
+					<div class="row right-margin">
+						<mat-form-field>
+							<mat-label>Tags</mat-label>
+							<mat-chip-grid #chipList>
+								<mat-chip-row *ngFor="let tag of cl.productForm.model?.productTags" (removed)="remove(tag)">
+									{{tag.name}}
+									<button matChipRemove (click)="remove(tag.id)">
+										<mat-icon>cancel</mat-icon>
+									</button>
+								</mat-chip-row>
+								<input formControlName="productTags" placeholder="Add tags..."
+									   [matChipInputFor]="chipList"
+									   [matAutocomplete]="auto"
+									   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+									   [matChipInputAddOnBlur]="true"
+									   (matChipInputTokenEnd)="add($event)">
+							</mat-chip-grid>
+							<mat-autocomplete #auto="matAutocomplete" (optionSelected)="select($event)">
+								<mat-option *ngFor="let tag of cl.productTags" [value]="tag">
+									{{tag.name}}
+								</mat-option>
+							</mat-autocomplete>
+						</mat-form-field>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</app-dvo-card>
+	<div class="card-spacer"></div>
+	<div class="variants-images-container">
+		<app-dvo-card class="variants-container">
+			<div class="header">
+				<h3>Product variants</h3>
+				<span class="spacer"></span>
+				<button mat-stroked-button color="primary" (click)="addVariant()">
+					<mat-icon>add</mat-icon>
+					Add variant
+				</button>
+			</div>
+			<form #formVariants
+				  [formGroup]="variantsForm"
+				  ngxsForm="productEdit.variantsForm">
+				<div formArrayName="variants"
+							  *ngFor="let variant of variantsForm.controls.variants.controls; index as index">
+					<div [formGroupName]="index">
+						<div class="variant-header">
+							<h3>Variant #{{index + 1}}</h3>
+							<span class="spacer"></span>
+							<button mat-stroked-button color="primary" (click)="openInventory(variant.controls.id.value)">
+								<mat-icon>inventory</mat-icon>
+								Customs
+							</button>
+							<button mat-stroked-button color="warn" (click)="archiveVariant(variant.controls.id.value)">
+								<mat-icon>archive</mat-icon>
+								Archive
+							</button>
+						</div>
+
+						<div class="container column-container">
+							<div class="column">
+								<div class="row right-margin">
+									<mat-form-field>
+										<mat-label>Description</mat-label>
+										<input [formControl]="variant.controls.description" matInput/>
+										<mat-error *ngIf="variant.controls.description.invalid">
+											{{variant.controls.description.errors}}
+										</mat-error>
+									</mat-form-field>
+								</div>
+								<div class="row right-margin">
+									<mat-form-field>
+										<mat-label>EAN Number</mat-label>
+										<input [formControl]="variant.controls.eanNumber" matInput/>
+										<mat-error *ngIf="variant.controls.eanNumber.invalid">
+											{{variant.controls.eanNumber.errors}}
+										</mat-error>
+									</mat-form-field>
+								</div>
+								<div class="row right-margin">
+									<mat-form-field>
+										<mat-label>Weight (grams)</mat-label>
+										<input [formControl]="variant.controls.weightG" matInput/>
+										<mat-error *ngIf="variant.controls.weightG.invalid">
+											{{variant.controls.weightG.errors}}
+										</mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="column">
+								<div class="row right-margin">
+									<mat-form-field>
+										<mat-label>Height</mat-label>
+										<input [formControl]="variant.controls.dimensionHeight" matInput/>
+										<mat-error *ngIf="variant.controls.dimensionHeight.invalid">
+											{{variant.controls.dimensionHeight.errors}}
+										</mat-error>
+									</mat-form-field>
+								</div>
+								<div class="row right-margin">
+									<mat-form-field>
+										<mat-label>Length</mat-label>
+										<input [formControl]="variant.controls.dimensionLength" matInput/>
+										<mat-error *ngIf="variant.controls.dimensionLength.invalid">
+											{{variant.controls.dimensionLength.errors}}
+										</mat-error>
+									</mat-form-field>
+								</div>
+								<div class="row right-margin">
+									<mat-form-field>
+										<mat-label>Width</mat-label>
+										<input [formControl]="variant.controls.dimensionWidth" matInput/>
+										<mat-error *ngIf="variant.controls.dimensionWidth.invalid">
+											{{variant.controls.dimensionWidth.errors}}
+										</mat-error>
+									</mat-form-field>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</app-dvo-card>
+		<app-dvo-card class="product-images">
+			<h3>Product images</h3>
+			<div class="column-container">
+				<div class="column">
+					<div class="preview-image">
+						<span *ngIf="!cl.loading && cl.productImages.length === 0">
+							No images
+						</span>
+						<ng-container *ngIf="cl.productImages.length > 0">
+							<img [ngSrc]="cl.productImages?.[cl.imageIndex]?.url || ''"
+								 style="object-fit: contain"
+								 fill
+								 placeholder="data:image/webp;base64,UklGRioFAABXRUJQVlA4IB4FAABQQACdASqQAZABPlEok0YjoyIhI7U4CHAKCWlu/HyZyOtPqv2ZWgp1d6AO0GUrwO4IDw7ZjvmzaKhRDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sHnPmjIi0SwbwylhObuhRaKDu6FkQb9kBeXgE1cY7+zlDgGXgXMKRwGZD5VeCSoGw7H6KnU3AmZ8mHCwUgnQHENBLCqubTtW5cNbybusKwUa+dTRlDnK/1CEQkKWLQDxt7hwqHuBTVT4mip9+slySdkgfEZoDFp8+4oMi88VaHG6bXzuYCrAZYyQxlBUT7OkAV7hAdpqYMnJ3HT5qyZJBZVI9vEOn+lv8HsvDoKfkuV87g4zZAl9ZkBThYKFw+WYc4SFIzzHfGeSsyGRfpQy6UEkGJknhrykmqXVT0saOVTgb/+LGqo1x1UcqoeHaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYdpql1U+KDmw7TVLqp8UHNh2mqXVT4oObDtNUuqnxQc2HaapdVPig5sO01S6qfFBzYOAAP7/ZOAAAAAAAAAaAfvXyd9mH8SxW/eqiFuwVva3J2/XX/xaOSGtVwsDoMZxTWXttUhRxUiApsPy6fyC3WE8Mvcj/dT3Si0HmUXzRv8MAFKhETWTxbl5pkUmcYl5O/Y0QUPa/Wp4Q8RnzVEbkuAr0pbsq1IOaaX0wfIoQabz4A+kpIbWRnrino00kgNBq+PlIt3uOVunvbWOP+Dr4X5wzlRuQC5FTKG/+1aLJCHL8boFz6SYeL44h3cW9L7B2M4Bmevq9Fus0nS/XV8iJ8xE5pbXNKohsf6ei2TMvUxIRmGbHDrlXzOwpEv53JbcZoG/b2tAtO+28g5wzppbh3zlmk1HqmtHfq10Sxcw+76kn1/CE+ne9Y32LUTb9vpQVhjG57kyDFj8QoPp3be1njwM7Sh5UNUmEGqpnMv9KXWuPDJFOYqRuv8NdIBTFAED/b/Av+RucZlukTAbYWajL0ERV57aF+28b8Lw1yy6mWl7qkUZItdtd9E/Wxu+txSbYM+V8Ad+Q356/HChZwnj6aO+mzd/mkYW4OlT8vLBkd4ZtvmfE2w7lSD42kbVN1saB4IKPxRsmLOlLfYHJ2I6+e3sJSlFgS1ecAAGrqOY5QtlL6NMU7Y2FD5TEc3RP+eioTZk6XmnbUv9B1HXnNZBEHOx5YK11b65MVJfBvFBd7FHoKo7Q2zDHd+kOjDp2oMU6reg9EZAElRLseAafU+9aqpeyRjt7soe1Ab2W7jcYNQxr23rQ1skCTJ4XhrDhoMIzc6t6k8lnqSwfXt83hBNelVwOTk1zkp3F6HJ+JSzjda+pm3FMSczvYq0h8Gepw/WxoJe0IkbBRUnaYKNjX1+UW2op8a9XlP1KHxnPyzrs1mMazTG+4Bu/wMc5vvm4CUm0dMPdxAaFKub4qNlYEUEQVwNAz391s6jEbexXtHFheVo3gDQwS5POKGhK9oyN/u9S8yfXPM3XVUr0LF7IxUb2/FmafdfRzchMTBjNyOEPaX3NXlQrRc9Atlq+61K3zgPg/TfZl7z28rmVrXgAAAAAAAAAAAAAA=="/>
+						</ng-container>
+					</div>
+					<input #imageInput
+						   hidden="hidden"
+						   type="file"
+						   accept="image/*"
+						   (change)="processFile(imageInput)">
+					<div class="image-variant-selectors">
+						<div class="image-variant-toggle" *ngFor="let v of variantsForm.controls.variants.controls; index as index">
+							<mat-slide-toggle
+								(change)="updateImageVariant($event.checked, index)"
+								[checked]="variantConnectedToImage(index)">
+								Variant #{{index + 1}}
+							</mat-slide-toggle>
+						</div>
+					</div>
+					<div class="image-pagination-container" *ngIf="cl.productImages.length > 0">
+						<div class="chevron-container">
+							<button mat-icon-button (click)="previousImage()">
+								<mat-icon>chevron_left</mat-icon>
+							</button>
+						</div>
+						<span>{{cl.imageIndex+1}} / {{cl.productImages.length}}</span>
+						<div class="chevron-container">
+							<button mat-icon-button (click)="nextImage()">
+								<mat-icon>chevron_right</mat-icon>
+							</button>
+						</div>
+
+					</div>
+					<div class="image-actions">
+						<button mat-raised-button color="primary" (click)="imageInput.click()">
+							Add image
+						</button>
+						<button mat-raised-button (click)="clearImage(cl.productImages?.[cl.imageIndex]?.id || '')">
+							Delete
+						</button>
+					</div>
+				</div>
+			</div>
+		</app-dvo-card>
+	</div>
+</ng-container>

@@ -1,0 +1,36 @@
+query Profile {
+	user {
+		id
+		email
+		name
+		surname
+		phoneNumber
+		marketingConsent
+		language {
+			id
+			label
+		}
+		tenant {
+			id
+			name
+		}
+	}
+	availableTenants {
+		id
+		name
+	}
+	languages {
+		edges {
+			node {
+				id
+				label
+			}
+		}
+	}
+}
+
+mutation UpdateUser($input: UpdateUserInput!, $newTenantID: ID) {
+	updateUser(input: $input, newTenantID: $newTenantID) {
+		id
+	}
+}

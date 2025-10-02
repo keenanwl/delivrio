@@ -1,0 +1,33 @@
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	background: #000000;
+	.header {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.form-container {
+		background: #FFFFFF;
+		padding: 20px;
+		border-radius: 20px;
+		place-self: flex-start;
+		margin-top: 100px;
+		width: 500px;
+		text-align: center;
+	}
+}
+mat-form-field {
+	width: 100%;
+}
+
+.add-network-printer-row {
+	display: flex;
+}
+mat-spinner.loading-spinner {
+	height: 48px !important;
+	width: 48px !important;
+	margin-left: 7px;
+}
